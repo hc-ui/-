@@ -1,0 +1,17 @@
+{
+  "name": "notes-starter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small notes app used to verify the Cloud Agent development environment.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test src/*.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
