@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "project_name": "51_Agent是第二技能树不是主线_long",
+  "video_type": "普通短视频",
+  "episode": 51,
+  "cut": "long-40s",
+  "title": "Agent是第二技能树不是主线",
+  "full_title": "Agent是第二技能树，不是主线",
+  "source_note": "topics-batch3.md #51 · 学习与职业规划基线.md Agent 副线",
+  "slug": "Agent是第二技能树不是主线",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 49.042,
+  "duration_zh": "49.0秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "11ec4589da3a4160e0a158e82e657cd319fd3e70627e6bb70938541bc63be902",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 49041
+  },
+  "deliverables": {
+    "final_video": "/tmp/abroll-iso-4851/51-long/00_最终成片_Agent是第二技能树不是主线.mp4",
+    "project_final": "00_最终成片_Agent是第二技能树不是主线.mp4",
+    "cover": "00_封面_Agent是第二技能树不是主线.jpg"
+  },
+  "staged": "成片/51-Agent是第二技能树不是主线.mp4",
+  "draft": ".abroll-cloud/51-long",
+  "qa_video": "/tmp/abroll-iso-4851/51-long/00_最终成片_Agent是第二技能树不是主线.mp4",
+  "replaced_short_cut_s": 12.25,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T13:16:13Z"
+}

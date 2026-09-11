@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "project_name": "50_绑定一个主力博士_long",
+  "video_type": "普通短视频",
+  "episode": 50,
+  "cut": "long-40s",
+  "title": "绑定一个主力博士",
+  "full_title": "绑定一个主力博士",
+  "source_note": "topics-batch3.md #50 · 备忘录第四节 2 绑定主力博士",
+  "slug": "绑定一个主力博士",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 49.9,
+  "duration_zh": "49.9秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "73c399eb16b067dbb6eede29fe21da38034e032a82d873577a3019d5bc6abfd8",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 49900
+  },
+  "deliverables": {
+    "final_video": "/tmp/abroll-iso-4851/50-long/00_最终成片_绑定一个主力博士.mp4",
+    "project_final": "00_最终成片_绑定一个主力博士.mp4",
+    "cover": "00_封面_绑定一个主力博士.jpg"
+  },
+  "staged": "成片/50-绑定一个主力博士.mp4",
+  "draft": ".abroll-cloud/50-long",
+  "qa_video": "/tmp/abroll-iso-4851/50-long/00_最终成片_绑定一个主力博士.mp4",
+  "replaced_short_cut_s": 13.33,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T13:14:20Z"
+}
