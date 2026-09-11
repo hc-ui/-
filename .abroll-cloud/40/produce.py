@@ -376,9 +376,12 @@ def render_b_one_line(duration: float) -> list[Image.Image]:
         if a1 > 0.04:
             y = 680 + int(lerp(20, 0, a1))
             rounded(d, (80, y, 1000, y + 200), 28, mix(BG, CARD, a1))
-            d.text((W // 2, y + 62), "不要捆", font=sub_f, fill=mix(CARD, RED, a1), anchor="mm")
-            d.text((W // 2, y + 128), "十个问题一起聊", font=card_f, fill=mix(CARD, WHITE, a1), anchor="mm")
-            strike_line(d, (160, y + 90, 920, y + 170), appear(t, 1.15, 0.28), mix(CARD, RED, a1))
+            d.text((W // 2, y + 56), "不要捆", font=sub_f, fill=mix(CARD, RED, a1), anchor="mm")
+            d.text((W // 2, y + 118), "十个问题一起聊", font=card_f, fill=mix(CARD, WHITE, a1), anchor="mm")
+            cut = appear(t, 1.15, 0.28)
+            if cut > 0.04:
+                d.text((170, y + 56), "×", font=font(44), fill=mix(CARD, RED, a1), anchor="mm")
+                strike_line(d, (220, y + 150, 860, y + 168), cut, mix(CARD, RED, a1))
 
         a2 = appear(t, 1.05)
         if a2 > 0.04:
@@ -758,14 +761,23 @@ def assemble(data: dict) -> Path:
     ]
     run(inputs)
 
+    def safe_copy(src: Path, dest: Path) -> None:
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if dest.exists() and dest.resolve() == src.resolve():
+            return
+        try:
+            if dest.exists() and dest.samefile(src):
+                return
+        except OSError:
+            pass
+        shutil.copy2(src, dest)
+
     out = ROOT / "output" / f"{NAME}.mp4"
-    out.parent.mkdir(exist_ok=True)
-    shutil.copy2(final, out)
-    shutil.copy2(final, ROOT / "final" / f"{NAME}.mp4")
+    safe_copy(final, out)
+    safe_copy(final, ROOT / "final" / f"{NAME}.mp4")
 
     staged = Path("/workspace/成片") / STAGED_NAME
-    staged.parent.mkdir(exist_ok=True)
-    shutil.copy2(final, staged)
+    safe_copy(final, staged)
     return staged
 
 

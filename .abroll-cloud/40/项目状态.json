@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "40_对齐为什么对齐到半夜",
+  "video_type": "普通短视频",
+  "episode": 40,
+  "title": "对齐为什么对齐到半夜",
+  "source_note": "topics-batch3.md #40 文件不在云端；Drive 只读 40_对齐为什么对齐到半夜",
+  "unused_of": "成片00-37 / 39对照卡 / 42比较 / 16切片 / 28报销 / 37撞课",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 31.833,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "91ced7d8bfa53680611a9d0d1d6535830041fdc33c61fb1760ca85ed5cf6753a"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 31833
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/40-对齐为什么对齐到半夜.mp4",
+    "project_final": "00_最终成片_对齐为什么对齐到半夜.mp4",
+    "cover": "00_封面_对齐为什么对齐到半夜.jpg"
+  },
+  "staged": "成片/40-对齐为什么对齐到半夜.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T12:31:41Z"
+}
