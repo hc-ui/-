@@ -128,25 +128,127 @@ def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
     mid.save(dest.with_suffix(".jpg"), quality=92)
 
 
-def draw_tree(draw: ImageDraw.ImageDraw, cx: int, top: int, nodes: list[str], a: float, accent, dim: bool = False) -> None:
-    trunk = mix(CARD, MUTED if dim else accent, a)
-    draw.line([(cx, top + 36), (cx, top + 360)], fill=trunk, width=10)
+def split_caption(line: str) -> list[str]:
+    line = line.strip("。．. ")
+    if "，" in line and len(line) > 10:
+        parts = [p for p in line.split("，") if p]
+        if 2 <= len(parts) <= 3:
+            if len(parts) == 3 and len(parts[0]) < 6:
+                return [parts[0] + "，" + parts[1], parts[2]]
+            return parts[:2]
+    return [line]
+
+
+def draw_tree(draw: ImageDraw.ImageDraw, cx: int, top: int, nodes: list[str], t: float, accent, dim: bool = False) -> None:
+    trunk_a = appear(t, 0.12, 0.28)
+    if trunk_a <= 0.04:
+        return
+    trunk = mix(CARD, MUTED if dim else accent, trunk_a)
+    grow = appear(t, 0.18, 1.15)
+    y_end = top + 36 + int(324 * grow)
+    draw.line([(cx, top + 36), (cx, y_end)], fill=trunk, width=10)
     for i, name in enumerate(nodes):
+        node_a = appear(t, 0.42 + i * 0.38, 0.28)
+        if node_a <= 0.04:
+            continue
         y = top + 70 + i * 100
         spread = 118 if i else 0
+        nx = cx if i == 0 else cx + (spread if i % 2 else -spread)
         if i:
-            draw.line([(cx, y), (cx + (spread if i % 2 else -spread), y)], fill=trunk, width=6)
-        nx = cx + (spread if i % 2 else -spread)
-        if i == 0:
-            nx = cx
-        fill = mix(CARD, (28, 32, 40) if dim else (22, 40, 36), a)
+            draw.line([(cx, y), (nx, y)], fill=mix(CARD, trunk, node_a), width=6)
+        fill = mix(CARD, (28, 32, 40) if dim else (22, 40, 36), node_a)
         rounded(draw, (nx - 110, y - 36, nx + 110, y + 36), 22, fill)
-        col = mix(CARD, MUTED if dim else WHITE, a)
-        draw.text((nx, y), name, font=font(32), fill=col, anchor="mm")
+        draw.text((nx, y), name, font=font(32), fill=mix(CARD, MUTED if dim else WHITE, node_a), anchor="mm")
+
+
+def render_b_not_main(duration: float) -> list[Image.Image]:
+    """职业主线盖「先别」；第二技能树提亮。"""
+    n = max(1, round(duration * FPS))
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "诊 · 定位")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 228 + int(lerp(16, 0, a0))), "不是当前主线", font=font(56), fill=mix(BG, WHITE, a0), anchor="mm")
+
+        a1 = appear(t, 0.18)
+        if a1 > 0.04:
+            y = 320 + int(lerp(18, 0, a1))
+            rounded(d, (80, y, 1000, y + 280), 32, mix(BG, CARD, a1))
+            d.text((W // 2, y + 70), "职业主线", font=font(48), fill=mix(CARD, YELLOW, a1), anchor="mm")
+            d.text((W // 2, y + 160), "现在就要押上", font=font(34), fill=mix(CARD, MUTED, a1), anchor="mm")
+            stamp = appear(t, 1.05, 0.30)
+            if stamp > 0.04:
+                cx, cy = 820, y + 90
+                col = mix(CARD, RED, stamp)
+                d.ellipse((cx - 92, cy - 92, cx + 92, cy + 92), outline=col, width=10)
+                d.text((cx, cy), "先别", font=font(56), fill=col, anchor="mm")
+
+        a2 = appear(t, 1.55)
+        if a2 > 0.04:
+            y = 640 + int(lerp(18, 0, a2))
+            rounded(d, (80, y, 1000, y + 260), 32, mix(BG, (22, 40, 36), a2))
+            d.text((W // 2, y + 80), "第二技能树", font=font(52), fill=mix(CARD, MINT, a2), anchor="mm")
+            d.text((W // 2, y + 175), "长期副线，慢慢攒", font=font(34), fill=mix(CARD, WHITE, a2), anchor="mm")
+
+        punch = appear(t, 2.35, 0.26)
+        if punch > 0.04:
+            y = 960 + int(lerp(16, 0, punch))
+            rounded(d, (120, y, 960, y + 170), 28, mix(BG, (42, 24, 22), punch))
+            d.text((W // 2, y + 85), "不是唯一主线", font=font(50), fill=mix(BG, YELLOW, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_dump(duration: float) -> list[Image.Image]:
+    """精力条从主树抽空，灌进 Agent；主树停长。"""
+    n = max(1, round(duration * FPS))
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "错 · 全押")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 228 + int(lerp(16, 0, a0))), "精力条倒进 Agent", font=font(52), fill=mix(BG, WHITE, a0), anchor="mm")
+
+        drain = appear(t, 0.35, 1.80)
+        fill_a = appear(t, 0.55, 1.80)
+        a1 = appear(t, 0.16)
+        if a1 > 0.04:
+            y = 320 + int(lerp(16, 0, a1))
+            rounded(d, (70, y, 500, y + 520), 32, mix(BG, CARD, a1))
+            d.text((285, y + 60), "主树", font=font(34), fill=mix(CARD, MUTED, a1), anchor="mm")
+            rounded(d, (150, y + 120, 420, y + 420), 18, mix(CARD, (18, 22, 28), a1))
+            remain = 1.0 - drain * 0.82
+            top = y + 420 - int(280 * remain)
+            d.rectangle((160, top, 410, y + 410), fill=mix(CARD, MINT, a1))
+            d.text((285, y + 470), f"{int(remain * 100)}%", font=font(36), fill=mix(CARD, WHITE, a1), anchor="mm")
+            if drain > 0.75:
+                col = mix(CARD, RED, appear(t, 1.90, 0.22))
+                d.line([(160, y + 200), (410, y + 340)], fill=col, width=10)
+                d.line([(410, y + 200), (160, y + 340)], fill=col, width=10)
+
+            rounded(d, (580, y, 1010, y + 520), 32, mix(BG, (40, 26, 22), a1))
+            d.text((795, y + 60), "Agent", font=font(34), fill=mix(CARD, YELLOW, a1), anchor="mm")
+            rounded(d, (650, y + 120, 940, y + 420), 18, mix(CARD, (28, 20, 18), a1))
+            top2 = y + 420 - int(280 * fill_a)
+            d.rectangle((660, top2, 930, y + 410), fill=mix(CARD, YELLOW, a1))
+            d.text((795, y + 470), f"{int(fill_a * 100)}%", font=font(36), fill=mix(CARD, YELLOW, a1), anchor="mm")
+
+        punch = appear(t, 2.40, 0.26)
+        if punch > 0.04:
+            y = 900 + int(lerp(16, 0, punch))
+            rounded(d, (120, y, 960, y + 180), 28, mix(BG, (42, 24, 22), punch))
+            d.text((W // 2, y + 90), "主树停长 · 别全押", font=font(48), fill=mix(BG, YELLOW, punch), anchor="mm")
+        out.append(img)
+    return out
 
 
 def render_b_trees(duration: float) -> list[Image.Image]:
-    """两棵技能树：主树提亮，侧树 Agent 淡色。"""
+    """两棵技能树逐节长高；水桶只倒主树。"""
     n = max(1, round(duration * FPS))
     out = []
     for i in range(n):
@@ -155,81 +257,82 @@ def render_b_trees(duration: float) -> list[Image.Image]:
         d = ImageDraw.Draw(img)
         tag(d, t, "对 · 主树")
         a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "两棵技能树", font=font(58), fill=mix(BG, WHITE, a0), anchor="mm")
+        d.text((W // 2, 228 + int(lerp(16, 0, a0))), "两棵树别抢水", font=font(56), fill=mix(BG, WHITE, a0), anchor="mm")
 
-        a1 = appear(t, 0.18)
+        a1 = appear(t, 0.16)
         if a1 > 0.04:
-            y = 310 + int(lerp(20, 0, a1))
-            rounded(d, (56, y, 516, y + 620), 36, mix(BG, CARD, a1))
-            d.text((286, y + 56), "主树", font=font(34), fill=mix(CARD, MINT, a1), anchor="mm")
-            draw_tree(d, 286, y + 90, ["控制", "机器人", "AI"], a1, MINT, dim=False)
-            now = appear(t, 0.72, 0.24)
-            if now > 0.04:
-                rounded(d, (156, y + 520, 416, y + 584), 20, mix(CARD, (18, 42, 36), now))
-                d.text((286, y + 552), "现在先长这棵", font=font(30), fill=mix(CARD, MINT, now), anchor="mm")
+            y = 300 + int(lerp(16, 0, a1))
+            rounded(d, (56, y, 516, y + 640), 36, mix(BG, CARD, a1))
+            d.text((286, y + 50), "主树", font=font(34), fill=mix(CARD, MINT, a1), anchor="mm")
+            draw_tree(d, 286, y + 80, ["控制", "机器人", "AI"], t, MINT, dim=False)
+            pour = appear(t, 1.70, 0.40)
+            if pour > 0.04:
+                rounded(d, (176, y + 540, 396, y + 604), 18, mix(CARD, (18, 42, 36), pour))
+                d.text((286, y + 572), "水只倒这棵", font=font(28), fill=mix(CARD, MINT, pour), anchor="mm")
 
-        a2 = appear(t, 0.30)
+        a2 = appear(t, 0.28)
         if a2 > 0.04:
-            y = 310 + int(lerp(20, 0, a2))
-            rounded(d, (564, y, 1024, y + 620), 36, mix(BG, (20, 22, 28), a2))
-            d.text((794, y + 56), "副树", font=font(34), fill=mix(CARD, MUTED, a2), anchor="mm")
-            draw_tree(d, 794, y + 90, ["Agent", "RAG", "MCP"], a2, MUTED, dim=True)
-            fade = appear(t, 0.88, 0.24)
+            y = 300 + int(lerp(16, 0, a2))
+            rounded(d, (564, y, 1024, y + 640), 36, mix(BG, (20, 22, 28), a2))
+            d.text((794, y + 50), "副树", font=font(34), fill=mix(CARD, MUTED, a2), anchor="mm")
+            draw_tree(d, 794, y + 80, ["Agent", "检索", "技能"], max(0.0, t - 0.35), MUTED, dim=True)
+            fade = appear(t, 2.05, 0.28)
             if fade > 0.04:
-                rounded(d, (644, y + 520, 944, y + 584), 20, mix(CARD, (32, 28, 20), fade))
-                d.text((794, y + 552), "第二技能树", font=font(30), fill=mix(CARD, YELLOW, fade), anchor="mm")
+                rounded(d, (644, y + 540, 944, y + 604), 18, mix(CARD, (32, 28, 20), fade))
+                d.text((794, y + 572), "只保持兴趣", font=font(28), fill=mix(CARD, YELLOW, fade), anchor="mm")
 
-        punch = appear(t, 1.36, 0.24)
+        punch = appear(t, 2.55, 0.26)
         if punch > 0.04:
-            y = 980 + int(lerp(22, 0, punch))
-            rounded(d, (120, y, 960, y + 180), 28, mix(BG, (42, 24, 22), punch))
-            d.text((W // 2, y + 90), "不是当前主线", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
+            y = 1000 + int(lerp(16, 0, punch))
+            rounded(d, (120, y, 960, y + 170), 28, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y + 85), "主线别停", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
         out.append(img)
     return out
 
 
 def render_b_sidecards(duration: float) -> list[Image.Image]:
-    """现在箭头只指 Python；侧牌堆在旁边，不上主桌。"""
+    """主桌只留小项目；侧牌依次滑到旁边并划掉上桌。"""
     n = max(1, round(duration * FPS))
     out = []
     for i in range(n):
         t = i / FPS
         img = new_bg()
         d = ImageDraw.Draw(img)
-        tag(d, t, "错 · 上桌")
+        tag(d, t, "对 · 侧堆")
         a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "侧牌先别上桌", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
+        d.text((W // 2, 228 + int(lerp(16, 0, a0))), "侧牌先别上桌", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
 
         a1 = appear(t, 0.16)
         if a1 > 0.04:
-            y = 330 + int(lerp(20, 0, a1))
-            rounded(d, (80, y, 1000, y + 360), 36, mix(BG, CARD, a1))
-            d.text((W // 2, y + 56), "主桌", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
-            rounded(d, (250, y + 110, 830, y + 250), 28, mix(CARD, (22, 40, 36), a1))
-            d.text((W // 2, y + 180), "Python", font=font(64), fill=mix(CARD, MINT, a1), anchor="mm")
-            arrow = appear(t, 0.55, 0.22)
+            y = 310 + int(lerp(16, 0, a1))
+            rounded(d, (80, y, 1000, y + 340), 36, mix(BG, CARD, a1))
+            d.text((W // 2, y + 50), "主桌", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+            rounded(d, (210, y + 100, 870, y + 230), 28, mix(CARD, (22, 40, 36), a1))
+            d.text((W // 2, y + 165), "独立小项目", font=font(52), fill=mix(CARD, MINT, a1), anchor="mm")
+            arrow = appear(t, 0.70, 0.24)
             if arrow > 0.04:
-                d.text((W // 2, y + 300), "现在 → 只指这里", font=font(36), fill=mix(CARD, YELLOW, arrow), anchor="mm")
+                d.text((W // 2, y + 280), "现在 → 只指这里", font=font(34), fill=mix(CARD, YELLOW, arrow), anchor="mm")
 
-        a2 = appear(t, 0.28)
+        a2 = appear(t, 0.36)
         if a2 > 0.04:
-            y = 730 + int(lerp(18, 0, a2))
+            y = 700 + int(lerp(14, 0, a2))
             d.text((W // 2, y), "侧堆 · 不上主桌", font=font(32), fill=mix(BG, MUTED, a2), anchor="mm")
-            cards = ["MCP", "RAG", "Skill", "Multi-Agent"]
+            cards = ["接口", "检索", "技能", "多智能体"]
             for j, name in enumerate(cards):
                 cx = 150 + j * 210
-                cy = y + 110
-                pop = appear(t, 0.70 + j * 0.10, 0.20)
+                cy = y + 120 + int(lerp(40, 0, appear(t, 0.85 + j * 0.28, 0.28)))
+                pop = appear(t, 0.85 + j * 0.28, 0.28)
                 rounded(d, (cx - 88, cy - 56, cx + 88, cy + 56), 20, mix(BG, (28, 26, 22), max(a2, pop)))
-                d.text((cx, cy), name, font=font(28 if j < 3 else 24), fill=mix(CARD, MUTED, pop), anchor="mm")
-                if pop > 0.6:
-                    d.line([(cx - 70, cy - 2), (cx + 70, cy + 2)], fill=mix(CARD, RED, pop), width=5)
+                d.text((cx, cy), name, font=font(30), fill=mix(CARD, MUTED, pop), anchor="mm")
+                strike = appear(t, 1.85 + j * 0.18, 0.20)
+                if strike > 0.08:
+                    d.line([(cx - 70, cy - 2), (cx + 70, cy + 2)], fill=mix(CARD, RED, strike), width=5)
 
-        punch = appear(t, 1.38, 0.24)
+        punch = appear(t, 2.70, 0.26)
         if punch > 0.04:
-            y = 1080 + int(lerp(20, 0, punch))
-            rounded(d, (120, y, 960, y + 180), 28, mix(BG, (18, 42, 36), punch))
-            d.text((W // 2, y + 90), "只保持兴趣", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
+            y = 1040 + int(lerp(16, 0, punch))
+            rounded(d, (120, y, 960, y + 170), 28, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y + 85), "先堆旁边", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
         out.append(img)
     return out
 
@@ -316,15 +419,23 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
     audio_dir.mkdir(exist_ok=True)
     mp3 = audio_dir / "vo-full.mp3"
     wav = audio_dir / "vo-full.wav"
+    vo_sha = hashlib.sha256(text.encode("utf-8")).hexdigest()
+    stamp = audio_dir / "vo.sha"
     aligned: list[tuple[float, float, str]] | None = None
-    if wav.exists() and wav.stat().st_size > 800 and (audio_dir / "vo-align.txt").exists():
+    if (
+        wav.exists()
+        and wav.stat().st_size > 800
+        and (audio_dir / "vo-align.txt").exists()
+        and stamp.exists()
+        and stamp.read_text(encoding="utf-8").strip() == vo_sha
+    ):
         duration = probe_dur(wav)
         parsed: list[tuple[float, float, str]] = []
         for line in (audio_dir / "vo-align.txt").read_text(encoding="utf-8").splitlines():
             parts = line.split("\t")
             if len(parts) >= 3:
                 parsed.append((float(parts[0]), float(parts[1]), parts[2]))
-        if len(parsed) == len(phrases):
+        if len(parsed) == len(phrases) and duration >= 30.0:
             print("reuse VO", wav, duration)
             return duration, close_align(parsed, duration)
     try:
@@ -368,29 +479,77 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
         json.dumps([{"start": s, "end": e, "text": p} for s, e, p in aligned], ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    stamp.write_text(vo_sha + "\n", encoding="utf-8")
     return duration, aligned
 
 
 def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
     recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    p0, p1, p2, p3, p4 = cues
-    b1 = max(p1[0] + 0.70, p2[0] - LEAD)
-    b2 = max(p3[0] + 0.55, p4[0] - LEAD)
-    shots = [
-        {"id": "S01a", "kind": "A", "start": 0.0, "end": p0[1], "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
-        {"id": "S01b", "kind": "A", "start": p0[1], "end": b1, "src": "assets/V-摊手.mp4", "line": p1[2]},
-        {"id": "S02", "kind": "B", "start": b1, "end": p2[1], "src": "broll/B-两棵技能树.mp4", "line": p2[2], "broll": "two_trees"},
-        {"id": "S03", "kind": "A", "start": p2[1], "end": b2, "src": "assets/V-指向.mp4", "line": p3[2]},
-        {"id": "S04", "kind": "B", "start": b2, "end": duration, "src": "broll/B-侧牌不上桌.mp4", "line": p4[2], "broll": "side_cards"},
-    ]
-    for i, shot in enumerate(shots):
+    expected = [p for spec in recipe["shots"] for p in spec["phrases"]]
+    got = [c[2] for c in cues]
+    if expected != got:
+        raise SystemExit(f"phrase/recipe mismatch\nexpect {expected}\ngot {got}")
+
+    idx = 0
+    raw = []
+    for spec in recipe["shots"]:
+        n = len(spec["phrases"])
+        chunk = cues[idx : idx + n]
+        idx += n
+        start = float(chunk[0][0])
+        end = float(chunk[-1][1])
+        if spec["kind"] == "B":
+            start = max(0.0, start - LEAD)
+        raw.append({
+            "id": spec["id"],
+            "kind": spec["kind"],
+            "start": start,
+            "end": end,
+            "src": spec["src"],
+            "line": chunk[0][2],
+            "close": bool(spec.get("close")),
+            "broll": spec.get("broll"),
+            "phrases": spec["phrases"],
+        })
+    if idx != len(cues):
+        raise SystemExit(f"unused cues {cues[idx:]}")
+
+    for i, shot in enumerate(raw):
+        if i:
+            shot["start"] = raw[i - 1]["end"]
         shot["start"] = round(float(shot["start"]), 3)
         shot["end"] = round(float(shot["end"]), 3)
-        if shot["end"] <= shot["start"] + 0.12:
-            raise SystemExit(f"bad shot {shot}")
-        if i:
-            shots[i]["start"] = shots[i - 1]["end"]
-    shots[-1]["end"] = round(duration, 3)
+        if shot["end"] <= shot["start"] + 0.14:
+            shot["end"] = round(min(duration, shot["start"] + 0.18), 3)
+            if i + 1 < len(raw):
+                raw[i + 1]["start"] = shot["end"]
+    raw[-1]["end"] = round(duration, 3)
+
+    a_caps = []
+    cue_i = 0
+    for shot in raw:
+        n = len(shot["phrases"])
+        chunk = cues[cue_i : cue_i + n]
+        cue_i += n
+        if shot["kind"] != "A":
+            continue
+        for s, e, p in chunk:
+            a_caps.append({
+                "start": round(max(s, shot["start"]), 3),
+                "end": round(min(e, shot["end"]), 3),
+                "lines": split_caption(p),
+            })
+    a_caps = [c for c in a_caps if c["end"] > c["start"] + 0.08]
+
+    colors = [CREAM, MINT, YELLOW]
+    shutters = [{"start": raw[i]["start"], "color": list(colors[(i - 1) % 3])} for i in range(1, len(raw))]
+    eyebrows = []
+    a_n = 0
+    for shot in raw:
+        if shot["kind"] != "A":
+            continue
+        a_n += 1
+        eyebrows.append({"start": shot["start"], "end": shot["end"], "text": f"A-ROLL / {a_n:02d}"})
 
     data = {
         "audio": "audio/vo-full.wav",
@@ -399,23 +558,10 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "size": [W, H],
         "title": recipe["title"],
         "bgm": "audio/bgm.wav",
-        "shots": shots,
-        "a_caps": [
-            {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
-            {"start": round(p1[0], 3), "end": round(b1, 3), "lines": ["Agent是第二技能树", "不是主线"]},
-            {"start": round(p3[0], 3), "end": round(b2, 3), "lines": ["副线可以慢慢攒"]},
-        ],
-        "shutters": [
-            {"start": round(p0[1], 3), "color": list(CREAM)},
-            {"start": round(b1, 3), "color": list(MINT)},
-            {"start": round(p2[1], 3), "color": list(CREAM)},
-            {"start": round(b2, 3), "color": list(MINT)},
-        ],
-        "eyebrows": [
-            {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
-            {"start": round(p0[1], 3), "end": round(b1, 3), "text": "A-ROLL / 1b"},
-            {"start": round(p2[1], 3), "end": round(b2, 3), "text": "A-ROLL / 03"},
-        ],
+        "shots": raw,
+        "a_caps": a_caps,
+        "shutters": shutters,
+        "eyebrows": eyebrows,
         "cover": {
             "title": recipe["cover_title"],
             "sub": recipe["cover_sub"],
@@ -425,6 +571,7 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "cue_map": {p: [round(s, 3), round(e, 3)] for s, e, p in cues},
         "b_lead_s": LEAD,
         "video_type": "普通短视频",
+        "phrase_count": len(cues),
     }
     (ROOT / "timeline.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return data
@@ -557,14 +704,18 @@ def cut_shot(src: Path, dur: float, dest: Path, kind: str, close: bool = False) 
         vf = f"scale=1188:2112,crop={W}:{H}:54:105,fps={FPS},setsar=1,format=yuv420p"
     else:
         vf = f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,fps={FPS},setsar=1,format=yuv420p"
-    if kind == "A" and dur > src_dur + 0.05:
-        vf = f"setpts=PTS*{dur / src_dur:.6f},{vf}"
-    elif dur > src_dur + 0.02:
-        vf = f"{vf},tpad=stop_mode=clone:stop_duration={dur - src_dur:.3f}"
-    run([
-        "ffmpeg", "-y", "-i", str(src), "-t", f"{dur:.3f}",
+    cmd = ["ffmpeg", "-y"]
+    if kind == "A" and dur > src_dur + 0.08:
+        loops = max(1, int(dur / src_dur) + 1)
+        cmd += ["-stream_loop", str(loops)]
+    elif kind != "A" and dur > src_dur + 0.02:
+        pad = min(0.28, dur - src_dur)
+        vf = f"{vf},tpad=stop_mode=clone:stop_duration={pad:.3f}"
+    cmd += [
+        "-i", str(src), "-t", f"{dur:.3f}",
         "-vf", vf, "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "18", str(dest),
-    ])
+    ]
+    run(cmd)
 
 
 def assemble(data: dict) -> Path:
@@ -672,7 +823,7 @@ def make_cover() -> Path:
 def copy_assets() -> None:
     dest = ROOT / "assets"
     dest.mkdir(exist_ok=True)
-    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "A-角色-小灯-摊手.jpg"):
+    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "V-点赞.mp4", "A-角色-小灯-摊手.jpg"):
         src = ASSET_SRC / name
         if not src.exists():
             raise FileNotFoundError(src)
@@ -736,9 +887,10 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
 - **云端 only**：不写 `C:\\` / `D:\\` / `G:\\`，不传 Drive
 - **避开**：成片 14 双线 / 五条路；#43 三道短题；成片 15 测控生态位
 
-钩子：Agent是第二技能树，不是主线。  
-诊断：主树先长控制和机器人。副线可以慢慢攒。  
-收束：Python没过关，只保持兴趣。
+钩子：热门把 Agent 当成现在就要押的主线。  
+诊断：不是当前唯一主线，是长期第二技能树。  
+例子：精力全倒 / 侧牌先堆旁边。  
+收束：Python 过关以前，Agent 先靠边。
 
 ## 口播
 
@@ -753,10 +905,14 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
 
 def patch_index(duration: float) -> None:
     line = f"| `{STAGED_NAME}` | {duration:.1f}s |"
+    old = re.compile(rf"\| `{re.escape(STAGED_NAME)}` \| [0-9.]+s \|")
     for idx in (Path("/workspace/成片/INDEX.md"), Path("/workspace/.abroll-cloud/INDEX.chengpian.md")):
         if not idx.exists():
             continue
         text = idx.read_text(encoding="utf-8")
+        if old.search(text):
+            idx.write_text(old.sub(line, text), encoding="utf-8")
+            continue
         if STAGED_NAME in text:
             continue
         if not text.endswith("\n"):
@@ -830,8 +986,10 @@ def qa(staged: Path, data: dict) -> dict:
             "gap": gap,
             "last_end_equals_audio": abs(shots[-1]["end"] - data["duration"]) < 0.05,
             "broll_lead_s": LEAD,
+            "phrases": data.get("phrase_count"),
         },
         "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
+        "duration_ok": 30.0 <= float(info["format"]["duration"]) <= 60.0,
         "ok": True,
     }
     report["ok"] = (
@@ -845,6 +1003,8 @@ def qa(staged: Path, data: dict) -> dict:
         and not overlap
         and not gap
         and report["timeline"]["last_end_equals_audio"]
+        and report["duration_ok"]
+        and len(shots) >= 7
     )
     (ROOT / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
@@ -856,18 +1016,31 @@ def main() -> None:
     print("VO", duration)
     for row in cues:
         print(f"  {row[0]:6.3f}-{row[1]:6.3f}  {row[2]}")
+    if duration < 38.0:
+        raise SystemExit(f"VO too short {duration:.2f}s; add spoken lines, do not freeze-pad")
     make_bgm(duration)
     data = build_timeline(cues, duration)
     print("timeline shots", [(s["id"], s["start"], s["end"], s["kind"]) for s in data["shots"]])
 
-    b1 = next(s for s in data["shots"] if s["id"] == "S02")
-    b2 = next(s for s in data["shots"] if s["id"] == "S04")
-    d1 = max(2.2, float(b1["end"]) - float(b1["start"]))
-    d2 = max(2.2, float(b2["end"]) - float(b2["start"]))
-    print("render B-两棵技能树", d1)
-    frames_to_mp4(render_b_trees(d1 + 0.12), ROOT / "broll" / "B-两棵技能树.mp4")
-    print("render B-侧牌不上桌", d2)
-    frames_to_mp4(render_b_sidecards(d2 + 0.12), ROOT / "broll" / "B-侧牌不上桌.mp4")
+    renders = {
+        "not_main": render_b_not_main,
+        "dump_energy": render_b_dump,
+        "side_cards": render_b_sidecards,
+        "two_trees": render_b_trees,
+    }
+    files = {
+        "not_main": "B-不是主线.mp4",
+        "dump_energy": "B-精力全倒.mp4",
+        "side_cards": "B-侧牌不上桌.mp4",
+        "two_trees": "B-两棵技能树.mp4",
+    }
+    for shot in data["shots"]:
+        key = shot.get("broll")
+        if not key:
+            continue
+        d = max(2.4, float(shot["end"]) - float(shot["start"]))
+        print("render", files[key], d)
+        frames_to_mp4(renders[key](d + 0.12), ROOT / "broll" / files[key])
 
     make_cover()
     staged = assemble(data)

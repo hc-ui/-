@@ -1,28 +1,38 @@
 [
   {
-    "id": "two_trees",
-    "file": "broll/B-两棵技能树.mp4",
-    "tag": "对 · 主树",
-    "title": "主树先长控制和机器人",
-    "visual": "两棵技能树：主树控制/机器人/AI 提亮，侧树 Agent 淡色标第二技能树",
-    "cards": [
-      {"num": "主", "head": "控制 + 机器人 + AI", "body": "现在先长这一棵", "color": "mint"},
-      {"num": "副", "head": "Agent", "body": "长期第二技能树", "color": "muted"}
-    ],
-    "punch": "不是当前主线",
-    "phrases": ["主树先长控制和机器人"]
+    "id": "not_main",
+    "file": "broll/B-不是主线.mp4",
+    "tag": "诊 · 定位",
+    "title": "不是当前主线",
+    "visual": "职业主线卡盖「先别」；第二技能树提亮",
+    "punch": "长期副线",
+    "phrases": ["它不是当前唯一主线，而是一条长期第二技能树"]
+  },
+  {
+    "id": "dump_energy",
+    "file": "broll/B-精力全倒.mp4",
+    "tag": "错 · 全押",
+    "title": "精力条倒进 Agent",
+    "visual": "精力条从主树抽空，灌进 Agent 罐；主树停长打叉",
+    "punch": "别全押",
+    "phrases": ["错法是把整条精力条倒进Agent这一棵，主树停长"]
   },
   {
     "id": "side_cards",
     "file": "broll/B-侧牌不上桌.mp4",
-    "tag": "错 · 上桌",
-    "title": "侧牌先别上主桌",
-    "visual": "现在箭头只指 Python；MCP / RAG / Skill 牌堆在侧，不上主桌",
-    "cards": [
-      {"num": "今", "head": "Python", "body": "现在只指这里", "color": "mint"},
-      {"num": "侧", "head": "MCP / RAG / Skill", "body": "堆在侧边，不上桌", "color": "yellow"}
-    ],
-    "punch": "只保持兴趣",
-    "phrases": ["Python没过关，只保持兴趣"]
+    "tag": "对 · 侧堆",
+    "title": "侧牌先别上桌",
+    "visual": "主桌只留小项目；接口/检索/技能依次滑到侧堆并划掉上桌",
+    "punch": "先堆旁边",
+    "phrases": ["侧牌可以慢慢攒，先别抢主桌的位置", "接口、检索、技能这些牌，先堆在旁边，不上桌"]
+  },
+  {
+    "id": "two_trees",
+    "file": "broll/B-两棵技能树.mp4",
+    "tag": "对 · 主树",
+    "title": "两棵树别抢水",
+    "visual": "主树控制/机器人/AI 逐节长高；副树 Agent 淡着；水桶只倒主树",
+    "punch": "主线别停",
+    "phrases": ["基础没过关，这些只保持兴趣，不占主精力", "主线别停，副线别抢戏，两棵树别抢同一桶水"]
   }
 ]

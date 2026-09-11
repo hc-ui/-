@@ -7,7 +7,8 @@
   "video_type": "普通短视频",
   "topic_id": "51",
   "source": "topics-batch3.md #51 / 学习与职业规划基线.md Agent 副线",
-  "note": "学习副线。不是剧情短剧，不走 drama-pipeline。不重复 14 双线/五条路，不点名 C++/ROS2。",
+  "note": "加长覆盖。12 句，9 镜，两个例子拍。不是剧情短剧。不重复 14 双线/五条路。",
+  "target_s": [40, 50],
   "shots": [
     {
       "id": "S01a",
@@ -20,27 +21,65 @@
       "id": "S01b",
       "kind": "A",
       "src": "assets/V-摊手.mp4",
-      "phrases": ["Agent是第二技能树，不是主线"]
+      "phrases": ["热门一来，很容易把Agent当成现在就要押上的职业主线"]
     },
     {
       "id": "S02",
       "kind": "B",
-      "src": "broll/B-两棵技能树.mp4",
-      "phrases": ["主树先长控制和机器人"],
-      "broll": "two_trees"
+      "src": "broll/B-不是主线.mp4",
+      "phrases": ["它不是当前唯一主线，而是一条长期第二技能树"],
+      "broll": "not_main"
     },
     {
       "id": "S03",
       "kind": "A",
       "src": "assets/V-指向.mp4",
-      "phrases": ["副线可以慢慢攒"]
+      "phrases": ["主树要先长控制和机器人，AI只当手段，不抢根"]
     },
     {
       "id": "S04",
       "kind": "B",
+      "src": "broll/B-精力全倒.mp4",
+      "phrases": ["错法是把整条精力条倒进Agent这一棵，主树停长"],
+      "broll": "dump_energy"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["主桌堆满工具牌，独立小项目却还没亲手做完"]
+    },
+    {
+      "id": "S06",
+      "kind": "B",
       "src": "broll/B-侧牌不上桌.mp4",
-      "phrases": ["Python没过关，只保持兴趣"],
+      "phrases": [
+        "侧牌可以慢慢攒，先别抢主桌的位置",
+        "接口、检索、技能这些牌，先堆在旁边，不上桌"
+      ],
       "broll": "side_cards"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["以后可以交叉机器人和Agent，当前先别并成一条线"]
+    },
+    {
+      "id": "S08",
+      "kind": "B",
+      "src": "broll/B-两棵技能树.mp4",
+      "phrases": [
+        "基础没过关，这些只保持兴趣，不占主精力",
+        "主线别停，副线别抢戏，两棵树别抢同一桶水"
+      ],
+      "broll": "two_trees"
+    },
+    {
+      "id": "S09",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["Python过关以前，Agent先靠边站"]
     }
   ]
 }
