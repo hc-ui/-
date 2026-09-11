@@ -1,0 +1,27 @@
+[
+  {
+    "id": "mess_titles",
+    "file": "broll/B-越记越乱.mp4",
+    "tag": "错 · 越记越乱",
+    "title": "全塞进一个本子",
+    "cards": [
+      {"num": "墙", "head": "标题墙", "body": "只看见标题", "color": "yellow"},
+      {"num": "空", "head": "看不见判断", "body": "回头找像废纸篓", "color": "red"}
+    ],
+    "punch": "看不见判断",
+    "phrases": ["会议纪要、碎片、链接全塞一个本子，只看见标题看不见判断"]
+  },
+  {
+    "id": "one_line",
+    "file": "broll/B-一条一句.mp4",
+    "tag": "对 · 一条一句",
+    "title": "一条笔记只留一句结论",
+    "cards": [
+      {"num": "1", "head": "结论", "body": "写在第一行", "color": "mint"},
+      {"num": "2", "head": "来源", "body": "放到下面", "color": "yellow"},
+      {"num": "3", "head": "例子", "body": "另开一条", "color": "cream"}
+    ],
+    "punch": "不是证明你来过",
+    "phrases": ["一条笔记只留一句结论，来源和例子另开"]
+  }
+]
