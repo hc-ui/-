@@ -1,0 +1,50 @@
+[
+  {
+    "id": "law",
+    "file": "broll/B-定律.mp4",
+    "tag": "改一条定律",
+    "title": "光速压到三十",
+    "cards": [
+      {"num": "错", "head": "光永远秒到", "body": "车不可能超光", "color": "red"},
+      {"num": "对", "head": "光速三十公里", "body": "路灯也追不上", "color": "mint"}
+    ],
+    "punch": "车能超光",
+    "phrases": ["光速压到三十公里每小时"]
+  },
+  {
+    "id": "outrun",
+    "file": "broll/B-超光.mp4",
+    "tag": "钩子",
+    "title": "自行车驶过",
+    "still": "assets/t33a-bike-outruns-light.png",
+    "punch": "光还没追上",
+    "phrases": ["自行车比路灯的光还快"]
+  },
+  {
+    "id": "doppler",
+    "file": "broll/B-蓝红.mp4",
+    "tag": "后果 01",
+    "title": "前方偏蓝",
+    "still": "assets/t33b-blue-ahead-red-behind.png",
+    "punch": "身后偏红",
+    "phrases": ["前方偏蓝，身后偏红"]
+  },
+  {
+    "id": "shadow",
+    "file": "broll/B-拖尾.mp4",
+    "tag": "后果 02",
+    "title": "远处延迟",
+    "still": "assets/t33c-delay-shadow-tail.png",
+    "punch": "影子拖尾",
+    "phrases": ["远处延迟，影子拖尾"]
+  },
+  {
+    "id": "lookback",
+    "file": "broll/B-回头.mp4",
+    "tag": "回报",
+    "title": "骑手回头",
+    "still": "assets/t33d-lookback-old-street.png",
+    "punch": "几秒前的街",
+    "phrases": ["骑手回头，看见几秒前的街"]
+  }
+]

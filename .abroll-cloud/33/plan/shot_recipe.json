@@ -1,0 +1,66 @@
+{
+  "title": "自行车比光快",
+  "cover_title": "自行车比光快",
+  "cover_sub": "路灯的光追不上",
+  "cover_line": "光速压到三十公里每小时",
+  "cover_src": "assets/t33a-bike-outruns-light.png",
+  "video_type": "普通短视频",
+  "topic_id": "004",
+  "source": "topics-batch2.md #33 / 选题库.md 第004号",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["只改一条定律"]
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "phrases": ["光速压到三十公里每小时"],
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-超光.mp4",
+      "phrases": ["自行车比路灯的光还快"],
+      "broll": "outrun"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-蓝红.mp4",
+      "phrases": ["前方偏蓝，身后偏红"],
+      "broll": "doppler"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-拖尾.mp4",
+      "phrases": ["远处延迟，影子拖尾"],
+      "broll": "shadow"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["光学几乎画错，先当示意"]
+    },
+    {
+      "id": "S08",
+      "kind": "B",
+      "src": "broll/B-回头.mp4",
+      "phrases": ["骑手回头，看见几秒前的街"],
+      "broll": "lookback"
+    }
+  ]
+}
