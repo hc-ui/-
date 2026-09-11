@@ -1,0 +1,52 @@
+{
+  "title": "推不出来的酷画面删掉",
+  "cover_title": "推不出来",
+  "cover_sub": "一律删掉",
+  "cover_line": "改一条 · 三个后果 · 砍到能推",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch3.md #39 / 选题库.md 开篇推演纪律",
+  "video_type": "普通短视频",
+  "note": "选题库工艺口播。不是剧情连载，不走 drama-pipeline。中文代码绘制，生图不烧字。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["推不出来的酷画面，一律删掉"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-定律三后果.mp4",
+      "phrases": ["改一条定律，推出三个后果"],
+      "broll": "three_from_law"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-五个砍三个.mp4",
+      "phrases": ["想到五个砍到三个"],
+      "broll": "cut_to_three"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-连不上就删.mp4",
+      "phrases": ["连不上的酷图，观众当假"],
+      "broll": "unlink_fake"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["最后一个后果，放大当回报"]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "39_推不出来的酷画面删掉",
+  "video_type": "普通短视频",
+  "episode": 39,
+  "title": "推不出来的酷画面删掉",
+  "source_note": "topics-batch3.md #39 / 选题库.md 开篇推演纪律",
+  "unused_of": "成片00-37 / 成片38对照卡 / batch3#38分不清改物理",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 15.25,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "a2e4b02f24ed3ecbe35b3c2b89c63b22b3c94f2c8c5a28ec976ffe47ad4b845d"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 15250
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/39-推不出来的酷画面删掉.mp4",
+    "project_final": "00_最终成片_推不出来的酷画面删掉.mp4",
+    "cover": "00_封面_推不出来的酷画面删掉.jpg"
+  },
+  "staged": "成片/39-推不出来的酷画面删掉.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T12:26:41Z"
+}
