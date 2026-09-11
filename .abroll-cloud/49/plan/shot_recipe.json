@@ -6,8 +6,11 @@
   "cover_src": "assets/A-角色-小灯-摊手.jpg",
   "video_type": "普通短视频",
   "topic_id": "49",
-  "source": "topics-batch3.md #49 / 备忘录第三节 4 研一周会汇报战术",
-  "note": "专硕汇报。文献精读当主菜。不是剧情短剧，不走 drama-pipeline。不重复 16「只报做完」主标题，不重复 37 撞课 SOP。",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #49 / 备忘录第三节 4 研一周会汇报战术 / 加长重切",
+  "note": "专硕汇报。文献精读当主菜。覆盖 13.5s 短切。不重复 16「只报做完」主标题，不重复 37 撞课 SOP。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
   "shots": [
     {
       "id": "S01a",
@@ -23,24 +26,49 @@
       "phrases": ["研一汇报先精读一篇顶刊"]
     },
     {
+      "id": "S01c",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["研一还没进实验，别急着报没搭完的台", "周会主菜先换成一篇文献精读"]
+    },
+    {
       "id": "S02",
       "kind": "B",
-      "src": "broll/B-八到十页.mp4",
-      "phrases": ["做成八到十页，讲清背景方法和结论"],
-      "broll": "ten_pages"
+      "src": "broll/B-每周一篇.mp4",
+      "phrases": ["每周只挑一篇顶刊就够", "微流控测控、精密温控或图像算法都行"],
+      "broll": "weekly_paper"
     },
     {
       "id": "S03",
       "kind": "A",
-      "src": "assets/V-指向.mp4",
-      "phrases": ["多报精读完了、仿真跑通了"]
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["做成八到十页、图表规范的讲稿", "图表写清楚，别把页面堆成大段字"]
     },
     {
       "id": "S04",
       "kind": "B",
+      "src": "broll/B-八到十页.mp4",
+      "phrases": ["先把这篇在解什么背景讲清", "再把方法是怎么做的讲清", "最后把结论讲到听众能带走"],
+      "broll": "ten_pages"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["开口先报已经落地的三件事"]
+    },
+    {
+      "id": "S06",
+      "kind": "B",
       "src": "broll/B-别搭台子.mp4",
-      "phrases": ["别报下周一定搭完台子"],
+      "phrases": ["比如精读了某篇文献", "比如跑通了某开源仿真基线", "比如完成了某门课的实验", "别报下周一定搭完温控台", "那是超出能力的工程承诺"],
       "broll": "no_bench"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["这篇精读完了，才算把周会交出去"]
     }
   ]
 }
