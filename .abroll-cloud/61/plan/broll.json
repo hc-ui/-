@@ -1,0 +1,10 @@
+{
+  "cards": [
+    {"id": "pilot_die", "file": "broll/B-一推广就死.mp4", "point": "试点跑通，一推广就死"},
+    {"id": "cond_stay", "file": "broll/B-条件没走.mp4", "point": "成功条件没跟着走"},
+    {"id": "copy_luck", "file": "broll/B-复制运气.mp4", "point": "复制的是运气不是方法"},
+    {"id": "three_cond", "file": "broll/B-三条条件.mp4", "point": "三条条件缺一条别硬推"},
+    {"id": "stop_roll", "file": "broll/B-先别铺.mp4", "point": "庆祝试点不等于交付推广"}
+  ],
+  "note": "黑底对照卡，代码绘制，不冻帧垫时长。"
+}
