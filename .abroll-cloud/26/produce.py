@@ -247,22 +247,41 @@ def make_voiceover() -> tuple[float, list[dict]]:
     audio.mkdir(parents=True, exist_ok=True)
     mp3 = audio / "vo-full.mp3"
     wav = audio / "vo-full.wav"
-    if wav.exists() and wav.stat().st_size > 800 and abs(probe_dur(wav) - LOCKED_DUR) < 0.08:
-        dur = probe_dur(wav)
-        cues = []
-        for (a, b), phrase in zip(LOCKED_MS, phrases):
-            cues.append({"text": phrase, "start": a / 1000.0, "end": b / 1000.0})
-        cues[-1]["end"] = dur
-        print("reuse locked-duration VO", dur)
-    else:
-        bounds = asyncio.run(synthesize_voice(text, mp3))
-        (audio / "vo.vtt.json").write_text(json.dumps(bounds, ensure_ascii=False, indent=2), encoding="utf-8")
-        if mp3.stat().st_size < 800:
-            raise RuntimeError("tts too small")
-        run(["ffmpeg", "-y", "-i", str(mp3), "-ac", "1", "-ar", "44100", "-sample_fmt", "s16", str(wav)])
-        dur = probe_dur(wav)
-        cues = align_phrases(phrases, bounds, dur)
-        print("TTS", f"{dur:.3f}s", "cues", len(cues))
+    align_path = audio / "vo-align.txt"
+    reused = False
+    if wav.exists() and wav.stat().st_size > 800 and align_path.exists():
+        parsed = []
+        for line in align_path.read_text(encoding="utf-8").splitlines():
+            parts = line.split("\t")
+            if len(parts) >= 3:
+                parsed.append({"start": float(parts[0]), "end": float(parts[1]), "text": parts[2]})
+        if len(parsed) == len(phrases) and [c["text"] for c in parsed] == phrases:
+            dur = probe_dur(wav)
+            parsed[-1]["end"] = dur
+            parsed[0]["start"] = 0.0
+            for i in range(1, len(parsed)):
+                parsed[i]["start"] = parsed[i - 1]["end"]
+            parsed[-1]["end"] = dur
+            cues = parsed
+            reused = True
+            print("reuse VO", dur)
+    if not reused:
+        if wav.exists() and wav.stat().st_size > 800 and abs(probe_dur(wav) - LOCKED_DUR) < 0.08:
+            dur = probe_dur(wav)
+            cues = []
+            for (a, b), phrase in zip(LOCKED_MS, phrases):
+                cues.append({"text": phrase, "start": a / 1000.0, "end": b / 1000.0})
+            cues[-1]["end"] = dur
+            print("reuse locked-duration VO", dur)
+        else:
+            bounds = asyncio.run(synthesize_voice(text, mp3))
+            (audio / "vo.vtt.json").write_text(json.dumps(bounds, ensure_ascii=False, indent=2), encoding="utf-8")
+            if mp3.stat().st_size < 800:
+                raise RuntimeError("tts too small")
+            run(["ffmpeg", "-y", "-i", str(mp3), "-ac", "1", "-ar", "44100", "-sample_fmt", "s16", str(wav)])
+            dur = probe_dur(wav)
+            cues = align_phrases(phrases, bounds, dur)
+            print("TTS", f"{dur:.3f}s", "cues", len(cues))
 
     lines = [f"{c['start']:.3f}\t{c['end']:.3f}\t{c['text']}" for c in cues]
     (audio / "vo-align.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -319,7 +338,8 @@ def build_timeline(duration: float, cues: list[dict]) -> dict:
         shots_out.append(item)
 
         if shot["kind"] == "A":
-            a_i += 1
+            if i == 0 or shots_out[i - 1]["kind"] != "A":
+                a_i += 1
             for phrase in shot["phrases"]:
                 cue = phrase_lookup[phrase]
                 cap_s = max(start, cue["start"])
@@ -328,14 +348,14 @@ def build_timeline(duration: float, cues: list[dict]) -> dict:
                     continue
                 a_caps.append({"start": round(cap_s, 3), "end": round(cap_e, 3), "lines": [phrase]})
             eyebrows.append({"start": round(start, 3), "end": round(end, 3), "text": f"A-ROLL / {a_i:02d}"})
-        if i > 0:
+        if i > 0 and shot["kind"] != shots_out[i - 1]["kind"]:
             if shot["kind"] == "B":
                 color = [126, 224, 197]
-                if shots_out[i - 1]["kind"] == "B":
-                    color = [245, 247, 250]
             else:
                 color = [245, 193, 92]
             shutters.append({"start": round(start, 3), "color": color})
+        elif i > 0 and shot["kind"] == "B" and shots_out[i - 1]["kind"] == "B":
+            shutters.append({"start": round(start, 3), "color": [245, 247, 250]})
 
     for i in range(1, len(shots_out)):
         shots_out[i]["start"] = shots_out[i - 1]["end"]
