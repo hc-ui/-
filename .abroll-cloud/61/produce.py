@@ -25,7 +25,7 @@ W, H, FPS = 1080, 1920, 24
 NAME = "试点成功却推不开"
 STAGED_NAME = "61-试点成功却推不开.mp4"
 VOICE = "zh-CN-YunyangNeural"
-ASSET_SRC = Path("/workspace/.abroll-cloud/06/assets")
+ASSET_SRC = ROOT / "assets"
 FONT_BD = "/tmp/NotoSansSC-Bold.otf"
 FONT_REG = "/tmp/NotoSansSC-Regular.otf"
 FONT_FALLBACK = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
@@ -40,7 +40,7 @@ CREAM = (245, 247, 250)
 RED = (255, 118, 118)
 INK = (22, 24, 28)
 LEAD = 0.28
-EXPECTED_PHRASES = 13
+EXPECTED_PHRASES = 15
 
 
 def run(cmd: list[str]) -> None:

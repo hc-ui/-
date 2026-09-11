@@ -17,8 +17,9 @@
     {"id": "S04", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["换一间屋子，人走了，手册是空的"]},
     {"id": "S05", "kind": "B", "src": "broll/B-复制运气.mp4", "broll": "copy_luck", "phrases": ["你以为复制的是方法，其实复制的是运气"]},
     {"id": "S06", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["试点过了，不等于能铺开"]},
+    {"id": "S06b", "kind": "B", "src": "broll/B-复制运气.mp4", "broll": "copy_luck", "phrases": ["第一间屋子的成功，带不走"]},
     {"id": "S07", "kind": "B", "src": "broll/B-三条条件.mp4", "broll": "three_cond", "phrases": ["先写下试点为什么能成", "三条条件，缺一条就先别硬推"]},
-    {"id": "S08", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["下一间屋子对不上，就改条件，别改口号"]},
+    {"id": "S08", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["人、手册、工具，都要能搬家", "下一间屋子对不上，就改条件，别改口号"]},
     {"id": "S09", "kind": "B", "src": "broll/B-先别铺.mp4", "broll": "stop_roll", "phrases": ["庆祝试点，不等于交付推广"]},
     {"id": "S10", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["扩不开，就先别铺"]}
   ]
