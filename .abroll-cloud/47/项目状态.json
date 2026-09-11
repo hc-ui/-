@@ -7,7 +7,7 @@
   "source_note": "topics-batch3.md #47 / 备忘录第二节 3 脱产全职离校实习",
   "unused_of": "工位切片（成片16）/ 报销红线（成片28）/ 组会撞课（成片37）/ 杂务六十分（#46）/ 远程实习（#48）",
   "voice": "zh-CN-YunyangNeural",
-  "duration": 12.7,
+  "duration": 44.0,
   "size": [
     1080,
     1920
@@ -19,7 +19,7 @@
   "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
   "script": {
     "path": "script/voiceover.txt",
-    "sha256": "f11aac585b4a617e168912c07f2b661892691ed30fcd57053fb342009b4f8793"
+    "sha256": "20c211f1309e2a81053ce01272a3386ec9ec3c9c0721210d9d1e79041a26f08a"
   },
   "audio": {
     "path": "audio/vo-full.wav",
@@ -27,7 +27,7 @@
     "voice_id": "zh-CN-YunyangNeural",
     "sample_rate": 44100,
     "channels": 1,
-    "duration_ms": 12700
+    "duration_ms": 44000
   },
   "deliverables": {
     "final_video": "/workspace/成片/47-研一别脱产离校实习.mp4",
@@ -39,5 +39,5 @@
   "windows_paths": false,
   "drive_upload": false,
   "not": "drama-pipeline / 仙侠连载 / 远程实习讲法 / 下一期预告 / C: D: G: / Drive 上传",
-  "updated_at": "2026-09-11T12:28:02Z"
+  "updated_at": "2026-09-11T12:42:48Z"
 }

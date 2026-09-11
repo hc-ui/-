@@ -11,6 +11,7 @@ import hashlib
 import json
 import shutil
 import subprocess
+import math
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -398,6 +399,10 @@ def draw_roster(draw, cx: int, cy: int, scale: float, a: float, marked: bool) ->
             draw.text((x0 + w - int(36 * scale), yy), "缺", font=row_f, fill=mix(CARD, RED, a), anchor="rm")
 
 
+def bob(t: float, amp: float = 7.0, period: float = 3.1) -> int:
+    return int(amp * math.sin(2 * math.pi * t / period))
+
+
 def render_b_empty(duration: float) -> list[Image.Image]:
     n = max(1, round(duration * FPS))
     title_f = font(56)
@@ -406,9 +411,9 @@ def render_b_empty(duration: float) -> list[Image.Image]:
     num_f = font(36)
     out = []
     rows = [
-        (0.72, "会", "临时组会", "周末也可能叫", YELLOW),
-        (1.12, "腿", "派跑腿", "要人在场", MINT),
-        (1.52, "空", "工位空了", "名单对不上", CREAM),
+        (0.10, "会", "临时组会", "周末也可能叫", YELLOW),
+        (0.28, "腿", "派跑腿", "要人在场", MINT),
+        (0.46, "盯", "盯设备", "人得在旁边", CREAM),
     ]
     for i in range(n):
         t = i / FPS
@@ -416,25 +421,25 @@ def render_b_empty(duration: float) -> list[Image.Image]:
         d = ImageDraw.Draw(img)
         tag(d, t, "脱产风险")
         a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(18, 0, a0))), "人一走", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
+        d.text((W // 2, 220 + bob(t) + int(lerp(18, 0, a0))), "人一走", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
 
-        draw_empty_desk(d, 300, 430, 1.05, appear(t, 0.04, 0.22))
-        draw_roster(d, 780, 430, 1.0, appear(t, 0.10, 0.22), marked=t > 0.55)
+        draw_empty_desk(d, 300, 410 + bob(t, 5, 2.6), 1.05, appear(t, 0.04, 0.22))
+        draw_roster(d, 780, 410 + bob(t + 0.4, 5, 2.8), 1.0, appear(t, 0.10, 0.22), marked=t > duration * 0.22)
 
-        for idx, (ts, num, head, body, color) in enumerate(rows):
-            a = appear(t, ts, 0.24)
+        for idx, (frac, num, head, body, color) in enumerate(rows):
+            a = appear(t, duration * frac, 0.28)
             if a < 0.04:
                 continue
-            y = 640 + idx * 176 + int(lerp(22, 0, a))
-            rounded(d, (90, y, 990, y + 158), 28, mix(BG, CARD, a))
-            d.ellipse((128, y + 36, 220, y + 128), fill=mix(CARD, color, a))
-            d.text((174, y + 82), num, font=num_f, fill=mix(color, INK, a), anchor="mm")
-            d.text((248, y + 50), head, font=card_f, fill=mix(CARD, color, a), anchor="lm")
-            d.text((248, y + 114), body, font=sub_f, fill=mix(CARD, WHITE, a), anchor="lm")
+            y = 620 + idx * 168 + int(lerp(22, 0, a)) + bob(t + idx, 4, 2.7 + idx * 0.2)
+            rounded(d, (90, y, 990, y + 150), 28, mix(BG, CARD, a))
+            d.ellipse((128, y + 32, 220, y + 122), fill=mix(CARD, color, a))
+            d.text((174, y + 77), num, font=num_f, fill=mix(color, INK, a), anchor="mm")
+            d.text((248, y + 46), head, font=card_f, fill=mix(CARD, color, a), anchor="lm")
+            d.text((248, y + 108), body, font=sub_f, fill=mix(CARD, WHITE, a), anchor="lm")
 
-        punch = appear(t, 1.92, 0.24)
+        punch = appear(t, duration * 0.68, 0.28)
         if punch > 0.04:
-            y = 1200 + int(lerp(20, 0, punch))
+            y = 1148 + int(lerp(20, 0, punch)) + bob(t, 5, 2.4)
             rounded(d, (140, y, 940, y + 150), 26, mix(BG, (42, 28, 18), punch))
             d.text((W // 2, y + 75), "随时叫你在场", font=title_f, fill=mix(BG, YELLOW, punch), anchor="mm")
         out.append(img)
@@ -470,83 +475,220 @@ def render_b_checkpoint(duration: float) -> list[Image.Image]:
         d = ImageDraw.Draw(img)
         tag(d, t, "查岗")
         a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "先别走", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
+        d.text((W // 2, 220 + bob(t) + int(lerp(16, 0, a0))), "先别走", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
 
-        draw_ticket(d, W // 2, 480, 1.15, appear(t, 0.08, 0.24), stamped=t > 0.70)
+        draw_ticket(d, W // 2, 430 + bob(t, 6, 2.8), 1.10, appear(t, 0.06, 0.24), stamped=t > duration * 0.18)
 
-        bad = appear(t, 1.05, 0.22)
-        if bad > 0.04:
-            y = 680 + int(lerp(16, 0, bad))
-            rounded(d, (90, y, 990, y + 160), 26, mix(BG, CARD, bad))
-            d.text((160, y + 80), "脱产离校", font=card_f, fill=mix(CARD, MUTED, bad), anchor="lm")
-            strike_text(d, 160, y + 80, "脱产离校", card_f, t, 1.22)
-            d.text((160, y + 128), "师生矛盾", font=sub_f, fill=mix(CARD, RED, bad), anchor="lm")
+        leave = appear(t, duration * 0.16, 0.24)
+        if leave > 0.04:
+            y = 620 + int(lerp(16, 0, leave)) + bob(t, 4, 2.5)
+            rounded(d, (90, y, 990, y + 140), 26, mix(BG, CARD, leave))
+            d.text((160, y + 48), "私自离开合肥", font=card_f, fill=mix(CARD, WHITE, leave), anchor="lm")
+            d.text((160, y + 104), "更危险", font=sub_f, fill=mix(CARD, YELLOW, leave), anchor="lm")
 
-        good = appear(t, 1.40, 0.22)
-        if good > 0.04:
-            y = 870 + int(lerp(16, 0, good))
-            rounded(d, (90, y, 990, y + 160), 26, mix(BG, (22, 40, 36), good))
-            d.text((160, y + 80), "人在工位", font=card_f, fill=mix(CARD, MINT, good), anchor="lm")
-            d.text((160, y + 128), "先把人留下", font=sub_f, fill=mix(CARD, WHITE, good), anchor="lm")
-            check_badge(d, 860, y + 80, appear(t, 1.55, 0.20))
-
-        chair = appear(t, 1.70, 0.22)
+        chair = appear(t, duration * 0.34, 0.24)
         if chair > 0.04:
-            y = 1060 + int(lerp(12, 0, chair))
-            rounded(d, (90, y, 990, y + 150), 26, mix(BG, CARD, chair))
-            d.text((W // 2, y + 75), "查岗对上空座位", font=card_f, fill=mix(CARD, WHITE, chair), anchor="mm")
+            y = 780 + int(lerp(12, 0, chair)) + bob(t + 0.3, 4, 2.6)
+            rounded(d, (90, y, 990, y + 140), 26, mix(BG, CARD, chair))
+            d.text((W // 2, y + 70), "查岗对上空座位", font=card_f, fill=mix(CARD, WHITE, chair), anchor="mm")
 
-        punch = appear(t, 2.00, 0.22)
+        bad = appear(t, duration * 0.52, 0.24)
+        if bad > 0.04:
+            y = 940 + int(lerp(16, 0, bad)) + bob(t + 0.5, 4, 2.7)
+            rounded(d, (90, y, 990, y + 150), 26, mix(BG, CARD, bad))
+            d.text((160, y + 52), "空座位就是把柄", font=card_f, fill=mix(CARD, RED, bad), anchor="lm")
+            d.text((160, y + 110), "师生矛盾从这儿激化", font=sub_f, fill=mix(CARD, WHITE, bad), anchor="lm")
+            strike_text(d, 160, y + 52, "空座位就是把柄", card_f, t, duration * 0.58)
+
+        good = appear(t, duration * 0.72, 0.24)
+        if good > 0.04:
+            y = 1110 + int(lerp(16, 0, good)) + bob(t + 0.2, 5, 2.4)
+            rounded(d, (90, y, 990, y + 150), 26, mix(BG, (22, 40, 36), good))
+            d.text((160, y + 75), "人先留在工位", font=card_f, fill=mix(CARD, MINT, good), anchor="lm")
+            check_badge(d, 860, y + 75, appear(t, duration * 0.78, 0.20))
+
+        punch = appear(t, duration * 0.84, 0.22)
         if punch > 0.04:
-            y = 1240 + int(lerp(16, 0, punch))
-            rounded(d, (140, y, 940, y + 150), 26, mix(BG, (42, 28, 18), punch))
-            d.text((W // 2, y + 75), "空座位就是把柄", font=title_f, fill=mix(BG, YELLOW, punch), anchor="mm")
+            y = 1288 + int(lerp(16, 0, punch)) + bob(t, 4, 2.2)
+            rounded(d, (140, y, 940, y + 140), 26, mix(BG, (42, 28, 18), punch))
+            d.text((W // 2, y + 70), "空座位就是把柄", font=title_f, fill=mix(BG, YELLOW, punch), anchor="mm")
         out.append(img)
     return out
 
 
+def render_b_roster(duration: float) -> list[Image.Image]:
+    n = max(1, round(duration * FPS))
+    title_f = font(56)
+    card_f = font(40)
+    sub_f = font(28)
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "名单")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 220 + bob(t) + int(lerp(16, 0, a0))), "人对不上", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
+
+        draw_empty_desk(d, 300, 430 + bob(t, 6, 2.7), 1.08, appear(t, 0.06, 0.22))
+        draw_roster(d, 780, 430 + bob(t + 0.3, 6, 2.9), 1.05, appear(t, 0.12, 0.22), marked=t > duration * 0.28)
+
+        away = appear(t, duration * 0.18, 0.26)
+        if away > 0.04:
+            y = 700 + int(lerp(18, 0, away)) + bob(t, 5, 2.5)
+            rounded(d, (90, y, 990, y + 160), 26, mix(BG, CARD, away))
+            d.text((160, y + 52), "你人在外地", font=card_f, fill=mix(CARD, WHITE, away), anchor="lm")
+            d.text((160, y + 114), "工位空着", font=sub_f, fill=mix(CARD, RED, away), anchor="lm")
+
+        miss = appear(t, duration * 0.42, 0.26)
+        if miss > 0.04:
+            y = 890 + int(lerp(18, 0, miss)) + bob(t + 0.4, 5, 2.6)
+            rounded(d, (90, y, 990, y + 160), 26, mix(BG, CARD, miss))
+            d.text((160, y + 52), "组会名单打叉", font=card_f, fill=mix(CARD, YELLOW, miss), anchor="lm")
+            d.text((160, y + 114), "点名对不上人", font=sub_f, fill=mix(CARD, WHITE, miss), anchor="lm")
+
+        punch = appear(t, duration * 0.68, 0.26)
+        if punch > 0.04:
+            y = 1100 + int(lerp(16, 0, punch)) + bob(t, 5, 2.3)
+            rounded(d, (140, y, 940, y + 160), 26, mix(BG, (42, 28, 18), punch))
+            d.text((W // 2, y + 80), "名单对不上", font=title_f, fill=mix(BG, YELLOW, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_ticket(duration: float) -> list[Image.Image]:
+    n = max(1, round(duration * FPS))
+    title_f = font(56)
+    card_f = font(40)
+    sub_f = font(28)
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "离校")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 220 + bob(t) + int(lerp(16, 0, a0))), "先盖住", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
+
+        stamp_on = t > duration * 0.22
+        draw_ticket(d, W // 2, 460 + bob(t, 8, 2.6), 1.22, appear(t, 0.08, 0.26), stamped=stamp_on)
+
+        cover = appear(t, duration * 0.20, 0.26)
+        if cover > 0.04:
+            y = 680 + int(lerp(16, 0, cover)) + bob(t, 4, 2.5)
+            rounded(d, (90, y, 990, y + 150), 26, mix(BG, CARD, cover))
+            d.text((160, y + 50), "车票先盖住", font=card_f, fill=mix(CARD, WHITE, cover), anchor="lm")
+            d.text((160, y + 108), "合肥先别离开", font=sub_f, fill=mix(CARD, YELLOW, cover), anchor="lm")
+
+        cut = appear(t, duration * 0.42, 0.26)
+        if cut > 0.04:
+            y = 860 + int(lerp(16, 0, cut)) + bob(t + 0.3, 4, 2.6)
+            rounded(d, (90, y, 990, y + 160), 26, mix(BG, CARD, cut))
+            d.text((160, y + 52), "全职离校", font=card_f, fill=mix(CARD, MUTED, cut), anchor="lm")
+            strike_text(d, 160, y + 52, "全职离校", card_f, t, duration * 0.48)
+            d.text((160, y + 114), "研一先别走", font=sub_f, fill=mix(CARD, RED, cut), anchor="lm")
+
+        stay = appear(t, duration * 0.64, 0.26)
+        if stay > 0.04:
+            y = 1060 + int(lerp(16, 0, stay)) + bob(t, 5, 2.4)
+            rounded(d, (90, y, 990, y + 160), 26, mix(BG, (22, 40, 36), stay))
+            d.text((160, y + 80), "人先留在工位", font=card_f, fill=mix(CARD, MINT, stay), anchor="lm")
+            check_badge(d, 860, y + 80, appear(t, duration * 0.70, 0.20))
+
+        punch = appear(t, duration * 0.80, 0.24)
+        if punch > 0.04:
+            y = 1260 + int(lerp(14, 0, punch)) + bob(t, 4, 2.2)
+            rounded(d, (140, y, 940, y + 140), 26, mix(BG, (42, 28, 18), punch))
+            d.text((W // 2, y + 70), "研一先别走", font=title_f, fill=mix(BG, YELLOW, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+BROLL_RENDER = {
+    "empty_desk": render_b_empty,
+    "roster": render_b_roster,
+    "checkpoint": render_b_checkpoint,
+    "ticket": render_b_ticket,
+}
+
+
 def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
     recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    p0, p1, p2, p3, p4 = cues
-    b1 = max(p0[1] + 1.15, p2[0] - LEAD)
-    b2 = max(b1 + 1.15, p3[0] - LEAD)
-    if b1 <= p0[1] + 0.4:
-        b1 = p2[0]
-    if b2 <= b1 + 0.8:
-        b2 = p3[0]
+    cue_i = 0
+    shots: list[dict] = []
+    for spec in recipe["shots"]:
+        wanted = spec["phrases"]
+        group = cues[cue_i : cue_i + len(wanted)]
+        if len(group) != len(wanted):
+            raise RuntimeError(f"{spec['id']} expected {len(wanted)} cues, got {len(group)}")
+        for (_s, _e, got), want in zip(group, wanted):
+            if got != want:
+                raise RuntimeError(f"{spec['id']} cue {got!r} != {want!r}")
+        cue_i += len(wanted)
+        shot = {
+            "id": spec["id"],
+            "kind": spec["kind"],
+            "start": round(group[0][0], 3),
+            "end": round(group[-1][1], 3),
+            "src": spec["src"],
+            "line": group[0][2],
+            "lines": [g[2] for g in group],
+        }
+        if spec.get("close"):
+            shot["close"] = True
+        if spec.get("broll"):
+            shot["broll"] = spec["broll"]
+        shots.append(shot)
+    if cue_i != len(cues):
+        raise RuntimeError(f"unused cues: {cues[cue_i:]}")
 
-    shots = [
-        {"id": "S01a", "kind": "A", "start": 0.0, "end": round(p0[1], 3), "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
-        {"id": "S01b", "kind": "A", "start": round(p0[1], 3), "end": round(b1, 3), "src": "assets/V-摊手.mp4", "line": p1[2]},
-        {"id": "S02", "kind": "B", "start": round(b1, 3), "end": round(b2, 3), "src": "broll/B-空工位.mp4", "line": p2[2], "broll": "empty_desk"},
-        {"id": "S03", "kind": "B", "start": round(b2, 3), "end": round(p3[1], 3), "src": "broll/B-查岗.mp4", "line": p3[2], "broll": "checkpoint"},
-        {"id": "S04", "kind": "A", "start": round(p3[1], 3), "end": round(duration, 3), "src": "assets/V-指向.mp4", "line": p4[2]},
-    ]
     for i, shot in enumerate(shots):
-        if shot["end"] <= shot["start"] + 0.12:
-            shot["end"] = min(duration, shot["start"] + 0.16)
-            if i + 1 < len(shots):
-                shots[i + 1]["start"] = shot["end"]
+        if i == 0 or shot["kind"] != "B":
+            continue
+        lead_start = max(shots[i - 1]["start"] + 0.85, shot["start"] - LEAD)
+        if lead_start < shot["start"]:
+            shots[i - 1]["end"] = round(lead_start, 3)
+            shot["start"] = round(lead_start, 3)
+
+    shots[0]["start"] = 0.0
+    shots[-1]["end"] = round(duration, 3)
+    for i in range(len(shots) - 1):
+        shots[i]["end"] = shots[i + 1]["start"]
+        if shots[i]["end"] <= shots[i]["start"] + 0.12:
+            shots[i]["end"] = min(duration, shots[i]["start"] + 0.16)
+            shots[i + 1]["start"] = shots[i]["end"]
     shots[-1]["end"] = round(duration, 3)
 
-    a_caps = [
-        {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
-        {"start": round(p1[0], 3), "end": round(min(p1[1], b1), 3), "lines": split_caption(p1[2])},
-        {"start": round(p4[0], 3), "end": round(duration, 3), "lines": split_caption(p4[2])},
-    ]
+    a_caps = []
+    cue_lookup = {p: (s, e) for s, e, p in cues}
+    for spec, shot in zip(recipe["shots"], shots):
+        if spec["kind"] != "A":
+            continue
+        for phrase in spec["phrases"]:
+            s, e = cue_lookup[phrase]
+            a_caps.append({
+                "start": round(max(s, shot["start"]), 3),
+                "end": round(min(e, shot["end"]), 3),
+                "lines": split_caption(phrase),
+            })
     a_caps = [c for c in a_caps if c["end"] > c["start"] + 0.08]
 
+    palette = [CREAM, MINT, YELLOW, CREAM, MINT]
     shutters = [
-        {"start": round(p0[1], 3), "color": list(CREAM)},
-        {"start": round(b1, 3), "color": list(MINT)},
-        {"start": round(b2, 3), "color": list(CREAM)},
-        {"start": round(p3[1], 3), "color": list(YELLOW)},
+        {"start": round(shot["start"], 3), "color": list(palette[i % len(palette)])}
+        for i, shot in enumerate(shots) if i > 0
     ]
-    eyebrows = [
-        {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
-        {"start": round(p0[1], 3), "end": round(b1, 3), "text": "A-ROLL / 1b"},
-        {"start": round(p4[0], 3), "end": round(duration, 3), "text": "A-ROLL / 04"},
-    ]
+    eyebrows = []
+    a_idx = 0
+    for shot in shots:
+        if shot["kind"] != "A":
+            continue
+        a_idx += 1
+        eyebrows.append({
+            "start": shot["start"],
+            "end": shot["end"],
+            "text": f"A-ROLL / {a_idx:02d}",
+        })
     data = {
         "audio": "audio/vo-full.wav",
         "duration": round(duration, 3),
@@ -661,19 +803,15 @@ def render_captions(data: dict) -> Path:
 
 def cut_shot(src: Path, dur: float, dest: Path, kind: str, close: bool = False) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
-    src_dur = max(0.01, probe_dur(src))
     if kind == "A" and close:
         vf = f"scale=1380:2454,crop={W}:{H}:150:60,fps={FPS},setsar=1,format=yuv420p"
     elif kind == "A":
         vf = f"scale=1188:2112,crop={W}:{H}:54:105,fps={FPS},setsar=1,format=yuv420p"
     else:
         vf = f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,fps={FPS},setsar=1,format=yuv420p"
-    if kind == "A" and dur > src_dur + 0.05:
-        vf = f"setpts=PTS*{dur / src_dur:.6f},{vf}"
-    elif dur > src_dur + 0.02:
-        vf = f"{vf},tpad=stop_mode=clone:stop_duration={dur - src_dur:.3f}"
+    # Loop the source to cover the line. No setpts slow-mo, no tpad freeze.
     run([
-        "ffmpeg", "-y", "-i", str(src), "-t", f"{dur:.3f}",
+        "ffmpeg", "-y", "-stream_loop", "-1", "-i", str(src), "-t", f"{dur:.3f}",
         "-vf", vf, "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "18", str(dest),
     ])
 
@@ -779,7 +917,7 @@ def make_cover() -> Path:
 def copy_assets() -> None:
     dest = ROOT / "assets"
     dest.mkdir(exist_ok=True)
-    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "A-角色-小灯-摊手.jpg"):
+    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "V-点赞.mp4", "A-角色-小灯-摊手.jpg"):
         src = ASSET_SRC / name
         if not src.exists():
             raise FileNotFoundError(src)
@@ -844,7 +982,7 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
 
 钩子：研一别脱产离校实习。  
 方法：导师随时可能叫你开会、派跑腿。私自离开合肥，查岗对上空座位。  
-收束：人先留在工位。本条不讲远程，不说下一期。
+收束：人先留在工位。本条不讲远程，不说下一期。口播加长到 40–50 秒，A 镜循环、B 镜按句推进，不定格注水。
 
 ## 口播
 
@@ -971,8 +1109,11 @@ def qa(staged: Path, data: dict) -> dict:
             "broll_lead_s": LEAD,
         },
         "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
+        "duration_window_s": [40.0, 50.0],
+        "no_freeze_pad": True,
         "ok": True,
     }
+    dur_s = report["video"]["duration_s"]
     report["ok"] = (
         report["video"]["width"] == 1080
         and report["video"]["height"] == 1920
@@ -984,6 +1125,7 @@ def qa(staged: Path, data: dict) -> dict:
         and not overlap
         and not gap
         and report["timeline"]["last_end_equals_audio"]
+        and 40.0 <= dur_s <= 50.0
     )
     (ROOT / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
@@ -999,14 +1141,16 @@ def main() -> None:
     data = build_timeline(cues, duration)
     print("timeline shots", [(s["id"], s["start"], s["end"], s["kind"]) for s in data["shots"]])
 
-    b1 = next(s for s in data["shots"] if s["id"] == "S02")
-    b2 = next(s for s in data["shots"] if s["id"] == "S03")
-    d1 = max(2.2, float(b1["end"]) - float(b1["start"]))
-    d2 = max(2.2, float(b2["end"]) - float(b2["start"]))
-    print("render B-空工位", d1)
-    frames_to_mp4(render_b_empty(d1 + 0.12), ROOT / "broll" / "B-空工位.mp4")
-    print("render B-查岗", d2)
-    frames_to_mp4(render_b_checkpoint(d2 + 0.12), ROOT / "broll" / "B-查岗.mp4")
+    for shot in data["shots"]:
+        if shot["kind"] != "B":
+            continue
+        key = shot.get("broll")
+        if key not in BROLL_RENDER:
+            raise RuntimeError(f"unknown broll {key}")
+        span = max(2.4, float(shot["end"]) - float(shot["start"]))
+        dest = ROOT / shot["src"]
+        print("render", dest.name, span, key)
+        frames_to_mp4(BROLL_RENDER[key](span + 0.12), dest)
 
     make_cover()
     staged = assemble(data)

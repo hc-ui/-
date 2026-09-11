@@ -7,30 +7,35 @@
   "video_type": "普通短视频",
   "final": "/workspace/成片/47-研一别脱产离校实习.mp4",
   "project_final": "/workspace/.abroll-cloud/47/00_最终成片_研一别脱产离校实习.mp4",
-  "sha256": "b5b9819f0eaebf8e4c61d2cbf439c72f66c3c6bc9b152f72fc38acc6d58161af",
-  "bytes": 2721284,
+  "sha256": "d5164eb16f5ac7de462f47d1f60af8153fc17ecd1b4d70facdae1f570ba96f00",
+  "bytes": 9515233,
   "video": {
     "codec": "h264",
     "width": 1080,
     "height": 1920,
     "fps": 24.0,
     "pix_fmt": "yuv420p",
-    "duration_s": 12.7
+    "duration_s": 44.0
   },
   "audio": {
     "codec": "aac",
     "sample_rate": 44100,
     "channels": 2,
-    "mean_volume_db": -31.3,
-    "max_volume_db": -10.2
+    "mean_volume_db": -31.2,
+    "max_volume_db": -10.1
   },
   "timeline": {
-    "segments": 5,
+    "segments": 9,
     "overlap": false,
     "gap": false,
     "last_end_equals_audio": true,
     "broll_lead_s": 0.28
   },
   "decode_null": true,
+  "duration_window_s": [
+    40.0,
+    50.0
+  ],
+  "no_freeze_pad": true,
   "ok": true
 }

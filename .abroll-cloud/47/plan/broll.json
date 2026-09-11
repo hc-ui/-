@@ -4,30 +4,52 @@
     "file": "broll/B-空工位.mp4",
     "tag": "脱产风险",
     "title": "人一走",
-    "visual": "空工位对上组会名单打叉，再展开随时在场的三张卡",
+    "visual": "空工位对照卡按口播节奏逐条弹出，全程有微动，不定格",
     "cards": [
       {"num": "会", "head": "临时组会", "body": "周末也可能叫", "color": "yellow"},
       {"num": "腿", "head": "派跑腿", "body": "要人在场", "color": "mint"},
-      {"num": "空", "head": "工位空了", "body": "名单对不上", "color": "cream"}
+      {"num": "盯", "head": "盯设备", "body": "人得在旁边", "color": "cream"}
     ],
     "punch": "随时叫你在场",
-    "phrases": ["导师随时可能叫你开会、派跑腿"]
+    "phrases": [
+      "导师随时可能叫你开会",
+      "周末也可能拉临时组会",
+      "跑腿、送材料、盯设备，都要人在场"
+    ]
+  },
+  {
+    "id": "roster",
+    "file": "broll/B-名单.mp4",
+    "tag": "名单",
+    "title": "人对不上",
+    "visual": "组会名单逐行点名，缺席行划掉，对照空工位",
+    "punch": "名单对不上",
+    "phrases": ["你人在外地，名单对不上"]
   },
   {
     "id": "checkpoint",
     "file": "broll/B-查岗.mp4",
     "tag": "查岗",
     "title": "先别走",
-    "visual": "合肥到外地的车票盖先别；查岗对上空座位",
-    "cards": [
-      {"num": "票", "head": "离开合肥", "body": "车票先盖住", "color": "yellow"},
-      {"num": "岗", "head": "一旦查岗", "body": "对上空座位", "color": "mint"}
-    ],
-    "contrast": [
-      {"head": "脱产离校", "body": "师生矛盾", "color": "red"},
-      {"head": "人在工位", "body": "先把人留下", "color": "mint"}
-    ],
+    "visual": "查岗对上空座位，把柄和矛盾卡按节奏弹出",
     "punch": "空座位就是把柄",
-    "phrases": ["私自离开合肥，查岗对上空座位"]
+    "phrases": [
+      "私自离开合肥，更危险",
+      "一旦查岗，对上的是空座位",
+      "空座位就是把柄",
+      "师生矛盾从这儿激化"
+    ]
+  },
+  {
+    "id": "ticket",
+    "file": "broll/B-车票.mp4",
+    "tag": "离校",
+    "title": "先盖住",
+    "visual": "合肥到外地车票盖先别，全职离校划掉",
+    "punch": "研一先别走",
+    "phrases": [
+      "车票先盖住",
+      "全职离校这条，研一先别走"
+    ]
   }
 ]
