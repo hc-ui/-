@@ -1,9 +1,10 @@
 {
   "video_type": "普通短视频",
   "topic": "347_口头答应没有截止日",
-  "status": "rendering",
+  "status": "completed",
   "duration": 12.12,
   "size": [1080, 1920],
   "fps": 24,
-  "voice": "zh-CN-YunyangNeural"
+  "voice": "zh-CN-YunyangNeural",
+  "deliverable": "成片/01-口头答应没有截止日.mp4"
 }
