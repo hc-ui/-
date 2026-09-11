@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "project_name": "81_请假带两方案",
+  "video_type": "普通短视频",
+  "episode": 81,
+  "title": "请假带两方案",
+  "source_note": "topics-batch4.md #81 / 备忘录第三节第三步 / 云端 NEW",
+  "slug": "81_请假带两方案",
+  "duration_zh": "43.6秒",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 43.625,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "2ad7f53d4ad2ad00ce6cfb90281a8a4f4e1493e1e8a57775d321dec6aa7656c7"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 43625
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/81-请假带两方案.mp4",
+    "project_final": "00_最终成片_请假带两方案.mp4",
+    "cover": "00_封面_请假带两方案.jpg"
+  },
+  "staged": "成片/81-请假带两方案.mp4",
+  "distinct_from": "成片/37-组会撞课先摸惯例再书面报备.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / 成片37先摸惯例 / 工期大饼 / 真名话术",
+  "updated_at": "2026-09-11T14:24:14Z"
+}
