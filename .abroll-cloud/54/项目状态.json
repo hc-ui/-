@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "54_别用你肯定知道开头",
+  "video_type": "普通短视频",
+  "episode": 54,
+  "title": "别用你肯定知道开头",
+  "source_note": "topics-batch3.md #54 / 工厂 310_别用你肯定知道开头 voiceover.txt",
+  "slug": "310_别用你肯定知道开头",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 11.8,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "6dbf4163e23f2dc76eddc313b86f9bf4c4864e706d5808329768abf2b612a9d1"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 11800
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/54-别用你肯定知道开头.mp4",
+    "project_final": "00_最终成片_别用你肯定知道开头.mp4",
+    "cover": "00_封面_别用你肯定知道开头.jpg"
+  },
+  "staged": "成片/54-别用你肯定知道开头.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T12:31:43Z"
+}
