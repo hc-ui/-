@@ -327,7 +327,8 @@ class Episode:
         if len(phrases) != self.expected_phrases:
             raise SystemExit(f"need {self.expected_phrases} phrases, got {len(phrases)}")
         wav = self.root / "audio" / "vo-full.wav"
-        rates = ["-4%", "-6%", "-8%", "-2%", "-10%"]
+        # Faster first: ~190–210 汉字 land in the 40–50s window.
+        rates = ["+6%", "+4%", "+2%", "-2%", "-4%"]
         best_target = None
         best_hard = None
         last = None
@@ -673,9 +674,38 @@ class Episode:
         out = self.root / "output" / f"{self.name}.mp4"
         safe_copy(final, out)
         safe_copy(final, self.root / "final" / f"{self.name}.mp4")
-        staged = Path("/workspace/成片") / self.staged_name
-        safe_copy(final, staged)
+        staged, overwritten, existing_dur = self.resolve_stage_target(final)
+        print(
+            "STAGE",
+            staged,
+            "overwritten" if overwritten else "kept-existing",
+            zh_sec(existing_dur),
+        )
         return staged
+
+    def resolve_stage_target(self, final: Path) -> tuple[Path, bool, float]:
+        """Copy into 成片/ only when missing or shorter than 30s. Never freeze-pad."""
+        dest = Path("/workspace/成片") / self.staged_name
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if dest.exists():
+            try:
+                existing = probe_dur(dest)
+            except Exception:
+                existing = 0.0
+            if existing >= HARD_LO:
+                print(f"KEEP 成片 {dest.name} {zh_sec(existing)}（已≥{HARD_LO:.0f}秒），不覆盖")
+                return final, False, existing
+            print(f"OVERWRITE 成片 {dest.name} {zh_sec(existing)}（<{HARD_LO:.0f}秒）")
+        else:
+            print(f"STAGE new 成片 {dest.name}")
+        if dest.exists():
+            try:
+                if dest.resolve() == final.resolve() or dest.samefile(final):
+                    return dest, True, probe_dur(dest)
+            except OSError:
+                pass
+        shutil.copy2(final, dest)
+        return dest, True, probe_dur(dest)
 
     def make_cover(self) -> Path:
         data = json.loads((self.root / "timeline.json").read_text(encoding="utf-8"))
@@ -813,6 +843,7 @@ class Episode:
             },
             "staged": f"成片/{self.staged_name}",
             "draft": f".abroll-cloud/{n}-long",
+            "qa_video": str(staged),
             "replaced_short_cut_s": self.replaced_short,
             "cloud_only": True,
             "windows_paths": False,
@@ -973,14 +1004,23 @@ class Episode:
                 raise RuntimeError(f"B-roll too short after render {fname}")
 
         self.make_cover()
-        staged = self.assemble(data)
-        dur = probe_dur(staged)
-        self.write_docs(dur, staged, data)
-        self.patch_index_line(Path("/workspace/成片/INDEX.md"), dur)
-        self.patch_index_line(Path("/workspace/.abroll-cloud/INDEX.chengpian.md"), dur)
-        self.patch_delivery(dur)
-        report = self.qa(staged, data)
-        print("STAGED", staged, "dur", dur, zh_sec(dur), "ok", report["ok"])
+        qa_path = self.assemble(data)
+        draft_final = self.root / f"00_最终成片_{self.name}.mp4"
+        draft_dur = probe_dur(draft_final)
+        staged_path = Path("/workspace/成片") / self.staged_name
+        cheng_dur = probe_dur(staged_path) if staged_path.exists() else draft_dur
+        self.write_docs(draft_dur, qa_path, data)
+        self.patch_index_line(Path("/workspace/成片/INDEX.md"), cheng_dur)
+        self.patch_index_line(Path("/workspace/.abroll-cloud/INDEX.chengpian.md"), cheng_dur)
+        self.patch_delivery(cheng_dur)
+        report = self.qa(qa_path, data)
+        report["chengpian"] = str(staged_path) if staged_path.exists() else str(qa_path)
+        report["chengpian_duration_s"] = cheng_dur
+        report["chengpian_duration_zh"] = zh_sec(cheng_dur)
+        report["draft_duration_s"] = draft_dur
+        report["draft_duration_zh"] = zh_sec(draft_dur)
+        (self.root / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print("QA", qa_path, "draft", zh_sec(draft_dur), "成片", zh_sec(cheng_dur), "ok", report["ok"])
         if not report["ok"]:
             raise SystemExit(json.dumps(report, ensure_ascii=False, indent=2))
         return report
