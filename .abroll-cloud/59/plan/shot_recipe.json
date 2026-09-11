@@ -7,7 +7,8 @@
   "video_type": "普通短视频",
   "topic_id": "59",
   "source": "topics-batch3.md #59 / 项目索引 28_睡眠债补不回来",
-  "note": "知识口播。不是剧情短剧，不走 drama-pipeline。不跟「把白天偷回来」海报片重复。",
+  "note": "知识口播加长到 40–50 秒。不是剧情短剧。不定格注水，口播加句、B-roll 加节拍。",
+  "target_duration_s": [40, 50],
   "shots": [
     {
       "id": "S01a",
@@ -24,29 +25,48 @@
     },
     {
       "id": "S02",
-      "kind": "B",
-      "src": "broll/B-节奏乱了.mp4",
-      "phrases": ["不是没睡够，是节奏乱了"],
-      "broll": "rhythm"
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["你以为觉补回来了，身体不认这笔账"]
     },
     {
       "id": "S03",
+      "kind": "B",
+      "src": "broll/B-节奏乱了.mp4",
+      "phrases": ["不是没睡够，是节奏乱了", "生物钟认固定的起床点，不认周末睡到中午", "起床点一漂，整周都会困"],
+      "broll": "rhythm"
+    },
+    {
+      "id": "S04",
       "kind": "B",
       "src": "broll/B-还不清.mp4",
       "phrases": ["睡眠债不能周末一次还清", "晚睡两小时，不是多睡两小时就能抹平"],
       "broll": "debt"
     },
     {
-      "id": "S04",
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-困意节律.mp4",
+      "phrases": ["补回来的是困意，补不回来的是节律"],
+      "broll": "ledger"
+    },
+    {
+      "id": "S06",
       "kind": "A",
       "src": "assets/V-指向.mp4",
       "phrases": ["固定起床，比补觉更有用"]
     },
     {
-      "id": "S05",
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["起床点锁死，睡觉点才跟得上"]
+    },
+    {
+      "id": "S08",
       "kind": "B",
       "src": "broll/B-少刷一条.mp4",
-      "phrases": ["今晚少刷一条，比周末睡到中午值"],
+      "phrases": ["今晚少刷一条，比周末睡到中午值", "少欠一笔，比周末一次还清靠谱"],
       "broll": "skip"
     }
   ]

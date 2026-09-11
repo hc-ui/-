@@ -107,7 +107,7 @@ def tag(draw: ImageDraw.ImageDraw, t: float, label: str) -> None:
     draw.text((x, y), label, font=fnt, fill=mix(BG, MINT, a))
 
 
-def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
+def frames_to_mp4(frames, dest: Path) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
         "ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
@@ -117,14 +117,23 @@ def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
     ]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
     assert proc.stdin is not None
+    kept = None
+    count = 0
     for im in frames:
         proc.stdin.write(im.convert("RGB").tobytes())
+        count += 1
+        if count == 1 or count % 24 == 12:
+            kept = im
     proc.stdin.close()
     err = proc.stderr.read().decode("utf-8", errors="replace") if proc.stderr else ""
     if proc.wait() != 0:
         raise RuntimeError(err[-2000:])
-    mid = frames[min(len(frames) // 2, len(frames) - 1)]
-    mid.save(dest.with_suffix(".jpg"), quality=92)
+    if kept is not None:
+        kept.save(dest.with_suffix(".jpg"), quality=92)
+
+
+def dur_zh(seconds: float) -> str:
+    return f"{seconds:.1f}秒"
 
 
 def strike_line(draw: ImageDraw.ImageDraw, box, progress: float, color) -> None:
@@ -153,7 +162,7 @@ def draw_clock(draw: ImageDraw.ImageDraw, cx: int, cy: int, r: int, hour: float,
 
 
 def render_b_rhythm(duration: float) -> list[Image.Image]:
-    """周末睡到中午、周一闹钟对不上；划掉没睡够，露出节奏乱了。"""
+    """三拍：周末/周一钟 → 生物钟认起床点 → 起床点一漂整周困。"""
     n = max(1, round(duration * FPS))
     out = []
     for i in range(n):
@@ -163,28 +172,59 @@ def render_b_rhythm(duration: float) -> list[Image.Image]:
         tag(d, t, "错 · 没睡够")
         a0 = appear(t, 0.02)
         d.text((W // 2, 228 + int(lerp(16, 0, a0))), "不是没睡够", font=font(58), fill=mix(BG, WHITE, a0), anchor="mm")
-        strike_line(d, (220, 188, 860, 268), appear(t, 0.85, 0.28), mix(BG, RED, a0))
+        strike_line(d, (220, 188, 860, 268), appear(t, 0.72, 0.28), mix(BG, RED, a0))
 
-        a1 = appear(t, 0.18)
-        if a1 > 0.04:
-            y = 320 + int(lerp(20, 0, a1))
-            rounded(d, (80, y, 510, y + 520), 32, mix(BG, CARD, a1))
-            d.text((295, y + 56), "周末", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
-            draw_clock(d, 295, y + 210, 96, 12.0, a1, YELLOW)
-            d.text((295, y + 370), "睡到中午", font=font(42), fill=mix(CARD, YELLOW, a1), anchor="mm")
-            d.text((295, y + 450), "补觉对不上钟", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
-
-            rounded(d, (570, y, 1000, y + 520), 32, mix(BG, CARD, a1))
-            d.text((785, y + 56), "周一", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
-            draw_clock(d, 785, y + 210, 96, 7.0, a1, RED)
-            d.text((785, y + 370), "闹钟对不上", font=font(42), fill=mix(CARD, RED, a1), anchor="mm")
-            d.text((785, y + 450), "周一更困", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
-
-        punch = appear(t, 1.28, 0.24)
-        if punch > 0.04:
-            y = 900 + int(lerp(22, 0, punch))
-            rounded(d, (120, y, 960, y + 200), 28, mix(BG, (42, 24, 22), punch))
-            d.text((W // 2, y + 100), "是节奏乱了", font=font(56), fill=mix(BG, YELLOW, punch), anchor="mm")
+        if t < 3.15:
+            a1 = appear(t, 0.16)
+            if a1 > 0.04:
+                y = 320 + int(lerp(20, 0, a1))
+                rounded(d, (80, y, 510, y + 500), 32, mix(BG, CARD, a1))
+                d.text((295, y + 52), "周末", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+                draw_clock(d, 295, y + 200, 90, 12.0, a1, YELLOW)
+                d.text((295, y + 350), "睡到中午", font=font(42), fill=mix(CARD, YELLOW, a1), anchor="mm")
+                d.text((295, y + 430), "补觉对不上钟", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
+                rounded(d, (570, y, 1000, y + 500), 32, mix(BG, CARD, a1))
+                d.text((785, y + 52), "周一", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+                draw_clock(d, 785, y + 200, 90, 7.17, a1, RED)
+                d.text((785, y + 350), "闹钟对不上", font=font(42), fill=mix(CARD, RED, a1), anchor="mm")
+                d.text((785, y + 430), "周一更困", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
+            punch = appear(t, 1.20, 0.24)
+            if punch > 0.04:
+                y = 880 + int(lerp(22, 0, punch))
+                rounded(d, (120, y, 960, y + 180), 28, mix(BG, (42, 24, 22), punch))
+                d.text((W // 2, y + 90), "是节奏乱了", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
+        elif t < 6.35:
+            a2 = appear(t, 3.15, 0.28)
+            d.text((W // 2, 320 + int(lerp(16, 0, a2))), "生物钟认的是", font=font(40), fill=mix(BG, MUTED, a2), anchor="mm")
+            y = 390 + int(lerp(20, 0, a2))
+            rounded(d, (80, y, 510, y + 360), 32, mix(BG, (18, 42, 36), a2))
+            d.text((295, y + 90), "认", font=font(30), fill=mix(CARD, MUTED, a2), anchor="mm")
+            d.text((295, y + 190), "固定起床点", font=font(46), fill=mix(CARD, MINT, a2), anchor="mm")
+            d.text((295, y + 280), "钟还在这条线上", font=font(28), fill=mix(CARD, MUTED, a2), anchor="mm")
+            rounded(d, (570, y, 1000, y + 360), 32, mix(BG, CARD, a2))
+            d.text((785, y + 90), "不认", font=font(30), fill=mix(CARD, MUTED, a2), anchor="mm")
+            d.text((785, y + 190), "睡到中午", font=font(46), fill=mix(CARD, YELLOW, a2), anchor="mm")
+            strike_line(d, (620, y + 150, 950, y + 230), appear(t, 3.7, 0.26), mix(CARD, RED, a2))
+            punch = appear(t, 4.4, 0.24)
+            if punch > 0.04:
+                y = 820 + int(lerp(22, 0, punch))
+                rounded(d, (120, y, 960, y + 180), 28, mix(BG, (18, 42, 36), punch))
+                d.text((W // 2, y + 90), "不认周末午睡", font=font(50), fill=mix(BG, MINT, punch), anchor="mm")
+        else:
+            a3 = appear(t, 6.35, 0.28)
+            d.text((W // 2, 360 + int(lerp(16, 0, a3))), "起床点一漂", font=font(64), fill=mix(BG, WHITE, a3), anchor="mm")
+            days = ["一", "二", "三", "四", "五"]
+            for j, lab in enumerate(days):
+                ax = appear(t, 6.55 + j * 0.12, 0.18)
+                x0 = 90 + j * 190
+                rounded(d, (x0, 520, x0 + 170, 780), 24, mix(BG, CARD, ax))
+                d.text((x0 + 85, 580), f"周{lab}", font=font(30), fill=mix(CARD, MUTED, ax), anchor="mm")
+                d.text((x0 + 85, 680), "困", font=font(56), fill=mix(CARD, RED, ax), anchor="mm")
+            punch = appear(t, 7.4, 0.24)
+            if punch > 0.04:
+                y = 860 + int(lerp(22, 0, punch))
+                rounded(d, (120, y, 960, y + 180), 28, mix(BG, (42, 24, 22), punch))
+                d.text((W // 2, y + 90), "整周都会困", font=font(56), fill=mix(BG, YELLOW, punch), anchor="mm")
         out.append(img)
     return out
 
@@ -222,6 +262,45 @@ def render_b_debt(duration: float) -> list[Image.Image]:
             y = 800 + int(lerp(22, 0, punch))
             rounded(d, (120, y, 960, y + 200), 28, mix(BG, (42, 24, 22), punch))
             d.text((W // 2, y + 100), "抹不平", font=font(64), fill=mix(BG, RED, punch), anchor="mm")
+        if t >= 3.6:
+            a3 = appear(t, 3.6, 0.26)
+            y = 1040 + int(lerp(18, 0, a3))
+            rounded(d, (140, y, 940, y + 160), 24, mix(BG, (18, 42, 36), a3))
+            d.text((W // 2, y + 80), "一次还不清", font=font(48), fill=mix(BG, MINT, a3), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_ledger(duration: float) -> list[Image.Image]:
+    """困意能缓，节律补不回。"""
+    n = max(1, round(duration * FPS))
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "账 · 分得清")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "补回来的不是同一笔", font=font(46), fill=mix(BG, WHITE, a0), anchor="mm")
+
+        a1 = appear(t, 0.18)
+        if a1 > 0.04:
+            y = 340 + int(lerp(20, 0, a1))
+            rounded(d, (80, y, 510, y + 420), 32, mix(BG, (18, 42, 36), a1))
+            d.text((295, y + 80), "困意", font=font(36), fill=mix(CARD, MUTED, a1), anchor="mm")
+            d.text((295, y + 200), "能缓", font=font(72), fill=mix(CARD, MINT, a1), anchor="mm")
+            d.text((295, y + 320), "多睡一会儿", font=font(32), fill=mix(CARD, MUTED, a1), anchor="mm")
+            rounded(d, (570, y, 1000, y + 420), 32, mix(BG, CARD, a1))
+            d.text((785, y + 80), "节律", font=font(36), fill=mix(CARD, MUTED, a1), anchor="mm")
+            d.text((785, y + 200), "补不回", font=font(64), fill=mix(CARD, RED, a1), anchor="mm")
+            strike_line(d, (620, y + 160, 950, y + 240), appear(t, 1.05, 0.26), mix(CARD, RED, a1))
+            d.text((785, y + 320), "不是同一本账", font=font(32), fill=mix(CARD, MUTED, a1), anchor="mm")
+
+        punch = appear(t, 1.55, 0.24)
+        if punch > 0.04:
+            y = 840 + int(lerp(22, 0, punch))
+            rounded(d, (100, y, 980, y + 200), 28, mix(BG, (42, 24, 22), punch))
+            d.text((W // 2, y + 100), "节律补不回来", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
         out.append(img)
     return out
 
@@ -399,22 +478,36 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
     return duration, aligned
 
 
+def split_caption(line: str) -> list[str]:
+    line = line.strip("。．. ")
+    if "，" in line and len(line) > 10:
+        parts = [p for p in line.split("，") if p]
+        if 1 < len(parts) <= 2:
+            return parts
+    return [line]
+
+
 def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
     recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    if len(cues) != 7:
-        raise SystemExit(f"need 7 cues, got {len(cues)}: {cues}")
-    p0, p1, p2, p3, p4, p5, p6 = cues
-    b_rhythm = max(p1[0] + 0.62, p2[0] - LEAD)
-    b_debt = p2[1]
-    b_wake = max(p4[0] + 0.55, p5[0] - LEAD)
-    b_skip = max(p5[0] + 0.62, p6[0] - LEAD)
+    if len(cues) != 13:
+        raise SystemExit(f"need 13 cues, got {len(cues)}: {cues}")
+    p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12 = cues
+    t_s03 = max(p2[0] + 0.55, p3[0] - LEAD)
+    t_s04 = p5[1]
+    t_s05 = p7[1]
+    t_s06 = max(p8[0] + 0.50, p9[0] - LEAD)
+    t_s07 = p9[1]
+    t_s08 = max(p10[0] + 0.55, p11[0] - LEAD)
     shots = [
         {"id": "S01a", "kind": "A", "start": 0.0, "end": p0[1], "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
-        {"id": "S01b", "kind": "A", "start": p0[1], "end": b_rhythm, "src": "assets/V-摊手.mp4", "line": p1[2]},
-        {"id": "S02", "kind": "B", "start": b_rhythm, "end": b_debt, "src": "broll/B-节奏乱了.mp4", "line": p2[2], "broll": "rhythm"},
-        {"id": "S03", "kind": "B", "start": b_debt, "end": b_wake, "src": "broll/B-还不清.mp4", "line": p3[2] + p4[2], "broll": "debt"},
-        {"id": "S04", "kind": "A", "start": b_wake, "end": b_skip, "src": "assets/V-指向.mp4", "line": p5[2]},
-        {"id": "S05", "kind": "B", "start": b_skip, "end": duration, "src": "broll/B-少刷一条.mp4", "line": p6[2], "broll": "skip"},
+        {"id": "S01b", "kind": "A", "start": p0[1], "end": p1[1], "src": "assets/V-摊手.mp4", "line": p1[2]},
+        {"id": "S02", "kind": "A", "start": p1[1], "end": t_s03, "src": "assets/V-点赞.mp4", "line": p2[2]},
+        {"id": "S03", "kind": "B", "start": t_s03, "end": t_s04, "src": "broll/B-节奏乱了.mp4", "line": p3[2], "broll": "rhythm"},
+        {"id": "S04", "kind": "B", "start": t_s04, "end": t_s05, "src": "broll/B-还不清.mp4", "line": p6[2], "broll": "debt"},
+        {"id": "S05", "kind": "B", "start": t_s05, "end": t_s06, "src": "broll/B-困意节律.mp4", "line": p8[2], "broll": "ledger"},
+        {"id": "S06", "kind": "A", "start": t_s06, "end": t_s07, "src": "assets/V-指向.mp4", "line": p9[2]},
+        {"id": "S07", "kind": "A", "start": t_s07, "end": t_s08, "src": "assets/V-摊手.mp4", "line": p10[2]},
+        {"id": "S08", "kind": "B", "start": t_s08, "end": duration, "src": "broll/B-少刷一条.mp4", "line": p11[2], "broll": "skip"},
     ]
     for i, shot in enumerate(shots):
         shot["start"] = round(float(shot["start"]), 3)
@@ -435,20 +528,26 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "shots": shots,
         "a_caps": [
             {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
-            {"start": round(p1[0], 3), "end": round(b_rhythm, 3), "lines": ["周末补觉", "周一更困"]},
-            {"start": round(p5[0], 3), "end": round(b_skip, 3), "lines": ["固定起床", "比补觉更有用"]},
+            {"start": round(p1[0], 3), "end": round(p1[1], 3), "lines": ["周末补觉", "周一更困"]},
+            {"start": round(p2[0], 3), "end": round(t_s03, 3), "lines": ["身体不认这笔账"]},
+            {"start": round(p9[0], 3), "end": round(t_s07, 3), "lines": ["固定起床", "比补觉更有用"]},
+            {"start": round(p10[0], 3), "end": round(t_s08, 3), "lines": ["起床点锁死", "睡觉点才跟上"]},
         ],
         "shutters": [
             {"start": round(p0[1], 3), "color": list(CREAM)},
-            {"start": round(b_rhythm, 3), "color": list(MINT)},
-            {"start": round(b_debt, 3), "color": list(YELLOW)},
-            {"start": round(b_wake, 3), "color": list(CREAM)},
-            {"start": round(b_skip, 3), "color": list(MINT)},
+            {"start": round(p1[1], 3), "color": list(CREAM)},
+            {"start": round(t_s03, 3), "color": list(MINT)},
+            {"start": round(t_s04, 3), "color": list(YELLOW)},
+            {"start": round(t_s05, 3), "color": list(RED)},
+            {"start": round(t_s06, 3), "color": list(CREAM)},
+            {"start": round(t_s08, 3), "color": list(MINT)},
         ],
         "eyebrows": [
             {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
-            {"start": round(p0[1], 3), "end": round(b_rhythm, 3), "text": "A-ROLL / 1b"},
-            {"start": round(b_wake, 3), "end": round(b_skip, 3), "text": "A-ROLL / 04"},
+            {"start": round(p0[1], 3), "end": round(p1[1], 3), "text": "A-ROLL / 1b"},
+            {"start": round(p1[1], 3), "end": round(t_s03, 3), "text": "A-ROLL / 02"},
+            {"start": round(t_s06, 3), "end": round(t_s07, 3), "text": "A-ROLL / 06"},
+            {"start": round(t_s07, 3), "end": round(t_s08, 3), "text": "A-ROLL / 07"},
         ],
         "cover": {
             "title": recipe["cover_title"],
@@ -456,10 +555,11 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
             "line": recipe["cover_line"],
             "src": recipe["cover_src"],
         },
-        "cue_map": {p: [round(s, 3), round(e, 3)] for s, e, p in cues},
+        "cue_map": {phrase: [round(s, 3), round(e, 3)] for s, e, phrase in cues},
         "b_lead_s": LEAD,
         "video_type": "普通短视频",
         "source_note": "topics-batch3.md #59 / 工厂 28_睡眠债补不回来",
+        "length_rule": "30-60秒，目标40-50秒",
     }
     (ROOT / "timeline.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return data
@@ -703,7 +803,7 @@ def make_cover() -> Path:
 def copy_assets() -> None:
     dest = ROOT / "assets"
     dest.mkdir(exist_ok=True)
-    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "A-角色-小灯-摊手.jpg"):
+    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "V-点赞.mp4", "A-角色-小灯-摊手.jpg"):
         src = ASSET_SRC / name
         if not src.exists():
             raise FileNotFoundError(src)
@@ -776,34 +876,34 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
 
 ## 规格
 
-1080×1920，24 fps，H.264 + AAC 44100 stereo，约 {duration:.2f} 秒。镜头 {len(data["shots"])} 条，时间轴闭合。
+1080×1920，24 fps，H.264 + AAC 44100 stereo，约 {duration:.2f} 秒（加长，目标四十到五十秒）。镜头 {len(data["shots"])} 条，时间轴闭合。
 """
     (ROOT / "项目说明.md").write_text(note, encoding="utf-8")
 
 
 def patch_index(duration: float) -> None:
-    idx = Path("/workspace/成片/INDEX.md")
-    line = f"| `{STAGED_NAME}` | {duration:.1f}s |"
-    if idx.exists():
+    line = f"| `{STAGED_NAME}` | {dur_zh(duration)} |"
+    for idx in (Path("/workspace/成片/INDEX.md"), Path("/workspace/.abroll-cloud/INDEX.chengpian.md")):
+        if not idx.exists():
+            if idx.name == "INDEX.md":
+                idx.write_text(
+                    "# 成片（可直接看）\n\n竖屏口播 1080×1920，H.264 + AAC。\n\n| 文件 | 时长 |\n|------|------|\n"
+                    + line + "\n",
+                    encoding="utf-8",
+                )
+            continue
         text = idx.read_text(encoding="utf-8")
-        if STAGED_NAME not in text:
-            if not text.endswith("\n"):
-                text += "\n"
-            text += line + "\n"
+        if STAGED_NAME in text:
+            text = re.sub(rf"\| `{re.escape(STAGED_NAME)}` \| [0-9.]+(?:s|秒) \|", line, text)
             idx.write_text(text, encoding="utf-8")
-    else:
-        idx.write_text(
-            "# 成片（可直接看）\n\n竖屏口播 1080×1920，H.264 + AAC。\n\n| 文件 | 时长 |\n|------|------|\n"
-            + line + "\n",
-            encoding="utf-8",
-        )
-    cloud = Path("/workspace/.abroll-cloud/INDEX.chengpian.md")
-    if cloud.exists():
-        text = cloud.read_text(encoding="utf-8")
-        if STAGED_NAME not in text:
-            if not text.endswith("\n"):
-                text += "\n"
-            cloud.write_text(text + line + "\n", encoding="utf-8")
+            continue
+        if not text.endswith("\n"):
+            text += "\n"
+        if "仙侠云海突进" in text:
+            text = text.replace("| `仙侠云海突进.mp4`", line + "\n| `仙侠云海突进.mp4`")
+        else:
+            text += line + "\n"
+        idx.write_text(text, encoding="utf-8")
 
 
 def qa(staged: Path, data: dict) -> dict:
@@ -876,6 +976,8 @@ def qa(staged: Path, data: dict) -> dict:
         },
         "vo_banned_hit": [w for w in banned if w in vo],
         "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
+        "duration_zh": dur_zh(float(info["format"]["duration"])),
+        "length_ok": 30.0 <= float(info["format"]["duration"]) <= 60.0,
         "ok": True,
     }
     report["ok"] = (
@@ -890,6 +992,7 @@ def qa(staged: Path, data: dict) -> dict:
         and not gap
         and report["timeline"]["last_end_equals_audio"]
         and not report["vo_banned_hit"]
+        and report["length_ok"]
     )
     (ROOT / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
@@ -897,8 +1000,15 @@ def qa(staged: Path, data: dict) -> dict:
 
 def main() -> None:
     copy_assets()
+    audio_dir = ROOT / "audio"
+    for name in ("vo-full.wav", "vo-full.mp3", "vo-align.txt"):
+        p = audio_dir / name
+        if p.exists():
+            p.unlink()
     duration, cues = make_voiceover()
-    print("VO", duration)
+    print("VO", duration, dur_zh(duration))
+    if not (30.0 <= duration <= 60.0):
+        raise SystemExit(f"口播时长必须 30–60 秒，现在 {dur_zh(duration)}")
     for row in cues:
         print(f"  {row[0]:6.3f}-{row[1]:6.3f}  {row[2]}")
     make_bgm(duration)
@@ -906,13 +1016,18 @@ def main() -> None:
     print("timeline shots", [(s["id"], s["start"], s["end"], s["kind"]) for s in data["shots"]])
 
     jobs = [
-        ("S02", render_b_rhythm, "B-节奏乱了.mp4"),
-        ("S03", render_b_debt, "B-还不清.mp4"),
-        ("S05", render_b_skip, "B-少刷一条.mp4"),
+        ("S03", render_b_rhythm, "B-节奏乱了.mp4"),
+        ("S04", render_b_debt, "B-还不清.mp4"),
+        ("S05", render_b_ledger, "B-困意节律.mp4"),
+        ("S08", render_b_skip, "B-少刷一条.mp4"),
     ]
+    by_file: dict[str, tuple] = {}
     for sid, fn, fname in jobs:
         shot = next(s for s in data["shots"] if s["id"] == sid)
         d = max(2.2, float(shot["end"]) - float(shot["start"]))
+        prev = by_file.get(fname)
+        by_file[fname] = (fn, d if prev is None else max(prev[1], d))
+    for fname, (fn, d) in by_file.items():
         print("render", fname, d)
         frames_to_mp4(fn(d + 0.12), ROOT / "broll" / fname)
 
