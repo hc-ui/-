@@ -621,28 +621,16 @@ def assemble(spans: list[tuple[float, float]]) -> Path:
             "-af", "volume=0.04,lowpass=f=380,alimiter=limit=0.2",
             "-ac", "2", "-c:a", "pcm_s16le", str(bgm),
         ])
-    sfx = ROOT / "audio" / "sfx.wav"
-    if not sfx.exists():
-        # short ticks at cut points
-        delays = "+".join(
-            f"aevalsrc=0.18*sin(2*PI*880*t)*exp(-12*t):s=44100:d=0.12,adelay={int(spans[i][0]*1000)}|{int(spans[i][0]*1000)}"
-            for i in range(1, len(spans))
-        )
-        run([
-            "ffmpeg", "-y", "-filter_complex", f"{delays};amix=inputs={len(spans)-1}:duration=longest",
-            "-t", f"{duration:.2f}", "-ac", "2", "-ar", "44100", "-c:a", "pcm_s16le", str(sfx),
-        ])
-
     audio = ROOT / "audio" / "vo-full.wav"
     final = ROOT / "final" / f"{NAME}.mp4"
     final.parent.mkdir(exist_ok=True)
+    # VO + quiet pad only. Cut SFX omitted: chained aevalsrc+adelay fails on this ffmpeg.
     run([
-        "ffmpeg", "-y", "-i", str(burned), "-i", str(audio), "-i", str(bgm), "-i", str(sfx),
+        "ffmpeg", "-y", "-i", str(burned), "-i", str(audio), "-i", str(bgm),
         "-filter_complex",
         "[1:a]loudnorm=I=-16:LRA=11:TP=-1.5,aformat=sample_rates=44100:channel_layouts=stereo[vo];"
         "[2:a]adelay=800|800,volume=0.16,highpass=f=140[bg];"
-        "[3:a]volume=0.22[sfx];"
-        "[vo][bg][sfx]amix=inputs=3:duration=first:dropout_transition=2,alimiter=limit=0.95[a]",
+        "[vo][bg]amix=inputs=2:duration=first:dropout_transition=2,alimiter=limit=0.95[a]",
         "-map", "0:v", "-map", "[a]",
         "-c:v", "libx264", "-preset", "fast", "-crf", "18",
         "-c:a", "aac", "-ar", "44100", "-ac", "2", "-b:a", "192k",

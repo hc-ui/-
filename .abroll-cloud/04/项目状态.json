@@ -2,9 +2,19 @@
   "schema_version": 1,
   "project_name": "04_咖啡自己滑向桌边",
   "video_type": "普通短视频",
-  "status": "整段配音与对齐",
-  "current_stage": "生产素材与动效",
+  "status": "已交付",
+  "current_stage": "核验并交付",
   "topic": 4,
   "source": "选题库.md 第002号 / topics.md #4",
-  "next_step": "运行 build.py 生成配音、A/B-roll 并组装成片"
+  "duration_s": 17.542,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "deliverables": {
+    "final_video": "/workspace/成片/04-咖啡自己滑向桌边.mp4",
+    "project_video": "00_最终成片_咖啡自己滑向桌边.mp4"
+  },
+  "updated_at": "2026-09-11"
 }
