@@ -1,0 +1,29 @@
+{
+  "clips": [
+    {
+      "id": "nodwall",
+      "file": "broll/B-点头墙.mp4",
+      "note": "人人点头，一句话没确认"
+    },
+    {
+      "id": "three",
+      "file": "broll/B-三种点头.mp4",
+      "note": "没听懂 / 不反驳 / 想散会"
+    },
+    {
+      "id": "mismatch",
+      "file": "broll/B-各想各的.mp4",
+      "note": "全体同意对照各想各的"
+    },
+    {
+      "id": "threeq",
+      "file": "broll/B-三问.mp4",
+      "note": "谁来做做到哪何时交"
+    },
+    {
+      "id": "polite",
+      "file": "broll/B-礼貌不是拍板.mp4",
+      "note": "点头划掉，写下打勾"
+    }
+  ]
+}

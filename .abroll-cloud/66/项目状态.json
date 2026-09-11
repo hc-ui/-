@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_name": "66_点头不等于确认",
+  "video_type": "普通短视频",
+  "episode": 66,
+  "title": "点头不等于确认",
+  "source_note": "工厂 66_点头不等于确认 / 云端 NEW",
+  "voice": "zh-CN-YunyangNeural",
+  "rate": "-10%",
+  "duration": 46.417,
+  "duration_zh": "四十六秒",
+  "target_s": [
+    40.0,
+    50.0
+  ],
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "4473c31ea84fb945e7ffc5b96446c4d3b0870d27dcbdf054f7d23ccfc42283c9"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 46416
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/66-点头不等于确认.mp4",
+    "project_final": "00_最终成片_点头不等于确认.mp4",
+    "cover": "00_封面_点头不等于确认.jpg"
+  },
+  "staged": "成片/66-点头不等于确认.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T14:04:30Z"
+}
