@@ -1,0 +1,26 @@
+[
+  {
+    "id": "keep_talking",
+    "file": "broll/B-一直聊.mp4",
+    "tag": "错 · 没写结束",
+    "title": "就会一直聊",
+    "cards": [
+      {"num": "始", "head": "开始 9:00", "body": "日历上写了", "color": "mint"},
+      {"num": "终", "head": "结束 空", "body": "没人敢先走", "color": "red"}
+    ],
+    "punch": "没有结束时间",
+    "phrases": ["没有结束时间，就会一直聊"]
+  },
+  {
+    "id": "end_slot",
+    "file": "broll/B-散会点.mp4",
+    "tag": "对 · 散会点",
+    "title": "预约先写下散会点",
+    "cards": [
+      {"num": "写", "head": "散会 9:40", "body": "预约时就钉死", "color": "yellow"},
+      {"num": "散", "head": "到点先散", "body": "没结论也散", "color": "mint"}
+    ],
+    "punch": "到点没有结论，就先散",
+    "phrases": ["预约先写下散会点"]
+  }
+]
