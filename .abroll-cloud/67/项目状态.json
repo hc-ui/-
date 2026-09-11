@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "project_name": "67_置顶了也不看",
+  "video_type": "普通短视频",
+  "episode": 67,
+  "cut": "new-40s",
+  "title": "置顶了也不看",
+  "full_title": "置顶了也不看",
+  "source_note": "工厂 67_置顶了也不看 · 云端 NEW",
+  "slug": "置顶了也不看",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 47.583,
+  "duration_zh": "47.6秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "14e94ffac0f4552fbf3d70ee620e70848849e2e116d919e584ba49444270d92a",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 47583
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/67-置顶了也不看.mp4",
+    "project_final": "00_最终成片_置顶了也不看.mp4",
+    "cover": "00_封面_置顶了也不看.jpg"
+  },
+  "staged": "成片/67-置顶了也不看.mp4",
+  "draft": ".abroll-cloud/67",
+  "qa_video": "/workspace/成片/67-置顶了也不看.mp4",
+  "replaced_short_cut_s": 0.0,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T14:02:02Z",
+  "factory_short_s": 20.667
+}
