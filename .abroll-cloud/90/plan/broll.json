@@ -1,0 +1,11 @@
+{
+  "style": "黑底对照卡",
+  "distinct_from_14_15": "不成片14的双线/Python先扎实/五条路，不成片15的生态位三件包装",
+  "cards": [
+    {"id": "leave_take", "file": "B-留下抽走.mp4", "point": "留下场景，抽走方法"},
+    {"id": "sensor_code", "file": "B-传感器进代码.mp4", "point": "试剂名打叉，传感器进代码打勾"},
+    {"id": "resume", "file": "B-简历改写.mp4", "point": "做过生医划掉，改成会建回路/会处理数据"},
+    {"id": "skill_list", "file": "B-五件清单.mp4", "point": "处理、控制、建模、采集、自动化"},
+    {"id": "paper_skill", "file": "B-领域留论文.mp4", "point": "领域名留论文，能力名单独站"}
+  ]
+}
