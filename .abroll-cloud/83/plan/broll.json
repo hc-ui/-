@@ -1,0 +1,12 @@
+{
+  "style": "黑底对照卡",
+  "distinct_from_64": "不成片64的空字典、循环、键名",
+  "not_factory_copy": "不拷工厂15.5秒短切",
+  "cards": [
+    {"id": "mismatch", "file": "B-旧模板套新题.mp4", "point": "旧模板盖到新题上，对不上"},
+    {"id": "wrong_size", "file": "B-尺寸不对.mp4", "point": "尺子对不上，旧约束已经不在"},
+    {"id": "whats_new", "file": "B-这次新在哪.mp4", "point": "边界/约束/目标 + 留下/重写"},
+    {"id": "old_habits", "file": "B-别硬改旧稿.mp4", "point": "提示词改两词、旧课表打叉"},
+    {"id": "compare_stop", "file": "B-对得上才复用.mp4", "point": "新条件对旧步骤，套不上停手"}
+  ]
+}

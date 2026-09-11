@@ -1,0 +1,27 @@
+{
+  "title": "旧方案套不上新问题",
+  "cover_title": "旧方案套不上新问题",
+  "cover_sub": "先量尺寸再裁布",
+  "cover_line": "对得上才复用",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch4.md #83 / 工厂 64_旧方案套不上新问题 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "83",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打旧方案套不上新问题。不拍成片64空字典，不拷工厂15.5秒短切。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["旧方案套不上新问题"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-旧模板套新题.mp4", "broll": "mismatch", "phrases": ["去年那套能跑的办法，拿到今年就对不上", "问题已经换了皮，模板还是旧的"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["人还在按旧步骤往新题上套", "硬套上去，缝会裂开"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-尺寸不对.mp4", "broll": "wrong_size", "phrases": ["不是执行不力，是尺寸不对", "旧约束已经不在了，你还当它在"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["先别急着改旧稿，先写下这次新在哪"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-这次新在哪.mp4", "broll": "whats_new", "phrases": ["边界变了，约束变了，目标也变了", "能留的留下，对不上的重写"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["别把旧流程图硬拉长"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-别硬改旧稿.mp4", "broll": "old_habits", "phrases": ["别把旧提示词再改两个词", "别拿上学期的课表套这学期"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["对照卡摊开，新条件对旧步骤"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-对得上才复用.mp4", "broll": "compare_stop", "phrases": ["对得上的步骤才复用", "套不上的地方立刻停手"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["新问题先量尺寸，再裁新布"]}
+  ]
+}
