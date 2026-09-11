@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "project_name": "83_旧方案套不上新问题",
+  "video_type": "普通短视频",
+  "episode": 83,
+  "title": "旧方案套不上新问题",
+  "source_note": "topics-batch4.md #83 / 工厂 64_旧方案套不上新问题 / 云端 NEW",
+  "slug": "83_旧方案套不上新问题",
+  "duration_zh": "49.2秒",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 49.2,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "bf16f159023a28ebf3be9a95cc28b0eadd7f2bf85d6245c478030075e9104a7f"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 49200
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/83-旧方案套不上新问题.mp4",
+    "project_final": "00_最终成片_旧方案套不上新问题.mp4",
+    "cover": "00_封面_旧方案套不上新问题.jpg"
+  },
+  "staged": "成片/83-旧方案套不上新问题.mp4",
+  "factory_remap": "工厂 64 → 成片 83（64 已被空字典占用）",
+  "distinct_from": "成片/64-空字典写在循环外面.mp4",
+  "not_factory_copy": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / 工厂15.5秒短切 / 成片64空字典 / 验收 / 试点",
+  "updated_at": "2026-09-11T14:47:01Z"
+}
