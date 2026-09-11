@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "project_name": "04_咖啡自己滑向桌边",
+  "video_type": "普通短视频",
+  "status": "整段配音与对齐",
+  "current_stage": "生产素材与动效",
+  "topic": 4,
+  "source": "选题库.md 第002号 / topics.md #4",
+  "next_step": "运行 build.py 生成配音、A/B-roll 并组装成片"
+}
