@@ -1,0 +1,11 @@
+{
+  "style": "黑底对照卡",
+  "distinct_from_14_90": "不成片14的双线/Python先扎实/五条路，不成片90的留下抽走/五件清单/课题是矿",
+  "cards": [
+    {"id": "incubator", "file": "B-别指向培养箱.mp4", "point": "培养箱打叉，换房间打勾"},
+    {"id": "intern", "file": "B-实习焊进实验室.mp4", "point": "只投生仪厂，栈焊进一间实验室"},
+    {"id": "handbook", "file": "B-夜读细胞手册.mp4", "point": "细胞手册划掉，控制/系统亮起"},
+    {"id": "room_city", "file": "B-房间不是城.mp4", "point": "生医是房间，城是控制机器人系统"},
+    {"id": "answer", "file": "B-先报系统稳住.mp4", "point": "应用名打叉，系统稳住打勾"}
+  ]
+}
