@@ -4,10 +4,54 @@
   "video_type": "普通短视频",
   "source_index": "15_切镜不要白闪",
   "episode": 25,
-  "status": "制作中",
-  "current_stage": "整段配音与对齐",
-  "deliverables": {
-    "staged": "/workspace/成片/25-切镜不要白闪.mp4"
+  "title": "切镜不要白闪",
+  "production_method": "白底小灯 A-roll + 黑底信息图 B-roll + edge-tts Yunyang + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 31.1,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "78ea079258e421d4982e089a1a54515d67f260353a1498292b1d27a7bb692fde"
   },
-  "not": "剧情短剧 / drama-pipeline / 仙侠 / Drive 上传 / C:D:G:"
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "sample_rate": 44100,
+    "channels": 1,
+    "note": "云端 edge-tts 整段合成，短语轴 silencedetect，正文以原文为准"
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/25-切镜不要白闪.mp4",
+    "project_final": "00_最终成片_切镜不要白闪.mp4",
+    "cover": "00_封面_切镜不要白闪.jpg"
+  },
+  "not": "剧情短剧 / drama-pipeline / 仙侠云海突进 / Drive 上传 / C:D:G:",
+  "qa": {
+    "file": "/workspace/成片/25-切镜不要白闪.mp4",
+    "playable": true,
+    "decode_stderr": "",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "vcodec": "h264",
+    "acodec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "duration": 31.1,
+    "checks": {
+      "size_1080x1920": true,
+      "fps_24": true,
+      "h264": true,
+      "aac": true,
+      "ar_44100": true,
+      "decode_ok": true
+    }
+  },
+  "updated_at": "2026-09-11T11:54:02Z"
 }

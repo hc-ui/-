@@ -1,0 +1,21 @@
+{
+  "file": "/workspace/成片/25-切镜不要白闪.mp4",
+  "playable": true,
+  "decode_stderr": "",
+  "width": 1080,
+  "height": 1920,
+  "fps": 24.0,
+  "vcodec": "h264",
+  "acodec": "aac",
+  "sample_rate": 44100,
+  "channels": 2,
+  "duration": 31.1,
+  "checks": {
+    "size_1080x1920": true,
+    "fps_24": true,
+    "h264": true,
+    "aac": true,
+    "ar_44100": true,
+    "decode_ok": true
+  }
+}
