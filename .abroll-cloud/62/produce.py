@@ -152,6 +152,22 @@ def rewrite_docs(duration: float) -> None:
         status["replaced_short_cut_s"] = 0
         status_path.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+    qa_path = ROOT / "交付核验.json"
+    if qa_path.exists():
+        report = json.loads(qa_path.read_text(encoding="utf-8"))
+        report["project"] = "62_再优化一下没有验收"
+        report["cut"] = "new-40s"
+        report["replaced_short_cut_s"] = 0
+        qa_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    tl_path = ROOT / "timeline.json"
+    if tl_path.exists():
+        data = json.loads(tl_path.read_text(encoding="utf-8"))
+        data["cut"] = "new-40s"
+        data["draft"] = ".abroll-cloud/62"
+        data["duration_zh"] = kit.zh_sec(float(data.get("duration") or duration))
+        tl_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     vo = (ROOT / "script" / "voiceover.txt").read_text(encoding="utf-8").strip()
     note = f"""# 62 · 再优化一下没有验收
 
@@ -190,11 +206,16 @@ def patch_topics(duration: float) -> None:
     old = "| 62 | 工厂知识口播 | `62-再优化一下没有验收.mp4` | 已认领 `.abroll-cloud/62/` |"
     new = f"| 62 | 工厂知识口播 | `{STAGED_NAME}` | 已核验 {kit.zh_sec(duration)} |"
     if old in text:
-        path.write_text(text.replace(old, new), encoding="utf-8")
+        text = text.replace(old, new)
+    claimed = "- **状态**：已认领 · `.abroll-cloud/62/` · NEW · 目标四十到五十秒"
+    verified = f"- **状态**：已核验 · `.abroll-cloud/62/` · `成片/{STAGED_NAME}` · {kit.zh_sec(duration)}"
+    if claimed in text:
+        text = text.replace(claimed, verified)
+    path.write_text(text, encoding="utf-8")
 
 
-def main() -> None:
-    ep = kit.Episode(ROOT, {
+def episode() -> kit.Episode:
+    return kit.Episode(ROOT, {
         "name": NAME,
         "full_title": "再优化一下，没有验收",
         "staged_name": STAGED_NAME,
@@ -212,6 +233,41 @@ def main() -> None:
             "S06": ("B-一轮一条.mp4", frame_one_round),
         },
     })
+
+
+def finish_docs() -> None:
+    """Write QA/docs from the already-staged cut. Does not re-render."""
+    ep = episode()
+    staged = Path("/workspace/成片") / STAGED_NAME
+    draft = ROOT / f"00_最终成片_{NAME}.mp4"
+    if not staged.exists():
+        raise SystemExit(f"missing staged {staged}")
+    data = json.loads((ROOT / "timeline.json").read_text(encoding="utf-8"))
+    dur = kit.probe_dur(staged)
+    draft_dur = kit.probe_dur(draft) if draft.exists() else dur
+    ep.write_docs(draft_dur, staged, data)
+    ep.patch_index_line(Path("/workspace/成片/INDEX.md"), dur)
+    ep.patch_index_line(Path("/workspace/.abroll-cloud/INDEX.chengpian.md"), dur)
+    ep.patch_delivery(dur)
+    report = ep.qa(staged, data)
+    report["chengpian"] = str(staged)
+    report["chengpian_duration_s"] = dur
+    report["chengpian_duration_zh"] = kit.zh_sec(dur)
+    report["draft_duration_s"] = draft_dur
+    report["draft_duration_zh"] = kit.zh_sec(draft_dur)
+    (ROOT / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    rewrite_docs(dur)
+    patch_topics(dur)
+    print("DOCS 62", staged, kit.zh_sec(dur), "ok", report.get("ok"))
+    if not report["ok"]:
+        raise SystemExit(json.dumps(report, ensure_ascii=False, indent=2))
+
+
+def main() -> None:
+    if "--docs-only" in sys.argv:
+        finish_docs()
+        return
+    ep = episode()
     report = ep.produce()
     staged = Path("/workspace/成片") / STAGED_NAME
     dur = kit.probe_dur(staged) if staged.exists() else float(report.get("chengpian_duration_s") or report["video"]["duration_s"])
