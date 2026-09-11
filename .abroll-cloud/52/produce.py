@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""成片 52：别把反转写进标题。工厂 348 口播工艺。云端 A-roll + B-roll，不是短剧。
+"""Topic 52 / topics-batch3 #52：别把反转写进标题。工厂 348。云端 A-roll + B-roll。
 
-topics-batch3.md #52。禁止 C:\\ D:\\ G:\\，禁止 Drive 上传，不走 drama-pipeline。
+普通短视频 / 口播工艺。草稿只写 .abroll-cloud/52/，成品中转 成片/52-别把反转写进标题.mp4。
+禁止 C:\\ D:\\ G:\\，禁止 Drive 上传，不走 drama-pipeline。
+云端无 V-正对讲，S01b 用摊手。加长 40–50 秒，覆盖短切。
 """
 from __future__ import annotations
 
@@ -72,6 +74,29 @@ def appear(t: float, start: float, dur: float = 0.32) -> float:
     return ease_out((t - start) / dur)
 
 
+def frac(t: float, total: float, a: float, b: float) -> float:
+    return appear(t, total * a, max(0.22, total * (b - a)))
+
+
+def check_badge(draw, cx: int, cy: int, a: float) -> None:
+    if a <= 0.04:
+        return
+    r = 36
+    draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=mix(CARD, (18, 56, 46), a))
+    col = mix(CARD, MINT, a)
+    draw.line([(cx - 16, cy + 2), (cx - 4, cy + 16), (cx + 20, cy - 14)], fill=col, width=8)
+
+
+def red_circle(draw: ImageDraw.ImageDraw, box, progress: float, color) -> None:
+    if progress <= 0.04:
+        return
+    x0, y0, x1, y1 = box
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    rx = (x1 - x0) / 2 + 18
+    ry = (y1 - y0) / 2 + 22
+    draw.arc((cx - rx, cy - ry, cx + rx, cy + ry), start=0, end=int(360 * min(1.0, progress)), fill=color, width=8)
+
+
 def lerp(a: float, b: float, t: float) -> float:
     return a + (b - a) * t
 
@@ -131,15 +156,6 @@ def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
     mid.save(dest.with_suffix(".jpg"), quality=92)
 
 
-def split_caption(line: str) -> list[str]:
-    line = line.strip("。．. ")
-    if "，" in line and len(line) > 8:
-        parts = [p for p in line.split("，") if p]
-        if 1 < len(parts) <= 2:
-            return parts
-    return [line]
-
-
 def strike_line(draw: ImageDraw.ImageDraw, box, progress: float, color) -> None:
     x0, y0, x1, y1 = box
     if progress <= 0.04:
@@ -160,6 +176,10 @@ def jagged_tear(draw: ImageDraw.ImageDraw, x: int, y0: int, y1: int, phase: floa
         draw.line(pts, fill=color, width=6)
 
 
+def drift(t: float, amp: float = 10.0, period: float = 3.2) -> int:
+    return int(amp * math.sin(t * math.tau / period))
+
+
 def red_circle(draw: ImageDraw.ImageDraw, box, progress: float, color) -> None:
     if progress <= 0.04:
         return
@@ -167,8 +187,7 @@ def red_circle(draw: ImageDraw.ImageDraw, box, progress: float, color) -> None:
     cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
     rx = (x1 - x0) / 2 + 18
     ry = (y1 - y0) / 2 + 22
-    bbox = (cx - rx, cy - ry, cx + rx, cy + ry)
-    draw.arc(bbox, start=0, end=int(360 * min(1.0, progress)), fill=color, width=8)
+    draw.arc((cx - rx, cy - ry, cx + rx, cy + ry), start=0, end=int(360 * min(1.0, progress)), fill=color, width=8)
 
 
 def check_badge(draw, cx: int, cy: int, a: float) -> None:
@@ -181,7 +200,6 @@ def check_badge(draw, cx: int, cy: int, a: float) -> None:
 
 
 def render_b_spoil(duration: float) -> list[Image.Image]:
-    """错：标题把结局写进去，悬念被掏空。"""
     n = max(1, round(duration * FPS))
     out = []
     for i in range(n):
@@ -189,86 +207,145 @@ def render_b_spoil(duration: float) -> list[Image.Image]:
         img = new_bg()
         d = ImageDraw.Draw(img)
         tag(d, t, "错 · 写结局")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "反转写进标题", font=font(56), fill=mix(BG, WHITE, a0), anchor="mm")
+        a0 = frac(t, duration, 0.00, 0.08)
+        d.text((W // 2, 220 + drift(t, 6, 3.4)), "反转写进标题", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
 
-        a1 = appear(t, 0.16)
+        a1 = frac(t, duration, 0.06, 0.18)
         if a1 > 0.04:
-            y = 330 + int(lerp(22, 0, a1))
+            y = 310 + drift(t, 8, 3.4)
             rounded(d, (80, y, 1000, y + 280), 32, mix(BG, CARD, a1))
             d.text((160, y + 56), "标题栏", font=font(28), fill=mix(CARD, MUTED, a1), anchor="lm")
-            d.text((W // 2, y + 150), "原来他没死", font=font(52), fill=mix(CARD, WHITE, a1), anchor="mm")
-            circ = appear(t, 0.70, 0.36)
-            red_circle(d, (300, y + 108, 780, y + 196), circ, mix(CARD, RED, circ))
-            tear = appear(t, 1.10, 0.32)
-            if tear > 0.08:
-                jagged_tear(d, 790, y + 20, y + 260, tear, mix(CARD, RED, tear))
-                strike_line(d, (280, y + 120, 800, y + 200), tear, mix(CARD, RED, tear))
+            d.text((W // 2, y + 150), "原来他没死", font=font(50), fill=mix(CARD, WHITE, a1), anchor="mm")
+            red_circle(d, (300, y + 108, 780, y + 196), frac(t, duration, 0.22, 0.42), mix(CARD, RED, a1))
 
-        a2 = appear(t, 0.42)
+        a2 = frac(t, duration, 0.16, 0.30)
         if a2 > 0.04:
-            y = 660 + int(lerp(20, 0, a2))
-            rounded(d, (80, y, 1000, y + 300), 32, mix(BG, CARD, a2))
-            d.text((W // 2, y + 70), "悬念", font=font(32), fill=mix(CARD, MUTED, a2), anchor="mm")
-            drain = appear(t, 0.88, 0.45)
+            y = 630 + drift(t + 0.4, 7, 2.8)
+            rounded(d, (80, y, 1000, y + 280), 32, mix(BG, CARD, a2))
+            d.text((W // 2, y + 70), "悬念", font=font(30), fill=mix(CARD, MUTED, a2), anchor="mm")
+            drain = frac(t, duration, 0.24, 0.68)
             fill_w = int(lerp(760, 40, drain))
-            bar = (160, y + 130, 920, y + 200)
-            rounded(d, bar, 18, mix(CARD, (40, 44, 52), a2))
+            rounded(d, (160, y + 120, 920, y + 190), 18, mix(CARD, (40, 44, 52), a2))
             if fill_w > 8:
-                rounded(d, (160, y + 130, 160 + fill_w, y + 200), 18, mix(CARD, MINT, a2))
-            pct = int(lerp(88, 0, drain))
-            d.text((W // 2, y + 165), f"{pct}%", font=font(36), fill=mix(CARD, INK if drain < 0.55 else WHITE, a2), anchor="mm")
-            d.text((W // 2, y + 240), "结局说破，后面不用看", font=font(32), fill=mix(CARD, YELLOW, a2), anchor="mm")
+                rounded(d, (160, y + 120, 160 + fill_w, y + 190), 18, mix(CARD, MINT, a2))
+            d.text((W // 2, y + 155), f"{int(lerp(88, 0, drain))}%", font=font(34), fill=mix(CARD, WHITE, a2), anchor="mm")
+            d.text((W // 2, y + 230), "不是字多，是结尾交出去了", font=font(30), fill=mix(CARD, YELLOW, a2), anchor="mm")
 
-        punch = appear(t, 1.42, 0.24)
+        punch = frac(t, duration, 0.60, 0.76)
         if punch > 0.04:
-            y = 1040 + int(lerp(22, 0, punch))
+            y = 960 + int(lerp(22, 0, punch)) + drift(t, 6, 4.0)
             rounded(d, (120, y, 960, y + 200), 28, mix(BG, (42, 24, 22), punch))
-            d.text((W // 2, y + 100), "后面没有悬念", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
+            d.text((W // 2, y + 100), "后面没有悬念", font=font(50), fill=mix(BG, YELLOW, punch), anchor="mm")
         out.append(img)
     return out
 
 
-def render_b_keep(duration: float) -> list[Image.Image]:
-    """对：标题只留冲突，反转从标题挪进片子。"""
+def render_b_contrast(duration: float) -> list[Image.Image]:
     n = max(1, round(duration * FPS))
     out = []
     for i in range(n):
         t = i / FPS
         img = new_bg()
         d = ImageDraw.Draw(img)
-        tag(d, t, "对 · 留冲突")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "标题只留冲突", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
+        tag(d, t, "对 · 只留冲突")
+        a0 = frac(t, duration, 0.00, 0.08)
+        d.text((W // 2, 220 + drift(t, 6, 3.0)), "封面只问冲突", font=font(52), fill=mix(BG, WHITE, a0), anchor="mm")
 
-        a1 = appear(t, 0.16)
+        a1 = frac(t, duration, 0.08, 0.20)
         if a1 > 0.04:
-            y = 330 + int(lerp(20, 0, a1))
-            rounded(d, (80, y, 520, y + 420), 32, mix(BG, (22, 40, 36), a1))
-            d.text((300, y + 80), "留", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
-            d.text((300, y + 180), "只留冲突", font=font(44), fill=mix(CARD, YELLOW, a1), anchor="mm")
-            d.text((300, y + 270), "谁动了证据", font=font(32), fill=mix(CARD, WHITE, a1), anchor="mm")
-            check_badge(d, 300, y + 360, appear(t, 0.88, 0.22))
+            y = 330 + drift(t, 8, 3.0)
+            rounded(d, (80, y, 500, y + 420), 32, mix(BG, (22, 40, 36), a1))
+            d.text((290, y + 80), "留", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+            d.text((290, y + 180), "谁动了证据", font=font(40), fill=mix(CARD, YELLOW, a1), anchor="mm")
+            d.text((290, y + 280), "只问冲突", font=font(32), fill=mix(CARD, WHITE, a1), anchor="mm")
+            check_badge(d, 290, y + 360, frac(t, duration, 0.36, 0.52))
 
-        move = appear(t, 0.72, 0.50)
-        a2 = appear(t, 0.28)
+        a2 = frac(t, duration, 0.14, 0.28)
         if a2 > 0.04:
-            y = 330 + int(lerp(20, 0, a2))
-            x_shift = int(lerp(0, 420, move))
-            fade = max(0.0, 1.0 - move * 0.55)
-            x0, x1 = 560 + x_shift, 1000 + x_shift
-            rounded(d, (x0, y, x1, y + 420), 32, mix(BG, CARD, a2 * fade))
-            d.text(((x0 + x1) / 2, y + 80), "挪", font=font(30), fill=mix(CARD, MUTED, a2 * fade), anchor="mm")
-            d.text(((x0 + x1) / 2, y + 180), "反转", font=font(44), fill=mix(CARD, MINT, a2 * fade), anchor="mm")
-            d.text(((x0 + x1) / 2, y + 270), "留给片子", font=font(32), fill=mix(CARD, WHITE, a2 * fade), anchor="mm")
-            if move > 0.12:
-                jagged_tear(d, x0 + 8, y + 16, y + 404, move, mix(CARD, MINT, move))
+            y = 330 + drift(t + 0.5, 8, 2.7)
+            rounded(d, (580, y, 1000, y + 420), 32, mix(BG, CARD, a2))
+            d.text((790, y + 80), "删", font=font(30), fill=mix(CARD, MUTED, a2), anchor="mm")
+            d.text((790, y + 180), "凶手是他", font=font(40), fill=mix(CARD, RED, a2), anchor="mm")
+            d.text((790, y + 280), "结局写进封面", font=font(30), fill=mix(CARD, WHITE, a2), anchor="mm")
+            strike_line(d, (600, y + 150, 980, y + 220), frac(t, duration, 0.40, 0.62), mix(CARD, RED, a2))
 
-        punch = appear(t, 1.36, 0.24)
+        punch = frac(t, duration, 0.58, 0.74)
         if punch > 0.04:
-            y = 840 + int(lerp(20, 0, punch))
-            rounded(d, (120, y, 960, y + 200), 28, mix(BG, (18, 42, 36), punch))
-            d.text((W // 2, y + 100), "把结局挪走", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
+            y = 820 + int(lerp(18, 0, punch))
+            rounded(d, (120, y, 960, y + 190), 28, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y + 95), "别写凶手是他", font=font(48), fill=mix(BG, MINT, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_move(duration: float) -> list[Image.Image]:
+    n = max(1, round(duration * FPS))
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "对 · 挪到片尾")
+        a0 = frac(t, duration, 0.00, 0.08)
+        d.text((W // 2, 220 + drift(t, 6, 3.2)), "把结局挪走", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
+
+        a1 = frac(t, duration, 0.08, 0.20)
+        if a1 > 0.04:
+            y = 320 + drift(t, 7, 3.2)
+            rounded(d, (80, y, 1000, y + 300), 32, mix(BG, CARD, a1))
+            d.text((W // 2, y + 70), "标题里的结局", font=font(32), fill=mix(CARD, MUTED, a1), anchor="mm")
+            d.text((W // 2, y + 160), "原来他没死", font=font(46), fill=mix(CARD, YELLOW, a1), anchor="mm")
+            circ = frac(t, duration, 0.22, 0.42)
+            red_circle(d, (280, y + 118, 800, y + 210), circ, mix(CARD, RED, circ))
+            tear = frac(t, duration, 0.36, 0.62)
+            if tear > 0.08:
+                jagged_tear(d, 790, y + 20, y + 280, tear, mix(CARD, RED, tear))
+                strike_line(d, (220, y + 130, 860, y + 210), tear, mix(CARD, RED, tear))
+
+        punch = frac(t, duration, 0.58, 0.74)
+        if punch > 0.04:
+            y = 700 + int(lerp(18, 0, punch)) + drift(t, 5, 3.6)
+            rounded(d, (120, y, 960, y + 220), 28, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y + 70), "整段挪到片尾", font=font(42), fill=mix(BG, WHITE, punch), anchor="mm")
+            d.text((W // 2, y + 150), "才有人看到底", font=font(46), fill=mix(BG, MINT, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_empty(duration: float) -> list[Image.Image]:
+    n = max(1, round(duration * FPS))
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "错 · 点开就空")
+        a0 = frac(t, duration, 0.00, 0.08)
+        d.text((W // 2, 220 + drift(t, 6, 3.1)), "剧透标题点开就空", font=font(50), fill=mix(BG, WHITE, a0), anchor="mm")
+
+        a1 = frac(t, duration, 0.08, 0.20)
+        if a1 > 0.04:
+            y = 330 + drift(t, 8, 3.1)
+            rounded(d, (80, y, 500, y + 400), 32, mix(BG, CARD, a1))
+            d.text((290, y + 90), "剧透", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+            d.text((290, y + 190), "原来他没死", font=font(38), fill=mix(CARD, RED, a1), anchor="mm")
+            d.text((290, y + 290), "点开就空", font=font(32), fill=mix(CARD, WHITE, a1), anchor="mm")
+            strike_line(d, (110, y + 160, 470, y + 230), frac(t, duration, 0.36, 0.56), mix(CARD, RED, a1))
+
+        a2 = frac(t, duration, 0.14, 0.28)
+        if a2 > 0.04:
+            y = 330 + drift(t + 0.4, 8, 2.8)
+            rounded(d, (580, y, 1000, y + 400), 32, mix(BG, (22, 40, 36), a2))
+            d.text((790, y + 90), "冲突", font=font(30), fill=mix(CARD, MUTED, a2), anchor="mm")
+            d.text((790, y + 190), "谁动了证据", font=font(38), fill=mix(CARD, YELLOW, a2), anchor="mm")
+            d.text((790, y + 290), "才有人看完", font=font(32), fill=mix(CARD, WHITE, a2), anchor="mm")
+            check_badge(d, 790, y + 350, frac(t, duration, 0.40, 0.56))
+
+        punch = frac(t, duration, 0.58, 0.74)
+        if punch > 0.04:
+            y = 800 + int(lerp(18, 0, punch))
+            rounded(d, (120, y, 960, y + 190), 28, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y + 95), "标题只问冲突", font=font(48), fill=mix(BG, MINT, punch), anchor="mm")
         out.append(img)
     return out
 
@@ -334,10 +411,10 @@ def detect_sentence_cues(wav: Path, phrases: list[str], duration: float) -> list
     return weight_align(phrases, duration)
 
 
-async def synthesize_voice(text: str, mp3: Path) -> list[dict]:
+async def synthesize_voice(text: str, mp3: Path, rate: str) -> list[dict]:
     import edge_tts
 
-    comm = edge_tts.Communicate(text, VOICE, rate="-4%")
+    comm = edge_tts.Communicate(text, VOICE, rate=rate)
     bounds: list[dict] = []
     with mp3.open("wb") as f:
         async for chunk in comm.stream():
@@ -355,22 +432,42 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
     audio_dir.mkdir(exist_ok=True)
     mp3 = audio_dir / "vo-full.mp3"
     wav = audio_dir / "vo-full.wav"
+    script_sha = hashlib.sha256(text.encode("utf-8")).hexdigest()
+    stamp = audio_dir / "script.sha256"
     aligned: list[tuple[float, float, str]] | None = None
-    if wav.exists() and wav.stat().st_size > 800 and (audio_dir / "vo-align.txt").exists():
+    if (
+        wav.exists()
+        and wav.stat().st_size > 800
+        and (audio_dir / "vo-align.txt").exists()
+        and stamp.exists()
+        and stamp.read_text(encoding="utf-8").strip() == script_sha
+    ):
         duration = probe_dur(wav)
         parsed: list[tuple[float, float, str]] = []
         for line in (audio_dir / "vo-align.txt").read_text(encoding="utf-8").splitlines():
             parts = line.split("\t")
             if len(parts) >= 3:
                 parsed.append((float(parts[0]), float(parts[1]), parts[2]))
-        if len(parsed) == len(phrases):
+        if len(parsed) == len(phrases) and 38.0 <= duration <= 58.0:
             print("reuse VO", wav, duration)
             return duration, close_align(parsed, duration)
     try:
-        bounds = asyncio.run(synthesize_voice(text, mp3))
+        rate = "-4%"
+        bounds = asyncio.run(synthesize_voice(text, mp3, rate))
         if mp3.stat().st_size < 800:
             raise RuntimeError("tts too small")
         run(["ffmpeg", "-y", "-i", str(mp3), "-ac", "1", "-ar", "44100", str(wav)])
+        dur_try = probe_dur(wav)
+        if dur_try < 39.0:
+            rate = "-12%"
+            print("VO short", dur_try, "retry", rate)
+            bounds = asyncio.run(synthesize_voice(text, mp3, rate))
+            run(["ffmpeg", "-y", "-i", str(mp3), "-ac", "1", "-ar", "44100", str(wav)])
+        elif dur_try > 54.0:
+            rate = "+4%"
+            print("VO long", dur_try, "retry", rate)
+            bounds = asyncio.run(synthesize_voice(text, mp3, rate))
+            run(["ffmpeg", "-y", "-i", str(mp3), "-ac", "1", "-ar", "44100", str(wav)])
         sentences = [b for b in bounds if b.get("type") == "SentenceBoundary"]
         if sentences and len(sentences) >= len(phrases):
             aligned = []
@@ -379,7 +476,7 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
                 start = ticks_to_sec(b["offset"])
                 end = start + ticks_to_sec(b["duration"])
                 aligned.append((start, end, phrase))
-        print("TTS ok", wav, "cues", len(sentences))
+        print("TTS ok", wav, "rate", rate, "cues", len(sentences))
     except Exception as exc:
         print("TTS failed, silencedetect fallback after retry:", exc)
         if not wav.exists() or wav.stat().st_size < 800:
@@ -407,33 +504,82 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
         json.dumps([{"start": s, "end": e, "text": p} for s, e, p in aligned], ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    stamp.write_text(script_sha + "\n", encoding="utf-8")
     return duration, aligned
 
 
 def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
     recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    p0, p1, p2, p3, p4 = cues
-    b1 = max(p1[0] + 0.70, p2[0] - LEAD)
-    b2 = max(p3[0] + 0.55, p4[0] - LEAD)
-    if b1 <= p0[1] + 0.36:
-        b1 = p2[0]
-    if b2 <= p2[1] + 0.36:
-        b2 = p4[0]
-    shots = [
-        {"id": "S01a", "kind": "A", "start": 0.0, "end": p0[1], "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
-        {"id": "S01b", "kind": "A", "start": p0[1], "end": b1, "src": "assets/V-摊手.mp4", "line": p1[2]},
-        {"id": "S02", "kind": "B", "start": b1, "end": p2[1], "src": "broll/B-结局说破.mp4", "line": p2[2], "broll": "spoil_ending"},
-        {"id": "S03", "kind": "A", "start": p2[1], "end": b2, "src": "assets/V-指向.mp4", "line": p3[2]},
-        {"id": "S04", "kind": "B", "start": b2, "end": duration, "src": "broll/B-结局挪走.mp4", "line": p4[2], "broll": "move_ending"},
-    ]
+    expected = [p for shot in recipe["shots"] for p in shot["phrases"]]
+    got = [c[2] for c in cues]
+    if got != expected:
+        raise SystemExit(f"phrase mismatch\nexp={expected}\ngot={got}")
+
+    cursor = 0
+    shots = []
+    t0 = 0.0
+    for spec in recipe["shots"]:
+        nph = len(spec["phrases"])
+        end = float(cues[cursor + nph - 1][1])
+        if spec is recipe["shots"][-1]:
+            end = duration
+        shot = {
+            "id": spec["id"],
+            "kind": spec["kind"],
+            "start": round(t0, 3),
+            "end": round(end, 3),
+            "src": spec["src"],
+            "line": spec["phrases"][0],
+            "phrases": spec["phrases"],
+        }
+        if spec.get("close"):
+            shot["close"] = True
+        if spec.get("broll"):
+            shot["broll"] = spec["broll"]
+        if spec.get("cap"):
+            shot["cap"] = spec["cap"]
+        shots.append(shot)
+        t0 = end
+        cursor += nph
+
     for i, shot in enumerate(shots):
-        shot["start"] = round(float(shot["start"]), 3)
-        shot["end"] = round(float(shot["end"]), 3)
         if shot["end"] <= shot["start"] + 0.12:
             raise SystemExit(f"bad shot {shot}")
         if i:
             shots[i]["start"] = shots[i - 1]["end"]
     shots[-1]["end"] = round(duration, 3)
+    for shot in shots:
+        shot["start"] = round(float(shot["start"]), 3)
+        shot["end"] = round(float(shot["end"]), 3)
+
+    a_caps = []
+    idx = 0
+    for spec, shot in zip(recipe["shots"], shots):
+        nph = len(spec["phrases"])
+        if spec["kind"] == "A":
+            if spec.get("cap"):
+                a_caps.append({"start": shot["start"], "end": shot["end"], "lines": spec["cap"]})
+            else:
+                for j in range(nph):
+                    s, e, text = cues[idx + j]
+                    a_caps.append({
+                        "start": round(max(s, shot["start"]), 3),
+                        "end": round(min(e, shot["end"]), 3),
+                        "lines": [text.rstrip("。")],
+                    })
+        idx += nph
+    a_caps = [c for c in a_caps if c["end"] > c["start"] + 0.08]
+
+    colors = [CREAM, MINT, YELLOW]
+    shutters = []
+    eyebrows = []
+    a_n = 0
+    for i, shot in enumerate(shots):
+        if i:
+            shutters.append({"start": shot["start"], "color": list(colors[i % 3])})
+        if shot["kind"] == "A":
+            a_n += 1
+            eyebrows.append({"start": shot["start"], "end": shot["end"], "text": f"A-ROLL / {a_n:02d}"})
 
     data = {
         "audio": "audio/vo-full.wav",
@@ -443,22 +589,9 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "title": recipe["title"],
         "bgm": "audio/bgm.wav",
         "shots": shots,
-        "a_caps": [
-            {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
-            {"start": round(p1[0], 3), "end": round(b1, 3), "lines": ["别把反转写进标题"]},
-            {"start": round(p3[0], 3), "end": round(b2, 3), "lines": split_caption(p3[2])},
-        ],
-        "shutters": [
-            {"start": round(p0[1], 3), "color": list(CREAM)},
-            {"start": round(b1, 3), "color": list(MINT)},
-            {"start": round(p2[1], 3), "color": list(CREAM)},
-            {"start": round(b2, 3), "color": list(MINT)},
-        ],
-        "eyebrows": [
-            {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
-            {"start": round(p0[1], 3), "end": round(b1, 3), "text": "A-ROLL / 1b"},
-            {"start": round(p2[1], 3), "end": round(b2, 3), "text": "A-ROLL / 03"},
-        ],
+        "a_caps": a_caps,
+        "shutters": shutters,
+        "eyebrows": eyebrows,
         "cover": {
             "title": recipe["cover_title"],
             "sub": recipe["cover_sub"],
@@ -470,6 +603,8 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "video_type": "普通短视频",
         "factory": "348_别把反转写进标题",
         "topic": 52,
+        "no_freeze": True,
+        "target_duration": [40, 50],
     }
     (ROOT / "timeline.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return data
@@ -594,21 +729,32 @@ def render_captions(data: dict) -> Path:
 
 
 def cut_shot(src: Path, dur: float, dest: Path, kind: str, close: bool = False) -> None:
+    """Cut or pingpong-loop. Never freeze last frame, never slow-mo stretch."""
     dest.parent.mkdir(parents=True, exist_ok=True)
     src_dur = max(0.01, probe_dur(src))
     if kind == "A" and close:
-        vf = f"scale=1380:2454,crop={W}:{H}:150:60,fps={FPS},setsar=1,format=yuv420p"
+        geo = f"scale=1380:2454,crop={W}:{H}:150:60,fps={FPS},setsar=1,format=yuv420p"
     elif kind == "A":
-        vf = f"scale=1188:2112,crop={W}:{H}:54:105,fps={FPS},setsar=1,format=yuv420p"
+        geo = f"scale=1188:2112,crop={W}:{H}:54:105,fps={FPS},setsar=1,format=yuv420p"
     else:
-        vf = f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,fps={FPS},setsar=1,format=yuv420p"
-    if kind == "A" and dur > src_dur + 0.05:
-        vf = f"setpts=PTS*{dur / src_dur:.6f},{vf}"
-    elif dur > src_dur + 0.02:
-        vf = f"{vf},tpad=stop_mode=clone:stop_duration={dur - src_dur:.3f}"
+        geo = f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,fps={FPS},setsar=1,format=yuv420p"
+    if dur <= src_dur + 0.06:
+        run([
+            "ffmpeg", "-y", "-i", str(src), "-t", f"{dur:.3f}",
+            "-vf", geo, "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "18", str(dest),
+        ])
+        return
+    n_src = max(2, int(round(src_dur * FPS)))
+    loop_size = n_src * 2
+    fc = (
+        f"[0:v]split[a][b];[b]reverse[r];[a][r]concat=n=2:v=1:a=0,"
+        f"loop=loop=-1:size={loop_size}:start=0,"
+        f"trim=duration={dur:.3f},setpts=PTS-STARTPTS,{geo}"
+    )
     run([
-        "ffmpeg", "-y", "-i", str(src), "-t", f"{dur:.3f}",
-        "-vf", vf, "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "18", str(dest),
+        "ffmpeg", "-y", "-i", str(src),
+        "-filter_complex", fc, "-an",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "18", str(dest),
     ])
 
 
@@ -681,7 +827,10 @@ def assemble(data: dict) -> Path:
 
     staged = Path("/workspace/成片") / STAGED_NAME
     staged.parent.mkdir(exist_ok=True)
-    shutil.copy2(final, staged)
+    if staged.exists() and staged.samefile(final):
+        print("staged already linked", staged)
+    else:
+        shutil.copy2(final, staged)
     return staged
 
 
@@ -713,7 +862,7 @@ def make_cover() -> Path:
 def copy_assets() -> None:
     dest = ROOT / "assets"
     dest.mkdir(exist_ok=True)
-    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "A-角色-小灯-摊手.jpg"):
+    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "V-点赞.mp4", "A-角色-小灯-摊手.jpg"):
         src = ASSET_SRC / name
         if not src.exists():
             raise FileNotFoundError(src)
@@ -732,7 +881,7 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
         "video_type": "普通短视频",
         "episode": 52,
         "title": NAME,
-        "source_note": "topics-batch3.md #52 · 工厂 348_别把反转写进标题",
+        "source_note": "topics-batch3.md #52 / 工厂 348_别把反转写进标题 voiceover.txt",
         "slug": "348_别把反转写进标题",
         "voice": VOICE,
         "duration": round(duration, 3),
@@ -741,7 +890,9 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
         "stage": "delivered",
         "status": "已交付",
         "current_stage": "核验并交付",
-        "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+        "production_method": "白底小灯 A-roll（往返循环）+ 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+        "target_duration_s": [40, 50],
+        "no_freeze": True,
         "script": {"path": "script/voiceover.txt", "sha256": sha},
         "audio": {
             "path": "audio/vo-full.wav",
@@ -769,17 +920,17 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
 
 普通短视频 / 口播工艺。不是剧情短剧，不走 drama-pipeline。
 
-- **选题**：`topics-batch3.md` #52；工厂 `348_别把反转写进标题`
+- **选题**：`topics-batch3.md` 第 52 条；工厂 `348_别把反转写进标题`
 - **成片中转**：`成片/{STAGED_NAME}`
 - **本集工程成片**：`00_最终成片_{NAME}.mp4`
-- **草稿目录**：`/workspace/.abroll-cloud/52/`
+- **草稿根**：`/workspace/.abroll-cloud/52/`
 - **云端 only**：不写 `C:\\` / `D:\\` / `G:\\`，不传 Drive
 
-钩子：别把反转写进标题。
-后果：结局提前说破，后面没有悬念。
-收束：标题只留冲突，反转留给片子。写完标题，把结局挪走。
+钩子：别把反转写进标题。  
+后果：结局提前说破，后面没有悬念。  
+收束：标题只留冲突，反转留给片子；写完标题，把结局挪走。
 
-不跟成片 36「别说下一期」重复：本条禁的是剧透本集结尾，不是预告下一期。
+白底小灯 A-roll（短则往返循环，不定格）+ 黑底对照卡 B-roll。目标 40–50 秒。
 
 ## 口播
 
@@ -794,20 +945,45 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
 
 def patch_index(duration: float) -> None:
     idx = Path("/workspace/成片/INDEX.md")
-    line = f"| `{STAGED_NAME}` | {duration:.1f}s |"
-    if idx.exists():
-        text = idx.read_text(encoding="utf-8")
-        if STAGED_NAME not in text:
-            if not text.endswith("\n"):
-                text += "\n"
-            text += line + "\n"
-            idx.write_text(text, encoding="utf-8")
-    else:
+    line = f"| `{STAGED_NAME}` | {duration:.1f}秒 |"
+    if not idx.exists():
         idx.write_text(
             "# 成片（可直接看）\n\n竖屏口播 1080×1920，H.264 + AAC。\n\n| 文件 | 时长 |\n|------|------|\n"
             + line + "\n",
             encoding="utf-8",
         )
+        return
+    text = idx.read_text(encoding="utf-8")
+    token = f"`{STAGED_NAME}`"
+    seen = False
+    out_lines = []
+    in_table = False
+    for raw in text.splitlines():
+        if raw.startswith("| 文件"):
+            in_table = True
+            out_lines.append(raw)
+            continue
+        if in_table and raw.startswith("|") and token in raw:
+            if not seen:
+                out_lines.append(line)
+                seen = True
+            continue
+        out_lines.append(raw)
+    if not seen:
+        inserted = False
+        rebuilt = []
+        for raw in out_lines:
+            if (not inserted) and "仙侠云海突进" in raw and raw.strip().startswith("|"):
+                rebuilt.append(line)
+                inserted = True
+            rebuilt.append(raw)
+        if not inserted:
+            rebuilt.append(line)
+        out_lines = rebuilt
+    text = "\n".join(out_lines)
+    if not text.endswith("\n"):
+        text += "\n"
+    idx.write_text(text, encoding="utf-8")
 
 
 def qa(staged: Path, data: dict) -> dict:
@@ -877,6 +1053,7 @@ def qa(staged: Path, data: dict) -> dict:
             "broll_lead_s": LEAD,
         },
         "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
+        "duration_in_target": 40.0 <= float(info["format"]["duration"]) <= 50.5,
         "ok": True,
     }
     report["ok"] = (
@@ -890,6 +1067,7 @@ def qa(staged: Path, data: dict) -> dict:
         and not overlap
         and not gap
         and report["timeline"]["last_end_equals_audio"]
+        and report["duration_in_target"]
     )
     (ROOT / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
@@ -905,14 +1083,20 @@ def main() -> None:
     data = build_timeline(cues, duration)
     print("timeline shots", [(s["id"], s["start"], s["end"], s["kind"]) for s in data["shots"]])
 
-    b1 = next(s for s in data["shots"] if s["id"] == "S02")
-    b2 = next(s for s in data["shots"] if s["id"] == "S04")
-    d1 = max(2.2, float(b1["end"]) - float(b1["start"]))
-    d2 = max(2.2, float(b2["end"]) - float(b2["start"]))
-    print("render B-结局说破", d1)
-    frames_to_mp4(render_b_spoil(d1 + 0.12), ROOT / "broll" / "B-结局说破.mp4")
-    print("render B-结局挪走", d2)
-    frames_to_mp4(render_b_keep(d2 + 0.12), ROOT / "broll" / "B-结局挪走.mp4")
+    renders = {
+        "spoil_ending": render_b_spoil,
+        "contrast_cover": render_b_contrast,
+        "move_ending": render_b_move,
+        "empty_click": render_b_empty,
+    }
+    for shot in data["shots"]:
+        if shot["kind"] != "B":
+            continue
+        key = shot["broll"]
+        d = max(2.4, float(shot["end"]) - float(shot["start"]))
+        dest = ROOT / shot["src"]
+        print("render", dest.name, d)
+        frames_to_mp4(renders[key](d + 0.16), dest)
 
     make_cover()
     staged = assemble(data)
