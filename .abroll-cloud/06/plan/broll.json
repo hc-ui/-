@@ -1,0 +1,26 @@
+[
+  {
+    "id": "method_first",
+    "file": "broll/B-方法在前.mp4",
+    "tag": "对照 方法在前",
+    "title": "方法甩在前面",
+    "cards": [
+      {"num": "错", "head": "先甩方法", "body": "听众对不上自己", "color": "red"},
+      {"num": "卡", "head": "没有场景", "body": "这句话不是给我的", "color": "yellow"}
+    ],
+    "punch": "对不上自己",
+    "phrases": ["方法甩在前面，听众对不上自己"]
+  },
+  {
+    "id": "scene_front",
+    "file": "broll/B-场景前移.mp4",
+    "tag": "改法 场景前移",
+    "title": "写完开场",
+    "cards": [
+      {"num": "01", "head": "场景先落地", "body": "让人认出自己", "color": "mint"},
+      {"num": "02", "head": "方法再跟上", "body": "这下才接得住", "color": "yellow"}
+    ],
+    "punch": "把场景挪到前面",
+    "phrases": ["写完开场，把场景挪到前面"]
+  }
+]
