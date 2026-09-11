@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "47_研一别脱产离校实习",
+  "video_type": "普通短视频",
+  "episode": 47,
+  "title": "研一别脱产离校实习",
+  "source_note": "topics-batch3.md #47 / 备忘录第二节 3 脱产全职离校实习",
+  "unused_of": "工位切片（成片16）/ 报销红线（成片28）/ 组会撞课（成片37）/ 杂务六十分（#46）/ 远程实习（#48）",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 12.7,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "f11aac585b4a617e168912c07f2b661892691ed30fcd57053fb342009b4f8793"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 12700
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/47-研一别脱产离校实习.mp4",
+    "project_final": "00_最终成片_研一别脱产离校实习.mp4",
+    "cover": "00_封面_研一别脱产离校实习.jpg"
+  },
+  "staged": "成片/47-研一别脱产离校实习.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / 远程实习讲法 / 下一期预告 / C: D: G: / Drive 上传",
+  "updated_at": "2026-09-11T12:28:02Z"
+}
