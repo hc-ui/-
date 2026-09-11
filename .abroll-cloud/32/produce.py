@@ -634,39 +634,40 @@ def render_b_mirror(duration: float) -> list[Image.Image]:
 
 def render_b_frame(duration: float) -> list[Image.Image]:
     n = max(1, round(duration * FPS))
+    # Floor sits above the punch bar so the last frame really is "只露画框上沿".
+    floor_y = 1260
+    fy0_0, fy1_0 = 300, 1120
+    rail = 36
+    max_sink = (floor_y - rail) - fy0_0
     out = []
     for i in range(n):
         t = i / FPS
-        p = ease_in(min(1.0, t / max(duration * 0.88, 0.01)))
+        p = ease_in(min(1.0, t / max(duration * 0.90, 0.01)))
         img = new_b_bg()
         d = ImageDraw.Draw(img)
         tag_chip(d, t, "回报")
 
         wall_a = appear(t, 0.02)
-        d.rectangle((0, 220, W, 1480), fill=mix(BG, (42, 34, 30), wall_a * 0.55))
-        floor_y = 1480
-        d.rectangle((0, floor_y, W, H), fill=mix(BG, FLOOR, wall_a))
-        d.line([(0, floor_y), (W, floor_y)], fill=mix(FLOOR, AMBER, 0.25), width=4)
+        d.rectangle((0, 200, W, floor_y), fill=mix(BG, (42, 34, 30), wall_a * 0.55))
 
-        # abstract painting + gold frame (not a real artwork)
-        sink = int(lerp(0, 520, p))
-        fx0, fy0, fx1, fy1 = 220, 360 + sink, 860, 1180 + sink
+        sink = int(lerp(0, max_sink, p))
+        fx0, fy0, fx1, fy1 = 220, fy0_0 + sink, 860, fy1_0 + sink
         d.rectangle((fx0, fy0, fx1, fy1), fill=mix(BG, GOLD, 0.9))
         d.rectangle((fx0 + 28, fy0 + 28, fx1 - 28, fy1 - 28), fill=mix(BG, (48, 36, 72), 0.95))
-        d.ellipse((340, 520 + sink, 620, 820 + sink), fill=mix((48, 36, 72), COPPER, 0.7))
-        d.polygon([(480, 460 + sink), (720, 700 + sink), (300, 760 + sink)], fill=mix((48, 36, 72), AMBER, 0.45))
+        d.ellipse((340, fy0 + 160, 620, fy0 + 460), fill=mix((48, 36, 72), COPPER, 0.7))
+        d.polygon(
+            [(480, fy0 + 100), (720, fy0 + 340), (300, fy0 + 400)],
+            fill=mix((48, 36, 72), AMBER, 0.45),
+        )
 
-        # floor occludes the sunk part
         d.rectangle((0, floor_y, W, H), fill=FLOOR)
-        d.line([(0, floor_y), (W, floor_y)], fill=mix(FLOOR, AMBER, 0.35), width=5)
-
-        # remaining top rail if sunk far enough
+        d.line([(0, floor_y), (W, floor_y)], fill=mix(FLOOR, AMBER, 0.45), width=6)
         if fy0 < floor_y:
-            visible_bottom = min(fy1, floor_y)
-            if visible_bottom > fy0:
-                d.rectangle((fx0, fy0, fx1, min(fy0 + 36, visible_bottom)), fill=mix(BG, GOLD, 0.95))
+            vis = min(fy1, floor_y)
+            if vis > fy0:
+                d.rectangle((fx0, fy0, fx1, min(fy0 + rail, vis)), fill=mix(BG, GOLD, 0.98))
 
-        punch_bar(img, t, "最有名的那幅画", "只露画框上沿", start=min(0.9, max(0.2, duration - 1.5)))
+        punch_bar(img, t, "最有名的那幅画", "只露画框上沿", start=max(0.55, duration * 0.42))
         out.append(img)
     return out
 

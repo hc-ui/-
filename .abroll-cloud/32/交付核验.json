@@ -1,0 +1,37 @@
+{
+  "project": "32_注视增重",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/32-注视增重.mp4",
+  "project_final": "/workspace/.abroll-cloud/32/00_最终成片_注视增重.mp4",
+  "sha256": "bad0c07d1d5539f97ccf6e63b7ffb174ce9286301db8f1e94b545cfb4595a460",
+  "bytes": 3224930,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 22.0
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -32.2,
+    "max_volume_db": -13.4
+  },
+  "timeline": {
+    "segments": 8,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "b_shots": 5,
+    "a_shots": 3
+  },
+  "decode_null": true,
+  "ok": true
+}
