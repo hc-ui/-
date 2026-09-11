@@ -1,0 +1,51 @@
+{
+  "project": "77_零知识秒懂排前面",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "cut": "new-40s",
+  "final": "/workspace/成片/77-零知识秒懂排前面.mp4",
+  "project_final": "/workspace/.abroll-cloud/77/00_最终成片_零知识秒懂排前面.mp4",
+  "sha256": "f6e540b9fbb8545b6949c41f8e069d21e30efa6e61aaf9c215209fc4440582a9",
+  "bytes": 10467442,
+  "replaced_short_cut_s": 0,
+  "freeze_pad": false,
+  "no_tpad_clone_in_kit": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 46.875,
+    "duration_zh": "46.9秒"
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.0,
+    "max_volume_db": -10.0
+  },
+  "timeline": {
+    "segments": 9,
+    "a_shots": 6,
+    "b_shots": 3,
+    "phrases": 18,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28,
+    "in_hard_window": true,
+    "in_target_window": true
+  },
+  "decode_null": true,
+  "ok": true,
+  "chengpian": "/workspace/成片/77-零知识秒懂排前面.mp4",
+  "chengpian_duration_s": 46.875,
+  "chengpian_duration_zh": "46.9秒",
+  "draft_duration_s": 46.875,
+  "draft_duration_zh": "46.9秒"
+}

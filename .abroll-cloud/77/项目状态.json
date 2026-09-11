@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "project_name": "77_零知识秒懂排前面",
+  "video_type": "普通短视频",
+  "episode": 77,
+  "cut": "new-40s",
+  "title": "零知识秒懂排前面",
+  "full_title": "零知识秒懂的排前面",
+  "source_note": "topics-batch4.md #77 / 选题库.md 上线顺序 / 云端 NEW",
+  "slug": "零知识秒懂排前面",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 46.875,
+  "duration_zh": "46.9秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "682b27db7727382f7bb1f855d6f7a67e0cd4b87ceec2e86777093336b8de86e7",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 46875
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/77-零知识秒懂排前面.mp4",
+    "project_final": "00_最终成片_零知识秒懂排前面.mp4",
+    "cover": "00_封面_零知识秒懂排前面.jpg"
+  },
+  "staged": "成片/77-零知识秒懂排前面.mp4",
+  "draft": ".abroll-cloud/77",
+  "qa_video": "/workspace/成片/77-零知识秒懂排前面.mp4",
+  "replaced_short_cut_s": 0,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T14:24:34Z"
+}
