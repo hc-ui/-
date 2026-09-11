@@ -1,0 +1,70 @@
+{
+  "title": "对齐为什么对齐到半夜",
+  "cover_title": "对齐为什么对齐到半夜",
+  "cover_sub": "一句议题 · 一个分歧 · 到点拍板",
+  "cover_line": "没人拍板，就散不了",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch3.md #40 / Drive 40_对齐为什么对齐到半夜",
+  "video_type": "普通短视频",
+  "note": "知识口播。不是剧情连载，不走 drama-pipeline。云端无 V-正对讲 / V-切开，改用摊手/指向/点赞。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["对齐对齐到半夜", "不是人不够认真"]
+    },
+    {
+      "id": "S01c",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["是没有人能拍板", "没有拍板，就散不了"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-一句议题.mp4",
+      "phrases": ["第一步，先写现在必须对齐的那一句", "别把十个问题捆一起", "一次只对齐一句"],
+      "broll": "one_line"
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["第二步，每人只带一个分歧上来"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-一个分歧.mp4",
+      "phrases": ["分歧一多，就会变成聊天"],
+      "broll": "one_dissent"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["第三步，到点没有共识"]
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-先定七天.mp4",
+      "phrases": ["就由负责人先定七天"],
+      "broll": "seven_days"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["按这三步对齐", "人才回得了家"]
+    }
+  ]
+}

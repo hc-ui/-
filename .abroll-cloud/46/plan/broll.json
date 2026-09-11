@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rent_sixty",
+    "file": "broll/B-租金六十分.mp4",
+    "tag": "对 · 租金",
+    "title": "当成换工位的租金",
+    "cards": [
+      {"num": "60", "head": "及格盖章", "body": "不出差错即可", "color": "mint"},
+      {"num": "租", "head": "换工位自由", "body": "这是租金不是主业", "color": "yellow"}
+    ],
+    "punch": "六十分就过",
+    "phrases": ["当成换工位的租金"]
+  },
+  {
+    "id": "no_honor",
+    "file": "broll/B-别评优.mp4",
+    "tag": "错 · 评优",
+    "title": "别在杂务上评优",
+    "cards": [
+      {"num": "叉", "head": "评优争先", "body": "情绪成本白投", "color": "red"},
+      {"num": "勾", "head": "做完即止", "body": "卫生清单及格勾", "color": "mint"}
+    ],
+    "punch": "评优那分别投",
+    "phrases": ["别在杂务上评优"]
+  }
+]
