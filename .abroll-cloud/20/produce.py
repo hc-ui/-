@@ -394,7 +394,11 @@ def render_brolls(data: dict) -> None:
             "场景", "凉咖啡在冒热气", "杯壁却结霜",
             1.04, 1.14, 0.50, 0.50, 0.42,
         ),
-        "broll/B-回冻.mp4": render_b_ice,
+        "broll/B-回冻.mp4": lambda d: render_b_still(
+            ROOT / "assets/t05b-smoke-into-flame.png", d,
+            "后果 01", "融化停住", "重新冻上",
+            1.42, 1.56, 0.86, 0.82, 0.76,
+        ),
         "broll/B-房间.mp4": lambda d: render_b_still(
             ROOT / "assets/t05b-smoke-into-flame.png", d,
             "后果 02", "暖气片发红", "房间更冷",

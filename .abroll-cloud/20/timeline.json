@@ -1,0 +1,194 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 16.296,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "凉咖啡重新冒热气杯壁却结霜",
+  "video_type": "普通短视频",
+  "bgm": "audio/bgm.wav",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "line": "大家好",
+      "phrases": [
+        "大家好"
+      ],
+      "start": 0.0,
+      "end": 1.472,
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "line": "热永远从冷的流向热的",
+      "phrases": [
+        "热永远从冷的流向热的"
+      ],
+      "start": 1.472,
+      "end": 3.814
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-霜杯.mp4",
+      "line": "凉咖啡重新冒热气，杯壁却结霜",
+      "phrases": [
+        "凉咖啡重新冒热气，杯壁却结霜"
+      ],
+      "start": 3.814,
+      "end": 7.456,
+      "broll": "frost_cup"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-回冻.mp4",
+      "line": "冰会重新冻上",
+      "phrases": [
+        "冰会重新冻上"
+      ],
+      "start": 7.456,
+      "end": 9.324,
+      "broll": "refreeze"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-房间.mp4",
+      "line": "房间越住越冷，暖气片越烫",
+      "phrases": [
+        "房间越住越冷，暖气片越烫"
+      ],
+      "start": 9.324,
+      "end": 12.231,
+      "broll": "room"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-回烟.mp4",
+      "line": "烟退回火里",
+      "phrases": [
+        "烟退回火里"
+      ],
+      "start": 12.231,
+      "end": 13.865,
+      "broll": "smoke"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "line": "只反转热，别的物理照旧",
+      "phrases": [
+        "只反转热，别的物理照旧"
+      ],
+      "start": 13.865,
+      "end": 16.296
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 1.472,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 1.472,
+      "end": 3.814,
+      "lines": [
+        "热永远从冷的",
+        "流向热的"
+      ]
+    },
+    {
+      "start": 13.865,
+      "end": 16.296,
+      "lines": [
+        "只反转热",
+        "别的物理照旧"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 1.472,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 3.814,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 7.456,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 9.324,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 12.231,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 13.865,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 1.472,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 1.472,
+      "end": 3.814,
+      "text": "A-ROLL / 02"
+    },
+    {
+      "start": 13.865,
+      "end": 16.296,
+      "text": "A-ROLL / 03"
+    }
+  ],
+  "cover": {
+    "title": "凉咖啡重新冒热气",
+    "sub": "杯壁却结霜",
+    "line": "只反转热 · 别的物理照旧",
+    "src": "assets/t05a-coffee-frost-steam.png"
+  }
+}

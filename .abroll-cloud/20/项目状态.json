@@ -7,6 +7,30 @@
   "slug": "05_凉咖啡冒热气杯壁结霜",
   "delivery_index": 20,
   "title": "凉咖啡重新冒热气，杯壁却结霜",
-  "stage": "scripted",
-  "cloud_only": true
+  "stage": "delivered",
+    "production_method": "白底小灯 A-roll（06 已有动作）+ t05 静帧 Ken Burns + 工厂口播 WAV + FFmpeg",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 16.292,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "edb1034a19805239cfd128638872883a030befc2a949d9173623ccb6266a806b"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "source": "aroll/audio/05_凉咖啡冒热气杯壁结霜.wav",
+    "sample_rate": 44100,
+    "channels": 1,
+    "note": "沿用工厂旁白，不重合成；句界来自 silencedetect"
+  },
+  "broll_source": "broll-assets/t05*",
+  "staged": "/workspace/成片/20-凉咖啡重新冒热气杯壁却结霜.mp4",
+  "project_final": "00_最终成片_凉咖啡重新冒热气杯壁却结霜.mp4",
+  "cloud_only": true,
+  "updated_at": "2026-09-11T11:57:27Z"
 }
