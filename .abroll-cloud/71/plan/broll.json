@@ -1,0 +1,10 @@
+{
+  "style": "黑底对照卡",
+  "cards": [
+    {"id": "waveform", "file": "B-波形红笔.mp4", "point": "波形上口头禅被红笔划掉"},
+    {"id": "three_words", "file": "B-三词划掉.mp4", "point": "就是说 / 然后呢 / 对对对"},
+    {"id": "bite_bar", "file": "B-时长被咬.mp4", "point": "时长条被「就是说」咬掉一截"},
+    {"id": "contrast", "file": "B-净稿对照.mp4", "point": "净稿 / 注水稿"},
+    {"id": "return_time", "file": "B-还回时长.mp4", "point": "把偷走的时长还回去"}
+  ]
+}
