@@ -1,0 +1,35 @@
+[
+  {
+    "id": "three_steps",
+    "file": "broll/B-撞课三步.mp4",
+    "tag": "撞课三步",
+    "title": "先摸惯例",
+    "visual": "课程表与组会闹钟对撞后展开三步条",
+    "cards": [
+      {"num": "1", "head": "摸同门惯例", "body": "私下问怎么请假", "color": "yellow"},
+      {"num": "2", "head": "书面报备", "body": "培养方案刚性", "color": "mint"},
+      {"num": "3", "head": "随假给选项", "body": "PPT 加二选一", "color": "cream"}
+    ],
+    "punch": "按惯例走",
+    "phrases": ["私下问同门，再搬培养方案"]
+  },
+  {
+    "id": "report_structure",
+    "file": "broll/B-报备结构.mp4",
+    "tag": "报备结构",
+    "title": "只写结构",
+    "note": "不念真名、不写课程名",
+    "cards": [
+      {"num": "课", "head": "必修课", "body": "考勤占比写清", "color": "yellow"},
+      {"num": "附", "head": "本周PPT", "body": "随假先交上", "color": "mint"},
+      {"num": "甲", "head": "先汇报", "body": "报完再去上课", "color": "cream"},
+      {"num": "乙", "head": "课后补", "body": "或下次组会补", "color": "mint"}
+    ],
+    "contrast": [
+      {"num": "错", "head": "下周一定做完", "body": "工期大饼", "color": "red"},
+      {"num": "对", "head": "已完成动作", "body": "能当场核对", "color": "mint"}
+    ],
+    "punch": "两个选项",
+    "phrases": ["随假附上PPT，给两个选项"]
+  }
+]
