@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "41_新人提问为什么没人回",
+  "video_type": "普通短视频",
+  "episode": 41,
+  "title": "新人提问为什么没人回",
+  "source_note": "topics-batch3.md #41 / 工厂 41_新人提问为什么没人回 voiceover.txt",
+  "unused_of": "成片00-37已占题；口播别念链接(10)/待办划不掉(26)/组会撞课(37)",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 30.542,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "4d89e43fdfeeeb64f7ea10f65432563a59931dd0d9d1972352aa967c0c21b437"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 30541
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/41-新人提问为什么没人回.mp4",
+    "project_final": "00_最终成片_新人提问为什么没人回.mp4",
+    "cover": "00_封面_新人提问为什么没人回.jpg"
+  },
+  "staged": "成片/41-新人提问为什么没人回.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / 成片10 / 成片26 / 成片37",
+  "updated_at": "2026-09-11T12:26:37Z"
+}
