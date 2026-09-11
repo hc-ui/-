@@ -1,0 +1,28 @@
+{
+  "title": "例子先于概念",
+  "cover_title": "例子先于概念",
+  "cover_sub": "术语在前只会点头",
+  "cover_line": "先给能看见的例子",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "工厂 70_例子先于概念 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "70",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。先甩场面再给术语。不定格、不慢放注水。云端无 V-正对讲。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["例子先于概念"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-术语在前.mp4", "broll": "term_first", "phrases": ["术语甩在前面，听众只会点头"]},
+    {"id": "S03", "kind": "B", "src": "broll/B-点头就忘.mp4", "broll": "nod_forget", "phrases": ["他听见一个新词，点头，转身就忘"]},
+    {"id": "S04", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是他笨，是你先给了标签，没给能摸到的场面"]},
+    {"id": "S05", "kind": "B", "src": "broll/B-名字对不上.mp4", "broll": "name_only", "phrases": ["名字记住了，场面对不上，下次还是用不上"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-抽屉名.mp4", "broll": "drawer", "phrases": ["概念是抽屉上的名字", "例子才是抽屉里的东西"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["先打开抽屉给人看，再念那个名字"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-荷叶水珠.mp4", "broll": "lotus", "phrases": ["比如先说水珠站在荷叶上不塌，再点表面张力"]},
+    {"id": "S09", "kind": "B", "src": "broll/B-三个音节.mp4", "broll": "syllables", "phrases": ["别先甩三个音节，再解释它是什么"]},
+    {"id": "S10", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["写讲义的时候，把第一句术语往后挪"]},
+    {"id": "S11", "kind": "B", "src": "broll/B-例子落地.mp4", "broll": "land_example", "phrases": ["开场先落地一个能看见的例子", "听众对上了场面，那个词才接得住"]},
+    {"id": "S12", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["写完开场，把例子挪到概念前面"]}
+  ]
+}
