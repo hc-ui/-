@@ -1,0 +1,49 @@
+{
+  "title": "字典靠名字，不是第几个",
+  "cover_title": "字典靠名字",
+  "cover_sub": "方括号里是键，不是序号",
+  "cover_line": "字典靠名字 · 不是第几个",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["字典靠名字，不是第几个"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-键不是下标.mp4",
+      "phrases": ["方括号里是键，拿出来的是值"],
+      "broll": "key_not_index"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-循环反查.mp4",
+      "phrases": ["想从分数反查姓名，只能循环比"],
+      "broll": "loop_lookup"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-分数不是序号.mp4",
+      "phrases": ["不能拿分数当序号"],
+      "broll": "score_not_index"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["字典靠名字"]
+    }
+  ]
+}
