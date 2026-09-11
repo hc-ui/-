@@ -1,0 +1,53 @@
+[
+  {
+    "id": "risk",
+    "file": "broll/B-风险极高.mp4",
+    "tag": "脱产风险",
+    "title": "风险极高",
+    "cards": [
+      {"num": "离", "head": "全职离校", "body": "人整段不在", "color": "red"},
+      {"num": "会", "head": "临时组会", "body": "说开就开", "color": "yellow"},
+      {"num": "场", "head": "要人在场", "body": "导师随时叫", "color": "mint"}
+    ],
+    "punch": "人一走就对不上",
+    "phrases": ["脱产全职离校，风险极高", "导师随时可能叫你开会", "临时组会，说开就开"]
+  },
+  {
+    "id": "empty_desk",
+    "file": "broll/B-空工位.mp4",
+    "tag": "空工位",
+    "title": "人一走",
+    "cards": [
+      {"num": "腿", "head": "派跑腿", "body": "要人在场", "color": "yellow"},
+      {"num": "名", "head": "组会名单", "body": "对不上", "color": "red"},
+      {"num": "空", "head": "工位空了", "body": "就是把柄", "color": "cream"}
+    ],
+    "punch": "空座位就是把柄",
+    "phrases": ["跑腿要人在场", "人一不在，名单就对不上", "工位空了，就是把柄"]
+  },
+  {
+    "id": "checkpoint",
+    "file": "broll/B-查岗.mp4",
+    "tag": "查岗",
+    "title": "先别走",
+    "cards": [
+      {"num": "票", "head": "合肥 → 外地", "body": "车票先盖住", "color": "yellow"},
+      {"num": "岗", "head": "一旦查岗", "body": "对上空座位", "color": "mint"},
+      {"num": "矛", "head": "师生矛盾", "body": "从这里起", "color": "red"}
+    ],
+    "punch": "空座位解释不清",
+    "phrases": ["查岗对上空座位", "空座位解释不清", "师生矛盾，往往从这里起"]
+  },
+  {
+    "id": "stay",
+    "file": "broll/B-人留下.mp4",
+    "tag": "人留下",
+    "title": "人先留在工位",
+    "contrast": [
+      {"head": "把人挪出工位", "body": "先别", "color": "red"},
+      {"head": "人留在工位", "body": "活可以再谈", "color": "mint"}
+    ],
+    "punch": "人不能先空",
+    "phrases": ["研一把人挪出工位", "先别把人挪走", "不要把人整段挪出合肥", "活可以再谈", "人不能先空"]
+  }
+]
