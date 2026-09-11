@@ -1,0 +1,21 @@
+{
+  "file": "/workspace/成片/22-松油门车子瞬间停住.mp4",
+  "video_type": "普通短视频",
+  "width": 1080,
+  "height": 1920,
+  "fps": 24,
+  "pix_fmt": "yuv420p",
+  "v_codec": "h264",
+  "a_codec": "aac",
+  "sample_rate": 44100,
+  "channels": 2,
+  "duration": 18.375,
+  "size_bytes": 7785830,
+  "sha256": "613115559c16331978f6887a82178448767bfe8e774ae2a00bb0cc91c51bcc4e",
+  "timeline_closed": true,
+  "decode": "ok",
+  "voice": "zh-CN-YunyangNeural",
+  "topic_id": "008",
+  "source": "topics-batch2.md #22",
+  "notes": "A/B 交替；B 定律卡相对口播早切约 0.20s；成片夹仅投递本条 mp4；未写 C/D/G；未上传 Drive"
+}
