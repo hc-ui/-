@@ -1,0 +1,26 @@
+[
+  {
+    "id": "wash",
+    "file": "broll/B-时长冲掉.mp4",
+    "tag": "错 · 报时长",
+    "title": "本片 12 秒",
+    "cards": [
+      {"num": "被盖", "head": "去改结尾", "body": "行动句刚落地", "color": "mint"},
+      {"num": "盖住", "head": "本片 12 秒", "body": "片尾章盖过指令", "color": "red"}
+    ],
+    "punch": "动作指令被冲掉",
+    "phrases": ["十秒讲完还报时长，动作指令被冲掉"]
+  },
+  {
+    "id": "cut",
+    "file": "broll/B-时长删掉.mp4",
+    "tag": "改法 · 删时长",
+    "title": "结尾只留动词",
+    "cards": [
+      {"num": "留", "head": "去改结尾", "body": "收束只留一个动作", "color": "mint"},
+      {"num": "删", "head": "本片 12 秒", "body": "脚本里时长那行划掉", "color": "red"}
+    ],
+    "punch": "把时长删掉",
+    "phrases": ["写完结尾，把时长删掉"]
+  }
+]

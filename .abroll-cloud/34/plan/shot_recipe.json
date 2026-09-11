@@ -1,0 +1,45 @@
+{
+  "title": "口播结尾别报时长",
+  "cover_title": "口播结尾别报时长",
+  "cover_sub": "报时长会冲掉动作",
+  "cover_line": "收束只留一个动作",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "source": "工厂 350_口播结尾别报时长 / topics-batch2.md #34",
+  "note": "口播工艺方法片。不是剧情连载，不走 drama-pipeline。不跟别念链接重复。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["口播结尾别报时长"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-时长冲掉.mp4",
+      "phrases": ["十秒讲完还报时长，动作指令被冲掉"],
+      "broll": "wash"
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["收束只留一个动作"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-时长删掉.mp4",
+      "phrases": ["写完结尾，把时长删掉"],
+      "broll": "cut"
+    }
+  ]
+}
