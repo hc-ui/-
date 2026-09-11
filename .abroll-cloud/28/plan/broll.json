@@ -1,0 +1,27 @@
+[
+  {
+    "id": "invoice_bounce",
+    "file": "broll/B-发票打回.mp4",
+    "tag": "避坑红线",
+    "title": "报销采购",
+    "cards": [
+      {"num": "票", "head": "发票一打回", "body": "手续繁琐反复纠缠", "color": "yellow"},
+      {"num": "批", "head": "批评跟着来", "body": "最耗心理能量", "color": "red"}
+    ],
+    "punch": "别接这摊",
+    "phrases": ["发票一打回，批评跟着来"]
+  },
+  {
+    "id": "chore_vs_ledger",
+    "file": "broll/B-公款推掉.mp4",
+    "tag": "认领边界",
+    "title": "做完就停",
+    "cards": [
+      {"num": "卫", "head": "卫生值日", "body": "边界清楚", "color": "mint"},
+      {"num": "递", "head": "收发快递", "body": "做完即止", "color": "mint"},
+      {"num": "章", "head": "盖章跑腿", "body": "体力杂务", "color": "yellow"}
+    ],
+    "punch": "公款账目推掉",
+    "phrases": ["公款账目，推掉就对"]
+  }
+]
