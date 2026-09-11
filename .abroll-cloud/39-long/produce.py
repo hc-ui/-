@@ -34,7 +34,7 @@ def frame_structure(t: float):
         a = kit.appear(t, ts, 0.22)
         if a < 0.04:
             continue
-        y = 320 + idx * 210 + int(kit.lerp(18, 0, a)) + kit.breathe(t + idx, 3, 1.4)
+        y = 320 + idx * 210 + int(kit.lerp(18, 0, a)) + kit.breathe(t + idx, 3)
         kit.rounded(d, (90, y, 990, y + 186), 28, kit.mix(kit.BG, kit.CARD, a))
         kit.rounded(d, (120, y + 36, 236, y + 150), 18, kit.mix(kit.CARD, color, a))
         d.text((178, y + 93), num, font=kit.font(40), fill=kit.mix(color, kit.INK, a), anchor="mm")
@@ -155,6 +155,24 @@ def frame_unlink(t: float):
     return img
 
 
+def reuse_voiceover(ep: kit.Episode):
+    wav = ep.root / "audio" / "vo-full.wav"
+    align = ep.root / "audio" / "vo-align.txt"
+    phrases = ep.load_phrases()
+    if wav.exists() and align.exists():
+        duration = kit.probe_dur(wav)
+        aligned = []
+        for line in align.read_text(encoding="utf-8").splitlines():
+            parts = line.split("\t")
+            if len(parts) >= 3:
+                aligned.append((float(parts[0]), float(parts[1]), parts[2]))
+        if kit.TARGET_LO <= duration <= kit.TARGET_HI and [p for *_, p in aligned] == phrases:
+            print("reuse VO", duration, kit.zh_sec(duration))
+            ep.write_align_files(aligned, duration)
+            return duration, aligned
+    return kit.Episode.make_voiceover(ep)
+
+
 def main() -> None:
     ep = kit.Episode(ROOT, {
         "name": "推不出来的酷画面删掉",
@@ -173,6 +191,7 @@ def main() -> None:
             "S06": ("B-连不上就删.mp4", frame_unlink),
         },
     })
+    ep.make_voiceover = lambda: reuse_voiceover(ep)
     ep.produce()
 
 
