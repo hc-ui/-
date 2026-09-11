@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ten_pages",
+    "file": "broll/B-八到十页.mp4",
+    "tag": "精读主菜",
+    "title": "八到十页",
+    "visual": "PPT 翻页 1–10；三格背景 / 方法 / 结论；测控温控图像只作领域标签",
+    "cards": [
+      {"num": "背", "head": "背景", "body": "这篇在解什么", "color": "yellow"},
+      {"num": "法", "head": "方法", "body": "图表规范写清", "color": "mint"},
+      {"num": "结", "head": "结论", "body": "读者能带走的", "color": "cream"}
+    ],
+    "punch": "讲清三件事",
+    "phrases": ["做成八到十页，讲清背景方法和结论"]
+  },
+  {
+    "id": "no_bench",
+    "file": "broll/B-别搭台子.mp4",
+    "tag": "错 · 承诺",
+    "title": "别报没搭完的台",
+    "visual": "下周一定搭完温控台打叉；这篇精读完了打勾；精读 / 仿真 / 课实验三枚已完成筹码",
+    "cards": [
+      {"num": "叉", "head": "下周一定搭完温控台", "body": "超出能力的工程承诺", "color": "red"},
+      {"num": "勾", "head": "这篇精读完了", "body": "已经做完的动作", "color": "mint"}
+    ],
+    "punch": "这篇精读完了",
+    "phrases": ["别报下周一定搭完台子"]
+  }
+]
