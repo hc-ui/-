@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "project_name": "85_毕业底线三件套",
+  "video_type": "普通短视频",
+  "episode": 85,
+  "title": "毕业底线三件套",
+  "source_note": "topics-batch4.md #85 / 备忘录第一节 3 毕业硬性底线 / 云端 NEW",
+  "slug": "85_毕业底线三件套",
+  "duration_zh": "44.2秒",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 44.25,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "d29491bcc28b98e6ffc02cabc6d89cb5d17970d2e60608fdf36f97e77c07dd71"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 44250
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/85-毕业底线三件套.mp4",
+    "project_final": "00_最终成片_毕业底线三件套.mp4",
+    "cover": "00_封面_毕业底线三件套.jpg"
+  },
+  "staged": "成片/85-毕业底线三件套.mp4",
+  "distinct_from": "成片/14-导师课题毕业就业技术栈自己建.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / 成片14双线 / 15生态位 / 16切片 / 49精读 / 50绑定博士",
+  "updated_at": "2026-09-11T14:40:22Z"
+}

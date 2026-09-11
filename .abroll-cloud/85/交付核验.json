@@ -1,0 +1,56 @@
+{
+  "project": "85_毕业底线三件套",
+  "duration_zh": "44.2秒",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/85-毕业底线三件套.mp4",
+  "project_final": "/workspace/.abroll-cloud/85/00_最终成片_毕业底线三件套.mp4",
+  "sha256": "3136c09a41c2656dd1b2a80e32a15efafc726938baae4b27ee94f7756374a74f",
+  "bytes": 11272140,
+  "distinct_from_14": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 44.25
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.5,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 12,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true,
+  "duration_window": {
+    "min": 30.0,
+    "max": 60.0,
+    "target": [
+      40.0,
+      50.0
+    ],
+    "hit": true,
+    "duration_zh": "44.2秒"
+  },
+  "script_guard": {
+    "下一期": true,
+    "赵老师": true,
+    "生态位": true,
+    "主力博士": true,
+    "就业技术栈": true,
+    "十五十五七十": true
+  }
+}
