@@ -1,0 +1,43 @@
+{
+  "project": "45_会议没有结束时间_long",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "cut": "long-40s",
+  "final": "/workspace/成片/45-会议没有结束时间.mp4",
+  "project_final": "/workspace/.abroll-cloud/45-long/00_最终成片_会议没有结束时间.mp4",
+  "sha256": "2830753cdfe59467c4740f594dc7f6f06fb04ae677b1dcbd0881eaf4e43a17e6",
+  "bytes": 9681203,
+  "replaced_short_cut_s": 11.75,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 46.375
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.8,
+    "max_volume_db": -9.7
+  },
+  "timeline": {
+    "segments": 9,
+    "a_shots": 6,
+    "b_shots": 3,
+    "phrases": 18,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28,
+    "in_hard_window": true,
+    "in_target_window": true
+  },
+  "decode_null": true,
+  "ok": true
+}

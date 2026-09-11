@@ -1,0 +1,28 @@
+{
+  "title": "研一别脱产离校实习",
+  "cover_title": "研一别脱产离校实习",
+  "cover_sub": "人先留在工位",
+  "cover_line": "查岗对上空座位",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "47",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #47 / 备忘录第二节 3 / 47-long 加长重切",
+  "note": "专硕实习红线。加长口播与 A/B 镜，覆盖 12.7s 短切。不讲远程。禁止 freeze-pad。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["研一别脱产离校实习", "不是实习不好"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["是人不能整段离开工位"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-风险极高.mp4", "phrases": ["脱产全职离校，风险极高", "导师随时可能叫你开会", "临时组会，说开就开"], "broll": "risk"},
+    {"id": "S03", "kind": "A", "src": "assets/V-正对讲.mp4", "phrases": ["周末也可能派跑腿"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-空工位.mp4", "phrases": ["跑腿要人在场", "人一不在，名单就对不上", "工位空了，就是把柄"], "broll": "empty_desk"},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["私自离开合肥"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-查岗.mp4", "phrases": ["查岗对上空座位", "空座位解释不清", "师生矛盾，往往从这里起"], "broll": "checkpoint"},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["车票可以买", "人先别走"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-人留下.mp4", "phrases": ["研一把人挪出工位", "先别把人挪走", "不要把人整段挪出合肥", "活可以再谈", "人不能先空"], "broll": "stay"},
+    {"id": "S09", "kind": "A", "src": "assets/V-侧对讲.mp4", "phrases": ["人先留在工位", "记住这一条"]},
+    {"id": "S10", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["人在，事才谈得上", "研一先把人留下"]}
+  ]
+}

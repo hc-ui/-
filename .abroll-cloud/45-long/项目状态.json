@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "project_name": "45_会议没有结束时间_long",
+  "video_type": "普通短视频",
+  "episode": 45,
+  "cut": "long-40s",
+  "title": "会议没有结束时间",
+  "source_note": "topics-batch3.md #45 / 工厂 会议没有结束时间 / 45-long 加长重切",
+  "slug": "会议没有结束时间",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 46.375,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "c809bbc77eaa836ddcc6c2dd694887ea40fa6389535f1fdfd8eccb64473c990c",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 46375
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/45-会议没有结束时间.mp4",
+    "project_final": "00_最终成片_会议没有结束时间.mp4",
+    "cover": "00_封面_会议没有结束时间.jpg"
+  },
+  "staged": "成片/45-会议没有结束时间.mp4",
+  "draft": ".abroll-cloud/45-long",
+  "replaced_short_cut_s": 11.75,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T12:42:37Z"
+}

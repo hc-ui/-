@@ -1,0 +1,38 @@
+[
+  {
+    "id": "desk_stay",
+    "file": "broll/B-人在工位.mp4",
+    "tag": "人在工位",
+    "title": "人坐着就行",
+    "cards": [
+      {"num": "空", "head": "工位空了", "body": "查岗才危险", "color": "red"},
+      {"num": "坐", "head": "人坐着", "body": "杂活按时应", "color": "mint"}
+    ],
+    "punch": "人不用搬走",
+    "phrases": ["杂活来了按时应，做完即止", "人不用搬走，工位得留人", "工位空了被查岗，才最危险"]
+  },
+  {
+    "id": "dual_screen",
+    "file": "broll/B-双屏线上.mp4",
+    "tag": "活在线上",
+    "title": "双屏一起跑",
+    "cards": [
+      {"num": "左", "head": "实验仿真", "body": "曲线还在走", "color": "yellow"},
+      {"num": "右", "head": "线上项目", "body": "软件算法接着做", "color": "mint"}
+    ],
+    "punch": "考勤和履历一起拿",
+    "phrases": ["右边接线上软件或算法项目", "考勤在工位拿，履历在线上攒"]
+  },
+  {
+    "id": "local_later",
+    "file": "broll/B-本地先灰.mp4",
+    "tag": "本地先灰",
+    "title": "合肥本地先别探",
+    "cards": [
+      {"num": "今", "head": "现在", "body": "人在工位 · 活在线上", "color": "mint"},
+      {"num": "后", "head": "研二下 / 研三", "body": "初稿锁定再谈本地", "color": "muted"}
+    ],
+    "punch": "本地实习先灰掉",
+    "phrases": ["等研二下或研三再探本地岗位", "专利或论文初稿先锁定", "杂活交接后再谈本地实习"]
+  }
+]
