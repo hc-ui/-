@@ -1,0 +1,11 @@
+{
+  "style": "黑底对照卡",
+  "distinct_from": "不成片16的十五十五七十、不成片79的组会工坊、不成片80的体力清单、不成片81的假条两案",
+  "cards": [
+    {"id": "hands_off", "file": "B-他不下场.mp4", "point": "算法推导和控制回路都打叉，他很少下场"},
+    {"id": "empty_chair", "file": "B-空椅大事.mp4", "point": "放养不是没人管，空椅子才是大事"},
+    {"id": "random_cal", "file": "B-临时会.mp4", "point": "周末和假日前夕都可能临时叫人"},
+    {"id": "balloons", "file": "B-比喻散掉.mp4", "point": "宏观比喻听完就散"},
+    {"id": "contract", "file": "B-职业契约.mp4", "point": "放养学术 / 收紧工位，契约摆正"}
+  ]
+}

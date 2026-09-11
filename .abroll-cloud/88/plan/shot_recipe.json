@@ -1,0 +1,27 @@
+{
+  "title": "学术放养工位收紧",
+  "cover_title": "学术放养工位收紧",
+  "cover_sub": "放养的是题",
+  "cover_line": "收紧的是椅子",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch4.md #88 / 备忘录第一节2 学术放养工位收紧 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "88",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打学术放养、工位收紧这一套双轨。不拍16时间切片、79组会工坊、80体力杂务、81请假两方案。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["学术放养，工位收紧"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-他不下场.mp4", "broll": "hands_off", "phrases": ["题怎么推，他很少下场", "算法推导他不改，控制回路他不盯"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["底层代码，他基本不碰", "重大项目靠博士扛，硕士细节自己消化"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-空椅大事.mp4", "broll": "empty_chair", "phrases": ["别把放养当成没人管", "椅子空着，才是大事"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["工位要人在，实验室要看得见"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-临时会.mp4", "broll": "random_cal", "phrases": ["通知说不准哪天来，周末也可能叫人", "假日前夕，临时会说开就开"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["他抓的是物理在场，不是推导对不对"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-比喻散掉.mp4", "broll": "balloons", "phrases": ["宏观讲得多，比喻听完就散"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["别等学业指引，也别等情绪支持"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-职业契约.mp4", "broll": "contract", "phrases": ["职业契约摆正就行", "放养的是学术，收紧的是工位"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["人坐住，题自己啃"]}
+  ]
+}
