@@ -1,0 +1,38 @@
+[
+  {
+    "id": "scatter",
+    "file": "broll/B-广撒网.mp4",
+    "tag": "错 · 三个",
+    "title": "别同时绑三个",
+    "cards": [
+      {"num": "叉", "head": "甲乙丙", "body": "同时认三个绑不牢", "color": "red"},
+      {"num": "散", "head": "力气一散", "body": "谁也不把你当自己人", "color": "yellow"}
+    ],
+    "punch": "广撒网等于没绑",
+    "phrases": ["别同时绑三个师兄", "力气一散，谁也不把你当自己人"]
+  },
+  {
+    "id": "one_phd",
+    "file": "broll/B-只绑一个.mp4",
+    "tag": "对 · 一个",
+    "title": "认准一位主力",
+    "cards": [
+      {"num": "稳", "head": "性格稳", "body": "不天天改方向", "color": "mint"},
+      {"num": "文", "head": "有论文任务", "body": "高年级手上有稿在推", "color": "yellow"}
+    ],
+    "punch": "只绑一个",
+    "phrases": ["高年级，手上有论文在推", "性格稳，不天天改方向"]
+  },
+  {
+    "id": "authorship",
+    "file": "broll/B-换署名数据.mp4",
+    "tag": "换 · 同盟",
+    "title": "减负换过关",
+    "cards": [
+      {"num": "名", "head": "共同署名", "body": "署名栏多一个名字", "color": "mint"},
+      {"num": "盘", "head": "可引用", "body": "毕业数据合法授权", "color": "yellow"}
+    ],
+    "punch": "结成利益同盟",
+    "phrases": ["换署名、专利位次、毕业数据授权", "署名栏多一个名字", "数据盘盖上可引用"]
+  }
+]

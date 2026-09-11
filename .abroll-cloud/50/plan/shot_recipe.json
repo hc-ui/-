@@ -1,0 +1,80 @@
+{
+  "title": "绑定一个主力博士",
+  "cover_title": "绑定一个主力博士",
+  "cover_sub": "认准一位稳的师兄",
+  "cover_line": "减负换过关",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "50",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #50 / 备忘录第四节 2 绑定主力博士 / 加长重切",
+  "note": "专硕破局加长。只拍利益同盟。A 镜往返循环，不定格。不拍测控生态位。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true,
+      "cap": ["大家好"]
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["绑定一个主力博士"],
+      "cap": ["绑定一个主力博士"]
+    },
+    {
+      "id": "S01c",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["不是广撒网", "是结成一条利益同盟"],
+      "cap": ["不是广撒网", "是利益同盟"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-广撒网.mp4",
+      "phrases": ["别同时绑三个师兄", "力气一散，谁也不把你当自己人"],
+      "broll": "scatter"
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["认准一位稳的、有论文任务的师兄"],
+      "cap": ["认准一位主力"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-只绑一个.mp4",
+      "phrases": ["高年级，手上有论文在推", "性格稳，不天天改方向"],
+      "broll": "one_phd"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["你帮他搭自动化、处理数据", "平台里最烦的活，你接下来", "他减负，你才有位置"],
+      "cap": ["搭自动化、处理数据"]
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-换署名数据.mp4",
+      "phrases": ["换署名、专利位次、毕业数据授权", "署名栏多一个名字", "数据盘盖上可引用"],
+      "broll": "authorship"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["只绑这一条线", "别再去认第二个主力", "一条线绑牢，署名和数据才会来"],
+      "cap": ["只绑这一条线"]
+    }
+  ]
+}
