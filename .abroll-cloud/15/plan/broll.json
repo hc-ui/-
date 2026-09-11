@@ -1,0 +1,47 @@
+[
+  {
+    "id": "tec",
+    "file": "broll/B-温控台.mp4",
+    "source": "broll-assets/t08-tec-bench.mp4",
+    "still": "broll-assets/t08a-tec-control-bench.png",
+    "tag": "01 温控",
+    "title": "自适应温控",
+    "punch": "低温样品 · PID / MPC",
+    "phrases": ["低温样品做自适应温控"]
+  },
+  {
+    "id": "flow",
+    "file": "broll/B-微流控.mp4",
+    "source": "code",
+    "tag": "02 微流控",
+    "title": "恒流 / 恒压",
+    "cards": [
+      {"num": "泵", "head": "微量泵", "body": "给流量"},
+      {"num": "阀", "head": "气压阀", "body": "给压力"},
+      {"num": "感", "head": "传感器", "body": "回闭环"}
+    ],
+    "punch": "开环加液不算生态位",
+    "phrases": ["微流控做恒流恒压"]
+  },
+  {
+    "id": "cells",
+    "file": "broll/B-显微.mp4",
+    "source": "broll-assets/t08-cells.mp4",
+    "still": "broll-assets/t08b-microscope-cells.png",
+    "tag": "03 视觉",
+    "title": "冻存细胞检测",
+    "punch": "形态自动框选",
+    "phrases": ["显微去检冻存细胞"]
+  },
+  {
+    "id": "wet_vs_control",
+    "file": "broll/B-湿实验对照.mp4",
+    "source": "broll-assets/t08-card-wet-vs-control.mp4",
+    "still": "broll-assets/t08-card-wet-vs-control.png",
+    "tag": "对照 湿实验 / 测控",
+    "title": "包装成测控底层",
+    "punch": "才贴答辩",
+    "note": "目录卡只作封面与素材备份，成片主轴不用整页目录墙",
+    "phrases": []
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "title": "在生医实验室抢测控生态位",
+  "topic_index": 8,
+  "episode": 15,
+  "video_type": "普通短视频",
+  "cover_title": "在生医实验室抢测控生态位",
+  "cover_sub": "缺的是闭环，不是养细胞",
+  "cover_line": "包装成测控底层",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["交叉组缺的是闭环，不是再多一个养细胞的人"]
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-温控台.mp4",
+      "broll": "tec",
+      "phrases": ["低温样品做自适应温控"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-微流控.mp4",
+      "broll": "flow",
+      "phrases": ["微流控做恒流恒压"]
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-显微.mp4",
+      "broll": "cells",
+      "phrases": ["显微去检冻存细胞"]
+    },
+    {
+      "id": "S06",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["包装成测控底层，才贴答辩"]
+    }
+  ]
+}
