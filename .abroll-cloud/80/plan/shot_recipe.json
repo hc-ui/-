@@ -1,0 +1,25 @@
+{
+  "title": "主动认领体力型杂务",
+  "cover_title": "体力型杂务",
+  "cover_sub": "边界清楚，做完有终点",
+  "cover_line": "有终点，就举手",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "80",
+  "cut": "new-40s",
+  "source": "topics-batch4.md #80 / 备忘录第二节 1 主动认领体力型杂务 / 云端 NEW",
+  "note": "知识口播。只打开学主动认领体力活。不是剧情短剧。不定格、不慢放注水。不重复 28 别接报销、不重复 46 六十分。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["开学先认领体力型杂务"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是等人派活，是自己举手", "工位卫生值日，仪器例行维护"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-四样体力活.mp4", "phrases": ["收发组里快递，学院盖章跑腿", "这四样边界清楚，做完就有终点"], "broll": "four_chores"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["主动申请，把位置占住", "占住的是体力活，不是账本"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-占住体力活.mp4", "phrases": ["卫生清单勾完就停", "快递送到手就交", "章盖完，人立刻回来"], "broll": "occupy"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["别把杂务认领成长期岗位", "做完即止，不要反复纠缠"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-有终点才接.mp4", "phrases": ["有终点的活才接", "认领之前先问一句", "做完有没有终点"], "broll": "endpoint"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["有终点，就举手", "体力型杂务，请主动认领"]}
+  ]
+}

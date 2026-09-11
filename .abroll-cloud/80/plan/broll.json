@@ -1,0 +1,23 @@
+[
+  {
+    "id": "four_chores",
+    "file": "broll/B-四样体力活.mp4",
+    "tag": "认 · 四样",
+    "title": "先举手认这四样",
+    "punch": "边界清楚，做完有终点"
+  },
+  {
+    "id": "occupy",
+    "file": "broll/B-占住体力活.mp4",
+    "tag": "占 · 体力活",
+    "title": "占住的是体力活",
+    "punch": "不是账本"
+  },
+  {
+    "id": "endpoint",
+    "file": "broll/B-有终点才接.mp4",
+    "tag": "收 · 有终点",
+    "title": "有终点才举手",
+    "punch": "做完就停"
+  }
+]
