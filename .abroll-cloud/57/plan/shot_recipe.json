@@ -1,0 +1,20 @@
+{
+  "title": "一张对照卡只打一个点",
+  "cover_title": "一张对照卡",
+  "cover_sub": "只打一个点",
+  "cover_line": "错法 · 做法 · 反差",
+  "cover_src": "assets/A-角色-小灯-指向.jpg",
+  "source": "topics-batch3.md #57 · 工厂 13_对照卡",
+  "video_type": "普通短视频",
+  "note": "口播工艺。不是剧情连载，不走 drama-pipeline。云端 A-roll 用 25 的 V-正对讲 + 06 的挥手/指向/点赞。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-正对讲.mp4", "phrases": ["知识口播最容易胖的"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-一屏三枪.mp4", "broll": "three", "phrases": ["不是字多", "是一屏同时打三枪"]},
+    {"id": "S03a", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["观众眼睛只能停在一个对照上"]},
+    {"id": "S03b", "kind": "B", "src": "broll/B-左右对照.mp4", "broll": "sides", "phrases": ["左边是错法", "右边是做法"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-一张一点.mp4", "broll": "one", "phrases": ["一张对照卡，只打一个点"]},
+    {"id": "S05", "kind": "B", "src": "broll/B-反差.mp4", "broll": "contrast", "phrases": ["信息图不是目录墙", "是反差", "你要他记住的，不是五条建议", "是那一对对错"]},
+    {"id": "S06", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["下回做卡片，先画对照", "再写金句"]}
+  ]
+}
