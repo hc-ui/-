@@ -1,0 +1,28 @@
+[
+  {
+    "id": "two_trees",
+    "file": "broll/B-两棵技能树.mp4",
+    "tag": "对 · 主树",
+    "title": "主树先长控制和机器人",
+    "visual": "两棵技能树：主树控制/机器人/AI 提亮，侧树 Agent 淡色标第二技能树",
+    "cards": [
+      {"num": "主", "head": "控制 + 机器人 + AI", "body": "现在先长这一棵", "color": "mint"},
+      {"num": "副", "head": "Agent", "body": "长期第二技能树", "color": "muted"}
+    ],
+    "punch": "不是当前主线",
+    "phrases": ["主树先长控制和机器人"]
+  },
+  {
+    "id": "side_cards",
+    "file": "broll/B-侧牌不上桌.mp4",
+    "tag": "错 · 上桌",
+    "title": "侧牌先别上主桌",
+    "visual": "现在箭头只指 Python；MCP / RAG / Skill 牌堆在侧，不上主桌",
+    "cards": [
+      {"num": "今", "head": "Python", "body": "现在只指这里", "color": "mint"},
+      {"num": "侧", "head": "MCP / RAG / Skill", "body": "堆在侧边，不上桌", "color": "yellow"}
+    ],
+    "punch": "只保持兴趣",
+    "phrases": ["Python没过关，只保持兴趣"]
+  }
+]
