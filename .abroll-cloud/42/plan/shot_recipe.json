@@ -1,0 +1,45 @@
+{
+  "title": "列表用append，别用等号盖掉",
+  "cover_title": "列表用 append",
+  "cover_sub": "别用等号盖掉",
+  "cover_line": "lst = 分数 会把整列换成一个数",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "source": "topics-batch3.md #42 / 学习与职业规划基线.md 不足第4条",
+  "note": "Python 知识口播。只打赋值事故，不讲嵌套字典，不讲从值找键。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["列表用append，别用等号盖掉"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-追加.mp4",
+      "phrases": ["往里加分数，要用append"],
+      "broll": "append"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-等号盖掉.mp4",
+      "phrases": ["写成等号，整张列表变成一个数字", "一列分数，被盖成光秃秃的九十二"],
+      "broll": "assign"
+    },
+    {
+      "id": "S04",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["该加就append，别用等号换掉整列"]
+    }
+  ]
+}

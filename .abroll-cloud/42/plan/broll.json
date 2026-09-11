@@ -1,0 +1,18 @@
+[
+  {
+    "id": "append",
+    "file": "broll/B-追加.mp4",
+    "tag": "对 · 追加",
+    "title": "往末尾加一张",
+    "punch": "用 append",
+    "phrases": ["往里加分数，要用append"]
+  },
+  {
+    "id": "assign",
+    "file": "broll/B-等号盖掉.mp4",
+    "tag": "错 · 等号",
+    "title": "等号盖掉整列",
+    "punch": "光秃秃的 92",
+    "phrases": ["写成等号，整张列表变成一个数字", "一列分数，被盖成光秃秃的九十二"]
+  }
+]
