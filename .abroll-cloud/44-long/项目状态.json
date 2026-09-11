@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "project_name": "44_忙完一天却没推进_long",
+  "video_type": "普通短视频",
+  "episode": 44,
+  "cut": "long-40s",
+  "title": "忙完一天却没推进",
+  "full_title": "忙完一天却没推进",
+  "source_note": "工厂 44_忙完一天却没推进 · 44-long 加长重切（官方 topics-batch3 #44 是菜单拆函数，本集成片号占用）",
+  "slug": "忙完一天却没推进",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 45.25,
+  "duration_zh": "45.2秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "80737314588d8d8a4c3dc9f7294d82577a9dc1ee8b54add4761491f67401ef1b",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 45250
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/44-忙完一天却没推进.mp4",
+    "project_final": "00_最终成片_忙完一天却没推进.mp4",
+    "cover": "00_封面_忙完一天却没推进.jpg"
+  },
+  "staged": "成片/44-忙完一天却没推进.mp4",
+  "draft": ".abroll-cloud/44-long",
+  "qa_video": "/workspace/成片/44-忙完一天却没推进.mp4",
+  "replaced_short_cut_s": 14.46,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T13:28:10Z"
+}
