@@ -1,0 +1,25 @@
+{
+  "title": "再优化一下没有验收",
+  "cover_title": "再优化一下",
+  "cover_sub": "没有验收就没有终点",
+  "cover_line": "过了就停手",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "62",
+  "cut": "new-40s",
+  "source": "topics-batch4.md #62 / 工厂 62_再优化一下没有验收 / 云端 NEW",
+  "note": "知识口播。只打优化没有验收。不是剧情短剧。不定格、不慢放注水。不重复 #61 试点推不开。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["再优化一下，没有验收"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是人不够认真，是标准没立", "这句话本身没有终点"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-没有终点.mp4", "phrases": ["优化可以永远再来一轮", "没有验收，就没有做完", "感觉还能更好，那也不算过"], "broll": "no_end"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["第一步，开工先写下什么叫做过"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-先写过.mp4", "phrases": ["三条能打勾的标准就够用", "谁来点头，名字也要先写上"], "broll": "write_pass"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["第二步，一轮只改一条", "不准顺手再加新功能"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-一轮一条.mp4", "phrases": ["改完对照标准，过了就停手", "不过就只改没过的那一条", "第三步，验收人当场签字"], "broll": "one_round"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["没有人点头，这轮优化不算数", "下次开口别再说再优化一下", "没有验收的优化，请当成没立"]}
+  ]
+}

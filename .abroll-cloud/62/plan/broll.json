@@ -1,0 +1,23 @@
+[
+  {
+    "id": "no_end",
+    "file": "broll/B-没有终点.mp4",
+    "tag": "错 · 没终点",
+    "title": "再优化一下",
+    "punch": "没有验收就没做完"
+  },
+  {
+    "id": "write_pass",
+    "file": "broll/B-先写过.mp4",
+    "tag": "对 · 先写过",
+    "title": "三条能打勾",
+    "punch": "谁来点头先写上"
+  },
+  {
+    "id": "one_round",
+    "file": "broll/B-一轮一条.mp4",
+    "tag": "对 · 一轮一条",
+    "title": "过了就停手",
+    "punch": "验收人当场签字"
+  }
+]
