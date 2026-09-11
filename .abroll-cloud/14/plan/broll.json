@@ -1,0 +1,41 @@
+[
+  {
+    "id": "two_tracks",
+    "file": "broll/B-双轨.mp4",
+    "tag": "双轨并行",
+    "title": "两条线",
+    "cards": [
+      {"num": "左", "head": "科研线", "body": "开题 · 专利 · 盲审", "color": "yellow"},
+      {"num": "右", "head": "就业线", "body": "Python 先扎实", "color": "mint"}
+    ],
+    "punch": "毕业不绑死就业",
+    "phrases": ["毕业走科研线，就业走能力线"]
+  },
+  {
+    "id": "python_first",
+    "file": "broll/B-Python.mp4",
+    "tag": "可带走",
+    "title": "先把 Python 学扎实",
+    "cards": [
+      {"num": "01", "head": "数据处理", "body": "从课题抽走", "color": "mint"},
+      {"num": "02", "head": "闭环温控", "body": "PID 能迁移", "color": "yellow"},
+      {"num": "03", "head": "采集自动化", "body": "传感器进代码", "color": "mint"}
+    ],
+    "punch": "技术栈自己建",
+    "still": "assets/t07a-lab-and-code-split.png",
+    "phrases": ["先把 Python 学扎实"]
+  },
+  {
+    "id": "no_five",
+    "file": "broll/B-别开五条.mp4",
+    "tag": "先别开坑",
+    "title": "别同时开五条路",
+    "cards": [
+      {"num": "叉", "head": "C++", "body": "热门不是开工令", "color": "red"},
+      {"num": "叉", "head": "ROS2", "body": "后置，不抢现在", "color": "red"},
+      {"num": "叉", "head": "PyTorch", "body": "先别并线", "color": "red"}
+    ],
+    "punch": "一条线先走通",
+    "phrases": ["别同时开五条路"]
+  }
+]
