@@ -1,0 +1,92 @@
+{
+  "catalog": "scout_catalog.json",
+  "voice": "zh-CN-YunyangNeural",
+  "preview": "成片/00-aroll-preview.mp4",
+  "preview_duration": 171.023,
+  "items": [
+    {
+      "slug": "01_灯亮了房间还是黑的",
+      "title": "灯亮了，房间还是黑的",
+      "wav": ".abroll-cloud/aroll/audio/01_灯亮了房间还是黑的.wav",
+      "duration": 15.744,
+      "chars": 67
+    },
+    {
+      "slug": "02_树叶掉了二十秒还没落地",
+      "title": "树叶掉了二十秒还没落地",
+      "wav": ".abroll-cloud/aroll/audio/02_树叶掉了二十秒还没落地.wav",
+      "duration": 14.808,
+      "chars": 61
+    },
+    {
+      "slug": "03_打翻水杯水往天花板流",
+      "title": "打翻水杯，水往天花板流",
+      "wav": ".abroll-cloud/aroll/audio/03_打翻水杯水往天花板流.wav",
+      "duration": 15.072,
+      "chars": 57
+    },
+    {
+      "slug": "04_咖啡自己滑向桌边",
+      "title": "咖啡自己滑向桌边",
+      "wav": ".abroll-cloud/aroll/audio/04_咖啡自己滑向桌边.wav",
+      "duration": 16.2,
+      "chars": 65
+    },
+    {
+      "slug": "05_凉咖啡冒热气杯壁结霜",
+      "title": "凉咖啡重新冒热气，杯壁却结霜",
+      "wav": ".abroll-cloud/aroll/audio/05_凉咖啡冒热气杯壁结霜.wav",
+      "duration": 16.296,
+      "chars": 68
+    },
+    {
+      "slug": "06_字典靠名字不是第几个",
+      "title": "字典靠名字，不是第几个",
+      "wav": ".abroll-cloud/aroll/audio/06_字典靠名字不是第几个.wav",
+      "duration": 13.68,
+      "chars": 60
+    },
+    {
+      "slug": "07_导师课题毕业就业自己建",
+      "title": "导师课题毕业，就业技术栈自己建",
+      "wav": ".abroll-cloud/aroll/audio/07_导师课题毕业就业自己建.wav",
+      "duration": 14.136,
+      "chars": 66
+    },
+    {
+      "slug": "08_生医实验室抢测控生态位",
+      "title": "在生医实验室抢测控生态位",
+      "wav": ".abroll-cloud/aroll/audio/08_生医实验室抢测控生态位.wav",
+      "duration": 15.24,
+      "chars": 67
+    },
+    {
+      "slug": "09_工位时间切片十五十五七十",
+      "title": "工位时间切片：15 / 15 / 70",
+      "wav": ".abroll-cloud/aroll/audio/09_工位时间切片十五十五七十.wav",
+      "duration": 11.616,
+      "chars": 51
+    },
+    {
+      "slug": "10_窗台纸鹤拉到地球夜侧",
+      "title": "从窗台纸鹤拉到地球夜侧",
+      "wav": ".abroll-cloud/aroll/audio/10_窗台纸鹤拉到地球夜侧.wav",
+      "duration": 12.456,
+      "chars": 55
+    },
+    {
+      "slug": "11_涨星靠外发不靠改说明",
+      "title": "开源小工具涨星靠外发，不靠改 README",
+      "wav": ".abroll-cloud/aroll/audio/11_涨星靠外发不靠改说明.wav",
+      "duration": 14.688,
+      "chars": 65
+    },
+    {
+      "slug": "12_十二节气先锁十二张首帧",
+      "title": "十二节气先锁十二张首帧",
+      "wav": ".abroll-cloud/aroll/audio/12_十二节气先锁十二张首帧.wav",
+      "duration": 11.064,
+      "chars": 48
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "catalog": "catalog.json",
+  "voice": "zh-CN-YunyangNeural",
+  "preview": null,
+  "preview_duration": null,
+  "items": [
+    {
+      "slug": "347_口头答应没有截止日",
+      "title": "口头答应没有截止日",
+      "wav": ".abroll-cloud/aroll/audio/347_口头答应没有截止日.wav",
+      "duration": 11.52,
+      "chars": 51
+    },
+    {
+      "slug": "348_演练脚本没有中止口令",
+      "title": "演练脚本没有中止口令",
+      "wav": ".abroll-cloud/aroll/audio/348_演练脚本没有中止口令.wav",
+      "duration": 14.688,
+      "chars": 60
+    },
+    {
+      "slug": "349_工单升级没有时限",
+      "title": "工单升级没有时限",
+      "wav": ".abroll-cloud/aroll/audio/349_工单升级没有时限.wav",
+      "duration": 14.184,
+      "chars": 56
+    },
+    {
+      "slug": "350_值班手机没有备机号",
+      "title": "值班手机没有备机号",
+      "wav": ".abroll-cloud/aroll/audio/350_值班手机没有备机号.wav",
+      "duration": 14.52,
+      "chars": 60
+    },
+    {
+      "slug": "351_先给选项再要决定",
+      "title": "先给选项再要决定",
+      "wav": ".abroll-cloud/aroll/audio/351_先给选项再要决定.wav",
+      "duration": 10.152,
+      "chars": 46
+    },
+    {
+      "slug": "352_先给场景再给方法",
+      "title": "先给场景再给方法",
+      "wav": ".abroll-cloud/aroll/audio/352_先给场景再给方法.wav",
+      "duration": 12.744,
+      "chars": 54
+    },
+    {
+      "slug": "353_口播别念链接",
+      "title": "口播别念链接",
+      "wav": ".abroll-cloud/aroll/audio/353_口播别念链接.wav",
+      "duration": 12.144,
+      "chars": 52
+    },
+    {
+      "slug": "354_列表项先给结果",
+      "title": "列表项先给结果",
+      "wav": ".abroll-cloud/aroll/audio/354_列表项先给结果.wav",
+      "duration": 13.512,
+      "chars": 57
+    }
+  ]
+}

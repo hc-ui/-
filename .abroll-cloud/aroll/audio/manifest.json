@@ -1,0 +1,8 @@
+{
+  "voice": "zh-CN-YunyangNeural",
+  "format": "wav pcm_s16le 44100Hz mono",
+  "preview": "成片/00-aroll-preview.mp4",
+  "preview_note": "scout 01–12 口播+字幕板，非精剪",
+  "scout_manifest": "manifest-scout_catalog.json",
+  "claim_manifest": "manifest-catalog.json"
+}
