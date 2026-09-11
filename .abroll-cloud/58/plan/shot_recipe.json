@@ -6,8 +6,11 @@
   "cover_src": "assets/A-角色-小灯-摊手.jpg",
   "video_type": "普通短视频",
   "topic_id": "58",
-  "source": "topics-batch3.md #58 / 工厂 18_笔记越记越乱",
-  "note": "未完成知识口播。不是剧情短剧，不走 drama-pipeline。不重复 26 待办、00 深度工作、57 对照卡。",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #58 / 工厂 18_笔记越记越乱 / 加长重切",
+  "note": "知识口播。加长口播与 A/B 镜，覆盖 18s 短切。不定格注水。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
   "shots": [
     {
       "id": "S01a",
@@ -26,21 +29,62 @@
       "id": "S02",
       "kind": "B",
       "src": "broll/B-越记越乱.mp4",
-      "phrases": ["会议纪要、碎片、链接全塞一个本子，只看见标题看不见判断"],
+      "phrases": [
+        "会议纪要、灵感碎片、链接收藏，全塞进一个本子",
+        "回头找的时候，只看见标题，看不见判断",
+        "翻本子像进了废纸篓",
+        "记一堆标题，不等于有判断"
+      ],
       "broll": "mess_titles"
     },
     {
       "id": "S03",
-      "kind": "B",
-      "src": "broll/B-一条一句.mp4",
-      "phrases": ["一条笔记只留一句结论，来源和例子另开"],
-      "broll": "one_line"
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["正确做法，一条笔记只留一句结论"]
     },
     {
       "id": "S04",
+      "kind": "B",
+      "src": "broll/B-一条一句.mp4",
+      "phrases": ["来源放到下面", "例子另开一条"],
+      "broll": "one_line"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["笔记是为了下次用，不是为了证明你来过"]
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-三步三叠.mp4",
+      "phrases": ["第一步，先写结论", "第二步，来源另起一行", "第三步，例子另开一条"],
+      "broll": "three_steps"
+    },
+    {
+      "id": "S07",
       "kind": "A",
       "src": "assets/V-指向.mp4",
-      "phrases": ["记少一点，才能找得回来"]
+      "phrases": ["三叠分开，本子才回得来"]
+    },
+    {
+      "id": "S08",
+      "kind": "B",
+      "src": "broll/B-下次再用.mp4",
+      "phrases": ["下次打开，先看见判断"],
+      "broll": "next_use"
+    },
+    {
+      "id": "S09",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": [
+        "记少一点，才能找得回来",
+        "打开本子要能立刻动手，不要先考古",
+        "能动手的本子，才算记回来"
+      ]
     }
   ]
 }
