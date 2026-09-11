@@ -1,0 +1,25 @@
+{
+  "title": "分不清改物理和AI画错",
+  "cover_title": "分不清改物理和AI画错",
+  "cover_sub": "抽卡救不了 · 三条规矩",
+  "cover_line": "先正常再反常，只改这一条",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "38",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #38 / 选题库.md 001 暂缓 / EP001-生产包.md / 38-long 加长重切",
+  "note": "知识口播。加长口播与 A/B 镜，覆盖 19.9s 短切。不重拍雨滴弹回。禁止 freeze-pad。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["观众分不清，你是改了物理，还是AI画错"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["一颗不融进水的球，看起来就像玻璃珠", "微妙对照会被当成穿帮"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-玻璃珠对照.mp4", "phrases": ["同一滴水，三种读法", "正常飞溅，观众认得出水", "微妙玻璃珠，看起来像穿帮", "整街水洼鼓起，才不像穿帮"], "broll": "bead"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["抽卡救不了"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-抽卡救不了.mp4", "phrases": ["再抽一张，还是同一颗假珠", "物理和画错叠在一起", "撕不开，观众只会怪生成"], "broll": "draw"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["先给正常再给反常"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-三条规矩.mp4", "phrases": ["片头写清只改这一条", "开头字卡宣告改了哪条", "别让观众猜你画崩了"], "broll": "rules"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["尺度放大，大到不可能是穿帮", "教训当题目，不是再抽一张"]}
+  ]
+}

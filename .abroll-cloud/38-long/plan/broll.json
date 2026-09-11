@@ -1,0 +1,40 @@
+[
+  {
+    "id": "bead",
+    "file": "broll/B-玻璃珠对照.mp4",
+    "tag": "对照 三种尺度",
+    "title": "同一滴水",
+    "cards": [
+      {"num": "1", "head": "正常飞溅", "body": "观众认得出水", "color": "mint"},
+      {"num": "2", "head": "微妙玻璃珠", "body": "看起来像穿帮", "color": "red"},
+      {"num": "3", "head": "整街水洼鼓起", "body": "大到不可能是错", "color": "yellow"}
+    ],
+    "punch": "三种读法",
+    "phrases": ["同一滴水，三种读法", "正常飞溅，观众认得出水", "微妙玻璃珠，看起来像穿帮", "整街水洼鼓起，才不像穿帮"]
+  },
+  {
+    "id": "draw",
+    "file": "broll/B-抽卡救不了.mp4",
+    "tag": "抽卡 救不了",
+    "title": "再抽一张",
+    "cards": [
+      {"num": "物", "head": "物理被改了", "body": "你改的那一条", "color": "yellow"},
+      {"num": "错", "head": "模型画错了", "body": "观众当穿帮", "color": "red"}
+    ],
+    "punch": "救不了",
+    "phrases": ["再抽一张，还是同一颗假珠", "物理和画错叠在一起", "撕不开，观众只会怪生成"]
+  },
+  {
+    "id": "rules",
+    "file": "broll/B-三条规矩.mp4",
+    "tag": "三条规矩",
+    "title": "只改这一条",
+    "cards": [
+      {"num": "1", "head": "先正常", "body": "再给反常", "color": "yellow"},
+      {"num": "2", "head": "片头字卡", "body": "只改这一条", "color": "mint"},
+      {"num": "3", "head": "尺度放大", "body": "大到不像穿帮", "color": "cream"}
+    ],
+    "punch": "开头先写清",
+    "phrases": ["片头写清只改这一条", "开头字卡宣告改了哪条", "别让观众猜你画崩了"]
+  }
+]
