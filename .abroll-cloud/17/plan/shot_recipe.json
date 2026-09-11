@@ -1,0 +1,42 @@
+{
+  "title": "从窗台纸鹤拉到地球夜侧",
+  "cover_title": "从窗台纸鹤拉到地球夜侧",
+  "cover_sub": "尺度一换，意思就翻了",
+  "cover_line": "不讲人物 · 只讲尺度",
+  "cover_src": "broll/stills/t10-earth-night.png",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-拉开.mp4",
+      "phrases": ["从窗台纸鹤，拉到地球夜侧"],
+      "broll": "zoom_out"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-落回.mp4",
+      "phrases": ["再落回掌心的玻璃弹珠"],
+      "broll": "marble_back"
+    },
+    {
+      "id": "S04",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["同一个东西，尺度一换，意思就翻了"]
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["不讲人物，只讲尺度"]
+    }
+  ]
+}

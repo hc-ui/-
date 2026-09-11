@@ -1,0 +1,25 @@
+[
+  {
+    "id": "zoom_out",
+    "file": "broll/B-拉开.mp4",
+    "tag": "尺度 拉开",
+    "title": "窗台 → 地球夜侧",
+    "stills": [
+      "broll/stills/t10-crane-sill.png",
+      "broll/stills/t10-window-city.png",
+      "broll/stills/t10-earth-night.png"
+    ],
+    "ladder": ["纸鹤", "城市", "地球"],
+    "punch": "拉开一层，意思就变",
+    "phrases": ["从窗台纸鹤，拉到地球夜侧"]
+  },
+  {
+    "id": "marble_back",
+    "file": "broll/B-落回.mp4",
+    "tag": "尺度 落回",
+    "title": "掌心玻璃弹珠",
+    "stills": ["broll/stills/t10-marble-palm.png"],
+    "punch": "同一夜城，缩回掌心",
+    "phrases": ["再落回掌心的玻璃弹珠"]
+  }
+]
