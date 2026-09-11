@@ -303,20 +303,31 @@ def make_sfx(cuts: list[float], duration: float) -> Path:
     return dest
 
 
-def strike_line(draw, box, t: float, start: float) -> None:
+def strike_text(draw, x: int, y: int, text: str, fnt, t: float, start: float, color=RED) -> None:
     st = appear(t, start, 0.28)
     if st <= 0.04:
         return
-    cy = (box[1] + box[3]) // 2
-    x0, x1 = box[0] + 48, box[2] - 48
-    draw.line([(x0, cy), (int(lerp(x0, x1, st)), cy)], fill=mix(CARD, RED, st), width=10)
+    tw, th = text_wh(draw, text, fnt)
+    cy = y
+    x0, x1 = x - 8, x + tw + 8
+    draw.line([(x0, cy), (int(lerp(x0, x1, st)), cy)], fill=mix(CARD, color, st), width=8)
 
 
-def check_mark(draw, cx: int, cy: int, a: float) -> None:
+def check_badge(draw, cx: int, cy: int, a: float) -> None:
     if a <= 0.04:
         return
+    r = 36
+    draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=mix(CARD, (18, 56, 46), a))
     col = mix(CARD, MINT, a)
-    draw.line([(cx - 22, cy), (cx - 6, cy + 18), (cx + 26, cy - 16)], fill=col, width=10)
+    draw.line([(cx - 16, cy + 2), (cx - 4, cy + 16), (cx + 20, cy - 14)], fill=col, width=8)
+
+
+def term_tokens(draw, x: int, y: int, tokens: list[tuple[str, tuple]], fnt, gap: int = 28) -> None:
+    cx = x
+    for text, color in tokens:
+        draw.text((cx, y), text, font=fnt, fill=color, anchor="lm")
+        tw, _ = text_wh(draw, text, fnt)
+        cx += tw + gap
 
 
 def render_b_outreach(duration: float) -> list[Image.Image]:
@@ -333,24 +344,24 @@ def render_b_outreach(duration: float) -> list[Image.Image]:
         a0 = appear(t, 0.02)
         d.text((W // 2, 250 + int(lerp(18, 0, a0))), "三十秒讲清一个痛点", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
 
-        a1 = appear(t, 0.22)
+        a1 = appear(t, 0.18)
         y = 360 + int(lerp(24, 0, a1))
-        box = (90, y, 990, y + 280)
-        rounded(d, box, 32, mix(BG, CARD, a1))
+        rounded(d, (90, y, 990, y + 280), 32, mix(BG, CARD, a1))
         d.text((160, y + 90), "改 README", font=card_f, fill=mix(CARD, YELLOW, a1), anchor="lm")
         d.text((160, y + 180), "星还是零", font=sub_f, fill=mix(CARD, MUTED, a1), anchor="lm")
-        star = appear(t, 0.38)
-        d.text((820, y + 140), "0 ★", font=title_f, fill=mix(CARD, RED, star), anchor="mm")
-        strike_line(d, box, t, 0.72)
+        star = appear(t, 0.32)
+        rounded(d, (760, y + 88, 940, y + 188), 22, mix(CARD, (48, 24, 24), star))
+        d.text((850, y + 138), "0星", font=title_f, fill=mix(CARD, RED, star), anchor="mm")
+        strike_text(d, 160, y + 90, "改 README", card_f, t, 0.62)
 
-        a2 = appear(t, 1.05)
+        a2 = appear(t, 0.88)
         y2 = 690 + int(lerp(24, 0, a2))
         rounded(d, (90, y2, 990, y2 + 280), 32, mix(BG, (22, 40, 36), a2))
         d.text((160, y2 + 90), "发到讨论区", font=card_f, fill=mix(CARD, MINT, a2), anchor="lm")
         d.text((160, y2 + 180), "对的人看见", font=sub_f, fill=mix(CARD, WHITE, a2), anchor="lm")
-        check_mark(d, 820, y2 + 140, appear(t, 1.28, 0.24))
+        check_badge(d, 850, y2 + 140, appear(t, 1.08, 0.22))
 
-        punch = appear(t, 1.85, 0.28)
+        punch = appear(t, 1.42, 0.26)
         if punch > 0.04:
             y3 = 1060 + int(lerp(22, 0, punch))
             rounded(d, (140, y3, 940, y3 + 200), 28, mix(BG, (42, 28, 18), punch))
@@ -381,15 +392,27 @@ def render_b_tools(duration: float) -> list[Image.Image]:
         d.ellipse((160, y + 28, 192, y + 60), fill=mix(TERM, YELLOW, a1))
         d.ellipse((210, y + 28, 242, y + 60), fill=mix(TERM, MINT, a1))
         d.text((280, y + 44), "kebiao2ics", font=sub_f, fill=mix(TERM, MUTED, a1), anchor="lm")
-        d.text((120, y + 130), "$ kebiao2ics 课表.xls", font=mono, fill=mix(TERM, MINT, a1), anchor="lm")
+        term_tokens(
+            d,
+            120,
+            y + 130,
+            [("$", mix(TERM, MUTED, a1)), ("kebiao2ics", mix(TERM, MINT, a1)), ("课表.xls", mix(TERM, WHITE, a1))],
+            mono,
+        )
         line2 = appear(t, 0.48)
-        d.text((120, y + 190), "wrote  周一 08:00  高等数学.ics", font=mono, fill=mix(TERM, WHITE, line2), anchor="lm")
+        term_tokens(
+            d,
+            120,
+            y + 190,
+            [("wrote", mix(TERM, MUTED, line2)), ("周一·08:00", mix(TERM, WHITE, line2)), ("高等数学.ics", mix(TERM, YELLOW, line2))],
+            mono,
+        )
 
         cal = appear(t, 0.70)
         if cal > 0.04:
             rounded(d, (120, y + 250, 960, y + 390), 22, mix(TERM, (28, 44, 40), cal))
-            d.text((200, y + 300), "日历", font=sub_f, fill=mix(TERM, MINT, cal), anchor="lm")
-            d.text((200, y + 350), "第一节课  ·  08:00", font=card_f, fill=mix(TERM, WHITE, cal), anchor="lm")
+            d.text((200, y + 300), "日历弹出", font=sub_f, fill=mix(TERM, MINT, cal), anchor="lm")
+            d.text((200, y + 350), "第一节课 · 08:00", font=card_f, fill=mix(TERM, WHITE, cal), anchor="lm")
 
         a2 = appear(t, 1.15)
         y2 = 780 + int(lerp(22, 0, a2))
@@ -398,9 +421,21 @@ def render_b_tools(duration: float) -> list[Image.Image]:
         d.ellipse((160, y2 + 28, 192, y2 + 60), fill=mix(TERM, YELLOW, a2))
         d.ellipse((210, y2 + 28, 242, y2 + 60), fill=mix(TERM, MINT, a2))
         d.text((280, y2 + 44), "whoseport", font=sub_f, fill=mix(TERM, MUTED, a2), anchor="lm")
-        d.text((120, y2 + 130), "$ whoseport 3000", font=mono, fill=mix(TERM, YELLOW, a2), anchor="lm")
+        term_tokens(
+            d,
+            120,
+            y2 + 130,
+            [("$", mix(TERM, MUTED, a2)), ("whoseport", mix(TERM, YELLOW, a2)), ("3000", mix(TERM, WHITE, a2))],
+            mono,
+        )
         line3 = appear(t, 1.42)
-        d.text((120, y2 + 200), ":3000   node   pid 18420", font=mono, fill=mix(TERM, WHITE, line3), anchor="lm")
+        term_tokens(
+            d,
+            120,
+            y2 + 200,
+            [(":3000", mix(TERM, MUTED, line3)), ("node", mix(TERM, WHITE, line3)), ("18420", mix(TERM, YELLOW, line3))],
+            mono,
+        )
         d.text((120, y2 + 270), "谁占了端口", font=card_f, fill=mix(TERM, MINT, line3), anchor="lm")
 
         punch = appear(t, min(2.05, max(1.6, duration - 0.9)), 0.26)
@@ -426,8 +461,8 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
     by_line = {p: (s, e) for s, e, p in cues}
     # phrases 0..5
     p0, p1, p2, p3, p4, p5 = cues
-    b1 = max(p2[1] - 0.08, p3[0] - LEAD)
-    b2 = max(p3[1] - 0.05, p4[0] - LEAD)
+    b1 = max(p0[1] + 1.2, p3[0] - LEAD)
+    b2 = max(b1 + 1.0, p4[0] - LEAD)
     if b1 <= p0[1] + 0.4:
         b1 = p3[0]
     if b2 <= b1 + 0.8:

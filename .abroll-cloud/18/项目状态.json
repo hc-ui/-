@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "project_name": "18_开源小工具涨星靠外发",
+  "video_type": "普通短视频",
+  "slug": "11_涨星靠外发不靠改说明",
+  "topic_index": 11,
+  "episode": 18,
+  "title": "开源小工具涨星靠外发",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 14.688,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底信息图 B-roll + 工厂 Yunyang 口播 + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "1b15cea771104819556ebd458eef98fd1a750fbb875575591fee61cf509ea843"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 14688,
+    "note": "复用工厂口播 aroll/audio/11_涨星靠外发不靠改说明.wav；静音切句对齐"
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/18-开源小工具涨星靠外发.mp4",
+    "project_final": "00_最终成片_开源小工具涨星靠外发.mp4",
+    "cover": "00_封面_开源小工具涨星靠外发.jpg"
+  },
+  "staged": "成片/18-开源小工具涨星靠外发.mp4",
+  "updated_at": "2026-09-11T11:27:52Z"
+}
