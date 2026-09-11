@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_name": "65_口头同步当过结论",
+  "video_type": "普通短视频",
+  "episode": 65,
+  "title": "口头同步当过结论",
+  "source_note": "工厂 65_口头同步当过结论 / Drive 短切 15.6秒 / 成片未进",
+  "voice": "zh-CN-YunyangNeural",
+  "rate": "-10%",
+  "duration": 46.042,
+  "duration_zh": "四十六秒",
+  "target_s": [
+    40.0,
+    50.0
+  ],
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "e95f61fc8e8e09260cc498ee31efc8a1f2acb6f6d4a10e0e3f5bce9fb74bb2c2"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 46041
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/65-口头同步当过结论.mp4",
+    "project_final": "00_最终成片_口头同步当过结论.mp4",
+    "cover": "00_封面_口头同步当过结论.jpg"
+  },
+  "staged": "成片/65-口头同步当过结论.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T13:58:56Z"
+}

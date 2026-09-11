@@ -1,0 +1,27 @@
+[
+  {
+    "id": "spoken",
+    "file": "broll/B-说过不当定了.mp4",
+    "punch": "这叫说过"
+  },
+  {
+    "id": "versions",
+    "file": "broll/B-两个版本.mp4",
+    "punch": "每人一个版本"
+  },
+  {
+    "id": "fork",
+    "file": "broll/B-第二天分叉.mp4",
+    "punch": "根本没定过"
+  },
+  {
+    "id": "blank",
+    "file": "broll/B-没留下字.mp4",
+    "punch": "没字没有结论"
+  },
+  {
+    "id": "three",
+    "file": "broll/B-立刻三行.mp4",
+    "punch": "先留下字"
+  }
+]
