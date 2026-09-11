@@ -31,7 +31,7 @@ KEEP_DIR = ROOT / ".abroll-cloud" / "_sidecars" / "keep-00-19"
 # Keep every already-delivered 00-19 cut. Never move or delete them.
 PROTECTED_PREFIXES = tuple(f"{i:02d}-" for i in range(20))
 # User glob 成片/2*-*.mp4 → two-digit 20-29 (and 2X- if someone uses that).
-WATCH_RE = re.compile(r"^(2\d)-.+\.mp4$")
+WATCH_RE = re.compile(r"^([2-9]\d)-.+\.mp4$")
 NUMBERED_HYPHEN_RE = re.compile(r"^(\d{2})-.+\.mp4$")
 KEEP_EXACT = {"INDEX.md", "仙侠云海突进.mp4"}
 MIN_FINAL_BYTES = 550_000
@@ -55,6 +55,15 @@ SOURCE_HINTS = (
     ("报销", "topic 28 杂务别接报销采购"),
     ("提示词", "topic 29 故事没锁不准出提示词"),
     ("故事没锁", "topic 29 故事没锁不准出提示词"),
+    ("白闪", "topic 25 切镜不要白闪"),
+    ("切镜", "topic 25 切镜不要白闪"),
+    ("注视", "topic 32 注视增重"),
+    ("增重", "topic 32 注视增重"),
+    ("别报时长", "topic 24/34 口播别报时长"),
+    ("文件名", "topic 35 口播别报文件名"),
+    ("下一期", "topic 36 别说下一期"),
+    ("组会", "topic 37 组会撞课报备"),
+    ("报备", "topic 37 组会撞课报备"),
 )
 
 
@@ -363,12 +372,74 @@ def normalize_index_table(text: str) -> str:
     return "\n".join(out) + "\n"
 
 
+KNOWN_00_19 = [
+    ("00-深度工作总被打断.mp4", 17.0),
+    ("01-口头答应没有截止日.mp4", 12.1),
+    ("02-树叶掉了二十秒还没落地.mp4", 14.9),
+    ("03-打翻水杯水往天花板流.mp4", 16.5),
+    ("04-咖啡自己滑向桌边.mp4", 17.5),
+    ("05-先给选项再要决定.mp4", 10.2),
+    ("06-先给场景再给方法.mp4", 12.8),
+    ("07-演练脚本没有中止口令.mp4", 14.7),
+    ("08-工单升级没有时限.mp4", 14.2),
+    ("09-值班手机没有备机号.mp4", 14.5),
+    ("10-口播别念链接.mp4", 12.1),
+    ("11-列表项先给结果.mp4", 13.5),
+    ("12-灯亮了房间还是黑的.mp4", 16.4),
+    ("13-字典靠名字不是第几个.mp4", 13.7),
+    ("14-导师课题毕业就业技术栈自己建.mp4", 14.1),
+    ("15-在生医实验室抢测控生态位.mp4", 15.3),
+    ("16-工位时间切片15-15-70.mp4", 11.6),
+    ("17-从窗台纸鹤拉到地球夜侧.mp4", 12.5),
+    ("18-开源小工具涨星靠外发.mp4", 14.7),
+    ("19-十二节气先锁十二张首帧.mp4", 11.1),
+]
+
+
+def seed_index(processed: dict | None = None) -> None:
+    """Recreate INDEX.md if a sibling agent wiped it. Keep 00-19 rows."""
+    processed = processed or {}
+    lines = [
+        "# 成片（可直接看）",
+        "",
+        "竖屏口播 1080×1920，H.264 + AAC。`仙侠云海突进.mp4` 是横屏剧情成片。`00-`～`19-` 均已在本目录（未删）。",
+        "",
+        "| 文件 | 时长 |",
+        "|------|------|",
+    ]
+    for name, dur in KNOWN_00_19:
+        lines.append(f"| `{name}` | {dur:.1f}s |")
+    extra = {**processed}
+    if INDEX_MD.exists():
+        # keep any already-listed 20+ rows
+        for line in INDEX_MD.read_text(encoding="utf-8").splitlines():
+            m = re.search(r"`(\d{2}-.+\.mp4)` \| ([\d.]+)s", line)
+            if m and int(m.group(1)[:2]) >= 20:
+                extra.setdefault(m.group(1), {"duration": float(m.group(2))})
+    for name in sorted(extra):
+        if not WATCH_RE.match(name):
+            continue
+        dur = extra[name].get("duration") if isinstance(extra[name], dict) else extra[name]
+        if dur is None:
+            continue
+        lines.append(f"| `{name}` | {float(dur):.1f}s |")
+    lines.append("| `仙侠云海突进.mp4` | 43.0s |")
+    text = "\n".join(lines) + "\n"
+    text = refresh_index_header(text, {k: True for k in extra if WATCH_RE.match(k)})
+    STAGING.mkdir(parents=True, exist_ok=True)
+    INDEX_MD.write_text(normalize_index_table(text), encoding="utf-8")
+    backup = CLOUD_ROOT / "INDEX.chengpian.md"
+    backup.write_text(INDEX_MD.read_text(encoding="utf-8"), encoding="utf-8")
+
+
 def update_index(name: str, duration: float, processed: dict) -> None:
-    if not INDEX_MD.exists():
-        raise FileNotFoundError(INDEX_MD)
+    if not INDEX_MD.exists() or "00-深度工作总被打断" not in INDEX_MD.read_text(encoding="utf-8"):
+        seed_index({**processed, name: {"duration": duration}})
     text = INDEX_MD.read_text(encoding="utf-8")
     text = refresh_index_header(text, {**processed, name: True})
     INDEX_MD.write_text(upsert_index_row(text, name, duration), encoding="utf-8")
+    backup = CLOUD_ROOT / "INDEX.chengpian.md"
+    backup.write_text(INDEX_MD.read_text(encoding="utf-8"), encoding="utf-8")
 
 
 def ensure_delivery_pending(text: str) -> str:
@@ -390,6 +461,23 @@ def ensure_delivery_pending(text: str) -> str:
     return text + "\n".join(block) + "\n"
 
 
+def ensure_delivery_30(text: str, num: str, name: str, duration: float) -> str:
+    if int(num) < 30:
+        return text
+    if "## 本轮 30+" not in text:
+        text = text.rstrip() + (
+            "\n\n## 本轮 30+（云端 A/B，不传 Drive）\n\n"
+            "只在本 Linux VM：`/workspace/成片/`。禁止 `C:\\` `D:\\` `G:\\`。\n\n"
+            "| 号 | 文件 | 状态 |\n"
+            "|----|------|------|\n"
+        )
+    row = f"| {num} | `{name}` | 已核验 {duration:.1f}s |"
+    old = re.compile(rf"^\| {num} \| .+\|$", re.M)
+    if old.search(text):
+        return old.sub(row, text, count=1)
+    return text.rstrip() + "\n" + row + "\n"
+
+
 def mark_pending_row(text: str, num: str, name: str, duration: float) -> str:
     old = re.compile(rf"^\| {num} \| .+ \| 待收 \|$", re.M)
     new = f"| {num} | `{name}` | 已核验 {duration:.1f}s |"
@@ -402,9 +490,27 @@ def mark_pending_row(text: str, num: str, name: str, duration: float) -> str:
     return text
 
 
+DELIVERY_SEED = """# 云端成片交付
+
+核验：`ffprobe` + 整段 `ffmpeg -f null` 解码通过。草稿（封面 jpg、口播预览、工程文件）已移出 `成片/`，在 `.abroll-cloud/_sidecars/`。
+
+## 最终相对路径
+
+| 路径 | 规格 | 时长 | 来源 |
+|------|------|------|------|
+| `成片/INDEX.md` | 短目录 | — | 本目录唯一说明 |
+
+## 未进成片
+
+- `.abroll-cloud/aroll/_scratch/` 口播字幕板预览（不成片精剪）
+- `.abroll-cloud/_sidecars/` 封面与备份
+- `.abroll-cloud/<NN>/` 工程、shots、broll
+"""
+
+
 def update_delivery(name: str, spec: str, duration: float, source: str) -> None:
     if not DELIVERY_MD.exists():
-        raise FileNotFoundError(DELIVERY_MD)
+        DELIVERY_MD.write_text(DELIVERY_SEED, encoding="utf-8")
     text = DELIVERY_MD.read_text(encoding="utf-8")
     text = ensure_delivery_pending(text)
     rel = f"成片/{name}"
@@ -412,7 +518,10 @@ def update_delivery(name: str, spec: str, duration: float, source: str) -> None:
     text = upsert_table_row(text, f"`{rel}`", row)
     m = WATCH_RE.match(name)
     if m:
-        text = mark_pending_row(text, m.group(1), name, duration)
+        if int(m.group(1)) >= 30:
+            text = ensure_delivery_30(text, m.group(1), name, duration)
+        else:
+            text = mark_pending_row(text, m.group(1), name, duration)
     if "（核验中）" in text:
         processed_count = len(re.findall(r"\| 2\d \| `.+` \| 已核验", text))
         if processed_count >= 10:
@@ -583,7 +692,9 @@ def run_once() -> dict:
     if DELIVERY_MD.exists():
         text = ensure_delivery_pending(DELIVERY_MD.read_text(encoding="utf-8"))
         DELIVERY_MD.write_text(text, encoding="utf-8")
-    if INDEX_MD.exists():
+    if (not INDEX_MD.exists()) or "00-深度工作总被打断" not in INDEX_MD.read_text(encoding="utf-8"):
+        seed_index(state.get("processed") or {})
+    else:
         text = refresh_index_header(INDEX_MD.read_text(encoding="utf-8"), state.get("processed") or {})
         INDEX_MD.write_text(normalize_index_table(text), encoding="utf-8")
     restored = restore_protected()
