@@ -1,0 +1,53 @@
+[
+  {
+    "id": "law",
+    "file": "broll/B-定律.mp4",
+    "tag": "改一条定律",
+    "title": "惯性消失",
+    "cards": [
+      {"num": "错", "head": "松了还会滑一阵", "body": "力没了还往前冲", "color": "red"},
+      {"num": "对", "head": "撤力即停", "body": "没有惯性可借", "color": "mint"}
+    ],
+    "punch": "不是减速",
+    "phrases": ["惯性消失"]
+  },
+  {
+    "id": "car",
+    "file": "broll/B-车停.mp4",
+    "tag": "钩子",
+    "title": "松油门",
+    "still": "assets/t22a-car-instant-stop.png",
+    "punch": "车子瞬间停住",
+    "phrases": ["松油门，车子瞬间停住"]
+  },
+  {
+    "id": "snap",
+    "file": "broll/B-即刻.mp4",
+    "tag": "对照",
+    "title": "不是减速",
+    "cards": [
+      {"num": "错", "head": "慢慢刹住", "body": "还有滑行", "color": "red"},
+      {"num": "对", "head": "即刻停", "body": "零帧过渡", "color": "mint"}
+    ],
+    "punch": "是即刻停",
+    "phrases": ["不是减速，是即刻停"]
+  },
+  {
+    "id": "drop",
+    "file": "broll/B-脱手.mp4",
+    "tag": "后果 01",
+    "title": "脱手的东西",
+    "still": "assets/t22b-object-drop-vertical.png",
+    "punch": "垂直掉下去",
+    "phrases": ["脱手的东西，垂直掉下去"]
+  },
+  {
+    "id": "street",
+    "file": "broll/B-街道.mp4",
+    "tag": "回报",
+    "title": "整条街",
+    "still": "assets/t22d-street-stopmotion.png",
+    "punch": "开始停都是瞬间",
+    "phrases": ["整条街，开始和停下，都是瞬间"]
+  }
+]
