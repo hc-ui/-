@@ -1,0 +1,36 @@
+{
+  "project": "36_别说下一期",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/36-别说下一期.mp4",
+  "project_final": "/workspace/.abroll-cloud/36/00_最终成片_别说下一期.mp4",
+  "sha256": "b0c67d0e799cb17d6a7ebe3276c0bfab13cf796763c601a586336247872b4b73",
+  "bytes": 2690540,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 12.291667
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.2,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 5,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true
+}
