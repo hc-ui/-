@@ -1,0 +1,11 @@
+{
+  "style": "黑底对照卡",
+  "distinct_from_65_66": "不画走廊对过、群里回好、三种点头；只画字段/路径/生效版",
+  "cards": [
+    {"id": "mouth_path", "file": "B-嘴说旧路径.mp4", "point": "站会说一声，文档还挂旧路径"},
+    {"id": "field_boom", "file": "B-联调才炸.mp4", "point": "旧字段还在打，联调当天炸"},
+    {"id": "three_places", "file": "B-落三处.mp4", "point": "改了什么 / 谁受影响 / 从哪版生效"},
+    {"id": "in_mouth", "file": "B-别留嘴里.mp4", "point": "变更只留在嘴里打叉"},
+    {"id": "write_ship", "file": "B-先写再上.mp4", "point": "先写下再上线，写成字才算改过"}
+  ]
+}

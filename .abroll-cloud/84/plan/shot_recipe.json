@@ -1,0 +1,28 @@
+{
+  "title": "接口变更口头说一声",
+  "cover_title": "接口变更",
+  "cover_sub": "只口头说一声",
+  "cover_line": "没落字 · 算没改完",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch4.md #84 / 工厂 73_接口变更口头说一声 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "84",
+  "cut": "new-40s",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打接口改了只口头说一声。不拍 65 说过当定了，不拍 66 点头。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["接口改了，只口头说一声"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-嘴说旧路径.mp4", "broll": "mouth_path", "phrases": ["字段名换了，调用方还按旧字段打", "站会提一句，文档还是上周的路径"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["你以为全组听见了，一半人还在打旧地址", "联调当天才炸，双方都说自己没错"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-联调才炸.mp4", "broll": "field_boom", "phrases": ["口头说一声，不是接口变更"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["变更要落三处：改了什么，谁受影响，从哪版生效"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-落三处.mp4", "broll": "three_places", "phrases": ["路径换了就写新路径", "字段改名就写新旧对照"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["没写成字，调用方按旧契约来，算这次没改完"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-别留嘴里.mp4", "broll": "in_mouth", "phrases": ["别把接口变更，只留在嘴里"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["先写下，再上线"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-先写再上.mp4", "broll": "write_ship", "phrases": ["嘴里的变更，联调接不住", "写成字，才算改过接口"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["口头说一声，请当成没改"]}
+  ]
+}
