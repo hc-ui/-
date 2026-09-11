@@ -1,0 +1,42 @@
+{
+  "title": "开源小工具涨星靠外发",
+  "cover_title": "开源小工具涨星靠外发",
+  "cover_sub": "不靠改 README",
+  "cover_line": "发到对的讨论区",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["零星小工具已经在了", "涨星靠外发，不靠改说明"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-对照外发.mp4",
+      "phrases": ["三十秒讲清一个痛点"],
+      "broll": "outreach"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-课表端口.mp4",
+      "phrases": ["课表变成日历，或谁占了端口"],
+      "broll": "tools"
+    },
+    {
+      "id": "S04",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["发到对的讨论区，比改封面有用"]
+    }
+  ]
+}

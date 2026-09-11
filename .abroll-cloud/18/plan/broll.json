@@ -1,0 +1,26 @@
+[
+  {
+    "id": "outreach",
+    "file": "broll/B-对照外发.mp4",
+    "tag": "对照 涨星",
+    "title": "三十秒讲清一个痛点",
+    "cards": [
+      {"num": "错", "head": "改 README", "body": "星还是零", "color": "red"},
+      {"num": "对", "head": "发到讨论区", "body": "对的人看见", "color": "mint"}
+    ],
+    "punch": "不靠改说明",
+    "phrases": ["三十秒讲清一个痛点"]
+  },
+  {
+    "id": "tools",
+    "file": "broll/B-课表端口.mp4",
+    "tag": "演示 小工具",
+    "title": "课表 / 端口",
+    "cards": [
+      {"num": "01", "head": "kebiao2ics", "body": "课表变成日历事件", "color": "mint"},
+      {"num": "02", "head": "whoseport", "body": "谁占了这个端口", "color": "yellow"}
+    ],
+    "punch": "三十秒能看懂",
+    "phrases": ["课表变成日历，或谁占了端口"]
+  }
+]
