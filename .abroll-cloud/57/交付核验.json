@@ -6,26 +6,31 @@
   "drive_upload": false,
   "video_type": "普通短视频",
   "final": "/workspace/成片/57-一张对照卡只打一个点.mp4",
-  "project_final": "/workspace/.abroll-cloud/57/00_最终成片_一张对照卡只打一个点.mp4",
-  "sha256": "6bdd51ecad04d9a9f5e688a7caf91a839fe7dcb769b4b01f40de76ef759fe086",
-  "bytes": 4160941,
+  "sha256": "54729548d4ca0bb67c5cd7d40c158d9f5286c547f0249d3d59e241578fd541ff",
+  "bytes": 6685456,
+  "duration_zh": "五十秒",
+  "target_s": [
+    40.0,
+    50.0
+  ],
+  "in_target": true,
   "video": {
     "codec": "h264",
     "width": 1080,
     "height": 1920,
     "fps": 24.0,
     "pix_fmt": "yuv420p",
-    "duration_s": 25.541667
+    "duration_s": 49.541667
   },
   "audio": {
     "codec": "aac",
     "sample_rate": 44100,
     "channels": 2,
-    "mean_volume_db": -30.7,
+    "mean_volume_db": -31.1,
     "max_volume_db": -10.1
   },
   "timeline": {
-    "segments": 8,
+    "segments": 10,
     "overlap": false,
     "gap": false,
     "last_end_equals_audio": true,

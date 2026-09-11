@@ -756,6 +756,11 @@ def qa(root: Path, staged: Path, data: dict, project: str) -> dict:
         ["ffmpeg", "-v", "error", "-i", str(staged), "-f", "null", "-"],
         capture_output=True, text=True,
     )
+    noise = ("libncursesw.so", "libcaca.so", "no version information available")
+    decode_err = "\n".join(
+        line for line in (null.stderr or "").splitlines()
+        if line.strip() and not any(tok in line for tok in noise)
+    )
     (qa_dir / "decode.txt").write_text((null.stderr or "") + "\n", encoding="utf-8")
     vol = subprocess.run(
         ["ffmpeg", "-i", str(staged), "-af", "volumedetect", "-f", "null", "-"],
@@ -806,7 +811,7 @@ def qa(root: Path, staged: Path, data: dict, project: str) -> dict:
             "last_end_equals_audio": abs(shots[-1]["end"] - data["duration"]) < 0.05,
             "broll_lead_s": LEAD,
         },
-        "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
+        "decode_null": null.returncode == 0 and not decode_err,
         "ok": True,
     }
     report["ok"] = (
