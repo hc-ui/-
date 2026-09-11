@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_name": "91_日志为什么出事才去翻",
+  "video_type": "普通短视频",
+  "episode": 91,
+  "title": "日志为什么出事才去翻",
+  "source_note": "topics-batch4.md #91 / 工厂 91_日志为什么出事才去翻 / 云端 NEW / 不重做 38",
+  "slug": "91_日志为什么出事才去翻",
+  "duration_zh": "40.2秒",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 40.167,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "add88d1bd8b9b9e80dc9af023cbe591f0a02709a8990c0826e608195aa3180a2"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 40166
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/91-日志为什么出事才去翻.mp4",
+    "project_final": "00_最终成片_日志为什么出事才去翻.mp4",
+    "cover": "00_封面_日志为什么出事才去翻.jpg"
+  },
+  "staged": "成片/91-日志为什么出事才去翻.mp4",
+  "distinct_from": [
+    "成片/38-分不清改物理和AI画错.mp4",
+    "成片/69-值班手册是空的.mp4"
+  ],
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / 成片38改物理画错 / 片头纪律",
+  "updated_at": "2026-09-11T15:05:14Z"
+}
