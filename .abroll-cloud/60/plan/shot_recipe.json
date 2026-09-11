@@ -1,46 +1,23 @@
 {
   "title": "番茄工作法一次只做二十五分钟",
   "cover_title": "一次只做二十五分钟",
-  "cover_sub": "番茄工作法",
+  "cover_sub": "不是让你更忙",
   "cover_line": "铃响才准歇，打断就作废",
   "cover_src": "assets/A-角色-小灯-摊手.jpg",
   "video_type": "普通短视频",
   "topic_id": "60",
   "source": "topics-batch3.md #60 / 项目索引 27_番茄工作法",
-  "note": "知识口播。不是剧情短剧，不走 drama-pipeline。只讲计时器规矩，不重复成片 00。",
+  "note": "LENGTH.md：11 句，10 镜 A/B 交替，两个例子拍。不是剧情短剧。",
   "shots": [
-    {
-      "id": "S01a",
-      "kind": "A",
-      "src": "assets/V-挥手.mp4",
-      "phrases": ["大家好"],
-      "close": true
-    },
-    {
-      "id": "S01b",
-      "kind": "A",
-      "src": "assets/V-摊手.mp4",
-      "phrases": ["番茄工作法，一次只做二十五分钟"]
-    },
-    {
-      "id": "S02",
-      "kind": "B",
-      "src": "broll/B-二十五分钟.mp4",
-      "phrases": ["不是让你更忙，是每次只盯一件"],
-      "broll": "twenty_five"
-    },
-    {
-      "id": "S03",
-      "kind": "B",
-      "src": "broll/B-铁律.mp4",
-      "phrases": ["选定一件事，按下倒计时，手机扣过去"],
-      "broll": "iron_rule"
-    },
-    {
-      "id": "S04",
-      "kind": "A",
-      "src": "assets/V-指向.mp4",
-      "phrases": ["铃响才准休息；打断就作废重来"]
-    }
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["番茄工作法，一次只做二十五分钟"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-二十五分钟.mp4", "phrases": ["不是让你更忙，是每次只盯一件"], "broll": "twenty_five"},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["错法是计时器开着，三个窗口一起跳"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-错法空转.mp4", "phrases": ["微信亮一下，番茄就空了"], "broll": "empty_tomato"},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["对的做法，先选定一件事，按下倒计时"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-执行.mp4", "phrases": ["这二十五分钟里，手机扣过去"], "broll": "focus"},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["铃响了，才准休息五分钟"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-节奏.mp4", "phrases": ["四个番茄之后，再休一次长的", "中途被打断，这个番茄作废，重来"], "broll": "rhythm"},
+    {"id": "S09", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["别把休息也排满任务"]}
   ]
 }
