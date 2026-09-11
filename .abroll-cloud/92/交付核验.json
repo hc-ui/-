@@ -1,0 +1,83 @@
+{
+  "project": "92_就业栈别绑死生医",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "cut": "new-40s",
+  "final": "/workspace/成片/92-就业栈别绑死生医.mp4",
+  "project_final": "/workspace/.abroll-cloud/92/00_最终成片_就业栈别绑死生医.mp4",
+  "sha256": "4b69e2113c17354eb947eff83ffda229edd7cee3be5e602848df3d344c3d43dc",
+  "bytes": 13184711,
+  "replaced_short_cut_s": 0,
+  "freeze_pad": false,
+  "no_tpad_clone_in_kit": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 49.625,
+    "duration_zh": "49.6秒"
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.3,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 12,
+    "a_shots": 7,
+    "b_shots": 5,
+    "phrases": 16,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28,
+    "in_hard_window": true,
+    "in_target_window": true
+  },
+  "decode_null": true,
+  "ok": true,
+  "chengpian": "/workspace/成片/92-就业栈别绑死生医.mp4",
+  "chengpian_duration_s": 49.625,
+  "chengpian_duration_zh": "49.6秒",
+  "draft_duration_s": 49.625,
+  "draft_duration_zh": "49.6秒",
+  "distinct_from_14_90": true,
+  "script_guard": {
+    "两条线": true,
+    "就业技术栈自己建": true,
+    "Python 学扎实": true,
+    "五条路": true,
+    "可迁移": true,
+    "抽走": true,
+    "留下场景": true,
+    "养细胞": true,
+    "试剂名": true,
+    "会建回路": true,
+    "我做过生医": true,
+    "课题是矿": true,
+    "籍贯": true,
+    "生态位": true,
+    "测控底层": true,
+    "包装成": true,
+    "开题盲审": true,
+    "下一期": true,
+    "赵老师": true
+  },
+  "keep_14_90": {
+    "14": {
+      "exists": true,
+      "bytes": 4142079
+    },
+    "90": {
+      "exists": true,
+      "bytes": 12223505
+    }
+  }
+}

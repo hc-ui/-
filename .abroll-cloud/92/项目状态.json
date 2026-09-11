@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "project_name": "92_就业栈别绑死生医",
+  "video_type": "普通短视频",
+  "episode": 92,
+  "cut": "new-40s",
+  "title": "就业栈别绑死生医",
+  "full_title": "就业栈别绑死生医",
+  "source_note": "topics-batch4.md #92 / 学习基线就业栈别绑死生医 / 云端 NEW",
+  "slug": "就业栈别绑死生医",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 49.625,
+  "duration_zh": "49.6秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "879c93056a71da585bd27ffc26b144b3d483e42765bb25848ca306d5a7da4599",
+    "phrases": 16
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 49625
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/92-就业栈别绑死生医.mp4",
+    "project_final": "00_最终成片_就业栈别绑死生医.mp4",
+    "cover": "00_封面_就业栈别绑死生医.jpg"
+  },
+  "staged": "成片/92-就业栈别绑死生医.mp4",
+  "draft": ".abroll-cloud/92",
+  "qa_video": "/workspace/成片/92-就业栈别绑死生医.mp4",
+  "replaced_short_cut_s": 0,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T15:08:13Z",
+  "distinct_from": [
+    "成片/14-导师课题毕业就业技术栈自己建.mp4",
+    "成片/90-从课题抽可迁移能力.mp4",
+    "成片/15-在生医实验室抢测控生态位.mp4"
+  ]
+}
