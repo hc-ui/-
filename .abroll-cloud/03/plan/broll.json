@@ -1,0 +1,52 @@
+[
+  {
+    "id": "B01",
+    "file": "broll/B-天花板.mp4",
+    "tag": "钩子",
+    "title": "水往上铺",
+    "cards": ["杯口朝上", "水柱朝天花"],
+    "punch": "不是倒放",
+    "phrases": ["打翻水杯", "水往天花板流"],
+    "visual": "cup_up"
+  },
+  {
+    "id": "B02",
+    "file": "broll/B-密度.mp4",
+    "tag": "定律",
+    "title": "水比空气轻",
+    "cards": ["水", "空气"],
+    "punch": "密度反了",
+    "phrases": ["是水比空气轻"],
+    "visual": "density"
+  },
+  {
+    "id": "B03",
+    "file": "broll/B-悬海.mp4",
+    "tag": "后果一",
+    "title": "海挂在云下",
+    "cards": ["云层", "悬海"],
+    "punch": "海洋升上去",
+    "phrases": ["海挂到云下面"],
+    "visual": "ocean"
+  },
+  {
+    "id": "B04",
+    "file": "broll/B-上雨.mp4",
+    "tag": "后果二三",
+    "title": "鱼上天 · 雨向上",
+    "cards": ["鱼贴云底", "雨离地面"],
+    "punch": "上雨",
+    "phrases": ["鱼在天上游", "雨变成上雨"],
+    "visual": "rain"
+  },
+  {
+    "id": "B05",
+    "file": "broll/B-楼顶光.mp4",
+    "tag": "回报",
+    "title": "光从悬海落下",
+    "cards": ["悬海", "楼顶光斑"],
+    "punch": "打在楼顶",
+    "phrases": ["阳光从海里打在楼顶"],
+    "visual": "city"
+  }
+]

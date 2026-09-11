@@ -1,0 +1,18 @@
+{
+  "name": "打翻水杯水往天花板流",
+  "video_type": "普通短视频",
+  "topic": 3,
+  "source": "选题库.md 第006号 / topics.md #3",
+  "size": [1080, 1920],
+  "fps": 24,
+  "shots": [
+    {"id": "S01", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-天花板.mp4", "phrases": ["打翻水杯", "水往天花板流"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["不是倒放"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-密度.mp4", "phrases": ["是水比空气轻"]},
+    {"id": "S05", "kind": "B", "src": "broll/B-悬海.mp4", "phrases": ["海挂到云下面"]},
+    {"id": "S06", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["鱼在天上游"]},
+    {"id": "S07", "kind": "B", "src": "broll/B-上雨.mp4", "phrases": ["雨变成上雨"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-楼顶光.mp4", "phrases": ["阳光从海里打在楼顶"]}
+  ]
+}
