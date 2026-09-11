@@ -1,0 +1,27 @@
+{
+  "title": "排期只有乐观数",
+  "cover_title": "排期只有乐观数",
+  "cover_sub": "顺利不是能守住",
+  "cover_line": "对外只报能守住的那格",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "工厂 63_排期只有乐观数 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "63",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。排期不要只留乐观数。不定格、不慢放注水。云端 NEW，不拷工厂十六秒短切。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["排期只有乐观数"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-只有一格.mp4", "broll": "only_one", "phrases": ["表上只写最快能做完的那天", "那是一切顺利的数字，不是能守住的数字"]},
+    {"id": "S03", "kind": "B", "src": "broll/B-三件事.mp4", "broll": "three_hits", "phrases": ["接口晚一天，评审多一轮，人一请假，那天就没了", "表上的日子还在，活已经对不上"]},
+    {"id": "S04", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是执行差，是你把晴天当成了天气"]},
+    {"id": "S05", "kind": "B", "src": "broll/B-不带伞.mp4", "broll": "umbrella", "phrases": ["乐观数像出门不带伞"]},
+    {"id": "S06", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["你按它对外承诺，迟到的是你"]},
+    {"id": "S07", "kind": "B", "src": "broll/B-等人延期.mp4", "broll": "wait_slip", "phrases": ["别人按那天来等，等来的是延期"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-两格.mp4", "broll": "two_boxes", "phrases": ["正确做法，排期写两格", "一格是顺利能到", "一格是出岔还能到"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["对外只报能守住的那格"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-对内对外.mp4", "broll": "inside_out", "phrases": ["别把内部的最快，写成对外的截止"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["写完排期，把只有一格的乐观数划掉", "留下带伞的那一天"]}
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "only_one",
+    "file": "broll/B-只有一格.mp4",
+    "tag": "错 · 只有一格",
+    "title": "只写最快那天",
+    "punch": "顺利不是能守住"
+  },
+  {
+    "id": "three_hits",
+    "file": "broll/B-三件事.mp4",
+    "tag": "错 · 砸掉",
+    "title": "三件事一来",
+    "punch": "日子还在活对不上"
+  },
+  {
+    "id": "umbrella",
+    "file": "broll/B-不带伞.mp4",
+    "tag": "错 · 不带伞",
+    "title": "出门不带伞",
+    "punch": "把晴天当成天气"
+  },
+  {
+    "id": "wait_slip",
+    "file": "broll/B-等人延期.mp4",
+    "tag": "错 · 等人",
+    "title": "别人按那天来等",
+    "punch": "等来的是延期"
+  },
+  {
+    "id": "two_boxes",
+    "file": "broll/B-两格.mp4",
+    "tag": "对 · 两格",
+    "title": "排期写两格",
+    "punch": "出岔还能到"
+  },
+  {
+    "id": "inside_out",
+    "file": "broll/B-对内对外.mp4",
+    "tag": "对 · 对外",
+    "title": "内部最快",
+    "punch": "别写成对外截止"
+  }
+]
