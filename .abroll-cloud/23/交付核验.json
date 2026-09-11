@@ -1,0 +1,22 @@
+{
+  "file": "/workspace/成片/23-说话时嘴前有涟漪.mp4",
+  "topic_id": "005",
+  "law": "声音可以被看见",
+  "duration_s": 19.625,
+  "size": [1080, 1920],
+  "fps": 24,
+  "video": "h264 yuv420p",
+  "audio": "aac 44100 stereo",
+  "mean_volume_db": -32.1,
+  "max_volume_db": -13.4,
+  "ffprobe": "pass",
+  "ffmpeg_null_decode": "pass",
+  "drive_upload": false,
+  "windows_paths": false,
+  "distinct_from": {
+    "00-19": "未复用已做成片选题",
+    "20": "007 热从冷流向热 / 凉咖啡结霜",
+    "21": "003 重力每 12 小时翻转",
+    "22": "008 惯性消失"
+  }
+}

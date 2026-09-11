@@ -1,0 +1,18 @@
+{
+  "file": "/workspace/成片/23-说话时嘴前有涟漪.mp4",
+  "size_bytes": 8460664,
+  "duration": 19.625,
+  "video": {
+    "codec": "h264",
+    "w": 1080,
+    "h": 1920,
+    "pix": "yuv420p",
+    "fps": "24/1"
+  },
+  "audio": {
+    "codec": "aac",
+    "rate": "44100",
+    "ch": 2
+  },
+  "decode_empty": true
+}

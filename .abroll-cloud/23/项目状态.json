@@ -5,7 +5,42 @@
   "topic_id": "005",
   "source_note": "选题库.md #005 / 声音可以被看见",
   "title": "说话时嘴前有涟漪",
-  "stage": "script_locked",
-  "status": "口播与分镜已锁，待云端渲染",
-  "not": "剧情短剧 / drama-pipeline / Drive 上传 / C: D: G:"
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll（06 已有动作）+ 黑底声纹信息图 B-roll + edge-tts Yunyang + FFmpeg",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 19.625,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "fe578fd06c58da2dd60bb8ac06de1d3c059f65b1f6902041b696df4cb493d8ef"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 19625,
+    "note": "云端 edge-tts zh-CN-YunyangNeural，未走本机盘符"
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/23-说话时嘴前有涟漪.mp4",
+    "project_final": "00_最终成片_说话时嘴前有涟漪.mp4",
+    "cover": "00_封面_说话时嘴前有涟漪.jpg"
+  },
+  "not": "剧情短剧 / drama-pipeline / Drive 上传 / C: D: G:",
+  "siblings_avoided": [
+    "002",
+    "006",
+    "007",
+    "009",
+    "010"
+  ],
+  "updated_at": "2026-09-11T11:49:19Z"
 }

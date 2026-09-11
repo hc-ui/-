@@ -1,0 +1,200 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 19.632,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "说话时嘴前有涟漪",
+  "video_type": "普通短视频",
+  "topic_id": "005",
+  "bgm": "audio/bgm.wav",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "close": true,
+      "line": "大家好",
+      "phrases": [
+        "大家好"
+      ],
+      "start": 0.0,
+      "end": 1.34
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "close": false,
+      "line": "只改一条定律",
+      "phrases": [
+        "只改一条定律"
+      ],
+      "start": 1.34,
+      "end": 2.728
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "close": false,
+      "line": "声音可以被看见",
+      "phrases": [
+        "声音可以被看见"
+      ],
+      "start": 2.728,
+      "end": 4.857,
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-涟漪.mp4",
+      "close": false,
+      "line": "说话时，嘴前有涟漪",
+      "phrases": [
+        "说话时，嘴前有涟漪"
+      ],
+      "start": 4.857,
+      "end": 7.409,
+      "broll": "ripples"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-冲击波.mp4",
+      "close": false,
+      "line": "杯子还没碎，冲击波已经到了",
+      "phrases": [
+        "杯子还没碎，冲击波已经到了"
+      ],
+      "start": 7.409,
+      "end": 10.404,
+      "broll": "shock"
+    },
+    {
+      "id": "S06",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "close": false,
+      "line": "安静的屋子，空气纹路是停的",
+      "phrases": [
+        "安静的屋子，空气纹路是停的"
+      ],
+      "start": 10.404,
+      "end": 13.118
+    },
+    {
+      "id": "S07",
+      "kind": "B",
+      "src": "broll/B-空屋.mp4",
+      "close": false,
+      "line": "最安静的一块，是一间空屋",
+      "phrases": [
+        "整座城的天空，铺满交错声纹",
+        "最安静的一块，是一间空屋"
+      ],
+      "start": 13.118,
+      "end": 19.632,
+      "broll": "city"
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 1.34,
+      "end": 2.728,
+      "lines": [
+        "只改一条定律"
+      ]
+    },
+    {
+      "start": 10.404,
+      "end": 13.118,
+      "lines": [
+        "安静的屋子",
+        "空气纹路是停的"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 1.34,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 2.728,
+      "color": [
+        88,
+        214,
+        232
+      ]
+    },
+    {
+      "start": 4.857,
+      "color": [
+        88,
+        214,
+        232
+      ]
+    },
+    {
+      "start": 7.409,
+      "color": [
+        88,
+        214,
+        232
+      ]
+    },
+    {
+      "start": 10.404,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 13.118,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 1.34,
+      "end": 2.728,
+      "text": "A-ROLL / 02"
+    },
+    {
+      "start": 10.404,
+      "end": 13.118,
+      "text": "A-ROLL / 06"
+    }
+  ],
+  "cover": {
+    "title": "说话时",
+    "sub": "嘴前有涟漪",
+    "line": "声音可以被看见"
+  }
+}
