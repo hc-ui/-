@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "project_name": "46_杂务按六十分及格",
+  "video_type": "普通短视频",
+  "episode": 46,
+  "title": "杂务按六十分及格",
+  "full_title": "杂务按六十分及格交付",
+  "source_note": "topics-batch3.md #46 · 备忘录第二节 2 钝感策略",
+  "slug": "杂务按六十分及格交付",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 10.542,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "dbb82c5550d58fe0a95b1443ada3e70f18075b91cdabe613d39e433433f5748d"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 10541
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/46-杂务按六十分及格.mp4",
+    "project_final": "00_最终成片_杂务按六十分及格.mp4",
+    "cover": "00_封面_杂务按六十分及格.jpg"
+  },
+  "staged": "成片/46-杂务按六十分及格.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T12:25:22Z"
+}
