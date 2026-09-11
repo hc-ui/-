@@ -108,7 +108,7 @@ def tag(draw: ImageDraw.ImageDraw, t: float, label: str) -> None:
     draw.text((x, y), label, font=fnt, fill=mix(BG, MINT, a))
 
 
-def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
+def frames_to_mp4(frames, dest: Path, mid_at: int | None = None) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
         "ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24",
@@ -118,14 +118,20 @@ def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
     ]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
     assert proc.stdin is not None
+    mid = None
+    idx = 0
     for im in frames:
-        proc.stdin.write(im.convert("RGB").tobytes())
+        rgb = im.convert("RGB")
+        if mid is None or (mid_at is not None and idx == mid_at):
+            mid = rgb.copy()
+        proc.stdin.write(rgb.tobytes())
+        idx += 1
     proc.stdin.close()
     err = proc.stderr.read().decode("utf-8", errors="replace") if proc.stderr else ""
     if proc.wait() != 0:
         raise RuntimeError(err[-2000:])
-    mid = frames[min(len(frames) // 2, len(frames) - 1)]
-    mid.save(dest.with_suffix(".jpg"), quality=92)
+    if mid is not None:
+        mid.save(dest.with_suffix(".jpg"), quality=92)
 
 
 def split_caption(line: str) -> list[str]:
@@ -198,8 +204,7 @@ def render_b_not_main(duration: float) -> list[Image.Image]:
             y = 960 + int(lerp(16, 0, punch))
             rounded(d, (120, y, 960, y + 170), 28, mix(BG, (42, 24, 22), punch))
             d.text((W // 2, y + 85), "不是唯一主线", font=font(50), fill=mix(BG, YELLOW, punch), anchor="mm")
-        out.append(img)
-    return out
+        yield img
 
 
 def render_b_dump(duration: float) -> list[Image.Image]:
@@ -223,8 +228,10 @@ def render_b_dump(duration: float) -> list[Image.Image]:
             d.text((285, y + 60), "主树", font=font(34), fill=mix(CARD, MUTED, a1), anchor="mm")
             rounded(d, (150, y + 120, 420, y + 420), 18, mix(CARD, (18, 22, 28), a1))
             remain = 1.0 - drain * 0.82
-            top = y + 420 - int(280 * remain)
-            d.rectangle((160, top, 410, y + 410), fill=mix(CARD, MINT, a1))
+            bottom = y + 410
+            top = min(bottom, y + 420 - int(280 * max(0.04, remain)))
+            if bottom > top:
+                d.rectangle((160, top, 410, bottom), fill=mix(CARD, MINT, a1))
             d.text((285, y + 470), f"{int(remain * 100)}%", font=font(36), fill=mix(CARD, WHITE, a1), anchor="mm")
             if drain > 0.75:
                 col = mix(CARD, RED, appear(t, 1.90, 0.22))
@@ -234,8 +241,9 @@ def render_b_dump(duration: float) -> list[Image.Image]:
             rounded(d, (580, y, 1010, y + 520), 32, mix(BG, (40, 26, 22), a1))
             d.text((795, y + 60), "Agent", font=font(34), fill=mix(CARD, YELLOW, a1), anchor="mm")
             rounded(d, (650, y + 120, 940, y + 420), 18, mix(CARD, (28, 20, 18), a1))
-            top2 = y + 420 - int(280 * fill_a)
-            d.rectangle((660, top2, 930, y + 410), fill=mix(CARD, YELLOW, a1))
+            top2 = min(bottom, y + 420 - int(280 * max(0.04, fill_a)))
+            if bottom > top2:
+                d.rectangle((660, top2, 930, bottom), fill=mix(CARD, YELLOW, a1))
             d.text((795, y + 470), f"{int(fill_a * 100)}%", font=font(36), fill=mix(CARD, YELLOW, a1), anchor="mm")
 
         punch = appear(t, 2.40, 0.26)
@@ -243,8 +251,7 @@ def render_b_dump(duration: float) -> list[Image.Image]:
             y = 900 + int(lerp(16, 0, punch))
             rounded(d, (120, y, 960, y + 180), 28, mix(BG, (42, 24, 22), punch))
             d.text((W // 2, y + 90), "主树停长 · 别全押", font=font(48), fill=mix(BG, YELLOW, punch), anchor="mm")
-        out.append(img)
-    return out
+        yield img
 
 
 def render_b_trees(duration: float) -> list[Image.Image]:
@@ -286,8 +293,7 @@ def render_b_trees(duration: float) -> list[Image.Image]:
             y = 1000 + int(lerp(16, 0, punch))
             rounded(d, (120, y, 960, y + 170), 28, mix(BG, (18, 42, 36), punch))
             d.text((W // 2, y + 85), "主线别停", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
-        out.append(img)
-    return out
+        yield img
 
 
 def render_b_sidecards(duration: float) -> list[Image.Image]:
@@ -333,8 +339,7 @@ def render_b_sidecards(duration: float) -> list[Image.Image]:
             y = 1040 + int(lerp(16, 0, punch))
             rounded(d, (120, y, 960, y + 170), 28, mix(BG, (18, 42, 36), punch))
             d.text((W // 2, y + 85), "先堆旁边", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
-        out.append(img)
-    return out
+        yield img
 
 
 def ticks_to_sec(v: float) -> float:
@@ -1039,8 +1044,11 @@ def main() -> None:
         if not key:
             continue
         d = max(2.4, float(shot["end"]) - float(shot["start"]))
-        print("render", files[key], d)
-        frames_to_mp4(renders[key](d + 0.12), ROOT / "broll" / files[key])
+        n = max(1, round((d + 0.12) * FPS))
+        print("render", files[key], d, flush=True)
+        frames_to_mp4(renders[key](d + 0.12), ROOT / "broll" / files[key], mid_at=n // 2)
+        import gc
+        gc.collect()
 
     make_cover()
     staged = assemble(data)
