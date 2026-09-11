@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_name": "75_嵌套字典",
+  "video_type": "普通短视频",
+  "episode": 75,
+  "title": "嵌套字典",
+  "source_note": "topics-batch4.md #75 / 学习基线 2026-09-09 不足第3条",
+  "voice": "zh-CN-YunyangNeural",
+  "rate": "-10%",
+  "duration": 48.792,
+  "duration_zh": "四十九秒",
+  "target_s": [
+    40.0,
+    50.0
+  ],
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "52bd7bbd2fd15d08e6a23350409458efdcf8a287a35e28aed4f82ccd93bcdf63"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 48791
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/75-嵌套字典.mp4",
+    "project_final": "00_最终成片_嵌套字典.mp4",
+    "cover": "00_封面_嵌套字典.jpg"
+  },
+  "staged": "成片/75-嵌套字典.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T14:18:08Z"
+}
