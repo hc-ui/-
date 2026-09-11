@@ -1,0 +1,25 @@
+{
+  "title": "Agent是第二技能树不是主线",
+  "cover_title": "第二技能树",
+  "cover_sub": "不是主线",
+  "cover_line": "主树先长控制和机器人",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "51",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #51 / 学习与职业规划基线.md Agent 副线 / 51-long 加长重切",
+  "note": "学习副线。不重复 14 双线/五条路，不点名 C++/ROS2。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["Agent是第二技能树，不是主线"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是当前唯一的职业主线"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-两棵技能树.mp4", "phrases": ["主树先长控制、机器人和智能", "副树是Agent，先淡着放在旁边"], "broll": "two_trees"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["副线可以慢慢攒语言基础和接口", "再攒工具调用，不要一次铺开"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-侧牌不上桌.mp4", "phrases": ["再往后才是检索增强、协议和技能", "长期可以看机器人加智能体", "当前别因此同时开过多学习线"], "broll": "side_cards"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["现在箭头只指基础语言这一块"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-只保持兴趣.mp4", "phrases": ["侧牌堆在旁边，先别上主桌", "检索和协议先不上主桌", "独立小项目还没做出来之前", "这些只保持兴趣，不当主线"], "broll": "interest"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["不是把副线抬成当前主线", "主线先长控制和机器人这一棵", "第二技能树可以攒，先别抢戏"]}
+  ]
+}

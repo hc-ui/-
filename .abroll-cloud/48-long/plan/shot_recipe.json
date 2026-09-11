@@ -1,0 +1,25 @@
+{
+  "title": "远程实习人在工位活在线上",
+  "cover_title": "远程实习",
+  "cover_sub": "人在工位 · 活在线上",
+  "cover_line": "考勤和履历一起拿",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "48",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #48 / 备忘录第二节 3 远程日常实习 / 48-long 加长重切",
+  "note": "专硕远程实习做法。不是剧情短剧。加长口播与 A/B 镜，覆盖短切。不重复 #47 脱产离校。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["远程实习，人在工位，活在线上"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是把人挪出合肥去外地实习", "是人坐着，活挪到线上做"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-人在工位.mp4", "phrases": ["杂活来了按时应，做完即止", "人不用搬走，工位得留人", "工位空了被查岗，才最危险"], "broll": "desk_stay"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["第一步，双屏先在工位摆开", "左边跑实验仿真，曲线还在走"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-双屏线上.mp4", "phrases": ["右边接线上软件或算法项目", "考勤在工位拿，履历在线上攒"], "broll": "dual_screen"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["第二步，合肥本地实习先灰掉"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-本地先灰.mp4", "phrases": ["等研二下或研三再探本地岗位", "专利或论文初稿先锁定", "杂活交接后再谈本地实习"], "broll": "local_later"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["现在只做这一条，别两头跑", "考勤和履历要一起拿", "人坐着，活在线上"]}
+  ]
+}
