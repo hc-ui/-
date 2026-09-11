@@ -1,0 +1,10 @@
+{
+  "style": "黑底对照卡",
+  "cards": [
+    {"id": "empty_book", "file": "B-空本子.mp4", "point": "本子在，字不在"},
+    {"id": "night_guess", "file": "B-夜里猜.mp4", "point": "出事只能猜，第一晚踩坑"},
+    {"id": "one_head", "file": "B-一人脑子.mp4", "point": "步骤只在一个人脑子里"},
+    {"id": "three_pages", "file": "B-三页.mp4", "point": "谁接 / 怎么停 / 打给谁"},
+    {"id": "empty_duty", "file": "B-当没值.mp4", "point": "空手册请当成没值"}
+  ]
+}

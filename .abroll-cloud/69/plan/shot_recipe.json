@@ -1,0 +1,26 @@
+{
+  "title": "值班手册是空的",
+  "cover_title": "值班手册是空的",
+  "cover_sub": "夜里出事只能猜",
+  "cover_line": "接班先补三页",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "工厂 69_值班手册是空的 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "69",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打空手册。不定格、不慢放注水。云端无 V-正对讲。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["值班手册是空的"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-空本子.mp4", "broll": "empty_book", "phrases": ["不是没本子，是本子是空的", "本子在抽屉里，字不在纸上"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["夜里出事，只能猜"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-夜里猜.mp4", "broll": "night_guess", "phrases": ["交接变成口头传说", "第一晚就踩坑"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["报警不知道打给谁"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-一人脑子.mp4", "broll": "one_head", "phrases": ["停机步骤只在某个人脑子里", "人一不在，整晚就悬着"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["接班先补三页"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-三页.mp4", "broll": "three_pages", "phrases": ["第一页写谁接", "第二页写怎么停", "第三页写打给谁"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["手册要能照着做，不是封面好看"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-当没值.mp4", "broll": "empty_duty", "phrases": ["写完交接，把空页补上", "空手册的值班，请当成没值"]}
+  ]
+}
