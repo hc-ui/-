@@ -1,0 +1,56 @@
+{
+  "title": "灯亮了房间还是黑的",
+  "cover_title": "灯亮了",
+  "cover_sub": "房间还是黑的",
+  "cover_line": "光只能直走 · 不能反射",
+  "cover_src": "assets/t01b-city-lamps-only.png",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/A-挥手.jpg",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/A-摊手.jpg",
+      "phrases": ["只改一条定律"]
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "phrases": ["光只能直走，不能反射"],
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-房间.mp4",
+      "phrases": ["不发光的东西全是黑的"],
+      "broll": "room"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-路灯.mp4",
+      "phrases": ["只有盯着光源，才看得见"],
+      "broll": "street"
+    },
+    {
+      "id": "S06",
+      "kind": "A",
+      "src": "assets/A-指向.jpg",
+      "phrases": ["影子这个词，直接消失"]
+    },
+    {
+      "id": "S07",
+      "kind": "B",
+      "src": "broll/B-夜城.mp4",
+      "phrases": ["夜里的城，只剩一串灯"],
+      "broll": "city"
+    }
+  ]
+}

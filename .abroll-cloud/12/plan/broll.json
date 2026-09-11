@@ -1,0 +1,41 @@
+[
+  {
+    "id": "law",
+    "file": "broll/B-定律.mp4",
+    "tag": "改一条定律",
+    "title": "光只能直走",
+    "cards": [
+      {"num": "错", "head": "碰到就弹回", "body": "房间会被照亮", "color": "red"},
+      {"num": "对", "head": "光只往前走", "body": "没有反射", "color": "mint"}
+    ],
+    "punch": "不能反射",
+    "phrases": ["光只能直走，不能反射"]
+  },
+  {
+    "id": "room",
+    "file": "broll/B-房间.mp4",
+    "tag": "后果 01",
+    "title": "灯开了",
+    "still": "assets/t01a-room-only-bulb.png",
+    "punch": "全是黑的",
+    "phrases": ["不发光的东西全是黑的"]
+  },
+  {
+    "id": "street",
+    "file": "broll/B-路灯.mp4",
+    "tag": "后果 02",
+    "title": "盯着光源",
+    "still": "assets/t01c-zero-reflection-street.png",
+    "punch": "才看得见",
+    "phrases": ["只有盯着光源，才看得见"]
+  },
+  {
+    "id": "city",
+    "file": "broll/B-夜城.mp4",
+    "tag": "回报",
+    "title": "夜里的城",
+    "still": "assets/t01b-city-lamps-only.png",
+    "punch": "只剩一串灯",
+    "phrases": ["夜里的城，只剩一串灯"]
+  }
+]
