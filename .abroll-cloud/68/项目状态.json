@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_name": "68_评审变成找茬会",
+  "video_type": "普通短视频",
+  "episode": 68,
+  "title": "评审变成找茬会",
+  "source_note": "工厂 68_评审变成找茬会 / 云端 NEW",
+  "voice": "zh-CN-YunyangNeural",
+  "rate": "-10%",
+  "duration": 48.792,
+  "duration_zh": "四十九秒",
+  "target_s": [
+    40.0,
+    50.0
+  ],
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "9b00c622a43caa7445c3cfd906cf6f01730b4a33c9af415608c04a4d28a414a4"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 48791
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/68-评审变成找茬会.mp4",
+    "project_final": "00_最终成片_评审变成找茬会.mp4",
+    "cover": "00_封面_评审变成找茬会.jpg"
+  },
+  "staged": "成片/68-评审变成找茬会.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T14:02:14Z"
+}
