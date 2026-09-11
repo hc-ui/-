@@ -3,24 +3,32 @@
     "id": "ready_argue",
     "file": "broll/B-准备抬杠.mp4",
     "tag": "错 · 你肯定知道",
-    "title": "你肯定知道",
-    "cards": [
-      {"num": "开", "head": "你肯定知道", "body": "三个字一出", "color": "red"},
-      {"num": "杠", "head": "对方抬杠", "body": "直接划走", "color": "yellow"}
-    ],
-    "punch": "已经准备抬杠",
-    "phrases": ["这三个字一出，对方已经准备抬杠"]
+    "title": "对方已经准备抬杠",
+    "punch": "是在找你说错",
+    "phrases": ["这三个字一出，对方已经准备抬杠", "他不是在听你讲", "是在找你哪里说错"]
+  },
+  {
+    "id": "no_judge",
+    "file": "broll/B-别审懂不懂.mp4",
+    "tag": "错 · 上课口吻",
+    "title": "不要审对方懂不懂",
+    "punch": "先把对方当同事",
+    "phrases": ["开场不要审对方懂不懂", "口播里先把对方当同事", "不要一上来就上课"]
+  },
+  {
+    "id": "fact_act",
+    "file": "broll/B-事实或动作.mp4",
+    "tag": "对 · 给得出手",
+    "title": "事实或动作",
+    "punch": "能核对，能当场做",
+    "phrases": ["事实要能核对", "动作要能当场做"]
   },
   {
     "id": "cut_opener",
     "file": "broll/B-开场删掉.mp4",
-    "tag": "对 · 删掉",
+    "tag": "对 · 删掉再读",
     "title": "写完开场删掉",
-    "cards": [
-      {"num": "给", "head": "开场给事实", "body": "或给一个动作", "color": "yellow"},
-      {"num": "删", "head": "那句整句删", "body": "写完就划掉", "color": "mint"}
-    ],
-    "punch": "把这句删掉",
-    "phrases": ["写完开场，把这句删掉"]
+    "punch": "第一句必须站得住",
+    "phrases": ["删完出声读第一句", "第一句站不住，后面都白讲"]
   }
 ]

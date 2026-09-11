@@ -7,40 +7,18 @@
   "video_type": "普通短视频",
   "topic_id": "54",
   "source": "topics-batch3.md #54 / 工厂 310_别用你肯定知道开头",
-  "note": "口播工艺。不是剧情短剧，不走 drama-pipeline。云端无 V-正对讲，S01b 用摊手。",
+  "note": "口播工艺加长版 40–50s。不是剧情短剧。云端无 V-正对讲，摊手/指向/点赞。A 镜往返循环，不定格。",
+  "target_duration": [40, 50],
   "shots": [
-    {
-      "id": "S01a",
-      "kind": "A",
-      "src": "assets/V-挥手.mp4",
-      "phrases": ["大家好"],
-      "close": true
-    },
-    {
-      "id": "S01b",
-      "kind": "A",
-      "src": "assets/V-摊手.mp4",
-      "phrases": ["别用你肯定知道开头"]
-    },
-    {
-      "id": "S02",
-      "kind": "B",
-      "src": "broll/B-准备抬杠.mp4",
-      "phrases": ["这三个字一出，对方已经准备抬杠"],
-      "broll": "ready_argue"
-    },
-    {
-      "id": "S03",
-      "kind": "A",
-      "src": "assets/V-指向.mp4",
-      "phrases": ["直接给事实或动作"]
-    },
-    {
-      "id": "S04",
-      "kind": "B",
-      "src": "broll/B-开场删掉.mp4",
-      "phrases": ["写完开场，把这句删掉"],
-      "broll": "cut_opener"
-    }
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true, "cap": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["别用你肯定知道开头"], "cap": ["别用你肯定知道开头"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-准备抬杠.mp4", "phrases": ["这三个字一出，对方已经准备抬杠", "他不是在听你讲", "是在找你哪里说错"], "broll": "ready_argue"},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["你越补一句这个很基础，他越觉得被你踩了一脚"], "cap": ["越补很基础", "他越觉得被踩"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-别审懂不懂.mp4", "phrases": ["开场不要审对方懂不懂", "口播里先把对方当同事", "不要一上来就上课"], "broll": "no_judge"},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["直接给一个对方能核对的事实", "或者给一个马上能做的动作"], "cap": ["直接给事实或动作"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-事实或动作.mp4", "phrases": ["事实要能当场核对", "动作要能马上动手"], "broll": "fact_act"},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["写完开场，把你肯定知道整句删掉", "连同这个很基础一起删"], "cap": ["整句删掉"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-开场删掉.mp4", "phrases": ["删完务必出声把第一句读一遍", "第一句站不住，后面都白讲"], "broll": "cut_opener"},
+    {"id": "S09", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["第一句站得住，人才会留下来听"], "cap": ["第一句站得住"]}
   ]
 }
