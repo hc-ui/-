@@ -1,0 +1,41 @@
+{
+  "project": "57_一张对照卡只打一个点",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/57-一张对照卡只打一个点.mp4",
+  "sha256": "54729548d4ca0bb67c5cd7d40c158d9f5286c547f0249d3d59e241578fd541ff",
+  "bytes": 6685456,
+  "duration_zh": "五十秒",
+  "target_s": [
+    40.0,
+    50.0
+  ],
+  "in_target": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 49.541667
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.1,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 10,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true
+}
