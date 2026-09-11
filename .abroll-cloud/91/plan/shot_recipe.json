@@ -1,0 +1,26 @@
+{
+  "title": "日志为什么出事才去翻",
+  "cover_title": "日志为什么出事才去翻",
+  "cover_sub": "三条字段 · 一个追踪号",
+  "cover_line": "没号不准进生产",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch4.md #91 / 工厂 91_日志为什么出事才去翻 / 云端 NEW / 不重做 38",
+  "video_type": "普通短视频",
+  "topic_id": "91",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打日志出事才翻：三条字段、同一追踪号、没号不准进生产。不拍成片38改物理/画错/片头。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["日志总是出事才去翻", "不是平时太忙"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-看不懂.mp4", "broll": "unread", "phrases": ["是平时翻了也看不懂", "看不懂，就等于没记"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["先写下三条必看字段"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-三条字段.mp4", "broll": "fields", "phrases": ["时间、用户、错误码", "少一条，就翻不出来"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["每条请求带同一个追踪号"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-追踪号.mp4", "broll": "trace", "phrases": ["从头跟到尾，只认这一个号", "入口、服务、下游，都跟这一个号"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["各写各的号，对不上"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-各写各的.mp4", "broll": "mismatch", "phrases": ["没有追踪号的日志，不准进生产"]},
+    {"id": "S09", "kind": "B", "src": "broll/B-没号不准进.mp4", "broll": "gate", "phrases": ["进了生产，出事只能猜"]},
+    {"id": "S10", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["按这三步记", "出事才翻得出来"]}
+  ]
+}
