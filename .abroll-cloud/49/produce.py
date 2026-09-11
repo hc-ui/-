@@ -679,7 +679,8 @@ def assemble(data: dict) -> Path:
 
     staged = Path("/workspace/成片") / STAGED_NAME
     staged.parent.mkdir(exist_ok=True)
-    shutil.copy2(final, staged)
+    if staged.resolve() != final.resolve() and not (staged.exists() and staged.samefile(final)):
+        shutil.copy2(final, staged)
     return staged
 
 
