@@ -1,0 +1,64 @@
+{
+  "title": "注视增重",
+  "cover_title": "盯着苹果",
+  "cover_sub": "压进桌面",
+  "cover_line": "假想定律 · 注视增重",
+  "source": "选题库.md 第011号 · 质量随注视增加",
+  "video_type": "普通短视频",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["只改一条定律"]
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "phrases": ["假想定律：被盯着越久，东西越重"],
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-苹果.mp4",
+      "phrases": ["盯着苹果，苹果压进桌面"],
+      "broll": "apple"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-围观.mp4",
+      "phrases": ["围观的东西开始下沉"],
+      "broll": "crowd"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-镜子.mp4",
+      "phrases": ["镜子里的自己越来越重"],
+      "broll": "mirror"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["越有名的展品陷得越深"]
+    },
+    {
+      "id": "S08",
+      "kind": "B",
+      "src": "broll/B-画框.mp4",
+      "phrases": ["最有名的那幅画，整幅沉进地板，只露画框上沿"],
+      "broll": "frame"
+    }
+  ]
+}
