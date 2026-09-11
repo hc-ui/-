@@ -1,0 +1,44 @@
+{
+  "title": "故事没锁不准出提示词",
+  "cover_title": "故事没锁不准出提示词",
+  "cover_sub": "先定故事和镜头表",
+  "cover_line": "一次只出一条",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "note": "工作线短片纪律方法片。不是剧情连载，不走 drama-pipeline。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["故事没锁，别出提示词"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-先锁故事.mp4",
+      "phrases": ["先把故事和镜头表定下来"],
+      "broll": "lock_first"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-一次一条.mp4",
+      "phrases": ["一次只出一条，别批量碰运气"],
+      "broll": "one_cut"
+    },
+    {
+      "id": "S04",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["没锁就开渲，请当成没做"]
+    }
+  ]
+}

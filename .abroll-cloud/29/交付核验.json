@@ -1,0 +1,36 @@
+{
+  "project": "29_故事没锁不准出提示词",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/29-故事没锁不准出提示词.mp4",
+  "project_final": "/workspace/.abroll-cloud/29/00_最终成片_故事没锁不准出提示词.mp4",
+  "sha256": "65f0e9f5c2f68826b19e28043c68322f7407cefeb02d012c4fb0fbfcaf600d18",
+  "bytes": 3187607,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 12.666667
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.2,
+    "max_volume_db": -9.9
+  },
+  "timeline": {
+    "segments": 5,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true
+}

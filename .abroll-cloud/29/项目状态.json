@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "29_故事没锁不准出提示词",
+  "video_type": "普通短视频",
+  "episode": 29,
+  "title": "故事没锁不准出提示词",
+  "source_note": "工作线-开源小工具与短片.md §短片创作纪律",
+  "unused_of": "涨星靠外发 / 十二节气先锁十二张首帧",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 12.667,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "a25f90d1f333869e687730e9f89a5f4a9d706bb57d335cad54fc560a7caa07a8"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 12666
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/29-故事没锁不准出提示词.mp4",
+    "project_final": "00_最终成片_故事没锁不准出提示词.mp4",
+    "cover": "00_封面_故事没锁不准出提示词.jpg"
+  },
+  "staged": "成片/29-故事没锁不准出提示词.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / 涨星靠外发 / 十二节气首帧",
+  "updated_at": "2026-09-11T11:47:39Z"
+}
