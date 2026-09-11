@@ -616,6 +616,8 @@ def restore_from_projects(restored: list[str]) -> None:
         if not m:
             continue
         num = m.group(1)
+        if int(num) > 53:
+            continue
         for src in folder.glob("00_最终成片_*.mp4"):
             title = src.name[len("00_最终成片_") :]
             dest_name = f"{num}-{title}"
