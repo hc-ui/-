@@ -1,0 +1,51 @@
+{
+  "project": "86_成绩存盘",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "cut": "new-40s",
+  "final": "/workspace/成片/86-成绩存盘.mp4",
+  "project_final": "/tmp/wt-86-cunpan/.abroll-cloud/86/00_最终成片_成绩存盘.mp4",
+  "sha256": "2dbe047e10c6d87974830ddde06ae6ef409d9aeaf701018a77c7dc2ec6e833cc",
+  "bytes": 11268707,
+  "replaced_short_cut_s": 0,
+  "freeze_pad": false,
+  "no_tpad_clone_in_kit": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 49.4,
+    "duration_zh": "49.4秒"
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.7,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 9,
+    "a_shots": 6,
+    "b_shots": 3,
+    "phrases": 18,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28,
+    "in_hard_window": true,
+    "in_target_window": true
+  },
+  "decode_null": true,
+  "ok": true,
+  "chengpian": "/workspace/成片/86-成绩存盘.mp4",
+  "chengpian_duration_s": 49.4,
+  "chengpian_duration_zh": "49.4秒",
+  "draft_duration_s": 49.4,
+  "draft_duration_zh": "49.4秒"
+}

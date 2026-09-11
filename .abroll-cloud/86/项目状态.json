@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "project_name": "86_成绩存盘",
+  "video_type": "普通短视频",
+  "episode": 86,
+  "cut": "new-40s",
+  "title": "成绩存盘",
+  "full_title": "成绩加完了，关程序就没了。先存盘。",
+  "source_note": "topics-batch4.md #86 / 学习基线 2026-09-09 成绩存盘 / 云端 NEW",
+  "slug": "成绩存盘",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 49.4,
+  "duration_zh": "49.4秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "7c1c3ce5dc9d1bc5c8881eb3b6845543443b5c7f4faa0fac270c7349bfa6f52f",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 49400
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/86-成绩存盘.mp4",
+    "project_final": "00_最终成片_成绩存盘.mp4",
+    "cover": "00_封面_成绩存盘.jpg"
+  },
+  "staged": "成片/86-成绩存盘.mp4",
+  "draft": ".abroll-cloud/86",
+  "qa_video": "/workspace/成片/86-成绩存盘.mp4",
+  "replaced_short_cut_s": 0,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T14:47:20Z"
+}
