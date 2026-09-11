@@ -1,0 +1,27 @@
+[
+  {
+    "id": "slice_pie",
+    "file": "broll/B-时间切片.mp4",
+    "tag": "时间切片",
+    "title": "十五 / 十五 / 七十",
+    "cards": [
+      {"num": "15", "head": "换安全", "body": "及格交付换工位", "color": "yellow"},
+      {"num": "15", "head": "锁初稿", "body": "专利论文往前推", "color": "mint"},
+      {"num": "70", "head": "留给算法", "body": "主业占大部分", "color": "blue"}
+    ],
+    "punch": "租金不是主业",
+    "phrases": ["十五换安全，十五锁初稿，七十留给算法"]
+  },
+  {
+    "id": "meeting_done",
+    "file": "broll/B-组会只报.mp4",
+    "tag": "组会回报",
+    "title": "只报做完的",
+    "cards": [
+      {"num": "做", "head": "精读了一篇", "body": "已完成动作", "color": "mint"},
+      {"num": "做", "head": "跑通了基线", "body": "能当场核对", "color": "yellow"}
+    ],
+    "punch": "不画大饼",
+    "phrases": ["组会只报做完的动作"]
+  }
+]
