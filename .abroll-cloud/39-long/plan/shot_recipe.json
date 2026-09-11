@@ -1,0 +1,25 @@
+{
+  "title": "推不出来的酷画面删掉",
+  "cover_title": "推不出来",
+  "cover_sub": "酷画面一律删掉",
+  "cover_line": "连不上定律，观众当假",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "39",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #39 / 选题库.md 推演纪律 / 39-long 加长重切",
+  "note": "选题库推演纪律。不是剧情短剧。加长口播与 A/B 镜，覆盖短切。不重拍雨滴、不重讲改物理对照。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["推不出来的酷画面，一律删掉"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是画面不够酷", "是它连不上你改的那条定律"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-结构锁死.mp4", "phrases": ["每期结构先锁死", "改一条定律，推出三个后果", "最后一个后果，才拿来当回报"], "broll": "structure"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["想到五个，先砍到三个", "留下最反直觉、最好拍的"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-五砍三.mp4", "phrases": ["好看但推不出来的，先划掉", "从改的那条定律，拉一根箭头"], "broll": "cut_five"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["能连上的后果，才留下"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-连不上就删.mp4", "phrases": ["连不上的酷图，观众一律当假", "假就出在推不出来的地方", "回报镜只放大最后一个后果"], "broll": "unlink_delete"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["别再加一张炫的空镜头", "酷画面推不出来，就删", "删掉，比硬留假镜头强"]}
+  ]
+}

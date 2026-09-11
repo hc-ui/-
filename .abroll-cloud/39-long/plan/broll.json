@@ -1,0 +1,44 @@
+[
+  {
+    "id": "structure",
+    "file": "broll/B-结构锁死.mp4",
+    "tag": "结构锁死",
+    "title": "每期结构先锁死",
+    "cards": [
+      {"num": "改", "head": "改一条定律", "body": "只动这一条", "color": "amber"},
+      {"num": "推", "head": "推出三个后果", "body": "能从定律推出来", "color": "yellow"},
+      {"num": "报", "head": "最后一个当回报", "body": "尺度放大留给它", "color": "mint"}
+    ],
+    "punch": "结构先锁，再谈酷",
+    "phrases": ["每期结构先锁死", "改一条定律，推出三个后果", "最后一个后果，才拿来当回报"]
+  },
+  {
+    "id": "cut_five",
+    "file": "broll/B-五砍三.mp4",
+    "tag": "五砍三",
+    "title": "想到五个砍到三个",
+    "cards": [
+      {"num": "1", "head": "后果甲", "body": "反直觉，好拍", "color": "mint", "keep": true},
+      {"num": "2", "head": "后果乙", "body": "能连上定律", "color": "yellow", "keep": true},
+      {"num": "3", "head": "炫光效", "body": "好看但推不出", "color": "red", "keep": false},
+      {"num": "4", "head": "后果丙", "body": "留给回报镜", "color": "cream", "keep": true},
+      {"num": "5", "head": "酷空镜", "body": "连不上就划掉", "color": "red", "keep": false}
+    ],
+    "punch": "推不出来的先划掉",
+    "phrases": ["好看但推不出来的，先划掉", "从改的那条定律，拉一根箭头"]
+  },
+  {
+    "id": "unlink_delete",
+    "file": "broll/B-连不上就删.mp4",
+    "tag": "连不上就删",
+    "title": "连不上，观众当假",
+    "cards": [
+      {"num": "甲", "head": "后果一", "body": "箭头连得上", "color": "mint"},
+      {"num": "乙", "head": "后果二", "body": "箭头连得上", "color": "yellow"},
+      {"num": "丙", "head": "后果三 · 回报", "body": "只放大这一张", "color": "amber"}
+    ],
+    "orphan": {"head": "酷图", "body": "连不上定律"},
+    "punch": "推不出来，就删",
+    "phrases": ["连不上的酷图，观众一律当假", "假就出在推不出来的地方", "回报镜只放大最后一个后果"]
+  }
+]
