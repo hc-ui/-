@@ -6,40 +6,20 @@
   "cover_src": "assets/A-角色-小灯-摊手.jpg",
   "source": "topics-batch3.md #56 / 工厂 349_别在字幕里加注释",
   "video_type": "普通短视频",
-  "note": "口播工艺。不是剧情连载，不走 drama-pipeline。云端无 V-正对讲，S01b 用摊手；S03 用指向。",
+  "target_duration_s": [40, 50],
+  "note": "加长口播与 A/B 轮切。不定格、不慢放注水。云端无 V-正对讲。",
   "shots": [
-    {
-      "id": "S01a",
-      "kind": "A",
-      "src": "assets/V-挥手.mp4",
-      "phrases": ["大家好"],
-      "close": true
-    },
-    {
-      "id": "S01b",
-      "kind": "A",
-      "src": "assets/V-摊手.mp4",
-      "phrases": ["别在字幕里加注释"]
-    },
-    {
-      "id": "S02",
-      "kind": "B",
-      "src": "broll/B-括号跳过.mp4",
-      "phrases": ["括号一出来，听众当补充，直接跳过"],
-      "broll": "paren_skip"
-    },
-    {
-      "id": "S03",
-      "kind": "A",
-      "src": "assets/V-指向.mp4",
-      "phrases": ["字幕只跟口播，注释放到图上"]
-    },
-    {
-      "id": "S04",
-      "kind": "B",
-      "src": "broll/B-括号删掉.mp4",
-      "phrases": ["写完字幕，把括号删掉"],
-      "broll": "paren_cut"
-    }
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["别在字幕里加注释"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-加括号.mp4", "broll": "paren_habit", "phrases": ["很多人写字幕，喜欢在句子后面加一括号"]},
+    {"id": "S03", "kind": "B", "src": "broll/B-括号跳过.mp4", "broll": "paren_skip", "phrases": ["括号一出来，听众当补充，直接跳过"]},
+    {"id": "S04", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["他看见那对括号，就当这句话可有可无"]},
+    {"id": "S05", "kind": "B", "src": "broll/B-结论冲掉.mp4", "broll": "paren_wash", "phrases": ["该记住的结论，被括号里的解释冲掉了"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-旁白不是正文.mp4", "broll": "paren_teach", "phrases": ["这不是在帮人理解，是在教人略过", "括号是作者的旁白，不是正文"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["字幕只跟口播"]},
+    {"id": "S08", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["口里没说的字，幕上就不要出现"]},
+    {"id": "S09", "kind": "B", "src": "broll/B-注释放图上.mp4", "broll": "note_pin", "phrases": ["要补充的例子、出处、反例，注释放到图上", "角落钉一张小卡，别塞进字幕括号"]},
+    {"id": "S10", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["写字幕的时候，先跟读一遍"]},
+    {"id": "S11", "kind": "B", "src": "broll/B-括号删掉.mp4", "broll": "follow_cut", "phrases": ["跟不上口的字，就是注释", "写完字幕，把括号删掉"]}
   ]
 }

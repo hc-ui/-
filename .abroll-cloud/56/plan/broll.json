@@ -1,26 +1,44 @@
 [
   {
+    "id": "paren_habit",
+    "file": "broll/B-加括号.mp4",
+    "tag": "错 · 加括号",
+    "title": "句子后面加一括号",
+    "punch": "注释不该进字幕"
+  },
+  {
     "id": "paren_skip",
     "file": "broll/B-括号跳过.mp4",
     "tag": "错 · 加注释",
     "title": "字幕加括号",
-    "cards": [
-      {"num": "括", "head": "结论（其实是…）", "body": "括号当补充", "color": "yellow"},
-      {"num": "跳", "head": "直接跳过", "body": "听众不当正文", "color": "red"}
-    ],
-    "punch": "括号里的字会被跳过",
-    "phrases": ["括号一出来，听众当补充，直接跳过"]
+    "punch": "括号里的字会被跳过"
   },
   {
-    "id": "paren_cut",
-    "file": "broll/B-括号删掉.mp4",
+    "id": "paren_wash",
+    "file": "broll/B-结论冲掉.mp4",
+    "tag": "错 · 冲掉",
+    "title": "结论被解释冲掉",
+    "punch": "该记的没了"
+  },
+  {
+    "id": "paren_teach",
+    "file": "broll/B-旁白不是正文.mp4",
+    "tag": "错 · 旁白",
+    "title": "旁白不是正文",
+    "punch": "教人略过"
+  },
+  {
+    "id": "note_pin",
+    "file": "broll/B-注释放图上.mp4",
     "tag": "对 · 分工",
-    "title": "字幕只跟口播",
-    "cards": [
-      {"num": "幕", "head": "只跟口播", "body": "字幕不夹注释", "color": "yellow"},
-      {"num": "注", "head": "放到图上", "body": "角落小卡钉住", "color": "mint"}
-    ],
-    "punch": "把括号删掉",
-    "phrases": ["写完字幕，把括号删掉"]
+    "title": "注释放到图上",
+    "punch": "角落钉小卡"
+  },
+  {
+    "id": "follow_cut",
+    "file": "broll/B-括号删掉.mp4",
+    "tag": "对 · 跟读",
+    "title": "跟不上口就是注释",
+    "punch": "把括号删掉"
   }
 ]
