@@ -17,8 +17,16 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-ROOT = Path("/workspace/.abroll-cloud/42")
-A_SRC = Path("/workspace/.abroll-cloud/06/assets")
+ROOT = Path(__file__).resolve().parent
+A_SRC_CANDIDATES = [
+    Path("/workspace/.abroll-cloud/06/assets"),
+    Path("/tmp/ep40-e8f6/.abroll-cloud/06/assets"),
+    ROOT.parent / "06" / "assets",
+]
+A_SRC = next((p for p in A_SRC_CANDIDATES if (p / "V-挥手.mp4").exists()), A_SRC_CANDIDATES[0])
+REPO = ROOT.parents[1]
+STAGED_DIR_WS = Path("/workspace/成片")
+STAGED_DIR_REPO = REPO / "成片"
 W, H, FPS = 1080, 1920, 24
 NAME = "列表用append别用等号"
 STAGED_NAME = "42-列表用append别用等号.mp4"
@@ -676,12 +684,16 @@ def assemble(data: dict) -> Path:
     (ROOT / "final").mkdir(exist_ok=True)
     shutil.copy2(final, ROOT / "output" / f"{NAME}.mp4")
     shutil.copy2(final, ROOT / "final" / f"{NAME}.mp4")
-    staged = Path("/workspace/成片") / STAGED_NAME
-    staged.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(final, staged)
+    staged = None
+    for dest_dir in (STAGED_DIR_WS, STAGED_DIR_REPO):
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        dest = dest_dir / STAGED_NAME
+        if dest.resolve() != final.resolve():
+            shutil.copy2(final, dest)
+        staged = dest
+        print("STAGED", dest, "dur", probe_dur(dest))
     print("FINAL", final, "dur", probe_dur(final))
-    print("STAGED", staged, "dur", probe_dur(staged))
-    return staged
+    return STAGED_DIR_WS / STAGED_NAME if (STAGED_DIR_WS / STAGED_NAME).exists() else staged
 
 
 def write_cover() -> Path:
@@ -780,20 +792,17 @@ def write_docs(dur: float, staged: Path, data: dict) -> None:
 
 
 def patch_index(duration: float) -> None:
-    idx = Path("/workspace/成片/INDEX.md")
+    # 只在已有 INDEX 上补一行；不整表重写，避免和并行成片抢文件。
     line = f"| `{STAGED_NAME}` | {duration:.1f}s |"
-    if idx.exists():
+    for idx in (STAGED_DIR_WS / "INDEX.md", STAGED_DIR_REPO / "INDEX.md"):
+        if not idx.exists():
+            continue
         text = idx.read_text(encoding="utf-8")
-        if STAGED_NAME not in text:
-            if not text.endswith("\n"):
-                text += "\n"
-            idx.write_text(text + line + "\n", encoding="utf-8")
-    else:
-        idx.write_text(
-            "# 成片（可直接看）\n\n竖屏口播 1080×1920，H.264 + AAC。\n\n| 文件 | 时长 |\n|------|------|\n"
-            + line + "\n",
-            encoding="utf-8",
-        )
+        if STAGED_NAME in text:
+            continue
+        if not text.endswith("\n"):
+            text += "\n"
+        idx.write_text(text + line + "\n", encoding="utf-8")
 
 
 def qa(staged: Path, data: dict) -> dict:

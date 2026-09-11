@@ -1,0 +1,36 @@
+{
+  "project": "42_列表用append别用等号",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/42-列表用append别用等号.mp4",
+  "project_final": "/workspace/.abroll-cloud/42/00_最终成片_列表用append别用等号.mp4",
+  "sha256": "1020dd57bfcc82ff7530a6283ee09cfa90eae2d0fe940b070a5218488e717198",
+  "bytes": 3882274,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 17.541667
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.5,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 5,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "b_lead_s": 0.2
+  },
+  "decode_null": true,
+  "ok": true
+}
