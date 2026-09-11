@@ -1,0 +1,62 @@
+{
+  "project": "84_接口变更口头说一声",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "cut": "new-40s",
+  "final": "/workspace/成片/84-接口变更口头说一声.mp4",
+  "project_final": "/workspace/.abroll-cloud/84/00_最终成片_接口变更口头说一声.mp4",
+  "sha256": "3ffccbcab5a085c2f6d42549b3518e4a28e8629cb83d6b4c7c2484a3d4e773db",
+  "bytes": 12209534,
+  "replaced_short_cut_s": 0,
+  "freeze_pad": false,
+  "no_tpad_clone_in_kit": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 45.458333,
+    "duration_zh": "45.5秒"
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.4,
+    "max_volume_db": -9.9
+  },
+  "timeline": {
+    "segments": 12,
+    "a_shots": 7,
+    "b_shots": 5,
+    "phrases": 16,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28,
+    "in_hard_window": true,
+    "in_target_window": true
+  },
+  "decode_null": true,
+  "ok": true,
+  "chengpian": "/workspace/成片/84-接口变更口头说一声.mp4",
+  "chengpian_duration_s": 45.458333,
+  "chengpian_duration_zh": "45.5秒",
+  "draft_duration_s": 45.458333,
+  "draft_duration_zh": "45.5秒",
+  "distinct_from_65": true,
+  "distinct_from_66": true,
+  "script_guard": {
+    "口头同步": true,
+    "走廊对过": true,
+    "群里回了个好": true,
+    "点头": true,
+    "谁同意": true,
+    "写下三行": true,
+    "下一期": true
+  }
+}

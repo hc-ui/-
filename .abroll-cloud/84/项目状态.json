@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "project_name": "84_接口变更口头说一声",
+  "video_type": "普通短视频",
+  "episode": 84,
+  "cut": "new-40s",
+  "title": "接口变更口头说一声",
+  "full_title": "接口变更口头说一声",
+  "source_note": "topics-batch4.md #84 / 工厂 73_接口变更口头说一声 / 云端 NEW",
+  "slug": "接口变更口头说一声",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 45.458,
+  "duration_zh": "45.5秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "6cbf0e891549551c8d39078e50c6fc8acb251ba623cc3733db3a13ba2b7f56a7",
+    "phrases": 16
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 45458
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/84-接口变更口头说一声.mp4",
+    "project_final": "00_最终成片_接口变更口头说一声.mp4",
+    "cover": "00_封面_接口变更口头说一声.jpg"
+  },
+  "staged": "成片/84-接口变更口头说一声.mp4",
+  "draft": ".abroll-cloud/84",
+  "qa_video": "/workspace/成片/84-接口变更口头说一声.mp4",
+  "replaced_short_cut_s": 0,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T14:48:25Z",
+  "distinct_from": [
+    "65-口头同步当过结论",
+    "66-点头不等于确认",
+    "73-int-input先包一层"
+  ]
+}
