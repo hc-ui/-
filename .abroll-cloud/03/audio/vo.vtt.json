@@ -1,0 +1,50 @@
+[
+  {
+    "type": "SentenceBoundary",
+    "offset": 1000000,
+    "duration": 13710526,
+    "text": "大家好。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 14210526,
+    "duration": 32105263,
+    "text": "打翻水杯，水往天花板流。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 46315790,
+    "duration": 15263158,
+    "text": "不是倒放。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 61578948,
+    "duration": 20526316,
+    "text": "是水比空气轻。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 82105264,
+    "duration": 20263158,
+    "text": "海挂到云下面。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 102368422,
+    "duration": 18026316,
+    "text": "鱼在天上游。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 120394738,
+    "duration": 17763158,
+    "text": "雨变成上雨。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 138157896,
+    "duration": 25921052,
+    "text": "阳光从海里打在楼顶。"
+  }
+]

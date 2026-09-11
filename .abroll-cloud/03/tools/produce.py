@@ -85,10 +85,47 @@ def ticks_to_s(v: float) -> float:
     return float(v)
 
 
+def align_from_sentences(phrases: list[str], sentences: list[dict], dur: float) -> list[dict]:
+    cues: list[dict] = []
+    pi = 0
+    for sent in sentences:
+        st = ticks_to_s(sent.get("offset", 0))
+        en = st + ticks_to_s(sent.get("duration", 0))
+        body = str(sent.get("text") or "").replace("。", "").replace("，", "").replace(" ", "")
+        group: list[str] = []
+        while pi < len(phrases):
+            compact = phrases[pi].replace("，", "").replace("。", "").replace(" ", "")
+            if compact and compact in body:
+                group.append(phrases[pi])
+                body = body.replace(compact, "", 1)
+                pi += 1
+            else:
+                break
+        if not group:
+            continue
+        weights = [max(1, len(g.replace("，", "").replace("。", ""))) for g in group]
+        total = sum(weights)
+        t = st
+        for g, w in zip(group, weights):
+            span = (en - st) * (w / total)
+            cues.append({"text": g, "start": t, "end": t + span})
+            t += span
+    if not cues:
+        step = dur / max(1, len(phrases))
+        return [{"text": p, "start": i * step, "end": (i + 1) * step} for i, p in enumerate(phrases)]
+    cues[0]["start"] = 0.0
+    cues[-1]["end"] = dur
+    for i in range(len(cues) - 1):
+        cues[i]["end"] = cues[i + 1]["start"]
+    return cues
+
+
 def align_phrases(phrases: list[str], words: list[dict], dur: float) -> list[dict]:
     word_events = [w for w in words if w.get("type") == "WordBoundary" and w.get("text")]
+    sent_events = [w for w in words if w.get("type") == "SentenceBoundary" and w.get("text")]
+    if sent_events and not word_events:
+        return align_from_sentences(phrases, sent_events, dur)
     if not word_events:
-        # even split fallback
         step = dur / max(1, len(phrases))
         return [{"text": p, "start": i * step, "end": (i + 1) * step} for i, p in enumerate(phrases)]
 
@@ -410,24 +447,8 @@ def assemble(timeline: dict, cues: list[dict]) -> Path:
         "broll/B-上雨.mp4": ROOT / "assets/b-rain-up.png",
         "broll/B-楼顶光.mp4": ROOT / "assets/b-city-caustics.png",
     }
-    # prepare tagged B stills (no extra Chinese on density card)
-    tagged_dir = ROOT / "broll/_tagged"
-    tagged_dir.mkdir(parents=True, exist_ok=True)
-    tags = {
-        "broll/B-天花板.mp4": ("钩子", "水往天花板流"),
-        "broll/B-悬海.mp4": ("后果一", "海挂到云下面"),
-        "broll/B-上雨.mp4": ("后果二三", "雨变成上雨"),
-        "broll/B-楼顶光.mp4": ("回报", "光打在楼顶"),
-    }
-    prepared: dict[str, Path] = {}
-    for key, src in stills.items():
-        if key in tags:
-            im = tag_overlay(Image.open(src), *tags[key])
-            out = tagged_dir / (Path(key).stem + ".png")
-            im.save(out)
-            prepared[key] = out
-        else:
-            prepared[key] = src
+    # Cinematic B-roll stays text-free; Chinese only in caption layer / density card.
+    prepared: dict[str, Path] = dict(stills)
 
     raw_dir = shots_dir / "raw"
     raw_dir.mkdir(exist_ok=True)
@@ -628,9 +649,23 @@ def verify(path: Path, timeline: dict) -> dict:
     return report
 
 
+def realign_existing() -> None:
+    words = json.loads((ROOT / "audio/vo.vtt.json").read_text(encoding="utf-8"))
+    wav = ROOT / "audio/vo-full.wav"
+    dur = probe_dur(wav)
+    cues = align_phrases(load_phrases(), words, dur)
+    write_align(cues, dur)
+    print("REALIGN", f"{dur:.3f}s", "cues", len(cues))
+
+
 def main() -> None:
     ROOT.mkdir(parents=True, exist_ok=True)
-    asyncio.run(synthesize())
+    wav = ROOT / "audio/vo-full.wav"
+    vtt = ROOT / "audio/vo.vtt.json"
+    if wav.exists() and vtt.exists():
+        realign_existing()
+    else:
+        asyncio.run(synthesize())
     cues = json.loads((ROOT / "audio/cues.json").read_text(encoding="utf-8"))
     timeline = build_timeline(cues)
     write_cover()
