@@ -1,0 +1,25 @@
+{
+  "title": "先交三道短题",
+  "cover_title": "先交三道短题",
+  "cover_sub": "别再开一个教务",
+  "cover_line": "短题交完，再开新章",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "43",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #43 / 怎么精进立刻条 / 43-long 加长重切",
+  "note": "续教纪律。不是剧情短剧。加长口播与 A/B 镜，覆盖 19.7s 短切。不讲函数、不讲 append。禁止 freeze-pad。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["先交三道短题，别再开教务菜单"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["黑马第二章教务系统，已经收口", "卡点不在没见过的语法"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-焊在一起.mp4", "phrases": ["语法见过，if、for、字典都见过", "一开菜单就焊在一起，整段会炸", "卡点在拼装，不是新词"], "broll": "weld"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["立刻去做三道巩固短题"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-三道短题.mp4", "phrases": ["通讯录、库存、从值找键", "三道写完就交，别再开教务"], "broll": "cards"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["大案例必须先拆开"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-先拆再开章.mp4", "phrases": ["先让菜单能退出", "再做增加和列出", "最后才做统计", "短题还没交，就别开新菜单"], "broll": "split"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["先把三道短题交掉，再谈大项目", "短题交完，再开新章", "记住这一条，短题先交"]}
+  ]
+}
