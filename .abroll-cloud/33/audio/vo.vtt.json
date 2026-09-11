@@ -1,0 +1,50 @@
+[
+  {
+    "type": "SentenceBoundary",
+    "offset": 1000000,
+    "duration": 12651041,
+    "text": "大家好。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 13151041,
+    "duration": 16927083,
+    "text": "只改一条定律。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 30078125,
+    "duration": 29947917,
+    "text": "光速压到三十公里每小时。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 60026043,
+    "duration": 26041667,
+    "text": "自行车比路灯的光还快。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 86067710,
+    "duration": 27083333,
+    "text": "前方偏蓝，身后偏红。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 113151044,
+    "duration": 25260417,
+    "text": "远处延迟，影子拖尾。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 138411461,
+    "duration": 28255208,
+    "text": "光学几乎画错，先当示意。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 166666670,
+    "duration": 30338542,
+    "text": "骑手回头，看见几秒前的街。"
+  }
+]

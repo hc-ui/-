@@ -913,12 +913,13 @@ def copy_assets() -> None:
     assets = ROOT / "assets"
     assets.mkdir(parents=True, exist_ok=True)
     for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "A-角色-小灯-摊手.jpg"):
+        dest = assets / name
+        if dest.exists() and dest.stat().st_size > 800:
+            continue
         src = A_SRC / name
         if not src.exists():
             raise FileNotFoundError(src)
-        dest = assets / name
-        if not dest.exists() or dest.stat().st_size != src.stat().st_size:
-            shutil.copy2(src, dest)
+        shutil.copy2(src, dest)
     for name in (
         "t33a-bike-outruns-light.png",
         "t33b-blue-ahead-red-behind.png",
