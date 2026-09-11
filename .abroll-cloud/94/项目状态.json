@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "project_name": "94_别在标题里堆感叹号",
+  "video_type": "普通短视频",
+  "episode": 94,
+  "title": "别在标题里堆感叹号",
+  "source_note": "topics-batch4.md #94 / 工厂 338_别在标题里堆感叹号 / 云端 NEW",
+  "slug": "94_别在标题里堆感叹号",
+  "duration_zh": "42.2秒",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 42.2,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "0107509e1d7d991764685eca2ee235161bf73e12b624369d71c7f1f4c7e75b42"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 42200
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/94-别在标题里堆感叹号.mp4",
+    "project_final": "00_最终成片_别在标题里堆感叹号.mp4",
+    "cover": "00_封面_别在标题里堆感叹号.jpg"
+  },
+  "staged": "成片/94-别在标题里堆感叹号.mp4",
+  "distinct_from": "成片/52-别把反转写进标题.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / 成片52反转剧透 / 工厂338短切拷贝",
+  "updated_at": "2026-09-11T14:38:54Z"
+}

@@ -1,0 +1,55 @@
+{
+  "project": "94_别在标题里堆感叹号",
+  "duration_zh": "42.2秒",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/94-别在标题里堆感叹号.mp4",
+  "project_final": "/workspace/.abroll-cloud/94/00_最终成片_别在标题里堆感叹号.mp4",
+  "sha256": "6e15bcb9a48d8e79336fb3c9e88ed03b3881b5ed8c72748c5a2691546e8adc02",
+  "bytes": 10119458,
+  "distinct_from_52": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 42.2
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.5,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 11,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true,
+  "duration_window": {
+    "min": 30.0,
+    "max": 60.0,
+    "target": [
+      40.0,
+      50.0
+    ],
+    "hit": true,
+    "duration_zh": "42.2秒"
+  },
+  "script_guard": {
+    "反转": true,
+    "结局": true,
+    "剧透": true,
+    "下一期": true,
+    "文件名": true
+  }
+}
