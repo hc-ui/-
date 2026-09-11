@@ -21,7 +21,9 @@ NAME = "杂务按六十分及格"
 FULL_TITLE = "杂务按六十分及格交付"
 STAGED_NAME = "46-杂务按六十分及格.mp4"
 VOICE = "zh-CN-YunyangNeural"
-ASSET_SRC = Path("/workspace/.abroll-cloud/06/assets")
+_LOCAL_ASSETS = ROOT.parent / "06" / "assets"
+_WS_ASSETS = Path("/workspace/.abroll-cloud/06/assets")
+ASSET_SRC = _LOCAL_ASSETS if (_LOCAL_ASSETS / "V-挥手.mp4").exists() else _WS_ASSETS
 FONT_BD = "/tmp/NotoSansSC-Bold.otf"
 FONT_REG = "/tmp/NotoSansSC-Regular.otf"
 FONT_FALLBACK = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
@@ -967,7 +969,12 @@ def qa(staged: Path, data: dict) -> dict:
         ["ffmpeg", "-v", "error", "-i", str(staged), "-f", "null", "-"],
         capture_output=True, text=True,
     )
-    (qa_dir / "decode.txt").write_text((null.stderr or "") + "\n", encoding="utf-8")
+    decode_err = null.stderr or ""
+    (qa_dir / "decode.txt").write_text(decode_err + "\n", encoding="utf-8")
+    decode_clean = "\n".join(
+        ln for ln in decode_err.splitlines()
+        if "no version information available" not in ln
+    ).strip()
     vol = subprocess.run(
         ["ffmpeg", "-i", str(staged), "-af", "volumedetect", "-f", "null", "-"],
         capture_output=True, text=True,
@@ -1021,7 +1028,7 @@ def qa(staged: Path, data: dict) -> dict:
         },
         "duration_ok": DUR_MIN <= dur_s <= DUR_MAX,
         "duration_target": DUR_LO <= dur_s <= DUR_HI,
-        "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
+        "decode_null": null.returncode == 0 and not decode_clean,
         "ok": True,
     }
     report["ok"] = (

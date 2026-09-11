@@ -1,0 +1,40 @@
+{
+  "project": "46_杂务按六十分及格_long",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "cut": "long-40s",
+  "final": "/workspace/成片/46-杂务按六十分及格.mp4",
+  "project_final": "/tmp/prod-46-long-solo/00_最终成片_杂务按六十分及格.mp4",
+  "sha256": "25f913e189250a42833d8c9b6f94b86b241b06aa51acf111a5d2fbb2ffbf2363",
+  "bytes": 9375315,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 44.5
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.4,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 9,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "duration_ok": true,
+  "duration_target": true,
+  "decode_null": true,
+  "ok": true,
+  "note": "ffmpeg stderr only had libncursesw version warnings; full -f null decode exit 0"
+}

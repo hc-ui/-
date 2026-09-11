@@ -1,0 +1,3 @@
+ffmpeg: /exec-daemon/tmux-root/lib/libncursesw.so.6: no version information available (required by /lib/x86_64-linux-gnu/libcaca.so.0)
+ffmpeg: /exec-daemon/tmux-root/lib/libncursesw.so.6: no version information available (required by /lib/x86_64-linux-gnu/libcaca.so.0)
+
