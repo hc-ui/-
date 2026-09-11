@@ -1,0 +1,59 @@
+{
+  "title": "待办为什么划不掉",
+  "cover_title": "待办为什么划不掉",
+  "cover_sub": "不是你懒，是清单在骗你",
+  "cover_line": "今天只留一件能做完的事",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "locked_source": "Drive 26_待办为什么划不掉 / timeline.json",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["待办写了三十条", "一条都没划掉"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-清单骗人.mp4",
+      "phrases": ["不是你懒", "是清单在骗你"],
+      "broll": "lie",
+      "lead": 0.28
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-同一页.mp4",
+      "phrases": ["它把愿望和任务写在同一页", "愿望很大", "下一步是空的"],
+      "broll": "same_page",
+      "lead": 0.28
+    },
+    {
+      "id": "S04a",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["今天只留一件"]
+    },
+    {
+      "id": "S04b",
+      "kind": "B",
+      "src": "broll/B-一件事.mp4",
+      "phrases": ["能当场做完的事", "写得越小", "越容易开始"],
+      "broll": "one",
+      "lead": 0.28
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["开始了", "今天才算过了"]
+    }
+  ]
+}
