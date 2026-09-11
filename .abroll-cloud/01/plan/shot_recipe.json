@@ -1,0 +1,15 @@
+{
+  "name": "口头答应没有截止日",
+  "video_type": "普通短视频",
+  "topic": 1,
+  "source": "topics.md #1 / 347_口头答应没有截止日",
+  "size": [1080, 1920],
+  "fps": 24,
+  "shots": [
+    {"id": "S01", "kind": "A", "src": "assets/A-挥手.jpg", "close": true, "phrases": ["大家好"]},
+    {"id": "S02", "kind": "A", "src": "assets/A-正对讲.jpg", "phrases": ["口头答应了，却没说哪天交"]},
+    {"id": "S03", "kind": "B", "src": "broll/B-日期空.mp4", "phrases": ["没有日期，就不是承诺"]},
+    {"id": "S04", "kind": "A", "src": "assets/A-指向.jpg", "phrases": ["答应时先写下截止日"]},
+    {"id": "S05", "kind": "B", "src": "broll/B-无限拖.mp4", "phrases": ["没日期的答应，可以无限拖"]}
+  ]
+}

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import math
 import subprocess
 from pathlib import Path
 
@@ -101,13 +100,29 @@ def big_card(base: Image.Image, title: str, t_local: float) -> None:
     a = ease((t_local - 0.12) / 0.38)
     if a <= 0:
         return
-    y = 1420 + int((1 - a) * 28)
+    y = 1480 + int((1 - a) * 28)
     layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
-    d.rounded_rectangle((90, y, 990, y + 220), radius=36, fill=(*CARD, int(230 * a)))
-    fnt = font(64)
+    d.rounded_rectangle((90, y, 990, y + 200), radius=36, fill=(*CARD, int(230 * a)))
+    fnt = font(60)
     col = mix(CARD, WHITE, a)
-    d.text((540, y + 110), title, font=fnt, fill=(*col, 255), anchor="mm")
+    d.text((540, y + 100), title, font=fnt, fill=(*col, 255), anchor="mm")
+    out = Image.alpha_composite(base.convert("RGBA"), layer)
+    base.paste(out.convert("RGB"))
+
+
+def pair_cards(base: Image.Image, left: str, right: str, t_local: float) -> None:
+    a = ease((t_local - 0.18) / 0.36)
+    if a <= 0:
+        return
+    y = 1180 + int((1 - a) * 24)
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    fnt = font(44)
+    boxes = [(80, y, 500, y + 220, left, MUTED), (580, y, 1000, y + 220, right, YELLOW)]
+    for x0, y0, x1, y1, text, color in boxes:
+        d.rounded_rectangle((x0, y0, x1, y1), radius=28, fill=(*CARD, int(220 * a)))
+        d.text(((x0 + x1) / 2, (y0 + y1) / 2), text, font=fnt, fill=(*mix(CARD, color, a), 255), anchor="mm")
     out = Image.alpha_composite(base.convert("RGBA"), layer)
     base.paste(out.convert("RGB"))
 
@@ -162,10 +177,13 @@ def frame_b(src: Path, t_local: float, dur: float, shot: dict) -> Image.Image:
     tag = shot.get("tag", "B-ROLL")
     color = RED if tag.startswith("错") else MINT
     tag_chip(base, tag, color)
+    pair = shot.get("cards") or []
+    if len(pair) == 2:
+        pair_cards(base, pair[0], pair[1], t_local)
     if shot.get("card"):
         big_card(base, shot["card"], t_local)
     pill(base, split_line(shot["line"]), y=210)
-    return shutter(base, t_local, YELLOW if shot.get("card") == "一句结果" else MINT)
+    return shutter(base, t_local, YELLOW)
 
 
 def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
@@ -254,24 +272,26 @@ def main() -> None:
         str(mixed),
     ])
 
-    # cover from first A-roll still
-    cover_img = cover(Image.open(ROOT / "assets/A-挥手.jpg"), W, H, zoom=1.18, pan_y=-0.16)
-    d = ImageDraw.Draw(cover_img)
-    d.rounded_rectangle((90, 90, 990, 430), radius=36, fill=(11, 13, 18, 220))
+    cover_meta = data.get("cover") or {}
+    cover_img = cover(Image.open(ROOT / cover_meta.get("src", "assets/A-挥手.jpg")), W, H, zoom=1.18, pan_y=-0.16)
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     od = ImageDraw.Draw(overlay)
-    od.rounded_rectangle((90, 90, 990, 430), radius=36, fill=(11, 13, 18, 200))
+    od.rounded_rectangle((90, 90, 990, 460), radius=36, fill=(11, 13, 18, 200))
     cover_img = Image.alpha_composite(cover_img.convert("RGBA"), overlay).convert("RGB")
     d = ImageDraw.Draw(cover_img)
-    d.text((540, 180), "周报为什么", font=font(72), fill=WHITE, anchor="mm")
-    d.text((540, 280), "没人读", font=font(92), fill=MINT, anchor="mm")
-    d.text((540, 370), "先写结果 · 再写动作", font=font(36), fill=YELLOW, anchor="mm")
+    d.text((540, 170), data["title"][:4], font=font(64), fill=WHITE, anchor="mm")
+    d.text((540, 260), data["title"][4:], font=font(72), fill=MINT, anchor="mm")
+    d.text((540, 360), cover_meta.get("sub", ""), font=font(36), fill=YELLOW, anchor="mm")
+    d.text((540, 420), cover_meta.get("line", ""), font=font(32), fill=MUTED, anchor="mm")
     cover_path = final_dir / "cover.jpg"
     cover_img.save(cover_path, quality=92)
+    (ROOT / f"00_封面_{data['title']}.jpg").write_bytes(cover_path.read_bytes())
 
+    project_final = ROOT / f"00_最终成片_{data['title']}.mp4"
+    run(["ffmpeg", "-y", "-i", str(mixed), "-c", "copy", str(project_final)])
     dest_root = ROOT.parent.parent / "成片"
     dest_root.mkdir(exist_ok=True)
-    out = dest_root / "01-周报为什么没人读.mp4"
+    out = dest_root / f"01-{data['title']}.mp4"
     run(["ffmpeg", "-y", "-i", str(mixed), "-c", "copy", str(out)])
     print("FINAL", out, "dur", dur)
 

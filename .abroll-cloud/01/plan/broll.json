@@ -1,0 +1,22 @@
+[
+  {
+    "id": "B01",
+    "file": "broll/B-日期空.mp4",
+    "tag": "错 没有日期",
+    "title": "就不是承诺",
+    "cards": ["口头答应", "日期空"],
+    "punch": "没有日期",
+    "phrases": ["没有日期，就不是承诺"],
+    "plate": "assets/broll-empty-date.png"
+  },
+  {
+    "id": "B02",
+    "file": "broll/B-无限拖.mp4",
+    "tag": "错 无限拖",
+    "title": "可以无限拖",
+    "cards": ["没日期", "无限拖"],
+    "punch": "不是承诺",
+    "phrases": ["没日期的答应，可以无限拖"],
+    "plate": "assets/broll-endless-drag.png"
+  }
+]
