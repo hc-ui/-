@@ -1,0 +1,25 @@
+{
+  "title": "成绩存盘",
+  "cover_title": "成绩存盘",
+  "cover_sub": "关了还能回来",
+  "cover_line": "打开先读 · 退出先写",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "86",
+  "cut": "new-40s",
+  "source": "topics-batch4.md #86 / 学习基线 2026-09-09 成绩存盘 / 云端 NEW",
+  "note": "知识口播。只打成绩先存盘才能过夜。不重拍成片35口播别报文件名。不定格、不慢放注水。画面不烧路径。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["成绩加完了，关程序就没了"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是菜单坏了，是成绩只活在内存里", "内存里的本，窗口一关就散"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-关了就散.mp4", "phrases": ["不是点一次菜单被揉成白纸", "是整本程序关了，成绩才散掉", "只打这一个过夜点，循环出生地先放下"], "broll": "vanish"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["退出前先把成绩写到盘上"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-退出先写.mp4", "phrases": ["下次打开，先从盘上读回来", "打开的时候先读，退出的时候先写", "盘上有本，关了还能回来"], "broll": "write"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["内存里的本，关了就没了", "对照只打这一点"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-内存对盘.mp4", "phrases": ["先把成绩存盘，再关程序", "写进菜单之前，先问成绩落没落盘", "加进去了却没落盘，等于没记下"], "broll": "compare"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["落了盘再退出，成绩才能过夜", "没存盘的成绩，请当成会丢"]}
+  ]
+}
