@@ -1,0 +1,26 @@
+[
+  {
+    "id": "spoil_ending",
+    "file": "broll/B-结局说破.mp4",
+    "tag": "错 · 写结局",
+    "title": "反转写进标题",
+    "cards": [
+      {"num": "透", "head": "结局说破", "body": "标题里先写结尾", "color": "red"},
+      {"num": "空", "head": "没有悬念", "body": "后面不用看了", "color": "yellow"}
+    ],
+    "punch": "后面没有悬念",
+    "phrases": ["结局提前说破，后面没有悬念"]
+  },
+  {
+    "id": "move_ending",
+    "file": "broll/B-结局挪走.mp4",
+    "tag": "对 · 留冲突",
+    "title": "标题只留冲突",
+    "cards": [
+      {"num": "留", "head": "只留冲突", "body": "标题不写结局", "color": "yellow"},
+      {"num": "挪", "head": "反转留给片子", "body": "结局从标题挪走", "color": "mint"}
+    ],
+    "punch": "把结局挪走",
+    "phrases": ["写完标题，把结局挪走"]
+  }
+]
