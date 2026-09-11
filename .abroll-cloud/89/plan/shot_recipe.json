@@ -1,0 +1,25 @@
+{
+  "title": "本地实习等成果锁定",
+  "cover_title": "本地实习等成果锁定",
+  "cover_sub": "专利论文先锁死",
+  "cover_line": "锁了，交了，再探本地",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch4.md #89 / 备忘录第二节 3 后期合肥本地实习 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "89",
+  "cut": "new-40s",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打本地实习等成果锁定。不重拍 47 脱产、不重拍 48 远程。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["本地实习，等成果锁定"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是现在就去问本地岗位", "专利或论文初稿没锁，先别探本地岗"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-没锁先别探.mp4", "broll": "lock_gate", "phrases": ["研一现在去问，问早了", "成果没盖章，人一挪，答辩就悬"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["先把毕业成果锁死", "专利交出去，或者论文初稿定稿"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-成果先锁.mp4", "broll": "lock_stamp", "phrases": ["锁死了，才有资格谈本地", "时间窗在研二下，或者研三", "合肥本地兼职，阶段性离校，都等这一步"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["杂活还握在手里，本地岗先灰掉", "交给新一届，交接清单勾完"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-交了再探.mp4", "broll": "handover", "phrases": ["交接没写清，人别挪", "没锁之前，本地实习先停", "锁了，交了，再探本地"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["成果先锁，杂活先交", "本地实习，等成果锁定"]}
+  ]
+}

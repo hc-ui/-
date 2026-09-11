@@ -1,0 +1,23 @@
+[
+  {
+    "id": "lock_gate",
+    "file": "broll/B-没锁先别探.mp4",
+    "tag": "错 · 问早了",
+    "title": "没锁先别探",
+    "punch": "答辩就悬"
+  },
+  {
+    "id": "lock_stamp",
+    "file": "broll/B-成果先锁.mp4",
+    "tag": "对 · 先锁定",
+    "title": "先把成果锁死",
+    "punch": "才有资格谈本地"
+  },
+  {
+    "id": "handover",
+    "file": "broll/B-交了再探.mp4",
+    "tag": "收 · 交了再探",
+    "title": "杂活先交",
+    "punch": "锁了交了再探"
+  }
+]
