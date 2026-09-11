@@ -1,0 +1,23 @@
+[
+  {
+    "id": "tail_last",
+    "file": "broll/B-结论在尾.mp4",
+    "tag": "错 · 结论在尾",
+    "title": "结论还在最后一句",
+    "punch": "听众已经走了"
+  },
+  {
+    "id": "why_after",
+    "file": "broll/B-为什么在后.mp4",
+    "tag": "对 · 为什么在后",
+    "title": "能复述的先扔出去",
+    "punch": "不抢第一屏"
+  },
+  {
+    "id": "head_first",
+    "file": "broll/B-结论在头.mp4",
+    "tag": "对 · 结论在头",
+    "title": "结论拎到开头",
+    "punch": "结论先落地"
+  }
+]
