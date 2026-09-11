@@ -1,0 +1,37 @@
+[
+  {
+    "id": "lie",
+    "file": "broll/B-清单骗人.mp4",
+    "tag": "01 不是懒",
+    "title": "清单在骗你",
+    "cards": [
+      {"head": "你懒", "body": "划掉", "color": "red"},
+      {"head": "愿望伪装成任务", "body": "不是执行力的问题", "color": "yellow"}
+    ],
+    "punch": "愿望伪装成任务",
+    "phrases": ["不是你懒", "是清单在骗你"]
+  },
+  {
+    "id": "same_page",
+    "file": "broll/B-同一页.mp4",
+    "tag": "02 同一页",
+    "title": "愿望和任务写在同一页",
+    "cards": [
+      {"head": "愿望", "body": "变得很厉害 / 很大，没法下手", "color": "cream"},
+      {"head": "任务", "body": "下一步：空", "color": "mint"}
+    ],
+    "punch": "所以一条都划不掉",
+    "phrases": ["它把愿望和任务写在同一页", "愿望很大", "下一步是空的"]
+  },
+  {
+    "id": "one",
+    "file": "broll/B-一件事.mp4",
+    "tag": "03 只留一件",
+    "title": "当场做完",
+    "cards": [
+      {"head": "一件事", "body": "能开始，才算有效", "color": "white"}
+    ],
+    "punch": "写得越小，越容易开始",
+    "phrases": ["能当场做完的事", "写得越小", "越容易开始"]
+  }
+]
