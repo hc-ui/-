@@ -1,0 +1,14 @@
+{
+  "video_duration": 12.458,
+  "audio_duration": 12.456,
+  "timeline_duration": 12.456,
+  "size": [
+    1080,
+    1920
+  ],
+  "closed": true,
+  "gaps": [],
+  "decode_ok": true,
+  "staged_exists": true,
+  "staged_bytes": 7175581
+}

@@ -1,0 +1,137 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 12.456,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "从窗台纸鹤拉到地球夜侧",
+  "bgm": "audio/bgm.wav",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "start": 0.0,
+      "end": 1.28,
+      "src": "assets/V-挥手.mp4",
+      "line": "大家好",
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "start": 1.28,
+      "end": 4.28,
+      "src": "broll/B-拉开.mp4",
+      "line": "从窗台纸鹤，拉到地球夜侧",
+      "broll": "zoom_out"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "start": 4.28,
+      "end": 6.78,
+      "src": "broll/B-落回.mp4",
+      "line": "再落回掌心的玻璃弹珠",
+      "broll": "marble_back"
+    },
+    {
+      "id": "S04",
+      "kind": "A",
+      "start": 6.78,
+      "end": 10.2,
+      "src": "assets/V-摊手.mp4",
+      "line": "同一个东西，尺度一换，意思就翻了"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "start": 10.2,
+      "end": 12.456,
+      "src": "assets/V-点赞.mp4",
+      "line": "不讲人物，只讲尺度"
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 1.28,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 6.78,
+      "end": 10.2,
+      "lines": [
+        "同一个东西",
+        "尺度一换，意思就翻了"
+      ]
+    },
+    {
+      "start": 10.2,
+      "end": 12.456,
+      "lines": [
+        "不讲人物，只讲尺度"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 1.28,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 4.28,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    },
+    {
+      "start": 6.78,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 10.2,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 1.28,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 6.78,
+      "end": 10.2,
+      "text": "A-ROLL / 02"
+    },
+    {
+      "start": 10.2,
+      "end": 12.456,
+      "text": "A-ROLL / 03"
+    }
+  ],
+  "cover": {
+    "title": "从窗台纸鹤拉到地球夜侧",
+    "sub": "尺度一换，意思就翻了",
+    "line": "不讲人物 · 只讲尺度",
+    "src": "broll/stills/t10-earth-night.png"
+  }
+}

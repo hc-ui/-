@@ -16,6 +16,7 @@ NAME = "从窗台纸鹤拉到地球夜侧"
 STAGED = Path("/workspace/成片") / f"17-{NAME}.mp4"
 VOICE_SRC = Path("/workspace/.abroll-cloud/aroll/audio/10_窗台纸鹤拉到地球夜侧.wav")
 ASSET_SRC = Path("/workspace/.abroll-cloud/06/assets")
+STILL_SRC = Path("/opt/cursor/artifacts/assets")
 FONT_BD = "/tmp/NotoSansSC-Bold.otf"
 FONT_RG = "/tmp/NotoSansSC-Regular.otf"
 
@@ -122,6 +123,18 @@ def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
 def prepare_inputs() -> float:
     (ROOT / "assets").mkdir(exist_ok=True)
     (ROOT / "audio").mkdir(exist_ok=True)
+    stills = ROOT / "broll" / "stills"
+    stills.mkdir(parents=True, exist_ok=True)
+    for name in (
+        "t10-crane-sill.png",
+        "t10-window-city.png",
+        "t10-earth-night.png",
+        "t10-marble-palm.png",
+    ):
+        dest = stills / name
+        src = STILL_SRC / name
+        if (not dest.exists() or dest.stat().st_size < 1000) and src.exists():
+            shutil.copy2(src, dest)
     vo = ROOT / "audio" / "vo-full.wav"
     if not vo.exists() or vo.stat().st_size < 1000:
         shutil.copy2(VOICE_SRC, vo)
@@ -250,21 +263,26 @@ def render_zoom(duration: float, dest: Path) -> None:
     for i in range(n):
         t = i / FPS
         p = t / max(duration, 0.01)
-        if p < 0.36:
-            local = ease(p / 0.36)
-            img = cover_crop(crane, lerp(1.34, 1.08, local), 0.50, 0.58)
+        if p < 0.26:
+            local = ease(p / 0.26)
+            img = cover_crop(crane, lerp(1.34, 1.10, local), 0.50, 0.58)
             fade = 0.0
             nxt = None
-        elif p < 0.68:
-            local = ease((p - 0.36) / 0.32)
-            img = cover_crop(crane, lerp(1.08, 1.02, local), 0.50, 0.50)
-            nxt = cover_crop(city, lerp(1.20, 1.06, local), 0.50, 0.42)
+        elif p < 0.48:
+            local = ease((p - 0.26) / 0.22)
+            img = cover_crop(crane, lerp(1.10, 1.02, local), 0.50, 0.50)
+            nxt = cover_crop(city, lerp(1.18, 1.05, local), 0.50, 0.42)
+            fade = local
+        elif p < 0.70:
+            local = ease((p - 0.48) / 0.22)
+            img = cover_crop(city, lerp(1.05, 1.02, local), 0.50, 0.40)
+            nxt = cover_crop(earth, lerp(1.26, 1.04, local), 0.50, 0.55)
             fade = local
         else:
-            local = ease((p - 0.68) / 0.32)
-            img = cover_crop(city, lerp(1.06, 1.02, local), 0.50, 0.40)
-            nxt = cover_crop(earth, lerp(1.28, 1.02, local), 0.50, 0.55)
-            fade = local
+            local = ease((p - 0.70) / 0.30)
+            img = cover_crop(earth, lerp(1.04, 1.01, local), 0.50, 0.56)
+            fade = 0.0
+            nxt = None
         if nxt is not None and fade > 0:
             img = Image.blend(img, nxt, fade)
         d = ImageDraw.Draw(img)

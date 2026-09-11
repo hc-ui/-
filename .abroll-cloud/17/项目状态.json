@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "video_type": "普通短视频",
+  "slug": "10_窗台纸鹤拉到地球夜侧",
+  "topic_index": 10,
+  "delivery_index": 17,
+  "stage": "delivered",
+  "title": "从窗台纸鹤拉到地球夜侧",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 12.458,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "staged": "成片/17-从窗台纸鹤拉到地球夜侧.mp4",
+  "project_final": "00_最终成片_从窗台纸鹤拉到地球夜侧.mp4",
+  "cloud_only": true,
+  "updated_at": "2026-09-11"
+}
