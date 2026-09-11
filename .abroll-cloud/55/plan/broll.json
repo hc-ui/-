@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bury",
+    "file": "broll/B-埋中间截不走.mp4",
+    "tag": "错 · 埋中间",
+    "title": "好句子埋中间",
+    "cards": [
+      {"num": "糊", "head": "整段落糊", "body": "过程句把金句挤没", "color": "red"},
+      {"num": "截", "head": "截图截不走", "body": "框到一整段", "color": "yellow"}
+    ],
+    "punch": "图上截不走",
+    "phrases": ["好句子埋在中间，图上截不走"]
+  },
+  {
+    "id": "lift",
+    "file": "broll/B-拎到前面.mp4",
+    "tag": "对 · 拎到前",
+    "title": "单独成句前后留白",
+    "cards": [
+      {"num": "句", "head": "单独成句", "body": "那句自己占一行", "color": "yellow"},
+      {"num": "白", "head": "前后留白", "body": "截图刚好套住", "color": "mint"}
+    ],
+    "punch": "把那句拎到前面",
+    "phrases": ["写完稿，把那句拎到前面"]
+  }
+]

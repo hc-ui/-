@@ -1,0 +1,45 @@
+{
+  "title": "先给能截的那句",
+  "cover_title": "先给能截的那句",
+  "cover_sub": "埋中间截不走",
+  "cover_line": "单独成句前后留白",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch3.md #55 · 工厂 297_先给能截的那句",
+  "video_type": "普通短视频",
+  "note": "口播工艺。云端无 V-正对讲，S01b 用摊手。不是剧情，不走 drama-pipeline。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["能截的那句先给"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-埋中间截不走.mp4",
+      "phrases": ["好句子埋在中间，图上截不走"],
+      "broll": "bury"
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["单独成句，前后留白"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-拎到前面.mp4",
+      "phrases": ["写完稿，把那句拎到前面"],
+      "broll": "lift"
+    }
+  ]
+}

@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""成片 48：远程实习人在工位活在线上。云端 A-roll + B-roll，不是短剧。"""
+"""成片 58：笔记越记越乱。topics-batch3 #58。云端 A-roll + B-roll，不是短剧。"""
 from __future__ import annotations
 
 import asyncio
 import hashlib
 import json
-import math
 import re
 import shutil
 import subprocess
@@ -17,8 +16,8 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parent
 W, H, FPS = 1080, 1920, 24
-NAME = "远程实习人在工位活在线上"
-STAGED_NAME = "48-远程实习人在工位活在线上.mp4"
+NAME = "笔记越记越乱"
+STAGED_NAME = "58-笔记越记越乱.mp4"
 VOICE = "zh-CN-YunyangNeural"
 ASSET_SRC = Path("/workspace/.abroll-cloud/06/assets")
 FONT_BD = "/tmp/NotoSansSC-Bold.otf"
@@ -31,7 +30,7 @@ MINT = (126, 224, 197)
 YELLOW = (245, 193, 92)
 WHITE = (245, 247, 250)
 MUTED = (154, 162, 176)
-CREAM = (245, 247, 250)
+CREAM = (236, 241, 239)
 RED = (255, 118, 118)
 INK = (22, 24, 28)
 LEAD = 0.28
@@ -128,133 +127,13 @@ def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
     mid.save(dest.with_suffix(".jpg"), quality=92)
 
 
-def check_badge(draw, cx: int, cy: int, a: float) -> None:
-    if a <= 0.04:
-        return
-    r = 36
-    draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=mix(CARD, (18, 56, 46), a))
-    col = mix(CARD, MINT, a)
-    draw.line([(cx - 16, cy + 2), (cx - 4, cy + 16), (cx + 20, cy - 14)], fill=col, width=8)
-
-
-def draw_occupied_desk(draw: ImageDraw.ImageDraw, cx: int, cy: int, a: float, t: float) -> None:
-    if a <= 0.04:
-        return
-    wood = mix(CARD, (58, 44, 28), a)
-    glow = mix(CARD, MINT, a * 0.85)
-    rounded(draw, (cx - 210, cy + 70, cx + 210, cy + 150), 18, wood)
-    rounded(draw, (cx - 150, cy - 150, cx + 150, cy + 70), 16, mix(CARD, (18, 22, 28), a))
-    rounded(draw, (cx - 136, cy - 136, cx + 136, cy + 46), 10, mix(CARD, (12, 28, 26), a))
-    pulse = 0.55 + 0.45 * (0.5 + 0.5 * math.sin(t * 3.2))
-    for i in range(5):
-        y = cy - 100 + i * 26
-        wline = int(80 + 40 * math.sin(t * 2.4 + i) * pulse)
-        draw.line([(cx - 100, y), (cx - 100 + wline, y)], fill=mix(CARD, glow, a), width=4)
-    draw.rectangle((cx - 12, cy + 46, cx + 12, cy + 78), fill=mix(CARD, MUTED, a))
-    head = mix(CARD, CREAM, a)
-    draw.ellipse((cx - 36, cy + 88, cx + 36, cy + 160), fill=head)
-    draw.pieslice((cx - 70, cy + 148, cx + 70, cy + 230), 200, 340, fill=mix(CARD, (40, 46, 58), a))
-    draw.text((cx, cy + 248), "人在", font=font(28), fill=mix(BG, MINT, a), anchor="mm")
-
-
-def render_b_desk(duration: float) -> list[Image.Image]:
-    n = max(1, round(duration * FPS))
-    out = []
-    rows = [
-        (0.72, "人", "人坐着", "工位有人在场", MINT),
-        (1.08, "活", "杂活应按", "来了就应，做完即止", YELLOW),
-    ]
-    for i in range(n):
-        t = i / FPS
-        img = new_bg()
-        d = ImageDraw.Draw(img)
-        tag(d, t, "人在工位")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "人坐着就行", font=font(56), fill=mix(BG, WHITE, a0), anchor="mm")
-        draw_occupied_desk(d, W // 2, 470, appear(t, 0.08, 0.24), t)
-        for idx, (ts, num, head, body, color) in enumerate(rows):
-            a = appear(t, ts, 0.24)
-            if a < 0.04:
-                continue
-            y = 820 + idx * 176 + int(lerp(20, 0, a))
-            rounded(d, (90, y, 990, y + 156), 26, mix(BG, CARD, a))
-            d.rounded_rectangle((120, y + 36, 214, y + 120), 16, fill=mix(CARD, color, a))
-            d.text((167, y + 78), num, font=font(36), fill=mix(color, INK, a), anchor="mm")
-            d.text((244, y + 48), head, font=font(42), fill=mix(CARD, color, a), anchor="lm")
-            d.text((244, y + 108), body, font=font(28), fill=mix(CARD, WHITE, a), anchor="lm")
-            check_badge(d, 900, y + 78, appear(t, ts + 0.22, 0.18))
-        punch = appear(t, 1.58, 0.22)
-        if punch > 0.04:
-            y = 1180 + int(lerp(18, 0, punch))
-            rounded(d, (160, y, 920, y + 140), 26, mix(BG, (18, 42, 36), punch))
-            d.text((W // 2, y + 70), "人不用搬走", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
-        out.append(img)
-    return out
-
-
-def draw_monitor(draw, box, a: float, title: str, kind: str, t: float, color) -> None:
-    x0, y0, x1, y1 = box
-    if a <= 0.04:
-        return
-    rounded(draw, box, 22, mix(BG, CARD, a))
-    rounded(draw, (x0 + 18, y0 + 58, x1 - 18, y1 - 28), 14, mix(CARD, (12, 16, 22), a))
-    draw.text(((x0 + x1) // 2, y0 + 30), title, font=font(28), fill=mix(CARD, color, a), anchor="mm")
-    sx0, sy0, sx1, sy1 = x0 + 34, y0 + 78, x1 - 34, y1 - 44
-    if kind == "sim":
-        pts = []
-        steps = 18
-        for i in range(steps + 1):
-            px = lerp(sx0, sx1, i / steps)
-            py = lerp(sy0 + 20, sy1 - 20, 0.5 + 0.42 * math.sin(t * 2.8 + i * 0.55))
-            pts.append((px, py))
-        if len(pts) >= 2:
-            draw.line(pts, fill=mix(CARD, YELLOW, a), width=5)
-        draw.line([(sx0, sy1 - 12), (sx1, sy1 - 12)], fill=mix(CARD, MUTED, a), width=2)
-    else:
-        items = ["接口联调", "算法小单", "周报先交"]
-        for j, item in enumerate(items):
-            iy = sy0 + 16 + j * 54
-            on = appear(t, 0.42 + j * 0.16, 0.18)
-            rounded(draw, (sx0, iy, sx1, iy + 42), 10, mix(CARD, (18, 28, 26), a))
-            draw.text((sx0 + 16, iy + 21), item, font=font(26), fill=mix(CARD, WHITE, a), anchor="lm")
-            if on > 0.04:
-                col = mix(CARD, MINT, on)
-                draw.line([(sx1 - 48, iy + 22), (sx1 - 36, iy + 32), (sx1 - 18, iy + 12)], fill=col, width=5)
-
-
-def render_b_dual(duration: float) -> list[Image.Image]:
-    n = max(1, round(duration * FPS))
-    out = []
-    for i in range(n):
-        t = i / FPS
-        img = new_bg()
-        d = ImageDraw.Draw(img)
-        tag(d, t, "活在线上")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "双屏一起跑", font=font(56), fill=mix(BG, WHITE, a0), anchor="mm")
-        a1 = appear(t, 0.12, 0.24)
-        y = 320 + int(lerp(18, 0, a1))
-        draw_monitor(d, (70, y, 520, y + 520), a1, "左 · 仿真", "sim", t, YELLOW)
-        a2 = appear(t, 0.22, 0.24)
-        draw_monitor(d, (560, y, 1010, y + 520), a2, "右 · 线上", "job", t, MINT)
-        link = appear(t, 0.70, 0.20)
-        if link > 0.04:
-            d.ellipse((510, y + 230, 570, y + 290), fill=mix(CARD, MINT, link))
-            d.text((540, y + 260), "接", font=font(28), fill=mix(MINT, INK, link), anchor="mm")
-        grey = appear(t, 0.92, 0.22)
-        if grey > 0.04:
-            y3 = 880 + int(lerp(16, 0, grey))
-            rounded(d, (90, y3, 990, y3 + 120), 22, mix(BG, (28, 28, 32), grey))
-            d.text((W // 2, y3 + 60), "研三再谈本地", font=font(36), fill=mix(CARD, MUTED, grey), anchor="mm")
-            x0, x1, mid = 160, 920, y3 + 60
-            d.line([(x0, mid), (x1, mid)], fill=mix(CARD, MUTED, grey), width=6)
-        punch = appear(t, 1.28, 0.22)
-        if punch > 0.04:
-            y2 = 1040 + int(lerp(18, 0, punch))
-            rounded(d, (120, y2, 960, y2 + 160), 28, mix(BG, (42, 28, 18), punch))
-            d.text((W // 2, y2 + 80), "一边工位一边履历", font=font(48), fill=mix(BG, YELLOW, punch), anchor="mm")
-        out.append(img)
-    return out
+def split_caption(line: str) -> list[str]:
+    line = line.strip("。．. ")
+    if "，" in line and len(line) > 8:
+        parts = [p for p in line.split("，") if p]
+        if 1 < len(parts) <= 2:
+            return parts
+    return [line]
 
 
 def ticks_to_sec(v: float) -> float:
@@ -267,11 +146,11 @@ def close_align(aligned: list[tuple[float, float, str]], duration: float) -> lis
         aligned[i] = (aligned[i - 1][1], aligned[i][1], aligned[i][2])
     last_s, _, last_p = aligned[-1]
     aligned[-1] = (last_s, duration, last_p)
-    return [(round(s, 3), round(e, 3), p) for s, e, p in aligned]
+    return aligned
 
 
 def weight_align(phrases: list[str], duration: float) -> list[tuple[float, float, str]]:
-    weights = [max(1, len(p.replace("，", "").replace("。", "").replace("、", ""))) for p in phrases]
+    weights = [max(1, len(p.replace("，", "").replace("。", ""))) for p in phrases]
     total = sum(weights)
     t = 0.0
     aligned = []
@@ -287,8 +166,9 @@ def detect_sentence_cues(wav: Path, phrases: list[str], duration: float) -> list
         ["ffmpeg", "-i", str(wav), "-af", "silencedetect=noise=-32dB:d=0.12", "-f", "null", "-"],
         capture_output=True, text=True, encoding="utf-8", errors="replace",
     )
-    starts = [float(x) for x in re.findall(r"silence_start:\s*([0-9.]+)", proc.stderr)]
-    ends = [float(x) for x in re.findall(r"silence_end:\s*([0-9.]+)", proc.stderr)]
+    log = proc.stderr
+    starts = [float(x) for x in re.findall(r"silence_start:\s*([0-9.]+)", log)]
+    ends = [float(x) for x in re.findall(r"silence_end:\s*([0-9.]+)", log)]
     silences: list[tuple[float, float]] = []
     for i, s in enumerate(starts):
         e = ends[i] if i < len(ends) else duration
@@ -379,10 +259,8 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
         "".join(f"{s:.3f}\t{e:.3f}\t{p}\n" for s, e, p in aligned),
         encoding="utf-8",
     )
-    (audio_dir / "cues.json").write_text(
-        json.dumps([{"start": s, "end": e, "text": p} for s, e, p in aligned], ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    cues = [{"start": round(s, 3), "end": round(e, 3), "text": p} for s, e, p in aligned]
+    (audio_dir / "cues.json").write_text(json.dumps(cues, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     vtt = ["WEBVTT", ""]
     for i, (s, e, p) in enumerate(aligned, 1):
         def ts(x: float) -> str:
@@ -394,78 +272,16 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
     return duration, aligned
 
 
-def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
-    recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    p0, p1, p2, p3, p4 = cues
-    b1 = max(p1[0] + 0.70, p2[0] - LEAD)
-    b2 = max(b1 + 1.20, p3[0] - LEAD)
-    if b2 <= b1 + 1.10:
-        b2 = min(p3[1] - 0.20, b1 + 2.20)
-    shots = [
-        {"id": "S01a", "kind": "A", "start": 0.0, "end": p0[1], "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
-        {"id": "S01b", "kind": "A", "start": p0[1], "end": b1, "src": "assets/V-摊手.mp4", "line": p1[2]},
-        {"id": "S02", "kind": "B", "start": b1, "end": b2, "src": "broll/B-人在工位.mp4", "line": p2[2], "broll": "desk_stay"},
-        {"id": "S03", "kind": "B", "start": b2, "end": p3[1], "src": "broll/B-双屏线上.mp4", "line": p3[2], "broll": "dual_screen"},
-        {"id": "S04", "kind": "A", "start": p3[1], "end": duration, "src": "assets/V-指向.mp4", "line": p4[2]},
-    ]
-    for i, shot in enumerate(shots):
-        shot["start"] = round(float(shot["start"]), 3)
-        shot["end"] = round(float(shot["end"]), 3)
-        if shot["end"] <= shot["start"] + 0.12:
-            raise SystemExit(f"bad shot {shot}")
-        if i:
-            shots[i]["start"] = shots[i - 1]["end"]
-    shots[-1]["end"] = round(duration, 3)
-
-    data = {
-        "audio": "audio/vo-full.wav",
-        "duration": round(duration, 3),
-        "fps": FPS,
-        "size": [W, H],
-        "title": recipe["title"],
-        "bgm": "audio/bgm.wav",
-        "shots": shots,
-        "a_caps": [
-            {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
-            {"start": round(p1[0], 3), "end": round(b1, 3), "lines": ["远程实习人在工位", "活在线上"]},
-            {"start": round(p4[0], 3), "end": round(duration, 3), "lines": ["考勤和履历一起拿"]},
-        ],
-        "shutters": [
-            {"start": round(p0[1], 3), "color": list(CREAM)},
-            {"start": round(b1, 3), "color": list(MINT)},
-            {"start": round(b2, 3), "color": list(YELLOW)},
-            {"start": round(p3[1], 3), "color": list(CREAM)},
-        ],
-        "eyebrows": [
-            {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
-            {"start": round(p0[1], 3), "end": round(b1, 3), "text": "A-ROLL / 1b"},
-            {"start": round(p4[0], 3), "end": round(duration, 3), "text": "A-ROLL / 04"},
-        ],
-        "cover": {
-            "title": recipe["cover_title"],
-            "sub": recipe["cover_sub"],
-            "line": recipe["cover_line"],
-            "src": recipe["cover_src"],
-        },
-        "cue_map": {p: [round(s, 3), round(e, 3)] for s, e, p in cues},
-        "b_lead_s": LEAD,
-        "video_type": "普通短视频",
-        "source_note": "topics-batch3.md #48 / 备忘录第二节 3 远程日常实习",
-    }
-    (ROOT / "timeline.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return data
-
-
 def make_bgm(duration: float) -> Path:
     dest = ROOT / "audio" / "bgm.wav"
     run([
         "ffmpeg", "-y",
-        "-f", "lavfi", "-i", f"sine=frequency=174:sample_rate=44100:duration={duration + 1.2:.2f}",
-        "-f", "lavfi", "-i", f"sine=frequency=220:sample_rate=44100:duration={duration + 1.2:.2f}",
-        "-f", "lavfi", "-i", f"sine=frequency=261:sample_rate=44100:duration={duration + 1.2:.2f}",
+        "-f", "lavfi", "-i", f"sine=frequency=196:sample_rate=44100:duration={duration + 1.2:.2f}",
+        "-f", "lavfi", "-i", f"sine=frequency=247:sample_rate=44100:duration={duration + 1.2:.2f}",
+        "-f", "lavfi", "-i", f"sine=frequency=294:sample_rate=44100:duration={duration + 1.2:.2f}",
         "-filter_complex",
-        "[0:a]volume=0.11[a];[1:a]volume=0.07[b];[2:a]volume=0.05[c];"
-        "[a][b][c]amix=inputs=3:duration=longest,lowpass=f=480,alimiter=limit=0.32",
+        "[0:a]volume=0.12[a];[1:a]volume=0.08[b];[2:a]volume=0.06[c];"
+        "[a][b][c]amix=inputs=3:duration=longest,lowpass=f=520,alimiter=limit=0.35",
         "-ac", "2", "-ar", "44100", str(dest),
     ])
     return dest
@@ -485,6 +301,186 @@ def make_sfx(cuts: list[float], duration: float) -> Path:
     fc = ";".join(delays) + f";{''.join(parts)}amix=inputs={len(parts)}:duration=longest,aformat=sample_rates=44100:channel_layouts=stereo"
     run(["ffmpeg", "-y", "-filter_complex", fc, "-t", f"{duration:.2f}", str(dest)])
     return dest
+
+
+def strike_line(draw: ImageDraw.ImageDraw, box, progress: float, color) -> None:
+    x0, y0, x1, y1 = box
+    if progress <= 0.04:
+        return
+    mid = (y0 + y1) / 2
+    x_end = lerp(x0 + 24, x1 - 24, min(1.0, progress))
+    draw.line([(x0 + 24, mid), (x_end, mid)], fill=color, width=10)
+
+
+def draw_x(draw: ImageDraw.ImageDraw, cx: int, cy: int, a: float, size: int = 44) -> None:
+    if a <= 0.04:
+        return
+    col = mix(CARD, RED, a)
+    s = int(size * a)
+    draw.line([(cx - s, cy - s), (cx + s, cy + s)], fill=col, width=10)
+    draw.line([(cx + s, cy - s), (cx - s, cy + s)], fill=col, width=10)
+
+
+def render_b_mess(duration: float) -> list[Image.Image]:
+    """杂记碎片堆成标题墙，只看见标题看不见判断。"""
+    n = max(1, round(duration * FPS))
+    chips = ["会议纪要", "灵感碎片", "链接收藏", "待办", "截图", "书摘"]
+    titles = ["周一例会", "突然想到", "这篇收藏", "待读链接", "组会纪要", "随手一记"]
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "错 · 越记越乱")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "全塞进一个本子", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
+
+        split = max(1.15, duration * 0.46)
+        if t < split:
+            for idx, name in enumerate(chips):
+                aa = appear(t, 0.18 + idx * 0.10, 0.20)
+                if aa < 0.04:
+                    continue
+                col, row = idx % 3, idx // 3
+                x = 80 + col * 320
+                y = 360 + row * 250
+                rounded(d, (x, y, x + 292, y + 210), 28, mix(BG, CARD, aa))
+                d.text((x + 146, y + 105), name, font=font(36), fill=mix(CARD, YELLOW if idx == 0 else WHITE, aa), anchor="mm")
+        else:
+            aa = appear(t, split, 0.24)
+            rounded(d, (72, 340, 1008, 1180), 36, mix(BG, CARD, aa))
+            d.text((W // 2, 410), "标题墙", font=font(32), fill=mix(CARD, MUTED, aa), anchor="mm")
+            for idx, title in enumerate(titles):
+                yy = 480 + idx * 78
+                bar_a = appear(t, split + 0.08 + idx * 0.05, 0.16)
+                rounded(d, (120, yy, 720, yy + 62), 16, mix(CARD, (36, 40, 52), bar_a))
+                d.text((140, yy + 31), title, font=font(30, False), fill=mix(CARD, WHITE, bar_a), anchor="lm")
+            punch = appear(t, split + 0.55, 0.22)
+            if punch > 0.04:
+                d.text((860, 760), "看不见", font=font(40), fill=mix(CARD, RED, punch), anchor="mm")
+                d.text((860, 830), "判断", font=font(56), fill=mix(CARD, RED, punch), anchor="mm")
+            foot = appear(t, split + 0.85, 0.20)
+            if foot > 0.04:
+                d.text((W // 2, 1110), "回头找，像进了废纸篓", font=font(32), fill=mix(CARD, MUTED, foot), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_oneline(duration: float) -> list[Image.Image]:
+    """杂记拆成结论 / 来源 / 例子；证明你来过打叉。"""
+    n = max(1, round(duration * FPS))
+    stacks = [
+        ("结论", "写在第一行", MINT, (18, 42, 36)),
+        ("来源", "放到下面", YELLOW, (42, 36, 18)),
+        ("例子", "另开一条", CREAM, (36, 36, 32)),
+    ]
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "对 · 一条一句")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 230 + int(lerp(16, 0, a0))), "一条笔记", font=font(40), fill=mix(BG, WHITE, a0), anchor="mm")
+        d.text((W // 2, 300 + int(lerp(16, 0, a0))), "只留一句结论", font=font(52), fill=mix(BG, MINT, a0), anchor="mm")
+
+        for idx, (head, body, col, fill) in enumerate(stacks):
+            aa = appear(t, 0.22 + idx * 0.16, 0.22)
+            if aa < 0.04:
+                continue
+            y = 380 + idx * 200 + int(lerp(22, 0, aa))
+            rounded(d, (90, y, 990, y + 176), 28, mix(BG, fill, aa))
+            d.text((170, y + 88), str(idx + 1), font=font(52), fill=mix(fill, col, aa), anchor="mm")
+            d.text((420, y + 62), head, font=font(44), fill=mix(fill, WHITE, aa), anchor="mm")
+            d.text((420, y + 124), body, font=font(30), fill=mix(fill, MUTED, aa), anchor="mm")
+
+        xmark = appear(t, max(1.05, duration * 0.58), 0.22)
+        if xmark > 0.04:
+            y = 1020 + int(lerp(18, 0, xmark))
+            rounded(d, (140, y, 940, y + 168), 26, mix(BG, CARD, xmark))
+            d.text((W // 2 - 40, y + 84), "证明你来过", font=font(40), fill=mix(CARD, WHITE, xmark), anchor="mm")
+            draw_x(d, 820, y + 84, xmark, 36)
+            strike_line(d, (200, y + 50, 720, y + 118), xmark, mix(CARD, RED, xmark))
+
+        punch = appear(t, max(1.45, duration * 0.78), 0.20)
+        if punch > 0.04:
+            y = 1240 + int(lerp(18, 0, punch))
+            rounded(d, (160, y, 920, y + 160), 26, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y + 80), "记少一点才能找回来", font=font(36), fill=mix(BG, MINT, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
+    recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
+    p0, p1, p2, p3, p4 = cues
+    b1 = max(p1[0] + 0.70, p2[0] - LEAD)
+    b2 = max(p3[0] + 0.50, p4[0] - LEAD)
+    if b1 <= p0[1] + 0.36:
+        b1 = p2[0]
+    if b2 <= p2[1] + 0.36:
+        b2 = p4[0]
+
+    shots = [
+        {"id": "S01a", "kind": "A", "start": 0.0, "end": round(p0[1], 3), "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
+        {"id": "S01b", "kind": "A", "start": round(p0[1], 3), "end": round(b1, 3), "src": "assets/V-摊手.mp4", "line": p1[2]},
+        {"id": "S02", "kind": "B", "start": round(b1, 3), "end": round(p2[1], 3), "src": "broll/B-越记越乱.mp4", "line": p2[2], "broll": "mess_titles"},
+        {"id": "S03", "kind": "B", "start": round(p2[1], 3), "end": round(b2, 3), "src": "broll/B-一条一句.mp4", "line": p3[2], "broll": "one_line"},
+        {"id": "S04", "kind": "A", "start": round(b2, 3), "end": round(duration, 3), "src": "assets/V-指向.mp4", "line": p4[2]},
+    ]
+    for i, shot in enumerate(shots):
+        if shot["end"] <= shot["start"] + 0.12:
+            shot["end"] = min(duration, shot["start"] + 0.16)
+            if i + 1 < len(shots):
+                shots[i + 1]["start"] = shot["end"]
+        if i:
+            shots[i]["start"] = shots[i - 1]["end"]
+    shots[-1]["end"] = round(duration, 3)
+
+    a_caps = [
+        {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
+        {"start": round(p1[0], 3), "end": round(min(p1[1], b1), 3), "lines": split_caption(p1[2])},
+        {"start": round(p4[0], 3), "end": round(duration, 3), "lines": split_caption(p4[2])},
+    ]
+    a_caps = [c for c in a_caps if c["end"] > c["start"] + 0.08]
+
+    shutters = [
+        {"start": round(p0[1], 3), "color": list(CREAM)},
+        {"start": round(b1, 3), "color": list(MINT)},
+        {"start": round(p2[1], 3), "color": list(YELLOW)},
+        {"start": round(b2, 3), "color": list(CREAM)},
+    ]
+    eyebrows = [
+        {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
+        {"start": round(p0[1], 3), "end": round(b1, 3), "text": "A-ROLL / 1b"},
+        {"start": round(b2, 3), "end": round(duration, 3), "text": "A-ROLL / 04"},
+    ]
+    data = {
+        "audio": "audio/vo-full.wav",
+        "duration": round(duration, 3),
+        "fps": FPS,
+        "size": [W, H],
+        "title": recipe["title"],
+        "bgm": "audio/bgm.wav",
+        "shots": shots,
+        "a_caps": a_caps,
+        "shutters": shutters,
+        "eyebrows": eyebrows,
+        "cover": {
+            "title": recipe["cover_title"],
+            "sub": recipe["cover_sub"],
+            "line": recipe["cover_line"],
+            "src": recipe["cover_src"],
+        },
+        "cue_map": {p: [round(s, 3), round(e, 3)] for s, e, p in cues},
+        "b_lead_s": LEAD,
+        "video_type": "普通短视频",
+        "factory": "18_笔记越记越乱",
+        "topic": 58,
+        "source_note": "topics-batch3.md #58 / 工厂 18_笔记越记越乱 voiceover.txt",
+    }
+    (ROOT / "timeline.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return data
 
 
 def draw_eyebrow(base: Image.Image, t: float, eyebrows) -> None:
@@ -661,7 +657,7 @@ def assemble(data: dict) -> Path:
     shutil.copy2(final, ROOT / "final" / f"{NAME}.mp4")
 
     staged = Path("/workspace/成片") / STAGED_NAME
-    staged.parent.mkdir(parents=True, exist_ok=True)
+    staged.parent.mkdir(exist_ok=True)
     shutil.copy2(final, staged)
     return staged
 
@@ -680,9 +676,9 @@ def make_cover() -> Path:
     canvas = Image.alpha_composite(canvas.convert("RGBA"), overlay).convert("RGB")
     d = ImageDraw.Draw(canvas)
     d.rounded_rectangle((70, 80, 1010, 470), radius=36, fill=(22, 24, 28))
-    d.text((W // 2, 160), "远程实习", font=font(64), fill=WHITE, anchor="mm")
-    d.text((W // 2, 250), "人在工位 · 活在线上", font=font(44), fill=YELLOW, anchor="mm")
-    d.text((W // 2, 340), cover["sub"], font=font(32), fill=MINT, anchor="mm")
+    d.text((W // 2, 160), "笔记越记", font=font(52), fill=WHITE, anchor="mm")
+    d.text((W // 2, 250), "越乱", font=font(72), fill=YELLOW, anchor="mm")
+    d.text((W // 2, 340), cover["sub"], font=font(36), fill=MINT, anchor="mm")
     d.text((W // 2, 410), cover["line"], font=font(30), fill=MUTED, anchor="mm")
     dest = ROOT / f"00_封面_{NAME}.jpg"
     canvas.save(dest, quality=92)
@@ -709,12 +705,12 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     status = {
         "schema_version": 1,
-        "project_name": "48_远程实习人在工位活在线上",
+        "project_name": "58_笔记越记越乱",
         "video_type": "普通短视频",
-        "episode": 48,
+        "episode": 58,
         "title": NAME,
-        "source_note": "topics-batch3.md #48 · 备忘录第二节 3 远程日常实习",
-        "unused_of": "研一别脱产离校（#47）/ 工位时间切片（成片16）/ 杂务报销（成片28）/ 杂务六十分（#46）",
+        "source_note": "topics-batch3.md #58 / 工厂 18_笔记越记越乱 voiceover.txt",
+        "slug": "笔记越记越乱",
         "voice": VOICE,
         "duration": round(duration, 3),
         "size": [W, H],
@@ -741,24 +737,25 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
         "cloud_only": True,
         "windows_paths": False,
         "drive_upload": False,
-        "not": "drama-pipeline / 仙侠连载 / #47 脱产离校 / C:D:G: / Drive 上传",
+        "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
         "updated_at": now,
     }
     (ROOT / "项目状态.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    note = f"""# 48 · 远程实习人在工位活在线上
+
+    note = f"""# 58 · 笔记越记越乱
 
 普通短视频 / 知识口播。不是剧情短剧，不走 drama-pipeline。
 
-- **选题**：`.abroll-cloud/topics-batch3.md` 第 48 条；Drive 只读备忘录第二节 3 远程日常实习
-- **明确不用**：#47 脱产离校；成片 16 时间切片 / 秒回；成片 28 报销红线；#46 杂务六十分
+- **选题**：`topics-batch3.md` 第 58 条；工厂 `18_笔记越记越乱`
 - **成片中转**：`成片/{STAGED_NAME}`
 - **本集工程成片**：`00_最终成片_{NAME}.mp4`
-- **草稿目录**：`/workspace/.abroll-cloud/48/`
+- **草稿目录**：`/workspace/.abroll-cloud/58/`
 - **云端 only**：不写 `C:\\` / `D:\\` / `G:\\`，不传 Drive
+- **避开**：成片 26 待办；成片 00 深度工作；#57 对照卡；#60 番茄钟
 
-钩子：远程实习，人在工位、活在线上。
-方法：杂活按时应，人坐着就行；双屏一边仿真，一边接线上项目。
-收束：考勤和履历一起拿。不念真名，不讲脱产离校。
+钩子：你不是记性差，你是笔记越记越乱。  
+后果：会议纪要、碎片、链接全塞一个本子，只看见标题看不见判断。  
+收束：一条笔记只留一句结论。记少一点，才能找得回来。
 
 ## 口播
 
@@ -784,39 +781,15 @@ def patch_index(duration: float) -> None:
         idx.write_text(text + line + "\n", encoding="utf-8")
 
 
-def patch_delivery(duration: float) -> None:
-    path = Path("/workspace/.abroll-cloud/DELIVERY.md")
+def patch_topics(duration: float) -> None:
+    path = Path("/workspace/.abroll-cloud/topics-batch3.md")
     if not path.exists():
         return
     text = path.read_text(encoding="utf-8")
-    marker = "| 48 | — | 待收 |"
-    row = f"| 48 | `{STAGED_NAME}` | 已核验 {duration:.1f}s |"
-    if marker in text:
-        path.write_text(text.replace(marker, row), encoding="utf-8")
-        return
-    if STAGED_NAME in text:
-        return
-    extra = "\n## 本轮补 48\n\n| 号 | 文件 | 状态 |\n|----|------|------|\n" + row + "\n"
-    if not text.endswith("\n"):
-        text += "\n"
-    path.write_text(text + extra, encoding="utf-8")
-
-
-def patch_topics(duration: float) -> None:
-    path = Path("/workspace/.abroll-cloud/topics-batch3.md")
-    if path.exists():
-        text = path.read_text(encoding="utf-8")
-        old = "| 48 | 专硕实习方法 | `48-远程实习人在工位.mp4` | 未拍 |"
-        new = f"| 48 | 专硕实习方法 | `{STAGED_NAME}` | 已核验 {duration:.1f}s |"
-        if old in text:
-            path.write_text(text.replace(old, new), encoding="utf-8")
-    local = ROOT / "topics-batch3.md"
-    if local.exists():
-        text = local.read_text(encoding="utf-8")
-        old = "- **状态**：已认领 · `.abroll-cloud/48/` · `成片/48-远程实习人在工位活在线上.mp4`"
-        new = f"- **状态**：已核验 {duration:.1f}s · `.abroll-cloud/48/` · `成片/{STAGED_NAME}`"
-        if old in text:
-            local.write_text(text.replace(old, new), encoding="utf-8")
+    old = "| 58 | 未完成知识口播 | `58-笔记越记越乱.mp4` | 未拍 |"
+    new = f"| 58 | 未完成知识口播 | `{STAGED_NAME}` | 已核验 {duration:.1f}s |"
+    if old in text:
+        path.write_text(text.replace(old, new), encoding="utf-8")
 
 
 def qa(staged: Path, data: dict) -> dict:
@@ -853,7 +826,7 @@ def qa(staged: Path, data: dict) -> dict:
     fps = float(fps_num) / float(fps_den or 1)
     digest = hashlib.sha256(staged.read_bytes()).hexdigest()
     report = {
-        "project": "48_远程实习人在工位活在线上",
+        "project": "58_笔记越记越乱",
         "strict": True,
         "cloud_only": True,
         "windows_paths": False,
@@ -918,17 +891,16 @@ def main() -> None:
     b2 = next(s for s in data["shots"] if s["id"] == "S03")
     d1 = max(2.2, float(b1["end"]) - float(b1["start"]))
     d2 = max(2.2, float(b2["end"]) - float(b2["start"]))
-    print("render B-人在工位", d1)
-    frames_to_mp4(render_b_desk(d1 + 0.12), ROOT / "broll" / "B-人在工位.mp4")
-    print("render B-双屏线上", d2)
-    frames_to_mp4(render_b_dual(d2 + 0.12), ROOT / "broll" / "B-双屏线上.mp4")
+    print("render B-越记越乱", d1)
+    frames_to_mp4(render_b_mess(d1 + 0.12), ROOT / "broll" / "B-越记越乱.mp4")
+    print("render B-一条一句", d2)
+    frames_to_mp4(render_b_oneline(d2 + 0.12), ROOT / "broll" / "B-一条一句.mp4")
 
     make_cover()
     staged = assemble(data)
     dur = probe_dur(staged)
     write_docs(dur, staged, data)
     patch_index(dur)
-    patch_delivery(dur)
     patch_topics(dur)
     report = qa(staged, data)
     print("STAGED", staged, "dur", dur, "ok", report["ok"])
