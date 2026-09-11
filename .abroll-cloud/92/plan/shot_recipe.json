@@ -14,15 +14,15 @@
   "shots": [
     {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
     {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["课题可以偏生医，就业栈别焊死在生医上"]},
-    {"id": "S02", "kind": "B", "src": "broll/B-别指向培养箱.mp4", "broll": "incubator", "phrases": ["长期栈要指向能换房间的能力，不是指向培养箱"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-别指向培养箱.mp4", "broll": "incubator", "phrases": ["长期栈要指向能换房间的能力，不是培养箱"]},
     {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["下一份工的入口，别只留给体外诊断"]},
     {"id": "S04", "kind": "B", "src": "broll/B-实习焊进实验室.mp4", "broll": "intern", "phrases": ["实习只投生仪厂，等于把栈焊进一间实验室"]},
     {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["选修只抱生医仪器，别的房间进不去"]},
     {"id": "S06", "kind": "B", "src": "broll/B-夜读细胞手册.mp4", "broll": "handbook", "phrases": ["夜读只翻细胞手册，栈就会跟着湿台走"]},
     {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["岗位名里没有细胞，也可以投", "控制、机器人、系统，才是栈该指向的方向"]},
-    {"id": "S08", "kind": "B", "src": "broll/B-房间不是城.mp4", "broll": "room_city", "phrases": ["生医是你现在的房间，不是你要住一辈子的城"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-房间不是城.mp4", "broll": "room_city", "phrases": ["生医是现在的房间，不是住一辈子的城"]},
     {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["课题交差可以窄，栈不要跟着窄"]},
-    {"id": "S10", "kind": "B", "src": "broll/B-先报系统稳住.mp4", "broll": "answer", "phrases": ["招人问你会什么，别先报应用名", "先报你会把系统稳住", "别报你待过哪类实验室"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-先报系统稳住.mp4", "broll": "answer", "phrases": ["招人问你会什么，别先报应用名", "先报你会把系统稳住", "别报待过哪类实验室"]},
     {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["焊死在生医上，下一扇门会自己关上", "栈指向房间外面，人才能走出去"]}
   ]
 }
