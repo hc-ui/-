@@ -1,0 +1,40 @@
+[
+  {
+    "id": "frost_cup",
+    "file": "broll/B-霜杯.mp4",
+    "tag": "场景",
+    "title": "凉咖啡在冒热气",
+    "still": "assets/t05a-coffee-frost-steam.png",
+    "clip": "assets/t05-frost-steam.mp4",
+    "punch": "杯壁却结霜",
+    "phrases": ["凉咖啡重新冒热气，杯壁却结霜"]
+  },
+  {
+    "id": "refreeze",
+    "file": "broll/B-回冻.mp4",
+    "tag": "后果 01",
+    "title": "融化停住",
+    "punch": "重新冻上",
+    "phrases": ["冰会重新冻上"],
+    "note": "黑底信息图：水洼收回成冰。不烧进生图。"
+  },
+  {
+    "id": "room",
+    "file": "broll/B-房间.mp4",
+    "tag": "后果 02",
+    "title": "暖气片发红",
+    "still": "assets/t05b-smoke-into-flame.png",
+    "punch": "房间更冷",
+    "phrases": ["房间越住越冷，暖气片越烫"]
+  },
+  {
+    "id": "smoke",
+    "file": "broll/B-回烟.mp4",
+    "tag": "后果 03",
+    "title": "烟丝倒吸",
+    "still": "assets/t05b-smoke-into-flame.png",
+    "clip": "assets/t05-smoke-back.mp4",
+    "punch": "退回火里",
+    "phrases": ["烟退回火里"]
+  }
+]

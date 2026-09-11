@@ -1,0 +1,58 @@
+{
+  "title": "凉咖啡重新冒热气杯壁却结霜",
+  "cover_title": "凉咖啡重新冒热气",
+  "cover_sub": "杯壁却结霜",
+  "cover_line": "只反转热 · 别的物理照旧",
+  "cover_src": "assets/t05a-coffee-frost-steam.png",
+  "video_type": "普通短视频",
+  "note": "改一条定律：热从冷流向热。不是剧情短剧。复用工厂口播与 t05 B 卷静帧。",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["热永远从冷的流向热的"]
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-霜杯.mp4",
+      "phrases": ["凉咖啡重新冒热气，杯壁却结霜"],
+      "broll": "frost_cup"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-回冻.mp4",
+      "phrases": ["冰会重新冻上"],
+      "broll": "refreeze"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-房间.mp4",
+      "phrases": ["房间越住越冷，暖气片越烫"],
+      "broll": "room"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-回烟.mp4",
+      "phrases": ["烟退回火里"],
+      "broll": "smoke"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["只反转热，别的物理照旧"]
+    }
+  ]
+}
