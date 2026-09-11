@@ -1,0 +1,16 @@
+{
+  "title": "周报为什么没人读",
+  "audio": "audio/vo-full.wav",
+  "duration": 13.704,
+  "fps": 24,
+  "size": [1080, 1920],
+  "shots": [
+    {"id": "S01", "kind": "A", "start": 0.0, "end": 1.29, "src": "assets/A-挥手.jpg", "line": "大家好。", "close": true},
+    {"id": "S02", "kind": "A", "start": 1.29, "end": 4.26, "src": "assets/A-正对讲.jpg", "line": "周报写了很长，没人读完。"},
+    {"id": "S03", "kind": "B", "start": 4.26, "end": 6.47, "src": "assets/broll-long-report.png", "line": "因为打开看不到结论。", "card": "看不到结论", "tag": "错 过程堆满"},
+    {"id": "S04", "kind": "B", "start": 6.47, "end": 8.36, "src": "assets/broll-one-result.png", "line": "先写一句结果。", "card": "一句结果", "tag": "对 先写结果"},
+    {"id": "S05", "kind": "B", "start": 8.36, "end": 10.21, "src": "assets/broll-who-does-what.png", "line": "再写要谁做什么。", "card": "要谁做什么", "tag": "对 能打勾"},
+    {"id": "S06", "kind": "A", "start": 10.21, "end": 12.20, "src": "assets/A-指向.jpg", "line": "没有结论的周报，"},
+    {"id": "S07", "kind": "A", "start": 12.20, "end": 13.704, "src": "assets/A-点赞.jpg", "line": "请当成没发。"}
+  ]
+}
