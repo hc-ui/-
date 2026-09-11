@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "project_name": "80_体力型杂务",
+  "video_type": "普通短视频",
+  "episode": 80,
+  "cut": "new-40s",
+  "title": "体力型杂务",
+  "full_title": "主动认领体力型杂务",
+  "source_note": "topics-batch4.md #80 / 备忘录第二节 1 主动认领体力型杂务 / 云端 NEW",
+  "slug": "体力型杂务",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 41.208,
+  "duration_zh": "41.2秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "d36f356f57964defad6553c870cf778d32427cddd79938652b43f85cea85a90d",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 41208
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/80-体力型杂务.mp4",
+    "project_final": "00_最终成片_体力型杂务.mp4",
+    "cover": "00_封面_体力型杂务.jpg"
+  },
+  "staged": "成片/80-体力型杂务.mp4",
+  "draft": ".abroll-cloud/80",
+  "qa_video": "/workspace/成片/80-体力型杂务.mp4",
+  "replaced_short_cut_s": 0,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T14:22:54Z"
+}
