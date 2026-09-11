@@ -1,0 +1,36 @@
+{
+  "project": "53_提问后面留半拍",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/53-提问后面留半拍.mp4",
+  "project_final": "/workspace/.abroll-cloud/53/00_最终成片_提问后面留半拍.mp4",
+  "sha256": "6ca53adef606ecfc191a9e891e80211873a9d2a3d3e8fb1fa47688ecf6e3879d",
+  "bytes": 2589218,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 12.166667
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -30.5,
+    "max_volume_db": -10.0
+  },
+  "timeline": {
+    "segments": 5,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true
+}
