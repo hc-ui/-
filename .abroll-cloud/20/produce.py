@@ -17,7 +17,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path("/workspace/.abroll-cloud/20")
 W, H, FPS = 1080, 1920, 24
 NAME = "凉咖啡重新冒热气杯壁却结霜"
 STAGED_NAME = "20-凉咖啡重新冒热气杯壁却结霜.mp4"
@@ -358,14 +358,22 @@ def render_b_ice(duration: float) -> list[Image.Image]:
         d.ellipse((cx - puddle_w, cy + 120, cx + puddle_w, cy + 120 + puddle_h), fill=mix(BG, (40, 70, 92), 0.85))
 
         cube = ease((p - 0.12) / 0.78)
-        if cube > 0:
-            s = int(lerp(20, 210, cube))
+        if cube > 0.02:
+            s = max(48, int(lerp(48, 210, cube)))
             x0, y0 = cx - s // 2, cy - s // 2 - int(40 * cube)
             col = mix(CARD, ICE, cube)
-            d.polygon([(x0 + 18, y0 + s), (x0 + s - 8, y0 + s - 12), (x0 + s - 8, y0 + 28), (x0 + 18, y0 + 40)], fill=mix(col, (120, 168, 196), 0.45))
-            d.polygon([(x0, y0 + 36), (x0 + s - 22, y0 + 18), (x0 + s - 8, y0 + 28), (x0 + 18, y0 + 40)], fill=mix(col, WHITE, 0.35))
-            d.rectangle((x0 + 18, y0 + 40, x0 + s - 8, y0 + s), fill=col)
-            # frost ticks
+            left, right = x0 + 16, x0 + s - 10
+            top, bot = y0 + 40, y0 + s
+            if right > left and bot > top:
+                d.polygon(
+                    [(left, bot), (right, bot - 12), (right, y0 + 28), (left, top)],
+                    fill=mix(col, (120, 168, 196), 0.45),
+                )
+                d.polygon(
+                    [(x0, y0 + 36), (x0 + s - 22, y0 + 18), (right, y0 + 28), (left, top)],
+                    fill=mix(col, WHITE, 0.35),
+                )
+                d.rectangle((left, top, right, bot), fill=col)
             for k in range(7):
                 ang = -0.6 + k * 0.22
                 L = int(40 + 50 * cube)
