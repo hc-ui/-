@@ -1,0 +1,31 @@
+{
+  "project": "16_工位时间切片15-15-70",
+  "strict": true,
+  "cloud_only": true,
+  "no_windows_paths": true,
+  "final": "/workspace/成片/16-工位时间切片15-15-70.mp4",
+  "sha256": "cdfb481dd3048a0c54a0563f50d6e2416f6282ad7147e60c21c52dace293b541",
+  "bytes": 2593886,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 11.625
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -32.1,
+    "max_volume_db": -13.6
+  },
+  "timeline": {
+    "segments": 5,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true
+  },
+  "ok": true
+}

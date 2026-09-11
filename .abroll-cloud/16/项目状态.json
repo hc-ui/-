@@ -5,7 +5,34 @@
   "topic_index": 9,
   "slug": "09_工位时间切片十五十五七十",
   "title": "工位时间切片：15 / 15 / 70",
-  "status": "待渲染",
-  "current_stage": "锁定文案与镜头",
-  "stage": "planned"
+  "production_method": "白底小灯 A-roll + 黑底信息图 B-roll + 工厂口播 + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "stage": "delivered",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 11.616,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "9519b78530161f92cf1dfe19ea9219eb0738952f6382672beda392b7e8359673"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "source": "/workspace/.abroll-cloud/aroll/audio/09_工位时间切片十五十五七十.wav",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 11616
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/16-工位时间切片15-15-70.mp4",
+    "project_video": "00_最终成片_工位时间切片15-15-70.mp4",
+    "cover": "00_封面_工位时间切片15-15-70.jpg"
+  },
+  "staged": "成片/16-工位时间切片15-15-70.mp4",
+  "updated_at": "2026-09-11T11:25:04Z"
 }
