@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "project_name": "13_字典靠名字不是第几个",
+  "video_type": "普通短视频",
+  "topic_index": 6,
+  "episode": 13,
+  "slug": "06_字典靠名字不是第几个",
+  "production_method": "白底小灯 A-roll + t06 柜格/对照卡 B-roll + 工厂口播 + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "5790d0a4a0ed9a5d40a8233ec5f55546bfcd096698a120d3f1a0b6bf53db53a9"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 13680,
+    "note": "复用工厂口播 .abroll-cloud/aroll/audio/06_字典靠名字不是第几个.wav"
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/13-字典靠名字不是第几个.mp4",
+    "project_final": "00_最终成片_字典靠名字不是第几个.mp4",
+    "cover": "00_封面_字典靠名字不是第几个.jpg"
+  },
+  "qa": {
+    "project": "13_字典靠名字不是第几个",
+    "final": "/workspace/成片/13-字典靠名字不是第几个.mp4",
+    "sha256": "22d5f776ed6683beddf2f84a3bb3bb13ece631748c8268af0a368106fdbb39e7",
+    "bytes": 5227816,
+    "video": {
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "fps": 24.0,
+      "pix_fmt": "yuv420p",
+      "duration_s": 13.666667
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 44100,
+      "channels": 2,
+      "mean_volume_db": -32.1,
+      "max_volume_db": -11.2
+    },
+    "timeline": {
+      "segments": 6,
+      "overlap": false,
+      "gap": false,
+      "closed": true,
+      "last_end_equals_audio": true
+    },
+    "decode_error": "",
+    "ok": true
+  },
+  "updated_at": "2026-09-11T11:30:00Z"
+}

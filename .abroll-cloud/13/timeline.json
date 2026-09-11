@@ -1,0 +1,160 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 13.68,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "字典靠名字，不是第几个",
+  "bgm": "audio/bgm.wav",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "start": 0.0,
+      "end": 1.457,
+      "src": "assets/V-挥手.mp4",
+      "line": "大家好",
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "start": 1.457,
+      "end": 3.825,
+      "src": "assets/V-摊手.mp4",
+      "line": "字典靠名字，不是第几个"
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "start": 3.825,
+      "end": 6.841,
+      "src": "broll/B-键不是下标.mp4",
+      "line": "方括号里是键，拿出来的是值",
+      "broll": "key_not_index"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "start": 6.841,
+      "end": 10.146,
+      "src": "broll/B-循环反查.mp4",
+      "line": "想从分数反查姓名，只能循环比",
+      "broll": "loop_lookup"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "start": 10.146,
+      "end": 12.169,
+      "src": "broll/B-分数不是序号.mp4",
+      "line": "不能拿分数当序号",
+      "broll": "score_not_index"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "start": 12.169,
+      "end": 13.68,
+      "src": "assets/V-点赞.mp4",
+      "line": "字典靠名字"
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 1.457,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 1.457,
+      "end": 2.594,
+      "lines": [
+        "字典靠名字"
+      ]
+    },
+    {
+      "start": 2.594,
+      "end": 3.825,
+      "lines": [
+        "不是第几个"
+      ]
+    },
+    {
+      "start": 12.169,
+      "end": 13.68,
+      "lines": [
+        "字典靠名字"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 1.457,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 3.825,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 6.841,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 10.146,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 12.169,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 1.457,
+      "text": "A-ROLL / 1a"
+    },
+    {
+      "start": 1.457,
+      "end": 3.825,
+      "text": "A-ROLL / 1b"
+    },
+    {
+      "start": 12.169,
+      "end": 13.68,
+      "text": "A-ROLL / 05"
+    }
+  ],
+  "cover": {
+    "title": "字典靠名字",
+    "sub": "方括号里是键，不是序号",
+    "line": "字典靠名字 · 不是第几个",
+    "src": "assets/A-角色-小灯-摊手.jpg"
+  }
+}
