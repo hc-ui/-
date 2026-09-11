@@ -170,7 +170,7 @@ def b_scene_front(duration: float) -> list[Image.Image]:
             a = appear(t, ts, 0.28)
             if a < 0.04:
                 continue
-            y = y0 + idx + idx * 210 + int(lerp(22, 0, a))
+            y = y0 + idx * 220 + int(lerp(22, 0, a))
             rounded(d, (56, y, 664, y + 196), 28, mix(BG, CARD, a))
             d.ellipse((86, y + 72, 138, y + 124), fill=mix(CARD, color, a))
             d.text((112, y + 98), num, font=sub_f, fill=mix(color, INK, a), anchor="mm")
