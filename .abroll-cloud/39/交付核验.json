@@ -1,0 +1,36 @@
+{
+  "project": "39_推不出来的酷画面删掉",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/39-推不出来的酷画面删掉.mp4",
+  "project_final": "/workspace/.abroll-cloud/39/00_最终成片_推不出来的酷画面删掉.mp4",
+  "sha256": "69baad2037991ec18b5cd898071ca9cde7de8c1ae2975d7a6bafc0bd84239304",
+  "bytes": 3088370,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 15.25
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -30.9,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 6,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true
+}

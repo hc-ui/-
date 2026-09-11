@@ -1,0 +1,20 @@
+{
+  "rule": "生图不烧中文；中文全部代码绘制 / 组装叠加",
+  "clips": [
+    {
+      "id": "three_from_law",
+      "file": "broll/B-定律三后果.mp4",
+      "task": "一条定律箭头连到三个后果，末条标回报"
+    },
+    {
+      "id": "cut_to_three",
+      "file": "broll/B-五个砍三个.mp4",
+      "task": "五张后果卡出现，第四第五被划掉"
+    },
+    {
+      "id": "unlink_fake",
+      "file": "broll/B-连不上就删.mp4",
+      "task": "酷图连不上定律，红笔删掉，观众判定假"
+    }
+  ]
+}
