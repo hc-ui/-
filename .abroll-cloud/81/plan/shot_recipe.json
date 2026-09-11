@@ -1,0 +1,27 @@
+{
+  "title": "请假带两方案",
+  "cover_title": "请假带两方案",
+  "cover_sub": "假条下钉着稿",
+  "cover_line": "让他勾一张",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch4.md #81 / 备忘录第三节第三步 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "81",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打请假第三步：随假钉稿、两案二选一。不拍成片37先摸惯例。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["请假别空手交假条"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-假条钉稿.mp4", "broll": "leave_ppt", "phrases": ["随假带上两套方案", "假条下面钉着汇报稿"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["导师要的是能选，不是听你解释", "只交一句对不起，他只能驳"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-两案并列.mp4", "broll": "two_plans", "phrases": ["方案一，组会开头先汇报，再去上课", "方案二，课后补做，或者下次补上"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["两张卡并列，让他勾一张"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-主观打叉.mp4", "broll": "reason_vs_plan", "phrases": ["别只写主观理由", "培养方案是刚性的，把冲突写清楚"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不念话术全文，只交结构和选项"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-空手扔回.mp4", "broll": "empty_throw", "phrases": ["空手请假，等于把决定扔回去"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["附件先交上，人再离开"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-勾一张.mp4", "broll": "pick_one", "phrases": ["他勾哪张，你就按哪张走"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["带两方案，才算请过假"]}
+  ]
+}

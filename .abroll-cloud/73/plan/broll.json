@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explode",
+    "file": "broll/B-敲甲就炸.mp4",
+    "tag": "错 · 一敲就炸",
+    "title": "键盘敲甲",
+    "punch": "程序当场炸掉"
+  },
+  {
+    "id": "wrap",
+    "file": "broll/B-先包一层.mp4",
+    "tag": "对 · 先包一层",
+    "title": "先收字再认数字",
+    "punch": "认不出就重问"
+  },
+  {
+    "id": "case_pass",
+    "file": "broll/B-过关再进.mp4",
+    "tag": "对 · 过关再进",
+    "title": "选项一只吃过关数字",
+    "punch": "没过关不准进分支"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "style": "黑底对照卡",
+  "distinct_from_37": "不成片37的撞课三步、课表对闹钟、工期大饼划掉",
+  "cards": [
+    {"id": "leave_ppt", "file": "B-假条钉稿.mp4", "point": "假条下面钉着汇报稿"},
+    {"id": "two_plans", "file": "B-两案并列.mp4", "point": "开头先汇报 / 课后或下次补"},
+    {"id": "reason_vs_plan", "file": "B-主观打叉.mp4", "point": "主观理由打叉，培养方案刚性打勾"},
+    {"id": "empty_throw", "file": "B-空手扔回.mp4", "point": "空手假条等于把决定扔回去"},
+    {"id": "pick_one", "file": "B-勾一张.mp4", "point": "他勾哪张就按哪张走"}
+  ]
+}
