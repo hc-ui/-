@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "project_name": "15_在生医实验室抢测控生态位",
+  "video_type": "普通短视频",
+  "topic_index": 8,
+  "episode": 15,
+  "production_method": "工厂口播 + 白底小灯 A-roll + t08 B-roll + 代码微流控卡 + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "b113d7876af0ede71f1384b581df60e47babeefdd060d5e3b00f84565378d03f"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "factory-08 Yunyang",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 15240,
+    "note": "沿用 aroll/audio/08_生医实验室抢测控生态位.wav，按 silencedetect 闭合成短语轴"
+  },
+  "deliverables": {
+    "final_video": "00_最终成片_在生医实验室抢测控生态位.mp4",
+    "staged": "/workspace/成片/15-在生医实验室抢测控生态位.mp4",
+    "cover": "00_封面_在生医实验室抢测控生态位.jpg"
+  },
+  "qa": {
+    "file": "/workspace/成片/15-在生医实验室抢测控生态位.mp4",
+    "playable": true,
+    "decode_stderr": "",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "vcodec": "h264",
+    "acodec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "duration": 15.291667,
+    "checks": {
+      "size_1080x1920": true,
+      "fps_24": true,
+      "h264": true,
+      "aac": true,
+      "ar_44100": true,
+      "decode_ok": true
+    }
+  },
+  "updated_at": "2026-09-11T11:30:00Z"
+}

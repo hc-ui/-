@@ -162,7 +162,7 @@ def speech_islands(dur: float, silences: list[tuple[float, float]]) -> list[tupl
     return islands
 
 
-def merge_islands(islands: list[tuple[float, float]], gap: float = 0.18) -> list[tuple[float, float]]:
+def merge_islands(islands: list[tuple[float, float]], gap: float = 0.28) -> list[tuple[float, float]]:
     if not islands:
         return []
     out = [islands[0]]
@@ -182,22 +182,26 @@ def align_phrases(phrases: list[str], dur: float, vo: Path) -> list[dict]:
         return [{"text": p, "start": i * step, "end": (i + 1) * step} for i, p in enumerate(phrases)]
 
     assigned: list[tuple[float, float]] = []
-    if len(islands) == len(phrases):
-        assigned = islands
-    elif len(islands) == len(phrases) + 1:
-        comma = next((i for i, p in enumerate(phrases) if "，" in p), 1)
+    extra = len(islands) - len(phrases)
+    comma_idxs = [i for i, p in enumerate(phrases) if "，" in p]
+    merge_at = set(comma_idxs[: max(0, extra)])
+    if extra >= 0 and extra <= len(phrases):
         j = 0
         for i, _p in enumerate(phrases):
-            if i == comma and j + 1 < len(islands):
+            if i in merge_at and j + 1 < len(islands):
                 assigned.append((islands[j][0], islands[j + 1][1]))
                 j += 2
             else:
                 assigned.append(islands[j])
                 j += 1
-    else:
+            if j >= len(islands) and i + 1 < len(phrases):
+                assigned = []
+                break
+    if len(assigned) != len(phrases):
         weights = [max(1, len(re.sub(r"[，。\s]", "", p))) for p in phrases]
         total = sum(weights)
         t = 0.0
+        assigned = []
         for p, w in zip(phrases, weights):
             span = dur * (w / total)
             assigned.append((t, t + span))
@@ -348,7 +352,7 @@ def render_flow_card(duration: float) -> Path:
             if idx < 2 and appear(t, ts + 0.28, 0.2) > 0.5:
                 d.polygon([(540, y + 210), (560, y + 234), (520, y + 234)], fill=mix(BG, MUTED, a))
 
-        punch = appear(t, 1.55, 0.28)
+        punch = appear(t, 1.05, 0.24)
         if punch > 0.04:
             y = 1540 + int(lerp(20, 0, punch))
             rounded(d, (120, y, 960, y + 200), 28, mix(BG, (18, 42, 36), punch))
