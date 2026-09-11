@@ -1,0 +1,51 @@
+{
+  "project": "72_先给结论再展开",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "cut": "new-40s",
+  "final": "/workspace/成片/72-先给结论再展开.mp4",
+  "project_final": "/workspace/.abroll-cloud/72/00_最终成片_先给结论再展开.mp4",
+  "sha256": "0733cdf02a303025e64dcaeffff99d4b119041a5579fd27e2762d39185ebae42",
+  "bytes": 10687265,
+  "replaced_short_cut_s": 0,
+  "freeze_pad": false,
+  "no_tpad_clone_in_kit": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 41.9,
+    "duration_zh": "41.9秒"
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.5,
+    "max_volume_db": -10.0
+  },
+  "timeline": {
+    "segments": 9,
+    "a_shots": 6,
+    "b_shots": 3,
+    "phrases": 18,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28,
+    "in_hard_window": true,
+    "in_target_window": true
+  },
+  "decode_null": true,
+  "ok": true,
+  "chengpian": "/workspace/成片/72-先给结论再展开.mp4",
+  "chengpian_duration_s": 41.9,
+  "chengpian_duration_zh": "41.9秒",
+  "draft_duration_s": 41.9,
+  "draft_duration_zh": "41.9秒"
+}
