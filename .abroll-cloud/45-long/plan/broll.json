@@ -1,0 +1,39 @@
+[
+  {
+    "id": "keep_talking",
+    "file": "broll/B-一直聊.mp4",
+    "tag": "错 · 没写结束",
+    "title": "就会一直聊",
+    "cards": [
+      {"num": "始", "head": "开始 9:00", "body": "人人都填", "color": "mint"},
+      {"num": "终", "head": "结束 空", "body": "没人敢先走", "color": "red"}
+    ],
+    "punch": "没有结束时间",
+    "phrases": ["没有结束时间，就会一直聊", "不是议题太多", "是没人知道什么时候能走"]
+  },
+  {
+    "id": "end_slot",
+    "file": "broll/B-散会点.mp4",
+    "tag": "对 · 散会点",
+    "title": "预约先写下散会点",
+    "cards": [
+      {"num": "写", "head": "散会 9:40", "body": "预约时就钉死", "color": "yellow"},
+      {"num": "开", "head": "四十分钟够用", "body": "够用就开", "color": "mint"},
+      {"num": "拆", "head": "不够用", "body": "拆成两次", "color": "amber"}
+    ],
+    "punch": "写下散会点",
+    "phrases": ["预约的时候，先写下散会点", "开始九点，结束九点四十", "四十分钟够用就开", "不够用，就拆成两次"]
+  },
+  {
+    "id": "adjourn",
+    "file": "broll/B-先散另约.mp4",
+    "tag": "对 · 到点先散",
+    "title": "到点没有结论",
+    "cards": [
+      {"num": "约", "head": "结论另约", "body": "不现场续摊", "color": "yellow"},
+      {"num": "散", "head": "散会 ≠ 失败", "body": "没写结束才是", "color": "mint"}
+    ],
+    "punch": "到点就先散",
+    "phrases": ["结论另约，不现场续摊", "散会不等于失败", "没写结束，才是失败"]
+  }
+]
