@@ -1,0 +1,26 @@
+{
+  "title": "评审变成找茬会",
+  "cover_title": "评审变成找茬会",
+  "cover_sub": "该盯风险，不该盯口味",
+  "cover_line": "拦过的才必须改",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "工厂 68_评审变成找茬会 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "68",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。评审滑成找茬。不定格、不慢放注水。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["评审变成找茬会"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-抠标点.mp4", "broll": "nitpick", "phrases": ["本来该看能不能过，却在抠标点、抠用词"]},
+    {"id": "S03", "kind": "B", "src": "broll/B-十条口味.mp4", "broll": "taste", "phrases": ["一条能过的方案，被十条口味意见按住"]},
+    {"id": "S04", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是意见太多，是评审忘了自己在审什么"]},
+    {"id": "S05", "kind": "B", "src": "broll/B-藏进抽屉.mp4", "broll": "drawer", "phrases": ["找茬会只证明谁更细，不证明方案能不能走", "被找茬的人下次少讲，问题被藏进抽屉"]},
+    {"id": "S06", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["评审该盯风险，不该盯口味"]},
+    {"id": "S07", "kind": "B", "src": "broll/B-拦过必须改.mp4", "broll": "gate", "phrases": ["先问这一条拦不拦过", "拦过的写成必须改", "口味写成可选，别和风险绑在一起"]},
+    {"id": "S08", "kind": "A", "src": "assets/V-正对讲.mp4", "phrases": ["对照一下：找茬是把人按住，评审是把路铺开"]},
+    {"id": "S09", "kind": "B", "src": "broll/B-三条必须看.mp4", "broll": "three", "phrases": ["会前先写三条必须看的点", "会上只打这三条，其余会后纸条", "散会时只带走必须改和谁改"]},
+    {"id": "S10", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["评审要能过，不要变成找茬会"]}
+  ]
+}
