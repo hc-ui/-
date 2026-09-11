@@ -1,0 +1,68 @@
+{
+  "title": "贴地冻雨",
+  "cover_title": "贴地冻雨",
+  "cover_sub": "上面还在下",
+  "cover_line": "低处时间极慢",
+  "cover_src": "assets/t31a-two-layer-rain.png",
+  "source": "选题库.md 第012号 · 低处的时间流逝极慢",
+  "video_type": "普通短视频",
+  "topic_id": "012",
+  "note": "改一条定律系列。不是剧情短剧，不走 drama-pipeline。",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["只改一条定律"]
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "phrases": ["低处的时间极慢"],
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-冻雨.mp4",
+      "phrases": ["贴地的雨滴冻住了，上面还在下"],
+      "broll": "rain"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-灰尘.mp4",
+      "phrases": ["地面灰尘，千年不动"],
+      "broll": "dust"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-草木.mp4",
+      "phrases": ["矮草几乎不长，高树疯长"],
+      "broll": "plants"
+    },
+    {
+      "id": "S07",
+      "kind": "B",
+      "src": "broll/B-钥匙.mp4",
+      "phrases": ["掉在地上的东西，再也捡不起来"],
+      "broll": "key"
+    },
+    {
+      "id": "S08",
+      "kind": "B",
+      "src": "broll/B-琥珀城.mp4",
+      "phrases": ["低处像琥珀，高处照常走"],
+      "broll": "city"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+[
+  {
+    "id": "law",
+    "file": "broll/B-定律.mp4",
+    "tag": "改一条定律",
+    "title": "低处时间极慢",
+    "cards": [
+      {"num": "错", "head": "到处一样快", "body": "雨同时落地", "color": "red"},
+      {"num": "对", "head": "贴地几乎凝固", "body": "高处照常流逝", "color": "mint"}
+    ],
+    "punch": "低处极慢",
+    "phrases": ["低处的时间极慢"]
+  },
+  {
+    "id": "rain",
+    "file": "broll/B-冻雨.mp4",
+    "tag": "钩子",
+    "title": "贴地的雨滴冻住了",
+    "still": "assets/t31a-two-layer-rain.png",
+    "punch": "上面还在下",
+    "phrases": ["贴地的雨滴冻住了，上面还在下"],
+    "note": "同一构图两层雨速：上层下落，贴地层凝固"
+  },
+  {
+    "id": "dust",
+    "file": "broll/B-灰尘.mp4",
+    "tag": "后果 01",
+    "title": "地面灰尘",
+    "still": "assets/t31b-amber-dust.png",
+    "punch": "千年不动",
+    "phrases": ["地面灰尘，千年不动"]
+  },
+  {
+    "id": "plants",
+    "file": "broll/B-草木.mp4",
+    "tag": "后果 02",
+    "title": "矮草几乎不长",
+    "still": "assets/t31c-grass-trees.png",
+    "punch": "高树疯长",
+    "phrases": ["矮草几乎不长，高树疯长"]
+  },
+  {
+    "id": "key",
+    "file": "broll/B-钥匙.mp4",
+    "tag": "后果 03",
+    "title": "掉在地上的东西",
+    "still": "assets/t31d-key-in-gel.png",
+    "punch": "再也捡不起来",
+    "phrases": ["掉在地上的东西，再也捡不起来"]
+  },
+  {
+    "id": "city",
+    "file": "broll/B-琥珀城.mp4",
+    "tag": "回报",
+    "title": "低处像琥珀",
+    "still": "assets/t31e-amber-city.png",
+    "punch": "高处照常走",
+    "phrases": ["低处像琥珀，高处照常走"]
+  }
+]
