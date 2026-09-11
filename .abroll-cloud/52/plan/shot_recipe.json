@@ -1,0 +1,24 @@
+{
+  "title": "别把反转写进标题",
+  "cover_title": "别把反转写进标题",
+  "cover_sub": "结局说破没悬念",
+  "cover_line": "标题只留冲突",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch3.md #52 / 工厂 348_别把反转写进标题",
+  "video_type": "普通短视频",
+  "topic_id": "52",
+  "note": "口播工艺加长版 40–50s。云端无 V-正对讲，摊手/指向/点赞。A 镜往返循环，不定格。",
+  "target_duration": [40, 50],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true, "cap": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["别把反转写进标题"], "cap": ["别把反转写进标题"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-结局说破.mp4", "phrases": ["结局提前说破，后面没有悬念", "不是标题字多", "是你先把结尾交出去了"], "broll": "spoil_ending"},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["观众看见原来他没死，后面不用看", "悬念已经被掏空"], "cap": ["后面不用看"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-封面对照.mp4", "phrases": ["封面只问谁动了证据", "别写凶手是他"], "broll": "contrast_cover"},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["标题只留冲突", "反转留给片子"], "cap": ["标题只留冲突"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-结局挪走.mp4", "phrases": ["写完标题，把结局那几个字圈出来", "整段挪走，挪到片尾", "挪到片尾，才有人看到底"], "broll": "move_ending"},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["禁的是剧透自己的结尾", "不是预告下一期"], "cap": ["禁的是剧透结尾"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-点开就空.mp4", "phrases": ["对照一下，剧透标题点开就空"], "broll": "empty_click"},
+    {"id": "S09", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["标题只问冲突，片子才给答案"], "cap": ["片子才给答案"]}
+  ]
+}

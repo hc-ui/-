@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_name": "55_先给能截的那句",
+  "video_type": "普通短视频",
+  "episode": 55,
+  "title": "先给能截的那句",
+  "source_note": "topics-batch3.md #55 / 工厂 297_先给能截的那句 voiceover.txt",
+  "slug": "297_先给能截的那句",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 43.0,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll（往返循环）+ 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "target_duration_s": [
+    40,
+    50
+  ],
+  "no_freeze": true,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "4990d3cc33c2f05d954f7e811d34ec4ea682103e8d170219c784405462ed70b4"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 43000
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/55-先给能截的那句.mp4",
+    "project_final": "00_最终成片_先给能截的那句.mp4",
+    "cover": "00_封面_先给能截的那句.jpg"
+  },
+  "staged": "成片/55-先给能截的那句.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T12:55:39Z"
+}
