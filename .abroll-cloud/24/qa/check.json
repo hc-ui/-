@@ -1,0 +1,20 @@
+{
+  "file": "成片/24-口播结尾别报时长.mp4",
+  "duration": 11.958333,
+  "size_bytes": 2570331,
+  "video": {
+    "codec": "h264",
+    "w": 1080,
+    "h": 1920,
+    "fps": "24/1",
+    "pix": "yuv420p"
+  },
+  "audio": {
+    "codec": "aac",
+    "rate": 44100,
+    "ch": 2,
+    "layout": "stereo"
+  },
+  "decode_empty": true,
+  "ok": true
+}

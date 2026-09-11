@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "project_name": "24_口播结尾别报时长",
+  "video_type": "普通短视频",
+  "slug": "350_口播结尾别报时长",
+  "title": "口播结尾别报时长",
+  "production_method": "白底小灯 A-roll（06 已有动作）+ 黑底信息图 B-roll + edge-tts + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "stage": "delivered",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 11.958333,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "a698eabd0fe17dfb153f64a95afd1709eebdefd364c763608f815ba70a69a53b"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "source": "edge-tts zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 11958
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/24-口播结尾别报时长.mp4",
+    "project_final": "00_最终成片_口播结尾别报时长.mp4",
+    "cover": "00_封面_口播结尾别报时长.jpg"
+  },
+  "not": "drama-pipeline / 仙侠短剧 / Drive 上传 / C:D:G:",
+  "updated_at": "2026-09-11T11:49:08Z"
+}
