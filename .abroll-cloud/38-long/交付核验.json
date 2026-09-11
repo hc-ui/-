@@ -1,0 +1,51 @@
+{
+  "project": "38_分不清改物理和AI画错_long",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "cut": "long-40s",
+  "final": "/workspace/成片/38-分不清改物理和AI画错.mp4",
+  "project_final": "/workspace/.abroll-cloud/38-long/00_最终成片_分不清改物理和AI画错.mp4",
+  "sha256": "490a0da98776be7febaa8abdd6a469c2eca7d4924b950c173afba3affa4dbc77",
+  "bytes": 10179419,
+  "replaced_short_cut_s": 19.88,
+  "freeze_pad": false,
+  "no_tpad_clone_in_kit": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 44.458333,
+    "duration_zh": "44.5秒"
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.2,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 9,
+    "a_shots": 6,
+    "b_shots": 3,
+    "phrases": 18,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28,
+    "in_hard_window": true,
+    "in_target_window": true
+  },
+  "decode_null": true,
+  "ok": true,
+  "chengpian": "/workspace/成片/38-分不清改物理和AI画错.mp4",
+  "chengpian_duration_s": 44.458333,
+  "chengpian_duration_zh": "44.5秒",
+  "draft_duration_s": 44.458333,
+  "draft_duration_zh": "44.5秒"
+}
