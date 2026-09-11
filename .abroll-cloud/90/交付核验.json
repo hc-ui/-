@@ -1,0 +1,69 @@
+{
+  "project": "90_从课题抽可迁移能力",
+  "duration_zh": "50.0秒",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/90-从课题抽可迁移能力.mp4",
+  "project_final": "/tmp/wt-90-e5aa/.abroll-cloud/90/00_最终成片_从课题抽可迁移能力.mp4",
+  "sha256": "deb26dde9618052ae4e261f45adc93e913fed81577d60cb7621e8ea96566885e",
+  "bytes": 12223505,
+  "distinct_from_14_15": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 50.0
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.3,
+    "max_volume_db": -10.0
+  },
+  "timeline": {
+    "segments": 12,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true,
+  "duration_window": {
+    "min": 30.0,
+    "max": 60.0,
+    "target": [
+      40.0,
+      50.0
+    ],
+    "hit": true,
+    "duration_zh": "50.0秒"
+  },
+  "script_guard": {
+    "两条线": true,
+    "就业技术栈": true,
+    "Python 学扎实": true,
+    "五条路": true,
+    "抢生态位": true,
+    "测控底层": true,
+    "包装成": true,
+    "下一期": true,
+    "赵老师": true
+  },
+  "keep_14_15": {
+    "14": {
+      "exists": true,
+      "bytes": 4142079
+    },
+    "15": {
+      "exists": true,
+      "bytes": 6142753
+    }
+  }
+}

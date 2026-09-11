@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_name": "90_从课题抽可迁移能力",
+  "video_type": "普通短视频",
+  "episode": 90,
+  "title": "从课题抽可迁移能力",
+  "source_note": "topics-batch4.md #90 / 学习基线提取可迁移能力 / 云端 NEW",
+  "slug": "90_从课题抽可迁移能力",
+  "duration_zh": "50.0秒",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 50.0,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "036e97eed0936f1e7233ea97f30700f31767d820be7318281708f6679acc45c0"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 50000
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/90-从课题抽可迁移能力.mp4",
+    "project_final": "00_最终成片_从课题抽可迁移能力.mp4",
+    "cover": "00_封面_从课题抽可迁移能力.jpg"
+  },
+  "staged": "成片/90-从课题抽可迁移能力.mp4",
+  "distinct_from": [
+    "成片/14-导师课题毕业就业技术栈自己建.mp4",
+    "成片/15-在生医实验室抢测控生态位.mp4"
+  ],
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / 成片14双线 / 成片15生态位",
+  "updated_at": "2026-09-11T14:46:36Z"
+}
