@@ -49,7 +49,7 @@ def parse_vtt(path: Path) -> list[tuple[float, float, str]]:
         if not lines:
             continue
         timing = next((ln for ln in lines if "-->" in ln), "")
-        m = re.search(r"([\d:.]+)\s+-->\s+([\d:.]+)", timing)
+        m = re.search(r"([\d:.,]+)\s+-->\s+([\d:.,]+)", timing)
         if not m:
             continue
         body = " ".join(ln for ln in lines if "-->" not in ln and not ln.isdigit())
