@@ -1,0 +1,31 @@
+{
+  "project": "14_导师课题毕业就业技术栈自己建",
+  "strict": true,
+  "cloud_only": true,
+  "final": "/workspace/成片/14-导师课题毕业就业技术栈自己建.mp4",
+  "sha256": "efe59a6d00046c3d95a62ee90a741ef54fec30c9e76f3d362c5054dd794fd6da",
+  "bytes": 4142079,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 14.125
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.4,
+    "max_volume_db": -10.2
+  },
+  "timeline": {
+    "segments": 6,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true
+  },
+  "decode_ok": true,
+  "ok": true
+}

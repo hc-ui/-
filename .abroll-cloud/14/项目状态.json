@@ -4,8 +4,33 @@
   "video_type": "普通短视频",
   "topic_index": 7,
   "slug": "07_导师课题毕业就业自己建",
-  "status": "生产中",
-  "current_stage": "锁定文案与镜头",
-  "size": [1080, 1920],
-  "fps": 24
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 14.136,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "5846be75dfba020a348f0b781bbb821d3a396d3e53bda2d73faef683216f5a61"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 14136
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/14-导师课题毕业就业技术栈自己建.mp4",
+    "project_video": "00_最终成片_导师课题毕业就业技术栈自己建.mp4",
+    "cover": "00_封面_导师课题毕业就业技术栈自己建.jpg"
+  },
+  "staged": "成片/14-导师课题毕业就业技术栈自己建.mp4",
+  "updated_at": "2026-09-11T11:25:54Z"
 }

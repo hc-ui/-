@@ -182,6 +182,16 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
     mp3 = audio_dir / "vo-full.mp3"
     wav = audio_dir / "vo-full.wav"
     aligned: list[tuple[float, float, str]] | None = None
+    if wav.exists() and wav.stat().st_size > 800 and (audio_dir / "vo-align.txt").exists():
+        duration = probe_dur(wav)
+        parsed: list[tuple[float, float, str]] = []
+        for line in (audio_dir / "vo-align.txt").read_text(encoding="utf-8").splitlines():
+            parts = line.split("\t")
+            if len(parts) >= 3:
+                parsed.append((float(parts[0]), float(parts[1]), parts[2]))
+        if len(parsed) == len(phrases):
+            print("reuse VO", wav, duration)
+            return duration, close_align(parsed, duration)
     try:
         bounds = asyncio.run(synthesize_voice(text, mp3))
         if mp3.stat().st_size < 800:
@@ -680,6 +690,7 @@ def make_cover(data: dict) -> Path:
     d.text((W // 2, 258), cover["sub"], font=font(40), fill=MINT, anchor="mm")
     d.text((W // 2, 348), cover["line"], font=font(30), fill=MUTED, anchor="mm")
     dest = ROOT / f"00_封面_{NAME}.jpg"
+    (ROOT / "final").mkdir(exist_ok=True)
     canvas.save(dest, quality=92)
     canvas.save(ROOT / "final" / "cover.jpg", quality=92)
     return dest
