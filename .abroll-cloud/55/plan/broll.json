@@ -4,23 +4,35 @@
     "file": "broll/B-埋中间截不走.mp4",
     "tag": "错 · 埋中间",
     "title": "好句子埋中间",
-    "cards": [
-      {"num": "糊", "head": "整段落糊", "body": "过程句把金句挤没", "color": "red"},
-      {"num": "截", "head": "截图截不走", "body": "框到一整段", "color": "yellow"}
-    ],
+    "example": 1,
     "punch": "图上截不走",
-    "phrases": ["好句子埋在中间，图上截不走"]
+    "phrases": ["好句子埋在中间，图上截不走", "不是字不够狠", "是那句被过程挤没了"]
+  },
+  {
+    "id": "fail_shot",
+    "file": "broll/B-框到整段.mp4",
+    "tag": "错 · 框整段",
+    "title": "截图框到一整段",
+    "example": 1,
+    "punch": "转发看不懂",
+    "phrases": ["听众截图只能框到一整段", "转发的人看不懂要记哪句"]
   },
   {
     "id": "lift",
     "file": "broll/B-拎到前面.mp4",
     "tag": "对 · 拎到前",
     "title": "单独成句前后留白",
-    "cards": [
-      {"num": "句", "head": "单独成句", "body": "那句自己占一行", "color": "yellow"},
-      {"num": "白", "head": "前后留白", "body": "截图刚好套住", "color": "mint"}
-    ],
+    "example": 2,
     "punch": "把那句拎到前面",
-    "phrases": ["写完稿，把那句拎到前面"]
+    "phrases": ["第一屏只留那一句", "过程句往后放", "写完稿，把那句拎到前面"]
+  },
+  {
+    "id": "check",
+    "file": "broll/B-截完还在.mp4",
+    "tag": "对 · 截完还在",
+    "title": "那句还在才算能截",
+    "example": 2,
+    "punch": "能截才传得走",
+    "phrases": ["截完图，那句还在，才算能截", "写完开场，先把那句放到第一屏"]
   }
 ]

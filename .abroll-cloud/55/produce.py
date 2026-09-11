@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """Topic 55 / topics-batch3 #55：先给能截的那句。工厂 297。云端 A-roll + B-roll。
 
-普通短视频 / 口播工艺。草稿只写 .abroll-cloud/55/，成品中转 成片/55-先给能截的那句.mp4。
+普通短视频 / 口播工艺加长重切。草稿只写 .abroll-cloud/55/，成品覆盖 成片/55-先给能截的那句.mp4。
+目标 40–50 秒，硬限 30–60 秒。不准冻帧、空镜、静音尾巴垫时长。
 禁止 C:\\ D:\\ G:\\，禁止 Drive 上传，不走 drama-pipeline。
 """
 from __future__ import annotations
@@ -119,6 +120,24 @@ def phone_frame(draw: ImageDraw.ImageDraw, box, a: float, color) -> None:
     draw.rounded_rectangle((x0 + 18, y0 + 16, x1 - 18, y0 + 36), radius=8, fill=mix(BG, (40, 44, 54), a))
     cx = (x0 + x1) // 2
     draw.rounded_rectangle((cx - 48, y1 - 28, cx + 48, y1 - 12), radius=8, fill=mix(BG, (40, 44, 54), a))
+
+
+def check_badge(draw, cx: int, cy: int, a: float) -> None:
+    if a <= 0.04:
+        return
+    r = 36
+    draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=mix(CARD, (18, 56, 46), a))
+    col = mix(CARD, MINT, a)
+    draw.line([(cx - 16, cy + 2), (cx - 4, cy + 16), (cx + 20, cy - 14)], fill=col, width=8)
+
+
+def strike_line(draw: ImageDraw.ImageDraw, box, progress: float, color) -> None:
+    x0, y0, x1, y1 = box
+    if progress <= 0.04:
+        return
+    mid = (y0 + y1) / 2
+    x_end = lerp(x0 + 24, x1 - 24, min(1.0, progress))
+    draw.line([(x0 + 24, mid), (x_end, mid)], fill=color, width=10)
 
 
 def frames_to_mp4(frames: list[Image.Image], dest: Path) -> None:
@@ -342,26 +361,32 @@ def render_b_bury(duration: float) -> list[Image.Image]:
         y = 320 + int(lerp(24, 0, a1))
         rounded(d, (72, y, 1008, y + 620), 32, mix(BG, CARD, a1))
         d.text((W // 2, y + 48), "长稿 · 第一屏", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
-        gold_box = None
         for j, (line, gold) in enumerate(draft):
+            aj = appear(t, 0.22 + j * 0.18, 0.24)
+            if aj <= 0.04:
+                continue
             ly = y + 110 + j * 92
-            col = mix(CARD, YELLOW if gold else MUTED, a1)
+            col = mix(CARD, YELLOW if gold else MUTED, aj)
             fnt = gold_f if gold else line_f
             if gold:
-                gold_box = (110, ly - 36, 970, ly + 48)
-                rounded(d, gold_box, 16, mix(CARD, (46, 38, 20), a1))
+                rounded(d, (110, ly - 36, 970, ly + 48), 16, mix(CARD, (46, 38, 20), aj))
             d.text((W // 2, ly), line, font=fnt, fill=col, anchor="mm")
 
-        frame = appear(t, 0.72, 0.28)
+        diag = appear(t, 1.40, 0.26)
+        if diag > 0.04:
+            rounded(d, (120, 980, 960, 1088), 22, mix(BG, (42, 28, 18), diag))
+            d.text((W // 2, 1034), "不是字不够狠 · 是被过程挤没", font=font(30), fill=mix(BG, YELLOW, diag), anchor="mm")
+
+        frame = appear(t, 1.85, 0.28)
         if frame > 0.04:
             phone_frame(d, (88, y + 20, 992, y + 600), frame, RED)
             d.text((W // 2, y + 575), "截图框套住整段", font=font(28), fill=mix(CARD, RED, frame), anchor="mm")
 
-        punch = appear(t, 1.28, 0.26)
+        punch = appear(t, 2.30, 0.26)
         if punch > 0.04:
-            y3 = 1080 + int(lerp(22, 0, punch))
-            rounded(d, (140, y3, 940, y3 + 180), 28, mix(BG, (42, 28, 18), punch))
-            d.text((W // 2, y3 + 90), "图上截不走", font=title_f, fill=mix(BG, YELLOW, punch), anchor="mm")
+            y3 = 1120 + int(lerp(22, 0, punch))
+            rounded(d, (140, y3, 940, y3 + 160), 28, mix(BG, (42, 28, 18), punch))
+            d.text((W // 2, y3 + 80), "图上截不走", font=title_f, fill=mix(BG, YELLOW, punch), anchor="mm")
         out.append(img)
     return out
 
@@ -380,62 +405,187 @@ def render_b_lift(duration: float) -> list[Image.Image]:
         d.text((W // 2, 236 + int(lerp(18, 0, a0))), "单独成句，前后留白", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
 
         a1 = appear(t, 0.16)
-        y = 340 + int(lerp(24, 0, a1))
-        rounded(d, (90, y, 990, y + 620), 36, mix(BG, CARD, a1))
-        d.text((W // 2, y + 70), "第一屏", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
-        d.text((W // 2, y + 160), "　", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
+        y = 320 + int(lerp(24, 0, a1))
+        rounded(d, (90, y, 990, y + 640), 36, mix(BG, CARD, a1))
+        d.text((W // 2, y + 60), "第一屏只留那一句", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
         gold = appear(t, 0.42, 0.28)
-        gy = y + 280
+        gy = y + 250
         rounded(d, (150, gy - 70, 930, gy + 90), 24, mix(CARD, (22, 40, 36), gold))
         d.text((W // 2, gy), "能截的那句先给", font=gold_f, fill=mix(CARD, YELLOW, gold), anchor="mm")
-        d.text((W // 2, y + 520), "前后都是空白", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+        d.text((W // 2, y + 400), "前后都是空白", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
 
-        frame = appear(t, 0.88, 0.28)
+        move = appear(t, 1.10, 0.36)
+        if move > 0.04:
+            rounded(d, (140, y + 460, 940, y + 560), 20, mix(CARD, (22, 36, 32), move))
+            d.text((W // 2, y + 510), "过程句往后放", font=font(34), fill=mix(CARD, MINT, move), anchor="mm")
+
+        frame = appear(t, 1.60, 0.28)
         if frame > 0.04:
             phone_frame(d, (130, gy - 110, 950, gy + 130), frame, MINT)
-            d.text((W // 2, y + 575), "截图刚好套住", font=font(28), fill=mix(CARD, MINT, frame), anchor="mm")
+            d.text((W // 2, y + 600), "截图刚好套住", font=font(28), fill=mix(CARD, MINT, frame), anchor="mm")
 
-        punch = appear(t, 1.28, 0.26)
+        punch = appear(t, 2.10, 0.26)
         if punch > 0.04:
             y3 = 1100 + int(lerp(22, 0, punch))
-            rounded(d, (140, y3, 940, y3 + 180), 28, mix(BG, (18, 42, 36), punch))
-            d.text((W // 2, y3 + 90), "把那句拎到前面", font=title_f, fill=mix(BG, MINT, punch), anchor="mm")
+            rounded(d, (140, y3, 940, y3 + 160), 28, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y3 + 80), "把那句拎到前面", font=title_f, fill=mix(BG, MINT, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_fail(duration: float) -> list[Image.Image]:
+    n = max(1, round(duration * FPS))
+    title_f = font(48)
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "错 · 框整段")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "截图框到一整段", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
+
+        a1 = appear(t, 0.18)
+        y = 320 + int(lerp(20, 0, a1))
+        rounded(d, (80, y, 1000, y + 560), 32, mix(BG, CARD, a1))
+        d.text((W // 2, y + 56), "转发预览", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
+        blob = [
+            "开头铺了一段过程",
+            "又补两句背景",
+            "能截的那句先给",
+            "后面还跟着解释",
+        ]
+        for j, line in enumerate(blob):
+            aj = appear(t, 0.28 + j * 0.16, 0.22)
+            if aj <= 0.04:
+                continue
+            ly = y + 130 + j * 80
+            d.text((W // 2, ly), line, font=font(34), fill=mix(CARD, MUTED if j != 2 else YELLOW, aj), anchor="mm")
+
+        frame = appear(t, 1.10, 0.28)
+        if frame > 0.04:
+            phone_frame(d, (100, y + 30, 980, y + 520), frame, RED)
+            d.text((W // 2, y + 520), "框住整段 · 金句被挤没", font=font(28), fill=mix(CARD, RED, frame), anchor="mm")
+
+        a2 = appear(t, 1.70)
+        if a2 > 0.04:
+            y2 = 920 + int(lerp(18, 0, a2))
+            rounded(d, (100, y2, 980, y2 + 180), 28, mix(BG, CARD, a2))
+            d.text((W // 2, y2 + 60), "转发的人", font=font(28), fill=mix(CARD, MUTED, a2), anchor="mm")
+            d.text((W // 2, y2 + 120), "看不懂要记哪句", font=font(40), fill=mix(CARD, RED, a2), anchor="mm")
+
+        punch = appear(t, 2.20, 0.24)
+        if punch > 0.04:
+            y3 = 1140 + int(lerp(18, 0, punch))
+            rounded(d, (140, y3, 940, y3 + 150), 26, mix(BG, (42, 28, 18), punch))
+            d.text((W // 2, y3 + 75), "转发看不懂", font=title_f, fill=mix(BG, YELLOW, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_check(duration: float) -> list[Image.Image]:
+    n = max(1, round(duration * FPS))
+    title_f = font(46)
+    card_f = font(38)
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "对 · 截完还在")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 230 + int(lerp(16, 0, a0))), "截完图，那句还在", font=title_f, fill=mix(BG, WHITE, a0), anchor="mm")
+
+        a1 = appear(t, 0.18)
+        y = 320 + int(lerp(18, 0, a1))
+        rounded(d, (70, y, 500, y + 420), 28, mix(BG, CARD, a1))
+        d.text((285, y + 70), "框到整段", font=card_f, fill=mix(CARD, RED, a1), anchor="mm")
+        d.text((285, y + 170), "还没改完", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+        strike_line(d, (110, y + 220, 460, y + 280), appear(t, 0.70, 0.28), mix(CARD, RED, a1))
+
+        a2 = appear(t, 0.36)
+        rounded(d, (580, y, 1010, y + 420), 28, mix(BG, (22, 40, 36), a2))
+        d.text((795, y + 70), "那句还在", font=card_f, fill=mix(CARD, MINT, a2), anchor="mm")
+        d.text((795, y + 170), "才算能截", font=font(30), fill=mix(CARD, WHITE, a2), anchor="mm")
+        check_badge(d, 795, y + 280, appear(t, 0.90, 0.22))
+
+        a3 = appear(t, 1.40)
+        if a3 > 0.04:
+            y3 = 800 + int(lerp(18, 0, a3))
+            rounded(d, (90, y3, 990, y3 + 200), 28, mix(BG, CARD, a3))
+            d.text((W // 2, y3 + 70), "写完开场", font=font(30), fill=mix(CARD, MUTED, a3), anchor="mm")
+            d.text((W // 2, y3 + 140), "先把那句放到第一屏", font=card_f, fill=mix(CARD, YELLOW, a3), anchor="mm")
+
+        punch = appear(t, 2.00, 0.24)
+        if punch > 0.04:
+            y4 = 1060 + int(lerp(18, 0, punch))
+            rounded(d, (140, y4, 940, y4 + 160), 26, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y4 + 80), "能截才传得走", font=title_f, fill=mix(BG, MINT, punch), anchor="mm")
         out.append(img)
     return out
 
 
 def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
     recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    p0, p1, p2, p3, p4 = cues
-    b1 = max(p1[0] + 0.70, p2[0] - LEAD)
-    b2 = max(p3[0] + 0.50, p4[0] - LEAD)
-    if b1 <= p0[1] + 0.36:
-        b1 = p2[0]
-    if b2 <= p2[1] + 0.36:
-        b2 = p4[0]
+    by_text = {p: (s, e) for s, e, p in cues}
+    missing = [p for spec in recipe["shots"] for p in spec["phrases"] if p not in by_text]
+    if missing:
+        raise SystemExit(f"missing phrases in align: {missing}")
 
-    shots = [
-        {"id": "S01a", "kind": "A", "start": 0.0, "end": round(p0[1], 3), "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
-        {"id": "S01b", "kind": "A", "start": round(p0[1], 3), "end": round(b1, 3), "src": "assets/V-摊手.mp4", "line": p1[2]},
-        {"id": "S02", "kind": "B", "start": round(b1, 3), "end": round(p2[1], 3), "src": "broll/B-埋中间截不走.mp4", "line": p2[2], "broll": "bury"},
-        {"id": "S03", "kind": "A", "start": round(p2[1], 3), "end": round(b2, 3), "src": "assets/V-指向.mp4", "line": p3[2]},
-        {"id": "S04", "kind": "B", "start": round(b2, 3), "end": round(duration, 3), "src": "broll/B-拎到前面.mp4", "line": p4[2], "broll": "lift"},
-    ]
-    for i, shot in enumerate(shots):
-        if shot["end"] <= shot["start"] + 0.12:
-            shot["end"] = min(duration, shot["start"] + 0.16)
-            if i + 1 < len(shots):
-                shots[i + 1]["start"] = shot["end"]
+    specs = recipe["shots"]
+    raw: list[dict] = []
+    for i, spec in enumerate(specs):
+        phrases = spec["phrases"]
+        start = 0.0 if i == 0 else by_text[phrases[0]][0]
+        end = by_text[phrases[-1]][1]
+        if i + 1 < len(specs):
+            nxt = specs[i + 1]["phrases"][0]
+            nxt_start = by_text[nxt][0]
+            if spec["kind"] == "A" and specs[i + 1]["kind"] == "B":
+                end = max(start + 0.40, nxt_start - LEAD)
+            else:
+                end = nxt_start
+        else:
+            end = duration
+        shot = {
+            "id": spec["id"],
+            "kind": spec["kind"],
+            "start": round(start, 3),
+            "end": round(end, 3),
+            "src": spec["src"],
+            "line": " ".join(phrases),
+        }
+        if spec.get("close"):
+            shot["close"] = True
+        if spec.get("broll"):
+            shot["broll"] = spec["broll"]
+        raw.append(shot)
+
+    for i, shot in enumerate(raw):
         if i:
-            shots[i]["start"] = shots[i - 1]["end"]
-    shots[-1]["end"] = round(duration, 3)
+            shot["start"] = raw[i - 1]["end"]
+        if shot["end"] <= shot["start"] + 0.16:
+            shot["end"] = min(duration, shot["start"] + 0.20)
+            if i + 1 < len(raw):
+                raw[i + 1]["start"] = shot["end"]
+    raw[-1]["end"] = round(duration, 3)
 
-    a_caps = [
-        {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
-        {"start": round(p1[0], 3), "end": round(min(p1[1], b1), 3), "lines": split_caption(p1[2])},
-        {"start": round(p3[0], 3), "end": round(min(p3[1], b2), 3), "lines": split_caption(p3[2])},
-    ]
-    a_caps = [c for c in a_caps if c["end"] > c["start"] + 0.08]
+    a_caps = []
+    eyebrows = []
+    shutters = []
+    for i, spec in enumerate(specs):
+        shot = raw[i]
+        if spec["kind"] == "A":
+            for phrase in spec["phrases"]:
+                s, e = by_text[phrase]
+                cap_end = min(e, shot["end"])
+                cap_start = max(s, shot["start"])
+                if cap_end > cap_start + 0.08:
+                    a_caps.append({"start": round(cap_start, 3), "end": round(cap_end, 3), "lines": split_caption(phrase)})
+            eyebrows.append({"start": shot["start"], "end": shot["end"], "text": f"A-ROLL / {spec['id'][1:3]}"})
+        if i:
+            color = list(MINT) if spec["kind"] == "B" else list(CREAM)
+            shutters.append({"start": shot["start"], "color": color})
 
     data = {
         "audio": "audio/vo-full.wav",
@@ -444,19 +594,10 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "size": [W, H],
         "title": recipe["title"],
         "bgm": "audio/bgm.wav",
-        "shots": shots,
+        "shots": raw,
         "a_caps": a_caps,
-        "shutters": [
-            {"start": round(p0[1], 3), "color": list(CREAM)},
-            {"start": round(b1, 3), "color": list(MINT)},
-            {"start": round(p2[1], 3), "color": list(CREAM)},
-            {"start": round(b2, 3), "color": list(MINT)},
-        ],
-        "eyebrows": [
-            {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
-            {"start": round(p0[1], 3), "end": round(b1, 3), "text": "A-ROLL / 1b"},
-            {"start": round(p2[1], 3), "end": round(b2, 3), "text": "A-ROLL / 03"},
-        ],
+        "shutters": shutters,
+        "eyebrows": eyebrows,
         "cover": {
             "title": recipe["cover_title"],
             "sub": recipe["cover_sub"],
@@ -468,6 +609,7 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "video_type": "普通短视频",
         "factory": "297_先给能截的那句",
         "topic": 55,
+        "cut": "long-40s",
     }
     (ROOT / "timeline.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return data
@@ -569,14 +711,11 @@ def cut_shot(src: Path, dur: float, dest: Path, kind: str, close: bool = False) 
         vf = f"scale=1188:2112,crop={W}:{H}:54:105,fps={FPS},setsar=1,format=yuv420p"
     else:
         vf = f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,fps={FPS},setsar=1,format=yuv420p"
-    if kind == "A" and dur > src_dur + 0.05:
-        vf = f"setpts=PTS*{dur / src_dur:.6f},{vf}"
-    elif dur > src_dur + 0.02:
-        vf = f"{vf},tpad=stop_mode=clone:stop_duration={dur - src_dur:.3f}"
-    run([
-        "ffmpeg", "-y", "-i", str(src), "-t", f"{dur:.3f}",
-        "-vf", vf, "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "18", str(dest),
-    ])
+    cmd = ["ffmpeg", "-y"]
+    if kind == "A" and dur > src_dur + 0.08:
+        cmd += ["-stream_loop", "-1"]
+    cmd += ["-i", str(src), "-t", f"{dur:.3f}", "-vf", vf, "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "18", str(dest)]
+    run(cmd)
 
 
 def assemble(data: dict) -> Path:
@@ -681,7 +820,7 @@ def copy_assets() -> None:
     dest = ROOT / "assets"
     dest.mkdir(exist_ok=True)
     fallbacks = [ASSET_SRC, Path("/workspace/.abroll-cloud/45/assets"), Path("/workspace/.abroll-cloud/26/assets")]
-    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "A-角色-小灯-摊手.jpg"):
+    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "V-点赞.mp4", "A-角色-小灯-摊手.jpg"):
         src = next((p / name for p in fallbacks if (p / name).exists()), None)
         if src is None:
             raise FileNotFoundError(name)
@@ -710,6 +849,8 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
         "status": "已交付",
         "current_stage": "核验并交付",
         "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+        "cut": "long-40s",
+        "target_duration_s": [40, 50],
         "script": {"path": "script/voiceover.txt", "sha256": sha},
         "audio": {
             "path": "audio/vo-full.wav",
@@ -744,8 +885,12 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
 - **云端 only**：不写 `C:\\` / `D:\\` / `G:\\`，不传 Drive
 
 钩子：能截的那句先给。  
-后果：好句子埋在中间，图上截不走。  
-收束：单独成句，前后留白；写完稿，把那句拎到前面。
+诊断：不是字不够狠，是那句被过程挤没。  
+例子一：长稿第一屏铺背景，截图框到整段。  
+例子二：单独成句前后留白，截完图那句还在。  
+收束：写完开场，先把那句放到第一屏。能截的，才传得走。
+
+加长重切：覆盖 12.1s 短切。时长来自锁定口播和真切镜，不定格注水。
 
 白底小灯 A-roll + 黑底对照卡 B-roll。中文在代码绘制 / 组装叠加，生图不烧字。
 
@@ -870,8 +1015,10 @@ def qa(staged: Path, data: dict) -> dict:
             "broll_lead_s": LEAD,
         },
         "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
+        "duration_window": {"min": 30.0, "max": 60.0, "target": [40.0, 50.0]},
         "ok": True,
     }
+    dur_s = report["video"]["duration_s"]
     report["ok"] = (
         report["video"]["width"] == 1080
         and report["video"]["height"] == 1920
@@ -883,29 +1030,45 @@ def qa(staged: Path, data: dict) -> dict:
         and not overlap
         and not gap
         and report["timeline"]["last_end_equals_audio"]
+        and 30.0 <= dur_s <= 60.0
+        and float(data["duration"]) >= 30.0
     )
     (ROOT / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
 
 
+BROLL_RENDER = {
+    "bury": (render_b_bury, "B-埋中间截不走.mp4"),
+    "fail_shot": (render_b_fail, "B-框到整段.mp4"),
+    "lift": (render_b_lift, "B-拎到前面.mp4"),
+    "check": (render_b_check, "B-截完还在.mp4"),
+}
+
+
 def main() -> None:
     copy_assets()
+    for stale in ("audio/vo-full.wav", "audio/vo-full.mp3", "audio/vo-align.txt"):
+        p = ROOT / stale
+        if p.exists():
+            p.unlink()
     duration, cues = make_voiceover()
     print("VO", duration)
+    if duration < 30.0:
+        raise SystemExit(f"VO too short {duration:.2f}s — add phrases, do not pad picture")
     for row in cues:
         print(f"  {row[0]:6.3f}-{row[1]:6.3f}  {row[2]}")
     make_bgm(duration)
     data = build_timeline(cues, duration)
     print("timeline shots", [(s["id"], s["start"], s["end"], s["kind"]) for s in data["shots"]])
 
-    b1 = next(s for s in data["shots"] if s["id"] == "S02")
-    b2 = next(s for s in data["shots"] if s["id"] == "S04")
-    d1 = max(2.2, float(b1["end"]) - float(b1["start"]))
-    d2 = max(2.2, float(b2["end"]) - float(b2["start"]))
-    print("render B-埋中间截不走", d1)
-    frames_to_mp4(render_b_bury(d1 + 0.12), ROOT / "broll" / "B-埋中间截不走.mp4")
-    print("render B-拎到前面", d2)
-    frames_to_mp4(render_b_lift(d2 + 0.12), ROOT / "broll" / "B-拎到前面.mp4")
+    for shot in data["shots"]:
+        key = shot.get("broll")
+        if not key:
+            continue
+        fn = BROLL_RENDER[key]
+        d = max(2.4, float(shot["end"]) - float(shot["start"]))
+        print("render", fn[1], d)
+        frames_to_mp4(fn[0](d + 0.12), ROOT / "broll" / fn[1])
 
     make_cover()
     staged = assemble(data)
@@ -916,6 +1079,8 @@ def main() -> None:
     print("STAGED", staged, "dur", dur, "ok", report["ok"])
     if not report["ok"]:
         raise SystemExit(json.dumps(report, ensure_ascii=False, indent=2))
+    if not (40.0 <= dur <= 50.0):
+        print("WARN duration outside 40-50 target", dur)
 
 
 if __name__ == "__main__":
