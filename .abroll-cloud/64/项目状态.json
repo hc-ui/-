@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "project_name": "64_空字典写在循环外面",
+  "video_type": "普通短视频",
+  "episode": 64,
+  "title": "空字典写在循环外面",
+  "source_note": "topics-batch3.md #41 / 学习基线 2026-09-09 不足第5、第8条",
+  "voice": "zh-CN-YunyangNeural",
+  "rate": "-10%",
+  "duration": 48.792,
+  "duration_zh": "四十九秒",
+  "target_s": [
+    40.0,
+    50.0
+  ],
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "fdd454bd5b02893b5e389fd3f6f22de1bee94c44e18444f0de5e0ca24d2628e2"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 48791
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/64-空字典写在循环外面.mp4",
+    "project_final": "00_最终成片_空字典写在循环外面.mp4",
+    "cover": "00_封面_空字典写在循环外面.jpg"
+  },
+  "staged": "成片/64-空字典写在循环外面.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T13:57:30Z"
+}

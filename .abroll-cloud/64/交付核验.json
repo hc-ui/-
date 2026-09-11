@@ -1,0 +1,41 @@
+{
+  "project": "64_空字典写在循环外面",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/64-空字典写在循环外面.mp4",
+  "sha256": "4d5d17997699867cf9eb8f4d125da3590864c510ff2918655b08241a91df1813",
+  "bytes": 6404089,
+  "duration_zh": "四十九秒",
+  "target_s": [
+    40.0,
+    50.0
+  ],
+  "in_target": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 48.791667
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.7,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 10,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true
+}
