@@ -1,0 +1,36 @@
+{
+  "project": "38_分不清改物理和AI画错",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/38-分不清改物理和AI画错.mp4",
+  "project_final": "/workspace/.abroll-cloud/38/00_最终成片_分不清改物理和AI画错.mp4",
+  "sha256": "7504fc6045e53602d47c51e808249b572bd8c79f7315da413a02b73c83104b99",
+  "bytes": 4655888,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 19.875
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.2,
+    "max_volume_db": -10.0
+  },
+  "timeline": {
+    "segments": 7,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true
+}
