@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "60_番茄工作法一次只做二十五分钟",
+  "video_type": "普通短视频",
+  "episode": 60,
+  "title": "番茄工作法一次只做二十五分钟",
+  "source_note": "topics-batch3.md #60 / 项目索引 27_番茄工作法 voiceover.txt",
+  "slug": "番茄工作法一次只做二十五分钟",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 42.7,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底计时卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "de313f49308a8e8ba39e30f932eec1e3528a8b5eb9a51981c3e3085a1fdbe981"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 42700
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/60-番茄工作法一次只做二十五分钟.mp4",
+    "project_final": "00_最终成片_番茄工作法一次只做二十五分钟.mp4",
+    "cover": "00_封面_番茄工作法一次只做二十五分钟.jpg"
+  },
+  "staged": "成片/60-番茄工作法一次只做二十五分钟.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / 成片00深度工作",
+  "updated_at": "2026-09-11T12:52:37Z"
+}

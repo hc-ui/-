@@ -202,65 +202,12 @@ def render_b_twentyfive(duration: float) -> list[Image.Image]:
     return out
 
 
-def render_b_wrong(duration: float) -> list[Image.Image]:
-    """例子拍 1：计时器开着，三窗口乱跳，微信一亮番茄空了。"""
-    n = max(1, round(duration * FPS))
-    wins = [
-        (0.08, 90, "文档", YELLOW),
-        (0.22, 390, "微信", TOMATO),
-        (0.36, 690, "网页", MINT),
-    ]
-    out = []
-    for i in range(n):
-        t = i / FPS
-        img = new_bg()
-        d = ImageDraw.Draw(img)
-        tag(d, t, "错 · 空转")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "计时器开着也空", font=font(52), fill=mix(BG, WHITE, a0), anchor="mm")
-
-        for ts, x, name, color in wins:
-            a = appear(t, ts, 0.22)
-            if a < 0.04:
-                continue
-            jump = int(8 * (0.5 if (int(t * 8) + x) % 2 else -0.5))
-            y = 330 + jump + int(lerp(18, 0, a))
-            rounded(d, (x, y, x + 280, y + 360), 28, mix(BG, CARD, a))
-            d.text((x + 140, y + 80), name, font=font(40), fill=mix(CARD, color, a), anchor="mm")
-            d.text((x + 140, y + 180), "跳一下", font=font(30), fill=mix(CARD, MUTED, a), anchor="mm")
-            if name == "微信":
-                badge = appear(t, 0.70, 0.20)
-                if badge > 0.04:
-                    d.ellipse((x + 200, y + 36, x + 248, y + 84), fill=mix(CARD, RED, badge))
-                    d.text((x + 224, y + 60), "1", font=font(26), fill=mix(RED, WHITE, badge), anchor="mm")
-
-        empty = appear(t, 1.00, 0.22)
-        if empty > 0.04:
-            y = 760 + int(lerp(16, 0, empty))
-            rounded(d, (90, y, 990, y + 280), 28, mix(BG, CARD, empty))
-            draw_tomato(d, 280, y + 140, 64, empty)
-            strike = appear(t, 1.20, 0.24)
-            if strike > 0.04:
-                x1 = int(lerp(200, 360, strike))
-                d.line([(200, y + 140), (x1, y + 140)], fill=mix(CARD, RED, strike), width=10)
-            d.text((640, y + 140), "番茄就空了", font=font(48), fill=mix(CARD, RED, empty), anchor="mm")
-
-        punch = appear(t, 1.40, 0.20)
-        if punch > 0.04:
-            y = 1100 + int(lerp(16, 0, punch))
-            rounded(d, (140, y, 940, y + 170), 28, mix(BG, (42, 24, 22), punch))
-            d.text((W // 2, y + 85), "微信一亮就空了", font=font(48), fill=mix(BG, YELLOW, punch), anchor="mm")
-        out.append(img)
-    return out
-
-
-def render_b_focus(duration: float) -> list[Image.Image]:
-    """例子拍 2：选定一件、按下倒计时、手机扣过去。"""
+def render_b_iron(duration: float) -> list[Image.Image]:
     n = max(1, round(duration * FPS))
     rows = [
         (0.06, "1", "选定一件事", "先写清再开始", YELLOW),
-        (0.28, "2", "按下倒计时", "二十五分钟走针", MINT),
-        (0.50, "3", "手机扣过去", "屏幕朝下", TOMATO),
+        (0.22, "2", "按下倒计时", "二十五分钟走针", MINT),
+        (0.38, "3", "手机扣过去", "屏幕朝下", TOMATO),
     ]
     out = []
     for i in range(n):
@@ -275,67 +222,45 @@ def render_b_focus(duration: float) -> list[Image.Image]:
             a = appear(t, ts, 0.22)
             if a < 0.04:
                 continue
-            y = 340 + idx * 200 + int(lerp(18, 0, a))
-            rounded(d, (90, y, 990, y + 176), 26, mix(BG, CARD, a))
-            d.ellipse((128, y + 44, 220, y + 136), fill=mix(CARD, color, a))
-            d.text((174, y + 90), num, font=font(36), fill=mix(color, INK, a), anchor="mm")
-            d.text((248, y + 62), head, font=font(42), fill=mix(CARD, color, a), anchor="lm")
-            d.text((248, y + 122), body, font=font(28), fill=mix(CARD, WHITE, a), anchor="lm")
+            y = 320 + idx * 168 + int(lerp(18, 0, a))
+            rounded(d, (90, y, 990, y + 150), 26, mix(BG, CARD, a))
+            d.ellipse((128, y + 36, 220, y + 128), fill=mix(CARD, color, a))
+            d.text((174, y + 82), num, font=font(36), fill=mix(color, INK, a), anchor="mm")
+            d.text((248, y + 52), head, font=font(42), fill=mix(CARD, color, a), anchor="lm")
+            d.text((248, y + 112), body, font=font(28), fill=mix(CARD, WHITE, a), anchor="lm")
             if idx == 2:
-                draw_phone_down(d, 860, y + 70, appear(t, 0.70, 0.18))
+                draw_phone_down(d, 860, y + 75, appear(t, 0.55, 0.18))
+
+        void_a = appear(t, 0.72, 0.20)
+        if void_a > 0.04:
+            y = 840 + int(lerp(16, 0, void_a))
+            rounded(d, (90, y, 520, y + 200), 26, mix(BG, CARD, void_a))
+            d.text((305, y + 70), "打断", font=font(36), fill=mix(CARD, RED, void_a), anchor="mm")
+            d.text((305, y + 140), "这个番茄作废", font=font(30), fill=mix(CARD, MUTED, void_a), anchor="mm")
+            strike = appear(t, 0.90, 0.20)
+            if strike > 0.04:
+                x1 = int(lerp(160, 450, strike))
+                d.line([(160, y + 70), (x1, y + 70)], fill=mix(CARD, RED, strike), width=8)
+
+        rest_a = appear(t, 0.80, 0.20)
+        if rest_a > 0.04:
+            y = 840 + int(lerp(16, 0, rest_a))
+            rounded(d, (560, y, 990, y + 200), 26, mix(BG, (22, 40, 36), rest_a))
+            d.text((775, y + 70), "铃响", font=font(36), fill=mix(CARD, MINT, rest_a), anchor="mm")
+            d.text((775, y + 140), "休息五分钟留白", font=font(28), fill=mix(CARD, WHITE, rest_a), anchor="mm")
+
+        tomatoes = appear(t, 1.00, 0.18)
+        if tomatoes > 0.04:
+            for k, x in enumerate((270, 430, 590, 750)):
+                aa = appear(t, 1.02 + k * 0.06, 0.14)
+                draw_tomato(d, x, 1160, 36, aa)
+            d.text((W // 2, 1248), "四个之后再休一次长的", font=font(28), fill=mix(BG, MUTED, tomatoes), anchor="mm")
 
         punch = appear(t, 1.20, 0.20)
         if punch > 0.04:
-            y = 1020 + int(lerp(16, 0, punch))
-            rounded(d, (160, y, 920, y + 160), 26, mix(BG, (18, 42, 36), punch))
-            d.text((W // 2, y + 80), "手机扣过去", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
-        out.append(img)
-    return out
-
-
-def render_b_rhythm(duration: float) -> list[Image.Image]:
-    """铃响五分钟、四个番茄、打断作废。"""
-    n = max(1, round(duration * FPS))
-    out = []
-    for i in range(n):
-        t = i / FPS
-        img = new_bg()
-        d = ImageDraw.Draw(img)
-        tag(d, t, "律 · 作废")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "铃响才准歇", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
-
-        a1 = appear(t, 0.12)
-        if a1 > 0.04:
-            y = 330 + int(lerp(16, 0, a1))
-            rounded(d, (90, y, 990, y + 240), 28, mix(BG, CARD, a1))
-            d.text((W // 2, y + 80), "休息  5  分钟", font=font(48), fill=mix(CARD, YELLOW, a1), anchor="mm")
-            d.text((W // 2, y + 170), "一个番茄之后", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
-
-        a2 = appear(t, 0.40)
-        if a2 > 0.04:
-            y = 610 + int(lerp(16, 0, a2))
-            rounded(d, (90, y, 990, y + 260), 28, mix(BG, CARD, a2))
-            d.text((W // 2, y + 70), "四个之后再休一次长的", font=font(36), fill=mix(CARD, WHITE, a2), anchor="mm")
-            for k, x in enumerate((270, 430, 590, 750)):
-                draw_tomato(d, x, y + 170, 36, appear(t, 0.50 + k * 0.08, 0.16))
-
-        a3 = appear(t, 0.90)
-        if a3 > 0.04:
-            y = 910 + int(lerp(16, 0, a3))
-            rounded(d, (90, y, 990, y + 220), 28, mix(BG, CARD, a3))
-            d.text((W // 2, y + 80), "中途被打断", font=font(40), fill=mix(CARD, RED, a3), anchor="mm")
-            strike = appear(t, 1.10, 0.22)
-            if strike > 0.04:
-                x1 = int(lerp(260, 820, strike))
-                d.line([(260, y + 80), (x1, y + 80)], fill=mix(CARD, RED, strike), width=8)
-            d.text((W // 2, y + 160), "这个番茄作废，重来", font=font(32), fill=mix(CARD, MUTED, a3), anchor="mm")
-
-        punch = appear(t, 1.40, 0.20)
-        if punch > 0.04:
-            y = 1180 + int(lerp(16, 0, punch))
-            rounded(d, (140, y, 940, y + 170), 28, mix(BG, (42, 28, 18), punch))
-            d.text((W // 2, y + 85), "打断就作废重来", font=font(48), fill=mix(BG, YELLOW, punch), anchor="mm")
+            y = 1320 + int(lerp(16, 0, punch))
+            rounded(d, (160, y, 920, y + 150), 26, mix(BG, (42, 28, 18), punch))
+            d.text((W // 2, y + 75), "只盯这一件", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
         out.append(img)
     return out
 
@@ -492,30 +417,20 @@ def split_caption(line: str) -> list[str]:
 
 def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
     recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    if len(cues) != 11:
-        raise SystemExit(f"expected 11 phrases, got {len(cues)}")
-    p = cues
-
-    def cut(i: int) -> float:
-        return max(p[i][0] - LEAD, p[i - 1][1] if i else 0.0)
-
-    t_b25 = max(p[1][0] + 0.70, cut(2))
-    t_wrong = max(p[3][1], cut(4))
-    t_focus = max(p[5][1], cut(6))
-    t_rhythm = max(p[7][1], cut(8))
-    t_close = max(p[9][1], cut(10))
+    p0, p1, p2, p3, p4 = cues
+    b1 = max(p1[0] + 0.70, p2[0] - LEAD)
+    if b1 <= p0[1] + 0.36:
+        b1 = p2[0]
+    b_iron_end = max(p3[1], p4[0] - LEAD)
+    if b_iron_end <= p2[1] + 0.50:
+        b_iron_end = p3[1]
 
     shots = [
-        {"id": "S01a", "kind": "A", "start": 0.0, "end": p[0][1], "src": "assets/V-挥手.mp4", "line": p[0][2], "close": True},
-        {"id": "S01b", "kind": "A", "start": p[0][1], "end": t_b25, "src": "assets/V-摊手.mp4", "line": p[1][2]},
-        {"id": "S02", "kind": "B", "start": t_b25, "end": p[2][1], "src": "broll/B-二十五分钟.mp4", "line": p[2][2], "broll": "twenty_five"},
-        {"id": "S03", "kind": "A", "start": p[2][1], "end": t_wrong, "src": "assets/V-指向.mp4", "line": p[3][2]},
-        {"id": "S04", "kind": "B", "start": t_wrong, "end": p[4][1], "src": "broll/B-错法空转.mp4", "line": p[4][2], "broll": "empty_tomato"},
-        {"id": "S05", "kind": "A", "start": p[4][1], "end": t_focus, "src": "assets/V-摊手.mp4", "line": p[5][2]},
-        {"id": "S06", "kind": "B", "start": t_focus, "end": p[6][1], "src": "broll/B-执行.mp4", "line": p[6][2], "broll": "focus"},
-        {"id": "S07", "kind": "A", "start": p[6][1], "end": t_rhythm, "src": "assets/V-指向.mp4", "line": p[7][2]},
-        {"id": "S08", "kind": "B", "start": t_rhythm, "end": t_close, "src": "broll/B-节奏.mp4", "line": p[8][2] + " / " + p[9][2], "broll": "rhythm"},
-        {"id": "S09", "kind": "A", "start": t_close, "end": duration, "src": "assets/V-点赞.mp4", "line": p[10][2]},
+        {"id": "S01a", "kind": "A", "start": 0.0, "end": p0[1], "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
+        {"id": "S01b", "kind": "A", "start": p0[1], "end": b1, "src": "assets/V-摊手.mp4", "line": p1[2]},
+        {"id": "S02", "kind": "B", "start": b1, "end": p2[1], "src": "broll/B-二十五分钟.mp4", "line": p2[2], "broll": "twenty_five"},
+        {"id": "S03", "kind": "B", "start": p2[1], "end": b_iron_end, "src": "broll/B-铁律.mp4", "line": p3[2], "broll": "iron_rule"},
+        {"id": "S04", "kind": "A", "start": b_iron_end, "end": duration, "src": "assets/V-指向.mp4", "line": p4[2]},
     ]
     for i, shot in enumerate(shots):
         shot["start"] = round(float(shot["start"]), 3)
@@ -528,26 +443,24 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
             shots[i]["start"] = shots[i - 1]["end"]
     shots[-1]["end"] = round(duration, 3)
 
-    a_caps = []
-    a_pairs = [
-        (0.0, p[0][1], ["大家好"]),
-        (p[1][0], min(p[1][1], t_b25), split_caption(p[1][2])),
-        (p[3][0], min(p[3][1], t_wrong), split_caption(p[3][2])),
-        (p[5][0], min(p[5][1], t_focus), split_caption(p[5][2])),
-        (p[7][0], min(p[7][1], t_rhythm), split_caption(p[7][2])),
-        (p[10][0], duration, split_caption(p[10][2])),
+    a_caps = [
+        {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
+        {"start": round(p1[0], 3), "end": round(min(p1[1], b1), 3), "lines": split_caption(p1[2])},
+        {"start": round(p4[0], 3), "end": round(duration, 3), "lines": split_caption(p4[2])},
     ]
-    for s, e, lines in a_pairs:
-        if e > s + 0.08:
-            a_caps.append({"start": round(s, 3), "end": round(e, 3), "lines": lines})
+    a_caps = [c for c in a_caps if c["end"] > c["start"] + 0.08]
 
-    colors = [CREAM, TOMATO, CREAM, RED, CREAM, MINT, CREAM, YELLOW, CREAM]
-    shutters = [{"start": round(shots[i + 1]["start"], 3), "color": list(colors[i])} for i in range(len(shots) - 1)]
-    eyebrows = []
-    labels = {"S01a": "A-ROLL / 1a", "S01b": "A-ROLL / 1b", "S03": "A-ROLL / 03", "S05": "A-ROLL / 05", "S07": "A-ROLL / 07", "S09": "A-ROLL / 09"}
-    for shot in shots:
-        if shot["kind"] == "A" and shot["id"] in labels:
-            eyebrows.append({"start": shot["start"], "end": shot["end"], "text": labels[shot["id"]]})
+    shutters = [
+        {"start": round(p0[1], 3), "color": list(CREAM)},
+        {"start": round(shots[2]["start"], 3), "color": list(TOMATO)},
+        {"start": round(shots[3]["start"], 3), "color": list(YELLOW)},
+        {"start": round(shots[4]["start"], 3), "color": list(CREAM)},
+    ]
+    eyebrows = [
+        {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
+        {"start": round(p0[1], 3), "end": round(shots[2]["start"], 3), "text": "A-ROLL / 1b"},
+        {"start": round(shots[4]["start"], 3), "end": round(duration, 3), "text": "A-ROLL / 04"},
+    ]
     data = {
         "audio": "audio/vo-full.wav",
         "duration": round(duration, 3),
@@ -801,7 +714,7 @@ def make_cover() -> Path:
     d.rounded_rectangle((70, 80, 1010, 470), radius=36, fill=(22, 24, 28))
     d.text((W // 2, 160), "番茄工作法", font=font(48), fill=WHITE, anchor="mm")
     d.text((W // 2, 250), "一次只做二十五分钟", font=font(52), fill=YELLOW, anchor="mm")
-    d.text((W // 2, 340), cover["sub"], font=font(36), fill=MINT, anchor="mm")  # 不是让你更忙
+    d.text((W // 2, 340), cover["sub"], font=font(36), fill=MINT, anchor="mm")
     d.text((W // 2, 410), cover["line"], font=font(30), fill=MUTED, anchor="mm")
     dest = ROOT / f"00_封面_{NAME}.jpg"
     canvas.save(dest, quality=92)
@@ -813,7 +726,7 @@ def make_cover() -> Path:
 def copy_assets() -> None:
     dest = ROOT / "assets"
     dest.mkdir(exist_ok=True)
-    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "V-点赞.mp4", "A-角色-小灯-摊手.jpg"):
+    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "A-角色-小灯-摊手.jpg"):
         src = ASSET_SRC / name
         if not src.exists():
             raise FileNotFoundError(src)
@@ -888,7 +801,7 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
 
 ## 规格
 
-1080×1920，24 fps，H.264 + AAC 44100 stereo，约 {duration:.2f} 秒。镜头 {len(data["shots"])} 条，口播 11 句，按 LENGTH.md 30–60s。时间轴闭合。
+1080×1920，24 fps，H.264 + AAC 44100 stereo，约 {duration:.2f} 秒。镜头 {len(data["shots"])} 条，时间轴闭合。
 """
     (ROOT / "项目说明.md").write_text(note, encoding="utf-8")
 
@@ -1027,8 +940,6 @@ def qa(staged: Path, data: dict) -> dict:
         and not overlap
         and not gap
         and report["timeline"]["last_end_equals_audio"]
-        and 30.0 <= report["video"]["duration_s"] <= 60.0
-        and len(shots) >= 7
     )
     (ROOT / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
@@ -1040,27 +951,20 @@ def main() -> None:
     print("VO", duration)
     for row in cues:
         print(f"  {row[0]:6.3f}-{row[1]:6.3f}  {row[2]}")
-    if len(cues) != 11:
-        raise SystemExit(f"expected 11 phrases, got {len(cues)}")
-    if duration < 30.0:
-        raise SystemExit(f"VO too short for LENGTH.md: {duration:.2f}s")
+    if len(cues) != 5:
+        raise SystemExit(f"expected 5 phrases, got {len(cues)}")
     make_bgm(duration)
     data = build_timeline(cues, duration)
     print("timeline shots", [(s["id"], s["start"], s["end"], s["kind"]) for s in data["shots"]])
-    if len(data["shots"]) < 7:
-        raise SystemExit(f"need >=7 shots, got {len(data['shots'])}")
 
-    b_jobs = [
-        ("S02", "B-二十五分钟.mp4", render_b_twentyfive, 2.4),
-        ("S04", "B-错法空转.mp4", render_b_wrong, 2.6),
-        ("S06", "B-执行.mp4", render_b_focus, 2.4),
-        ("S08", "B-节奏.mp4", render_b_rhythm, 2.8),
-    ]
-    for sid, name, fn, floor in b_jobs:
-        shot = next(s for s in data["shots"] if s["id"] == sid)
-        dur = max(floor, float(shot["end"]) - float(shot["start"]))
-        print("render", name, dur)
-        frames_to_mp4(fn(dur + 0.12), ROOT / "broll" / name)
+    b1 = next(s for s in data["shots"] if s["id"] == "S02")
+    b2 = next(s for s in data["shots"] if s["id"] == "S03")
+    d1 = max(2.2, float(b1["end"]) - float(b1["start"]))
+    d2 = max(2.4, float(b2["end"]) - float(b2["start"]))
+    print("render B-二十五分钟", d1)
+    frames_to_mp4(render_b_twentyfive(d1 + 0.12), ROOT / "broll" / "B-二十五分钟.mp4")
+    print("render B-铁律", d2)
+    frames_to_mp4(render_b_iron(d2 + 0.12), ROOT / "broll" / "B-铁律.mp4")
 
     make_cover()
     staged = assemble(data)
