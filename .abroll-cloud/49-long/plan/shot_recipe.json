@@ -1,0 +1,25 @@
+{
+  "title": "研一汇报先精读一篇顶刊",
+  "cover_title": "研一汇报先精读一篇顶刊",
+  "cover_sub": "八到十页讲清三件事",
+  "cover_line": "别报没搭完的台",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "49",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #49 / 备忘录第三节 4 研一周会汇报战术 / 49-long 加长重切",
+  "note": "文献精读当主菜。不重复 16「只报做完」主标题，不重复 37 撞课 SOP。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["研一汇报，先精读一篇顶刊"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["还没进实验，别先报搭台", "每周只挑一篇顶刊，认真读完"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-八到十页.mp4", "phrases": ["领域就三类：微流控测控、精密温控或生物图像", "做成八到十页，图表要规范", "只讲清三件事，别堆成目录", "背景、方法、结论，讲清楚就收"], "broll": "ten_pages"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["汇报多报已经做完的动作"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-已完成动作.mp4", "phrases": ["精读了这篇文献，页码图表都齐", "跑通了开源仿真基线", "做完了这门课实验"], "broll": "done_actions"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["别报下周一定搭完温控台"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-别搭台子.mp4", "phrases": ["那是超出能力的工程承诺", "组会要带走的，不是空头工期", "不是没搭完的台子"], "broll": "no_bench"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["是这篇精读完了", "文献精读才是研一汇报的主菜"]}
+  ]
+}

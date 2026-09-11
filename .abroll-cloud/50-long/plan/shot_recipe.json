@@ -1,0 +1,25 @@
+{
+  "title": "绑定一个主力博士",
+  "cover_title": "绑定一个主力博士",
+  "cover_sub": "认准一位稳的师兄",
+  "cover_line": "减负换过关",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "50",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #50 / 备忘录第四节 2 绑定主力博士 / 50-long 加长重切",
+  "note": "只拍利益同盟。不拍测控生态位。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["绑定一个主力博士，结成利益同盟"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是广撒网去绑一圈人", "甲乙丙丁都绑不牢，谁都不欠你"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-只绑一个.mp4", "phrases": ["认准一位性格稳健、有任务的高年级师兄", "他得有顶级论文任务在推"], "broll": "one_phd"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["你去承担平台里繁琐的自动化搭建", "再帮他做上位机数据处理"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-减负换筹码.mp4", "phrases": ["用工程能力帮他减负，换过关筹码", "换论文共同署名", "换专利发明人位次"], "broll": "reduce_load"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["换毕业实验数据的合法引用授权"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-换署名数据.mp4", "phrases": ["测控生态位已经另讲过，本条不重拍", "本条不拍生态位，只拍同盟", "本条只拍这一条：利益同盟"], "broll": "authorship"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["只绑一个，才换得动署名", "署名、位次和数据授权一起写清", "过关靠这一条同盟，不靠广撒网"]}
+  ]
+}

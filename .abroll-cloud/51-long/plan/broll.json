@@ -1,0 +1,38 @@
+[
+  {
+    "id": "two_trees",
+    "file": "broll/B-两棵技能树.mp4",
+    "tag": "对 · 主树",
+    "title": "主树先长控制和机器人",
+    "cards": [
+      {"num": "主", "head": "控制 + 机器人", "body": "现在先长这一棵", "color": "mint"},
+      {"num": "副", "head": "Agent", "body": "长期第二技能树", "color": "muted"}
+    ],
+    "punch": "不是当前主线",
+    "phrases": ["主树先长控制、机器人和智能", "副树是Agent，先淡着放在旁边"]
+  },
+  {
+    "id": "side_cards",
+    "file": "broll/B-侧牌不上桌.mp4",
+    "tag": "错 · 上桌",
+    "title": "侧牌先别上主桌",
+    "cards": [
+      {"num": "后", "head": "检索 / 协议 / 技能", "body": "堆在侧边", "color": "yellow"},
+      {"num": "远", "head": "机器人加智能体", "body": "长期再看", "color": "cream"}
+    ],
+    "punch": "别同时开过多线",
+    "phrases": ["再往后才是检索增强、协议和技能", "长期可以看机器人加智能体", "当前别因此同时开过多学习线"]
+  },
+  {
+    "id": "interest",
+    "file": "broll/B-只保持兴趣.mp4",
+    "tag": "今 · 基础",
+    "title": "现在只指基础语言",
+    "cards": [
+      {"num": "今", "head": "基础语言", "body": "现在箭头只指这里", "color": "mint"},
+      {"num": "趣", "head": "只保持兴趣", "body": "独立小项目还没出来", "color": "yellow"}
+    ],
+    "punch": "先别抢戏",
+    "phrases": ["侧牌堆在旁边，先别上主桌", "检索和协议先不上主桌", "独立小项目还没做出来之前", "这些只保持兴趣，不当主线"]
+  }
+]
