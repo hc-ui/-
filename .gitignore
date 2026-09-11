@@ -4,3 +4,5 @@ node_modules/
 .env
 .env.*
 !/.env.example
+
+.abroll-cloud/aroll/_scratch/
