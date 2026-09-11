@@ -1,0 +1,109 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 30.839,
+  "fps": 24,
+  "size": [1080, 1920],
+  "title": "三秒留人",
+  "video_type": "普通短视频",
+  "bgm": "audio/bgm.wav",
+  "bgm_credit": "synthetic pad (cloud); original Mixkit credit retained from locked Drive timeline",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "start": 0.0,
+      "end": 0.7,
+      "src": "assets/V-挥手.mp4",
+      "line": "大家好",
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "start": 0.7,
+      "end": 5.36,
+      "src": "assets/V-正对讲.mp4",
+      "line": "知识视频不是输在后面讲得浅 是输在前三秒被划走"
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "start": 5.36,
+      "end": 9.36,
+      "src": "broll/B-跟我有关.mp4",
+      "line": "观众刷到你，只问一件事 这跟我有没有关系",
+      "broll": "relate"
+    },
+    {
+      "id": "S03a",
+      "kind": "A",
+      "start": 9.36,
+      "end": 11.32,
+      "src": "assets/V-摊手.mp4",
+      "line": "所以钩子不是打招呼"
+    },
+    {
+      "id": "S03b",
+      "kind": "B",
+      "start": 11.32,
+      "end": 13.68,
+      "src": "broll/B-先甩结果.mp4",
+      "line": "是先甩一个他正在亏的结果",
+      "broll": "result"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "start": 13.68,
+      "end": 24.8,
+      "src": "broll/B-三秒公式.mp4",
+      "line": "第一秒，别报名字，先报损失 第二秒，甩对照 多数人开头自我介绍 留下的人开头给冲突 第三秒，给一条马上能改的指令",
+      "broll": "formula"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "start": 24.8,
+      "end": 27.96,
+      "src": "broll/B-更具体.mp4",
+      "line": "记住，留人不是更热闹 是更具体",
+      "broll": "specific"
+    },
+    {
+      "id": "S06",
+      "kind": "A",
+      "start": 27.96,
+      "end": 30.839,
+      "src": "assets/V-点赞.mp4",
+      "line": "下次开口前，先改你的第一句"
+    }
+  ],
+  "a_caps": [
+    {"start": 0.0, "end": 0.7, "lines": ["大家好"]},
+    {"start": 0.7, "end": 3.32, "lines": ["知识视频不是", "输在后面讲得浅"]},
+    {"start": 3.32, "end": 5.36, "lines": ["是输在前三秒被划走"]},
+    {"start": 9.36, "end": 11.32, "lines": ["所以钩子不是打招呼"]},
+    {"start": 27.96, "end": 30.839, "lines": ["下次开口前", "先改你的第一句"]}
+  ],
+  "shutters": [
+    {"start": 0.7, "color": [245, 247, 250]},
+    {"start": 5.36, "color": [126, 224, 197]},
+    {"start": 9.36, "color": [245, 247, 250]},
+    {"start": 11.32, "color": [126, 224, 197]},
+    {"start": 13.68, "color": [126, 224, 197]},
+    {"start": 24.8, "color": [245, 193, 92]},
+    {"start": 27.96, "color": [245, 193, 92]}
+  ],
+  "eyebrows": [
+    {"start": 0.0, "end": 0.7, "text": "A-ROLL / 01"},
+    {"start": 0.7, "end": 5.36, "text": "A-ROLL / 01"},
+    {"start": 9.36, "end": 11.32, "text": "A-ROLL / 03"},
+    {"start": 27.96, "end": 30.839, "text": "A-ROLL / 06"}
+  ],
+  "cover": {
+    "title": "前三秒怎么留人",
+    "sub": "钩子不是打招呼",
+    "line": "损失 · 对照 · 指令",
+    "src": "assets/A-角色-小灯-摊手.jpg"
+  }
+}

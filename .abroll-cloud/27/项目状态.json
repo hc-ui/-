@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "project_name": "27_三秒留人",
+  "drive_source": "12_三秒留人",
+  "video_type": "普通短视频",
+  "episode": 27,
+  "status": "进行中",
+  "current_stage": "锁定口播与时间轴已就位，待组装",
+  "script": {
+    "path": "script/voiceover.txt"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "duration_ms": 30839
+  },
+  "updated_at": "2026-09-11T11:48:00Z"
+}
