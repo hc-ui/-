@@ -7,7 +7,7 @@
   "source_note": "topics-batch3.md #56 / 工厂 349_别在字幕里加注释",
   "slug": "349_别在字幕里加注释",
   "voice": "zh-CN-YunyangNeural",
-  "duration": 12.9,
+  "duration": 49.792,
   "size": [
     1080,
     1920
@@ -19,7 +19,7 @@
   "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
   "script": {
     "path": "script/voiceover.txt",
-    "sha256": "d4db3bddf15ec2684f18b50573cbffe953ce7e2332e6c16b63f13a28a8503837"
+    "sha256": "9cd77b6ec4108a566a42cbaea38f95ec4aa6fc40eb171cca0c79efbf72969c7e"
   },
   "audio": {
     "path": "audio/vo-full.wav",
@@ -27,7 +27,7 @@
     "voice_id": "zh-CN-YunyangNeural",
     "sample_rate": 44100,
     "channels": 1,
-    "duration_ms": 12900
+    "duration_ms": 49791
   },
   "deliverables": {
     "final_video": "/workspace/成片/56-别在字幕里加注释.mp4",
@@ -39,5 +39,5 @@
   "windows_paths": false,
   "drive_upload": false,
   "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
-  "updated_at": "2026-09-11T12:33:16Z"
+  "updated_at": "2026-09-11T13:06:25Z"
 }

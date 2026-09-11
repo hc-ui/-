@@ -6,16 +6,16 @@
   "drive_upload": false,
   "video_type": "普通短视频",
   "final": "/workspace/成片/56-别在字幕里加注释.mp4",
-  "project_final": "/workspace/.abroll-cloud/56/00_最终成片_别在字幕里加注释.mp4",
-  "sha256": "d219809044de57da7e6edab3d7b596f63ca7b7f26491c5b36ee0668044ef14db",
-  "bytes": 3066074,
+  "project_final": "/tmp/prod-56/00_最终成片_别在字幕里加注释.mp4",
+  "sha256": "29cb99d224e883a03e61835a9214b6de50bf32941d4b60b4b0676ca76fc064d8",
+  "bytes": 10403375,
   "video": {
     "codec": "h264",
     "width": 1080,
     "height": 1920,
     "fps": 24.0,
     "pix_fmt": "yuv420p",
-    "duration_s": 12.9
+    "duration_s": 49.791667
   },
   "audio": {
     "codec": "aac",
@@ -25,12 +25,21 @@
     "max_volume_db": -10.1
   },
   "timeline": {
-    "segments": 5,
+    "segments": 12,
     "overlap": false,
     "gap": false,
     "last_end_equals_audio": true,
     "broll_lead_s": 0.28
   },
   "decode_null": true,
-  "ok": true
+  "ok": true,
+  "duration_window": {
+    "min": 30.0,
+    "max": 60.0,
+    "target": [
+      40.0,
+      50.0
+    ],
+    "hit": true
+  }
 }
