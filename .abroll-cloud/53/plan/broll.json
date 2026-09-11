@@ -1,0 +1,26 @@
+[
+  {
+    "id": "hook_miss",
+    "file": "broll/B-钩子没咬住.mp4",
+    "tag": "错 · 立刻答",
+    "title": "问完立刻自答",
+    "cards": [
+      {"num": "叉", "head": "问完立刻答", "body": "波形不断，问号后没空格", "color": "red"},
+      {"num": "滑", "head": "钩子没咬住", "body": "人已经滑走", "color": "yellow"}
+    ],
+    "punch": "钩子没咬住",
+    "phrases": ["问完立刻自答，钩子还没咬住"]
+  },
+  {
+    "id": "leave_beat",
+    "file": "broll/B-问号留空.mp4",
+    "tag": "对 · 留半拍",
+    "title": "问句落地再给答案",
+    "cards": [
+      {"num": "空", "head": "问号后空半格", "body": "波形停半拍", "color": "yellow"},
+      {"num": "勾", "head": "停半拍再答", "body": "字幕晚一拍出答案", "color": "mint"}
+    ],
+    "punch": "问号后面留空",
+    "phrases": ["写完口播，在问号后面留空"]
+  }
+]
