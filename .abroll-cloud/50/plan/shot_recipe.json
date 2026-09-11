@@ -1,0 +1,46 @@
+{
+  "title": "绑定一个主力博士",
+  "cover_title": "绑定一个主力博士",
+  "cover_sub": "认准一位稳的师兄",
+  "cover_line": "减负换过关",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "50",
+  "source": "topics-batch3.md #50 / 备忘录第四节 2 绑定主力博士",
+  "note": "专硕破局。只拍利益同盟。不是剧情短剧，不走 drama-pipeline。不拍测控生态位。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["绑定一个主力博士"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-只绑一个.mp4",
+      "phrases": ["认准一位稳的、有论文任务的师兄"],
+      "broll": "one_phd"
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["你帮他搭自动化、处理数据"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-换署名数据.mp4",
+      "phrases": ["换署名、专利位次、毕业数据授权"],
+      "broll": "authorship"
+    }
+  ]
+}

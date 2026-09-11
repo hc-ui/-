@@ -1,0 +1,26 @@
+[
+  {
+    "id": "one_phd",
+    "file": "broll/B-只绑一个.mp4",
+    "tag": "对 · 一个",
+    "title": "认准一位主力",
+    "cards": [
+      {"num": "叉", "head": "广撒网", "body": "甲乙丙丁都绑不牢", "color": "red"},
+      {"num": "绑", "head": "主力博士", "body": "稳 · 有论文任务", "color": "mint"}
+    ],
+    "punch": "只绑一个",
+    "phrases": ["认准一位稳的、有论文任务的师兄"]
+  },
+  {
+    "id": "authorship",
+    "file": "broll/B-换署名数据.mp4",
+    "tag": "换 · 同盟",
+    "title": "减负换过关",
+    "cards": [
+      {"num": "名", "head": "共同署名", "body": "署名栏多一个名字", "color": "mint"},
+      {"num": "盘", "head": "可引用", "body": "毕业数据合法授权", "color": "yellow"}
+    ],
+    "punch": "结成利益同盟",
+    "phrases": ["换署名、专利位次、毕业数据授权"]
+  }
+]
