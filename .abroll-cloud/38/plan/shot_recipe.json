@@ -1,0 +1,62 @@
+{
+  "title": "分不清改物理和AI画错",
+  "cover_title": "改了物理",
+  "cover_sub": "还是 AI 画错",
+  "cover_line": "抽卡救不了 · 三条规矩",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch3.md #38 / 选题库.md 001 暂缓 / EP001-生产包.md",
+  "video_type": "普通短视频",
+  "note": "知识口播。不是剧情，不重拍雨滴弹回。B 卷比对应口播早切半拍。",
+  "b_lead": 0.28,
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["观众分不清，你是改了物理，还是AI画错"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-玻璃珠对照.mp4",
+      "phrases": ["一颗不融进水的球，看起来就像玻璃珠"],
+      "broll": "bead",
+      "lead": 0.28
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-抽卡救不了.mp4",
+      "phrases": ["抽卡救不了"],
+      "broll": "draw",
+      "lead": 0.28
+    },
+    {
+      "id": "S04",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["先给正常再给反常"]
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-三条规矩.mp4",
+      "phrases": ["片头写清只改这一条"],
+      "broll": "rules",
+      "lead": 0.28
+    },
+    {
+      "id": "S06",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["尺度放大，大到不可能是穿帮"]
+    }
+  ]
+}
