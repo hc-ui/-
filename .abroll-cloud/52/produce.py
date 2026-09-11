@@ -766,8 +766,18 @@ def assemble(data: dict) -> Path:
         dur = float(shot["end"]) - float(shot["start"])
         src = ROOT / shot["src"]
         dest = shots_dir / f"{shot['id']}.mp4"
-        print(shot["id"], shot["kind"], f"{dur:.2f}s", src.name)
-        cut_shot(src, dur, dest, shot["kind"], bool(shot.get("close")))
+        print(shot["id"], shot["kind"], f"{dur:.2f}s", src.name, flush=True)
+        reused = False
+        if dest.exists() and dest.stat().st_size > 2000:
+            try:
+                got = probe_dur(dest)
+                reused = abs(got - dur) < 0.08
+            except Exception:
+                reused = False
+        if reused:
+            print("reuse shot", dest.name, flush=True)
+        else:
+            cut_shot(src, dur, dest, shot["kind"], bool(shot.get("close")))
         parts.append(dest)
 
     lst = shots_dir / "concat.txt"
@@ -794,6 +804,7 @@ def assemble(data: dict) -> Path:
     make_sfx(cuts, float(data["duration"]))
 
     final = ROOT / f"00_最终成片_{NAME}.mp4"
+    tmp_final = ROOT / f"00_最终成片_{NAME}.tmp.mp4"
     (ROOT / "final").mkdir(exist_ok=True)
     inputs = ["ffmpeg", "-y", "-i", str(burned), "-i", str(audio)]
     filters = ["[1:a]loudnorm=I=-16:LRA=11:TP=-1.5,aformat=sample_rates=44100:channel_layouts=stereo[vo]"]
@@ -816,21 +827,27 @@ def assemble(data: dict) -> Path:
         "-c:v", "libx264", "-preset", "fast", "-crf", "18",
         "-c:a", "aac", "-ar", "44100", "-ac", "2", "-b:a", "192k",
         "-shortest", "-movflags", "+faststart",
-        str(final),
+        str(tmp_final),
     ]
     run(inputs)
+    if final.exists():
+        final.unlink()
+    tmp_final.replace(final)
 
     out = ROOT / "output" / f"{NAME}.mp4"
     out.parent.mkdir(exist_ok=True)
     shutil.copy2(final, out)
-    shutil.copy2(final, ROOT / "final" / f"{NAME}.mp4")
+    dest_copy = ROOT / "final" / f"{NAME}.mp4"
+    if dest_copy.exists():
+        dest_copy.unlink()
+    shutil.copy2(final, dest_copy)
 
     staged = Path("/workspace/成片") / STAGED_NAME
     staged.parent.mkdir(exist_ok=True)
-    if staged.exists() and staged.samefile(final):
-        print("staged already linked", staged)
-    else:
-        shutil.copy2(final, staged)
+    if staged.exists():
+        staged.unlink()
+    shutil.copy2(final, staged)
+    print("wrote staged", staged, flush=True)
     return staged
 
 
@@ -1002,7 +1019,10 @@ def qa(staged: Path, data: dict) -> dict:
         ["ffmpeg", "-v", "error", "-i", str(staged), "-f", "null", "-"],
         capture_output=True, text=True,
     )
-    (qa_dir / "decode.txt").write_text((null.stderr or "") + "\n", encoding="utf-8")
+    decode_err = "\n".join(
+        ln for ln in (null.stderr or "").splitlines() if "libncursesw.so.6" not in ln
+    )
+    (qa_dir / "decode.txt").write_text((decode_err or "") + "\n", encoding="utf-8")
     vol = subprocess.run(
         ["ffmpeg", "-i", str(staged), "-af", "volumedetect", "-f", "null", "-"],
         capture_output=True, text=True,
@@ -1052,7 +1072,7 @@ def qa(staged: Path, data: dict) -> dict:
             "last_end_equals_audio": abs(shots[-1]["end"] - data["duration"]) < 0.05,
             "broll_lead_s": LEAD,
         },
-        "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
+        "decode_null": null.returncode == 0 and not decode_err.strip(),
         "duration_in_target": 40.0 <= float(info["format"]["duration"]) <= 50.5,
         "ok": True,
     }
@@ -1096,6 +1116,14 @@ def main() -> None:
         d = max(2.4, float(shot["end"]) - float(shot["start"]))
         dest = ROOT / shot["src"]
         print("render", dest.name, d)
+        if dest.exists() and dest.stat().st_size > 2000:
+            try:
+                got = probe_dur(dest)
+            except Exception:
+                got = 0.0
+            if abs(got - d) < 0.35:
+                print("reuse B-roll", dest.name, got)
+                continue
         frames_to_mp4(renders[key](d + 0.16), dest)
 
     make_cover()
