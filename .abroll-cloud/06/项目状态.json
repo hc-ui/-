@@ -2,7 +2,15 @@
   "video_type": "普通短视频",
   "slug": "352_先给场景再给方法",
   "topic_index": 6,
-  "stage": "producing",
+  "stage": "delivered",
   "title": "先给场景再给方法",
-  "voice": "zh-CN-YunyangNeural"
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 12.75,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "staged": "成片/06-先给场景再给方法.mp4",
+  "project_final": "00_最终成片_先给场景再给方法.mp4"
 }
