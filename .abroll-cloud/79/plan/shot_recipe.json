@@ -1,0 +1,25 @@
+{
+  "title": "组会不是攻坚工坊",
+  "cover_title": "组会不是攻坚工坊",
+  "cover_sub": "这是秩序会，不是辅导课",
+  "cover_line": "按时交付才算过",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "79",
+  "cut": "new-40s",
+  "source": "topics-batch4.md #79 / 备忘录第三节 1 / 云端 NEW",
+  "note": "知识口播。只打组会本质。不是剧情短剧。不定格、不慢放注水。不重复成片 37 撞课 SOP。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["组会不是攻坚工坊"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是手把手改算法的地方", "导师来统筹秩序，检视考勤，再派发任务"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-秩序会不是辅导课.mp4", "phrases": ["别把组会当成技术辅导课", "宏观说教像气球，听完就飘走", "推导和底层代码不会当场讲完"], "broll": "not_workshop"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["表现不看谁讲得更炫"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-三条表现.mp4", "phrases": ["看按时交付，看态度严谨", "还看合规合矩", "把组会当成工坊，你会空等手把手"], "broll": "three_metrics"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["把力气花在会后把活落地", "第一步，先认清组会是秩序会"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-三步记下.mp4", "phrases": ["第二步，会前把交付对齐", "第三步，听完任务就记下", "名单对得上，才算在"], "broll": "three_steps"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["任务接得住，才算过", "请按交付来过"]}
+  ]
+}
