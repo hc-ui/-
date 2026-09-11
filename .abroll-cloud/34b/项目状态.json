@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "project_name": "34_口播别念屏幕上的字",
+  "video_type": "普通短视频",
+  "episode": 34,
+  "title": "口播别念屏幕上的字",
+  "slug": "311_口播别念屏幕上的字",
+  "source_note": "topics-batch2.md #24 / 工厂 311_口播别念屏幕上的字 voiceover.txt",
+  "unused_of": "口播别念链接 / 口播结尾别报时长",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 12.833,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "5514a931a856b1bd5c77b8317cb60b4d2175b41a73f4099dd047b6903cbde28a"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 12833
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/34-口播别念屏幕上的字.mp4",
+    "project_final": "00_最终成片_口播别念屏幕上的字.mp4",
+    "cover": "00_封面_口播别念屏幕上的字.jpg"
+  },
+  "staged": "成片/34-口播别念屏幕上的字.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / 别念链接 / 别报时长",
+  "updated_at": "2026-09-11T12:00:53Z"
+}
