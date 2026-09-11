@@ -629,14 +629,18 @@ def assemble(data: dict) -> Path:
     ]
     run(inputs)
 
+    def same_copy(src: Path, dest: Path) -> None:
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if dest.exists() and dest.samefile(src):
+            return
+        shutil.copy2(src, dest)
+
     out = ROOT / "output" / f"{NAME}.mp4"
-    out.parent.mkdir(exist_ok=True)
-    shutil.copy2(final, out)
-    shutil.copy2(final, ROOT / "final" / f"{NAME}.mp4")
+    same_copy(final, out)
+    same_copy(final, ROOT / "final" / f"{NAME}.mp4")
 
     staged = Path("/workspace/成片") / STAGED_NAME
-    staged.parent.mkdir(exist_ok=True)
-    shutil.copy2(final, staged)
+    same_copy(final, staged)
     return staged
 
 
