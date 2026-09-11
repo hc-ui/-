@@ -1,0 +1,241 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 23.64,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "雨滴弹回",
+  "video_type": "普通短视频",
+  "topic_id": "001",
+  "bgm": "audio/bgm.wav",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "close": true,
+      "line": "大家好",
+      "phrases": [
+        "大家好"
+      ],
+      "start": 0.0,
+      "end": 1.34
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "close": false,
+      "line": "只改一条定律",
+      "phrases": [
+        "只改一条定律"
+      ],
+      "start": 1.34,
+      "end": 2.728
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "close": false,
+      "line": "水的表面张力乘一百",
+      "phrases": [
+        "水的表面张力乘一百"
+      ],
+      "start": 2.728,
+      "end": 5.508,
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-正常.mp4",
+      "close": false,
+      "line": "先看正常，雨砸伞就炸开",
+      "phrases": [
+        "先看正常，雨砸伞就炸开"
+      ],
+      "start": 5.508,
+      "end": 8.372,
+      "broll": "normal"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-弹回.mp4",
+      "close": false,
+      "line": "再看反常，砸下去压个坑再弹回来",
+      "phrases": [
+        "再看反常，砸下去压个坑再弹回来"
+      ],
+      "start": 8.372,
+      "end": 11.901,
+      "broll": "bounce"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-凝胶.mp4",
+      "close": false,
+      "line": "落地不飞溅，像凝胶球",
+      "phrases": [
+        "落地不飞溅，像凝胶球"
+      ],
+      "start": 11.901,
+      "end": 14.622,
+      "broll": "gel"
+    },
+    {
+      "id": "S07",
+      "kind": "B",
+      "src": "broll/B-落叶.mp4",
+      "close": false,
+      "line": "落叶压出水洼一个坑，不沉",
+      "phrases": [
+        "落叶压出水洼一个坑，不沉"
+      ],
+      "start": 14.622,
+      "end": 17.682,
+      "broll": "leaf"
+    },
+    {
+      "id": "S08",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "close": false,
+      "line": "水面整体往上鼓，高出边缘",
+      "phrases": [
+        "水面整体往上鼓，高出边缘"
+      ],
+      "start": 17.682,
+      "end": 20.501
+    },
+    {
+      "id": "S09",
+      "kind": "B",
+      "src": "broll/B-凸街.mp4",
+      "close": false,
+      "line": "整条街的水洼，全是凸的",
+      "phrases": [
+        "整条街的水洼，全是凸的"
+      ],
+      "start": 20.501,
+      "end": 23.64,
+      "broll": "street"
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 1.34,
+      "end": 2.728,
+      "lines": [
+        "只改一条定律"
+      ]
+    },
+    {
+      "start": 17.682,
+      "end": 20.501,
+      "lines": [
+        "水面整体往上鼓",
+        "高出边缘"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 1.34,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 2.728,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 5.508,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 8.372,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 11.901,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 14.622,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 17.682,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 20.501,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 1.34,
+      "end": 2.728,
+      "text": "A-ROLL / 02"
+    },
+    {
+      "start": 17.682,
+      "end": 20.501,
+      "text": "A-ROLL / 08"
+    }
+  ],
+  "cover": {
+    "title": "雨滴砸伞",
+    "sub": "不炸开，弹回来",
+    "line": "表面张力 ×100"
+  }
+}

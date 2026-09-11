@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "project_name": "30_雨滴弹回",
+  "video_type": "普通短视频",
+  "episode": 30,
+  "topic_id": "001",
+  "source_note": "选题库.md #001 / 水的表面张力 ×100",
+  "title": "雨滴弹回",
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底弹跳信息图/无字静帧 B-roll + edge-tts Yunyang + FFmpeg",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 23.625,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "35e7d7b4183ebc598a0bb1a9a98f642b1372d4fca77d5af253cb5bfdc3e9179e"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 23625,
+    "note": "云端 edge-tts zh-CN-YunyangNeural，未走本机盘符"
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/30-雨滴弹回.mp4",
+    "project_final": "00_最终成片_雨滴弹回.mp4",
+    "cover": "00_封面_雨滴弹回.jpg"
+  },
+  "staged": "成片/30-雨滴弹回.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "剧情短剧 / drama-pipeline / Drive 上传 / C: D: G:",
+  "siblings_avoided": [
+    "002",
+    "006",
+    "007",
+    "009",
+    "010",
+    "003",
+    "005",
+    "008"
+  ],
+  "updated_at": "2026-09-11T11:58:39Z"
+}
