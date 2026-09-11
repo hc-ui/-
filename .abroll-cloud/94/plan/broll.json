@@ -1,0 +1,10 @@
+{
+  "style": "黑底对照卡",
+  "distinct_from_52": "不成片52的反转/结局/剧透标题，不画把结局撕掉",
+  "cards": [
+    {"id": "bang_drop", "file": "B-感叹号掉可信.mp4", "point": "三个感叹号叠上，可信条当场掉"},
+    {"id": "compare_cards", "file": "B-对错对照.mp4", "point": "搞定了!!! 对 搞定了。"},
+    {"id": "hook_vs_punct", "file": "B-钩子不是标点.mp4", "point": "感叹号打叉，事实打勾"},
+    {"id": "count_delete", "file": "B-超过一个就删.mp4", "point": "数完超过一个，感叹号全删"}
+  ]
+}

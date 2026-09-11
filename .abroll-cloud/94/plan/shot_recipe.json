@@ -1,0 +1,26 @@
+{
+  "title": "别在标题里堆感叹号",
+  "cover_title": "别在标题里堆感叹号",
+  "cover_sub": "感叹号越多越假",
+  "cover_line": "标题只留事实",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch4.md #94 / 工厂 338_别在标题里堆感叹号 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "94",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打标题里不要堆感叹号。不拍成片52反转剧透。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["别在标题里堆感叹号"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-感叹号掉可信.mp4", "broll": "bang_drop", "phrases": ["三个感叹号叠上去，可信度当场掉一截", "它不像强调，像在喊你买"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["标题只留事实", "感叹号越多，越像叫卖"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-对错对照.mp4", "broll": "compare_cards", "phrases": ["错的写法，搞定了后面三个感叹号", "对的写法，搞定了，句号收住"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["一边像促销，一边像笔记"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-钩子不是标点.mp4", "broll": "hook_vs_punct", "phrases": ["感叹号不是钩子", "钩子靠事实，不靠感叹号"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["写完标题，先数感叹号"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-超过一个就删.mp4", "broll": "count_delete", "phrases": ["超过一个，就全删", "标点救不了弱标题"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["把感叹号删掉，句子还站得住，才算写完"]},
+    {"id": "S10", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["标题里不堆感叹号"]}
+  ]
+}
