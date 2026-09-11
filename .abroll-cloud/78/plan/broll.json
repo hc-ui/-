@@ -1,0 +1,23 @@
+[
+  {
+    "id": "wallpaper",
+    "file": "broll/B-是壁纸.mp4",
+    "tag": "错 · 是壁纸",
+    "title": "没人物没欲望",
+    "punch": "不是片子"
+  },
+  {
+    "id": "can_do",
+    "file": "broll/B-只问做对.mp4",
+    "tag": "错 · 只问做对",
+    "title": "能做对 / 有人看",
+    "punch": "没人停下来"
+  },
+  {
+    "id": "three_swipes",
+    "file": "broll/B-三次滑走.mp4",
+    "tag": "对 · 先问想看",
+    "title": "看三次就划走",
+    "punch": "先欲望再模型"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "title": "先问有没有人想看",
+  "cover_title": "先问有没有人想看",
+  "cover_sub": "再问模型能不能做对",
+  "cover_line": "壁纸不是片子",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "78",
+  "cut": "new-40s",
+  "source": "topics-batch4.md #78 / Drive 方向测试.md / 云端 NEW",
+  "note": "知识口播。只打先问有没有人想看。不是剧情短剧。不定格、不慢放注水。不重拍成片45，不拍战神/仙侠。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["先问有没有人想看"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是先问模型能不能做对", "纯画面验证失败以后，最稳的方向被否了"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-是壁纸.mp4", "phrases": ["它是壁纸，不是片子", "没人物，没欲望，没失败"], "broll": "wallpaper"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["第一次看会哦一声", "第三次手指就滑走"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-只问做对.mp4", "phrases": ["能做对的空镜，也没人停下来", "顺序反了，就会反复推出零欲望方案"], "broll": "can_do"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["第一步，先问有没有人想看", "第二步，再问模型能不能做对"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-三次滑走.mp4", "phrases": ["有人看的欲望，排在能做对前面", "没有人物，就没有人跟着走", "没有失败，就没有人想看结局"], "broll": "three_swipes"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["技术上漂亮，情感上为零", "先欲望，再模型", "没人想看的方向，请当成没立"]}
+  ]
+}
