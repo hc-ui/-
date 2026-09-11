@@ -1,0 +1,51 @@
+[
+  {
+    "id": "term_first",
+    "file": "broll/B-术语在前.mp4",
+    "tag": "错 · 术语在前",
+    "title": "术语甩在前面",
+    "punch": "听众只会点头"
+  },
+  {
+    "id": "nod_forget",
+    "file": "broll/B-点头就忘.mp4",
+    "tag": "错 · 点头",
+    "title": "点头转身就忘",
+    "punch": "新词留不住"
+  },
+  {
+    "id": "name_only",
+    "file": "broll/B-名字对不上.mp4",
+    "tag": "错 · 对不上",
+    "title": "名字记住了",
+    "punch": "场面对不上"
+  },
+  {
+    "id": "drawer",
+    "file": "broll/B-抽屉名.mp4",
+    "tag": "对 · 抽屉",
+    "title": "先看里面",
+    "punch": "再念名字"
+  },
+  {
+    "id": "lotus",
+    "file": "broll/B-荷叶水珠.mp4",
+    "tag": "对 · 先场面",
+    "title": "水珠站着不塌",
+    "punch": "再点那个词"
+  },
+  {
+    "id": "syllables",
+    "file": "broll/B-三个音节.mp4",
+    "tag": "错 · 先甩词",
+    "title": "三个音节",
+    "punch": "先别甩术语"
+  },
+  {
+    "id": "land_example",
+    "file": "broll/B-例子落地.mp4",
+    "tag": "对 · 前移",
+    "title": "例子先落地",
+    "punch": "词才接得住"
+  }
+]
