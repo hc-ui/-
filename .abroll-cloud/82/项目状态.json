@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "project_name": "82_if-not",
+  "video_type": "普通短视频",
+  "episode": 82,
+  "cut": "new-40s",
+  "title": "if-not",
+  "full_title": "空容器先用 if not 拦住",
+  "source_note": "topics-batch4.md #82 / 学习基线 2026-09-09 不足第6条 / 云端 NEW",
+  "slug": "if-not",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 48.292,
+  "duration_zh": "48.3秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "c5099f2f3a563479c0be3c620f327f96cba2d0b57debf938f7154aafa2adf973",
+    "phrases": 16
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 48291
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/82-if-not.mp4",
+    "project_final": "00_最终成片_if-not.mp4",
+    "cover": "00_封面_if-not.jpg"
+  },
+  "staged": "成片/82-if-not.mp4",
+  "draft": ".abroll-cloud/82",
+  "qa_video": "/workspace/成片/82-if-not.mp4",
+  "replaced_short_cut_s": 0,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T14:44:17Z",
+  "distinct_from": "成片/64-空字典写在循环外面.mp4"
+}
