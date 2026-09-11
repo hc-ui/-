@@ -943,6 +943,10 @@ def qa(staged: Path, data: dict) -> dict:
         ["ffmpeg", "-v", "error", "-i", str(staged), "-f", "null", "-"],
         capture_output=True, text=True,
     )
+    decode_err = "\n".join(
+        ln for ln in (null.stderr or "").splitlines()
+        if ln.strip() and "no version information available" not in ln and "libncursesw" not in ln
+    )
     (qa_dir / "decode.txt").write_text((null.stderr or "") + "\n", encoding="utf-8")
     vol = subprocess.run(
         ["ffmpeg", "-i", str(staged), "-af", "volumedetect", "-f", "null", "-"],
@@ -993,7 +997,7 @@ def qa(staged: Path, data: dict) -> dict:
             "last_end_equals_audio": abs(shots[-1]["end"] - data["duration"]) < 0.05,
             "broll_lead_s": LEAD,
         },
-        "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
+        "decode_null": null.returncode == 0 and not decode_err.strip(),
         "duration_in_target": 40.0 <= float(info["format"]["duration"]) <= 50.5,
         "ok": True,
     }
