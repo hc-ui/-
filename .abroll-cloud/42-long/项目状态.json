@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "project_name": "42_列表用append别用等号_long",
+  "video_type": "普通短视频",
+  "episode": 42,
+  "cut": "long-40s",
+  "title": "列表用append别用等号",
+  "full_title": "列表用 append，别用等号盖掉",
+  "source_note": "topics-batch3.md #42 · 学习与职业规划基线.md 不足第4条",
+  "slug": "列表用append别用等号",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 44.875,
+  "duration_zh": "44.9秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "7fc40d360c2d4e46c12cc750604d4ce4757d8e9b879e870789b6b656960ee572",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 44875
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/42-列表用append别用等号.mp4",
+    "project_final": "00_最终成片_列表用append别用等号.mp4",
+    "cover": "00_封面_列表用append别用等号.jpg"
+  },
+  "staged": "成片/42-列表用append别用等号.mp4",
+  "draft": ".abroll-cloud/42-long",
+  "qa_video": "/workspace/成片/42-列表用append别用等号.mp4",
+  "replaced_short_cut_s": 17.54,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T13:25:13Z"
+}
