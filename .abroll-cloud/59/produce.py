@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""成片 43：先交三道短题。topics-batch3 #43。云端 A-roll + B-roll，不是短剧。"""
+"""成片 59：睡眠债补不回来。topics-batch3 #59。云端 A-roll + B-roll，不是短剧。"""
 from __future__ import annotations
 
 import asyncio
@@ -17,9 +17,8 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parent
 W, H, FPS = 1080, 1920, 24
-NAME = "先交三道短题"
-FULL_TITLE = "先交三道短题，别再开教务菜单"
-STAGED_NAME = "43-先交三道短题.mp4"
+NAME = "睡眠债补不回来"
+STAGED_NAME = "59-睡眠债补不回来.mp4"
 VOICE = "zh-CN-YunyangNeural"
 ASSET_SRC = Path("/workspace/.abroll-cloud/06/assets")
 FONT_BD = "/tmp/NotoSansSC-Bold.otf"
@@ -34,7 +33,6 @@ WHITE = (245, 247, 250)
 MUTED = (154, 162, 176)
 CREAM = (245, 247, 250)
 RED = (255, 118, 118)
-INK = (22, 24, 28)
 LEAD = 0.28
 
 
@@ -138,151 +136,128 @@ def strike_line(draw: ImageDraw.ImageDraw, box, progress: float, color) -> None:
     draw.line([(x0 + 24, mid), (x_end, mid)], fill=color, width=10)
 
 
-def check_mark(draw: ImageDraw.ImageDraw, cx: int, cy: int, a: float, color) -> None:
+def draw_clock(draw: ImageDraw.ImageDraw, cx: int, cy: int, r: int, hour: float, a: float, col) -> None:
     if a <= 0.04:
         return
-    col = mix(CARD, color, a)
-    draw.ellipse((cx - 28, cy - 28, cx + 28, cy + 28), outline=col, width=6)
-    draw.line([(cx - 12, cy + 2), (cx - 2, cy + 12), (cx + 16, cy - 12)], fill=col, width=7)
+    ring = mix(CARD, col, a)
+    draw.ellipse((cx - r, cy - r, cx + r, cy + r), outline=ring, width=7)
+    draw.ellipse((cx - 8, cy - 8, cx + 8, cy + 8), fill=ring)
+    ang_h = math.radians(90 - (hour % 12) * 30)
+    ang_m = math.radians(90 - ((hour % 1) * 60) * 6)
+    hx = cx + int(math.cos(ang_h) * r * 0.48)
+    hy = cy - int(math.sin(ang_h) * r * 0.48)
+    mx = cx + int(math.cos(ang_m) * r * 0.72)
+    my = cy - int(math.sin(ang_m) * r * 0.72)
+    draw.line([(cx, cy), (hx, hy)], fill=ring, width=8)
+    draw.line([(cx, cy), (mx, my)], fill=mix(CARD, WHITE, a), width=5)
 
 
-def cross_mark(draw: ImageDraw.ImageDraw, cx: int, cy: int, a: float, color) -> None:
-    if a <= 0.04:
-        return
-    col = mix(CARD, color, a)
-    draw.ellipse((cx - 28, cy - 28, cx + 28, cy + 28), outline=col, width=6)
-    draw.line([(cx - 12, cy - 12), (cx + 12, cy + 12)], fill=col, width=7)
-    draw.line([(cx + 12, cy - 12), (cx - 12, cy + 12)], fill=col, width=7)
-
-
-def weld_seam(draw: ImageDraw.ImageDraw, x: int, y0: int, y1: int, phase: float, color) -> None:
-    pts = []
-    steps = 16
-    for i in range(steps + 1):
-        yy = lerp(y0, y1, i / steps)
-        wobble = 14 * math.sin(i * 1.9 + phase * 7.0) + (10 if i % 2 else -10)
-        pts.append((x + wobble, yy))
-    if len(pts) >= 2:
-        draw.line(pts, fill=color, width=8)
-
-
-def render_b_welded(duration: float) -> list[Image.Image]:
-    """对照：语法都见过，一焊进菜单就崩。"""
+def render_b_rhythm(duration: float) -> list[Image.Image]:
+    """周末睡到中午、周一闹钟对不上；划掉没睡够，露出节奏乱了。"""
     n = max(1, round(duration * FPS))
     out = []
     for i in range(n):
         t = i / FPS
         img = new_bg()
         d = ImageDraw.Draw(img)
-        tag(d, t, "错 · 焊在一起")
+        tag(d, t, "错 · 没睡够")
         a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "卡的不是新语法", font=font(52), fill=mix(BG, WHITE, a0), anchor="mm")
+        d.text((W // 2, 228 + int(lerp(16, 0, a0))), "不是没睡够", font=font(58), fill=mix(BG, WHITE, a0), anchor="mm")
+        strike_line(d, (220, 188, 860, 268), appear(t, 0.85, 0.28), mix(BG, RED, a0))
+
+        a1 = appear(t, 0.18)
+        if a1 > 0.04:
+            y = 320 + int(lerp(20, 0, a1))
+            rounded(d, (80, y, 510, y + 520), 32, mix(BG, CARD, a1))
+            d.text((295, y + 56), "周末", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+            draw_clock(d, 295, y + 210, 96, 12.0, a1, YELLOW)
+            d.text((295, y + 370), "睡到中午", font=font(42), fill=mix(CARD, YELLOW, a1), anchor="mm")
+            d.text((295, y + 450), "补觉对不上钟", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
+
+            rounded(d, (570, y, 1000, y + 520), 32, mix(BG, CARD, a1))
+            d.text((785, y + 56), "周一", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+            draw_clock(d, 785, y + 210, 96, 7.0, a1, RED)
+            d.text((785, y + 370), "闹钟对不上", font=font(42), fill=mix(CARD, RED, a1), anchor="mm")
+            d.text((785, y + 450), "周一更困", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
+
+        punch = appear(t, 1.28, 0.24)
+        if punch > 0.04:
+            y = 900 + int(lerp(22, 0, punch))
+            rounded(d, (120, y, 960, y + 200), 28, mix(BG, (42, 24, 22), punch))
+            d.text((W // 2, y + 100), "是节奏乱了", font=font(56), fill=mix(BG, YELLOW, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_debt(duration: float) -> list[Image.Image]:
+    """晚睡两小时对补觉两小时；划掉抹平，盖「抹不平」。"""
+    n = max(1, round(duration * FPS))
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "债 · 还不清")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 228 + int(lerp(16, 0, a0))), "睡眠债不能一次还清", font=font(50), fill=mix(BG, WHITE, a0), anchor="mm")
+        d.text((W // 2, 300), "周末一次还不清", font=font(32), fill=mix(BG, MUTED, appear(t, 0.14)), anchor="mm")
+
+        a1 = appear(t, 0.22)
+        if a1 > 0.04:
+            y = 360 + int(lerp(20, 0, a1))
+            rounded(d, (80, y, 510, y + 360), 32, mix(BG, CARD, a1))
+            d.text((295, y + 70), "晚睡", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+            d.text((295, y + 180), "两小时", font=font(64), fill=mix(CARD, YELLOW, a1), anchor="mm")
+            d.text((295, y + 280), "债先记上", font=font(32), fill=mix(CARD, MUTED, a1), anchor="mm")
+
+            a2 = appear(t, 0.55)
+            rounded(d, (570, y, 1000, y + 360), 32, mix(BG, (28, 24, 22), a2))
+            d.text((785, y + 70), "补觉", font=font(30), fill=mix(CARD, MUTED, a2), anchor="mm")
+            d.text((785, y + 180), "两小时", font=font(64), fill=mix(CARD, WHITE, a2), anchor="mm")
+            d.text((785, y + 280), "就能抹平？", font=font(32), fill=mix(CARD, MUTED, a2), anchor="mm")
+            strike_line(d, (600, y + 140, 970, y + 220), appear(t, 1.35, 0.28), mix(CARD, RED, a2))
+
+        punch = appear(t, 1.70, 0.24)
+        if punch > 0.04:
+            y = 800 + int(lerp(22, 0, punch))
+            rounded(d, (120, y, 960, y + 200), 28, mix(BG, (42, 24, 22), punch))
+            d.text((W // 2, y + 100), "抹不平", font=font(64), fill=mix(BG, RED, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_skip(duration: float) -> list[Image.Image]:
+    """固定起床箭头压过补觉；今晚少刷一条，比周末睡到中午值。"""
+    n = max(1, round(duration * FPS))
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "对 · 今晚")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 228 + int(lerp(16, 0, a0))), "今晚少刷一条", font=font(58), fill=mix(BG, WHITE, a0), anchor="mm")
 
         a1 = appear(t, 0.16)
         if a1 > 0.04:
-            y = 330 + int(lerp(20, 0, a1))
-            rounded(d, (80, y, 500, y + 420), 32, mix(BG, (22, 40, 36), a1))
-            d.text((290, y + 70), "过", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
-            d.text((290, y + 170), "语法见过", font=font(44), fill=mix(CARD, MINT, a1), anchor="mm")
-            d.text((290, y + 260), "if / for / 字典", font=font(32), fill=mix(CARD, WHITE, a1), anchor="mm")
-            check_mark(d, 290, y + 350, appear(t, 0.70, 0.22), MINT)
+            y = 320 + int(lerp(20, 0, a1))
+            rounded(d, (80, y, 1000, y + 420), 36, mix(BG, CARD, a1))
+            d.text((W // 2, y + 70), "补觉", font=font(36), fill=mix(CARD, MUTED, a1), anchor="mm")
+            d.text((W // 2, y + 150), "睡到中午", font=font(48), fill=mix(CARD, YELLOW, a1), anchor="mm")
+            strike_line(d, (260, y + 110, 820, y + 190), appear(t, 0.72, 0.26), mix(CARD, RED, a1))
 
-        a2 = appear(t, 0.28)
-        if a2 > 0.04:
-            y = 330 + int(lerp(20, 0, a2))
-            rounded(d, (580, y, 1000, y + 420), 32, mix(BG, CARD, a2))
-            d.text((790, y + 70), "崩", font=font(30), fill=mix(CARD, MUTED, a2), anchor="mm")
-            d.text((790, y + 170), "焊在一起", font=font(44), fill=mix(CARD, RED, a2), anchor="mm")
-            d.text((790, y + 260), "一开菜单就炸", font=font(32), fill=mix(CARD, YELLOW, a2), anchor="mm")
-            weld_seam(d, 540, y + 24, y + 396, appear(t, 0.55, 0.50), mix(CARD, RED, a2))
-            cross_mark(d, 790, y + 350, appear(t, 0.88, 0.22), RED)
+            arrow = appear(t, 0.95, 0.28)
+            if arrow > 0.04:
+                col = mix(CARD, MINT, arrow)
+                d.polygon([(540, y + 210), (500, y + 250), (580, y + 250)], fill=col)
+                d.rectangle((524, y + 250, 556, y + 300), fill=col)
+                d.text((W // 2, y + 350), "固定起床压过补觉", font=font(42), fill=col, anchor="mm")
 
         punch = appear(t, 1.36, 0.24)
         if punch > 0.04:
             y = 820 + int(lerp(22, 0, punch))
-            rounded(d, (120, y, 960, y + 200), 28, mix(BG, (42, 24, 22), punch))
-            d.text((W // 2, y + 100), "是拼装，不是新词", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
-        out.append(img)
-    return out
-
-
-def render_b_three(duration: float) -> list[Image.Image]:
-    """三张短题勾上，第四张「再做一个教务」打叉。"""
-    n = max(1, round(duration * FPS))
-    items = [
-        ("1", "通讯录", 0.14),
-        ("2", "库存", 0.36),
-        ("3", "从值找键", 0.58),
-    ]
-    out = []
-    for i in range(n):
-        t = i / FPS
-        img = new_bg()
-        d = ImageDraw.Draw(img)
-        tag(d, t, "对 · 先交短题")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 228 + int(lerp(16, 0, a0))), "先交这三道", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
-
-        for idx, (num, head, start) in enumerate(items):
-            a = appear(t, start)
-            if a <= 0.04:
-                continue
-            y = 310 + idx * 210 + int(lerp(18, 0, a))
-            rounded(d, (80, y, 1000, y + 186), 30, mix(BG, CARD, a))
-            d.text((160, y + 93), num, font=font(44), fill=mix(CARD, MUTED, a), anchor="mm")
-            d.text((420, y + 93), head, font=font(48), fill=mix(CARD, WHITE, a), anchor="lm")
-            check_mark(d, 900, y + 93, appear(t, start + 0.22, 0.20), MINT)
-
-        a4 = appear(t, 0.86)
-        if a4 > 0.04:
-            y = 960 + int(lerp(20, 0, a4))
-            rounded(d, (80, y, 1000, y + 200), 30, mix(BG, (42, 24, 22), a4))
-            d.text((W // 2, y + 70), "再做一个教务", font=font(46), fill=mix(CARD, YELLOW, a4), anchor="mm")
-            d.text((W // 2, y + 150), "规模太大，先别开", font=font(32), fill=mix(CARD, MUTED, a4), anchor="mm")
-            strike_line(d, (160, y + 30, 920, y + 110), appear(t, 1.18, 0.28), mix(CARD, RED, a4))
-
-        punch = appear(t, 1.48, 0.22)
-        if punch > 0.04:
-            y = 1220 + int(lerp(18, 0, punch))
-            rounded(d, (120, y, 960, y + 180), 28, mix(BG, (18, 42, 36), punch))
-            d.text((W // 2, y + 90), "别再开教务菜单", font=font(50), fill=mix(BG, MINT, punch), anchor="mm")
-        out.append(img)
-    return out
-
-
-def render_b_split(duration: float) -> list[Image.Image]:
-    """大案例拆成三步；收束落在短题交完再开新章。"""
-    n = max(1, round(duration * FPS))
-    steps = [
-        ("1", "菜单能退出", "先活下来", 0.14),
-        ("2", "再增和列出", "第二刀", 0.40),
-        ("3", "最后才统计", "别一上来就算", 0.66),
-    ]
-    out = []
-    for i in range(n):
-        t = i / FPS
-        img = new_bg()
-        d = ImageDraw.Draw(img)
-        tag(d, t, "对 · 先拆")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 228 + int(lerp(16, 0, a0))), "大案例先拆开", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
-
-        for num, head, body, start in steps:
-            a = appear(t, start)
-            if a <= 0.04:
-                continue
-            y = 320 + (int(num) - 1) * 220 + int(lerp(18, 0, a))
-            rounded(d, (80, y, 1000, y + 196), 30, mix(BG, CARD, a))
-            d.text((170, y + 98), num, font=font(48), fill=mix(CARD, MINT, a), anchor="mm")
-            d.text((280, y + 70), head, font=font(44), fill=mix(CARD, WHITE, a), anchor="lm")
-            d.text((280, y + 140), body, font=font(32), fill=mix(CARD, MUTED, a), anchor="lm")
-            check_mark(d, 900, y + 98, appear(t, start + 0.24, 0.20), MINT)
-
-        punch = appear(t, 1.42, 0.24)
-        if punch > 0.04:
-            y = 1020 + int(lerp(20, 0, punch))
-            rounded(d, (100, y, 980, y + 200), 28, mix(BG, (18, 42, 36), punch))
-            d.text((W // 2, y + 100), "短题交完，再开新章", font=font(50), fill=mix(BG, MINT, punch), anchor="mm")
+            rounded(d, (100, y, 980, y + 220), 28, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y + 110), "比周末睡到中午值", font=font(50), fill=mix(BG, MINT, punch), anchor="mm")
         out.append(img)
     return out
 
@@ -426,20 +401,20 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
 
 def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
     recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    if len(cues) != 8:
-        raise SystemExit(f"expected 8 cues, got {len(cues)}")
-    p0, p1, p2, p3, p4, p5, p6, p7 = cues
-    b1 = max(p1[0] + 0.55, p2[0] - LEAD)
-    b2 = max(p3[0] + 0.40, p4[0] - LEAD)
-    b3 = max(p5[0] + 0.40, p6[0] - LEAD)
+    if len(cues) != 7:
+        raise SystemExit(f"need 7 cues, got {len(cues)}: {cues}")
+    p0, p1, p2, p3, p4, p5, p6 = cues
+    b_rhythm = max(p1[0] + 0.62, p2[0] - LEAD)
+    b_debt = p2[1]
+    b_wake = max(p4[0] + 0.55, p5[0] - LEAD)
+    b_skip = max(p5[0] + 0.62, p6[0] - LEAD)
     shots = [
         {"id": "S01a", "kind": "A", "start": 0.0, "end": p0[1], "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
-        {"id": "S01b", "kind": "A", "start": p0[1], "end": b1, "src": "assets/V-摊手.mp4", "line": p1[2]},
-        {"id": "S02", "kind": "B", "start": b1, "end": p2[1], "src": "broll/B-焊在一起.mp4", "line": p2[2], "broll": "welded"},
-        {"id": "S03", "kind": "A", "start": p2[1], "end": b2, "src": "assets/V-指向.mp4", "line": p3[2]},
-        {"id": "S04", "kind": "B", "start": b2, "end": p4[1], "src": "broll/B-三道短题.mp4", "line": p4[2], "broll": "three_drills"},
-        {"id": "S05", "kind": "A", "start": p4[1], "end": b3, "src": "assets/V-摊手.mp4", "line": p5[2]},
-        {"id": "S06", "kind": "B", "start": b3, "end": duration, "src": "broll/B-先拆再开章.mp4", "line": p7[2], "broll": "split_then_next"},
+        {"id": "S01b", "kind": "A", "start": p0[1], "end": b_rhythm, "src": "assets/V-摊手.mp4", "line": p1[2]},
+        {"id": "S02", "kind": "B", "start": b_rhythm, "end": b_debt, "src": "broll/B-节奏乱了.mp4", "line": p2[2], "broll": "rhythm"},
+        {"id": "S03", "kind": "B", "start": b_debt, "end": b_wake, "src": "broll/B-还不清.mp4", "line": p3[2] + p4[2], "broll": "debt"},
+        {"id": "S04", "kind": "A", "start": b_wake, "end": b_skip, "src": "assets/V-指向.mp4", "line": p5[2]},
+        {"id": "S05", "kind": "B", "start": b_skip, "end": duration, "src": "broll/B-少刷一条.mp4", "line": p6[2], "broll": "skip"},
     ]
     for i, shot in enumerate(shots):
         shot["start"] = round(float(shot["start"]), 3)
@@ -460,23 +435,20 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "shots": shots,
         "a_caps": [
             {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
-            {"start": round(p1[0], 3), "end": round(b1, 3), "lines": ["别再开一个教务"]},
-            {"start": round(p3[0], 3), "end": round(b2, 3), "lines": ["先交三道短题"]},
-            {"start": round(p5[0], 3), "end": round(b3, 3), "lines": ["大案例先拆开"]},
+            {"start": round(p1[0], 3), "end": round(b_rhythm, 3), "lines": ["周末补觉", "周一更困"]},
+            {"start": round(p5[0], 3), "end": round(b_skip, 3), "lines": ["固定起床", "比补觉更有用"]},
         ],
         "shutters": [
             {"start": round(p0[1], 3), "color": list(CREAM)},
-            {"start": round(b1, 3), "color": list(MINT)},
-            {"start": round(p2[1], 3), "color": list(CREAM)},
-            {"start": round(b2, 3), "color": list(MINT)},
-            {"start": round(p4[1], 3), "color": list(CREAM)},
-            {"start": round(b3, 3), "color": list(MINT)},
+            {"start": round(b_rhythm, 3), "color": list(MINT)},
+            {"start": round(b_debt, 3), "color": list(YELLOW)},
+            {"start": round(b_wake, 3), "color": list(CREAM)},
+            {"start": round(b_skip, 3), "color": list(MINT)},
         ],
         "eyebrows": [
             {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
-            {"start": round(p0[1], 3), "end": round(b1, 3), "text": "A-ROLL / 1b"},
-            {"start": round(p2[1], 3), "end": round(b2, 3), "text": "A-ROLL / 03"},
-            {"start": round(p4[1], 3), "end": round(b3, 3), "text": "A-ROLL / 05"},
+            {"start": round(p0[1], 3), "end": round(b_rhythm, 3), "text": "A-ROLL / 1b"},
+            {"start": round(b_wake, 3), "end": round(b_skip, 3), "text": "A-ROLL / 04"},
         ],
         "cover": {
             "title": recipe["cover_title"],
@@ -487,6 +459,7 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "cue_map": {p: [round(s, 3), round(e, 3)] for s, e, p in cues},
         "b_lead_s": LEAD,
         "video_type": "普通短视频",
+        "source_note": "topics-batch3.md #59 / 工厂 28_睡眠债补不回来",
     }
     (ROOT / "timeline.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return data
@@ -697,12 +670,8 @@ def assemble(data: dict) -> Path:
     shutil.copy2(final, ROOT / "final" / f"{NAME}.mp4")
 
     staged = Path("/workspace/成片") / STAGED_NAME
-    staged.parent.mkdir(parents=True, exist_ok=True)
-    try:
-        if (not staged.exists()) or staged.stat().st_ino != final.stat().st_ino:
-            shutil.copy2(final, staged)
-    except shutil.SameFileError:
-        pass
+    staged.parent.mkdir(exist_ok=True)
+    shutil.copy2(final, staged)
     return staged
 
 
@@ -720,8 +689,8 @@ def make_cover() -> Path:
     canvas = Image.alpha_composite(canvas.convert("RGBA"), overlay).convert("RGB")
     d = ImageDraw.Draw(canvas)
     d.rounded_rectangle((70, 80, 1010, 470), radius=36, fill=(22, 24, 28))
-    d.text((W // 2, 160), "先交", font=font(48), fill=WHITE, anchor="mm")
-    d.text((W // 2, 250), "三道短题", font=font(64), fill=YELLOW, anchor="mm")
+    d.text((W // 2, 160), "睡眠债", font=font(52), fill=WHITE, anchor="mm")
+    d.text((W // 2, 250), "补不回来", font=font(64), fill=YELLOW, anchor="mm")
     d.text((W // 2, 340), cover["sub"], font=font(36), fill=MINT, anchor="mm")
     d.text((W // 2, 410), cover["line"], font=font(30), fill=MUTED, anchor="mm")
     dest = ROOT / f"00_封面_{NAME}.jpg"
@@ -749,13 +718,12 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     status = {
         "schema_version": 1,
-        "project_name": "43_先交三道短题",
+        "project_name": "59_睡眠债补不回来",
         "video_type": "普通短视频",
-        "episode": 43,
+        "episode": 59,
         "title": NAME,
-        "full_title": FULL_TITLE,
-        "source_note": "topics-batch3.md #43 · 学习与职业规划基线.md 2026-09-09 立刻条",
-        "slug": "43_先交三道短题别再开教务菜单",
+        "source_note": "topics-batch3.md #59 / 工厂 28_睡眠债补不回来 voiceover.txt",
+        "unused_of": "把白天偷回来海报片 / 成片00深度工作 / #60番茄工作法",
         "voice": VOICE,
         "duration": round(duration, 3),
         "size": [W, H],
@@ -782,26 +750,25 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
         "cloud_only": True,
         "windows_paths": False,
         "drive_upload": False,
-        "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+        "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / 海报把白天偷回来",
         "updated_at": now,
     }
     (ROOT / "项目状态.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    note = f"""# 43 · 先交三道短题
+    note = f"""# 59 · 睡眠债补不回来
 
 普通短视频 / 知识口播。不是剧情短剧，不走 drama-pipeline。
 
-- **选题**：`topics-batch3.md` #43；`学习与职业规划基线.md`（2026-09-09 立刻条）
-- **明确不用**：成片 13 的主课「从值找键」；batch3 #41 空字典；#42 append；#44 函数；成片 35 文件名
+- **选题**：`topics-batch3.md` 第 59 条；工厂 `28_睡眠债补不回来`
 - **成片中转**：`成片/{STAGED_NAME}`
 - **本集工程成片**：`00_最终成片_{NAME}.mp4`
-- **草稿目录**：`/workspace/.abroll-cloud/43/`
-- **云端 only**：不写 `C:\\` / `D:\\` / `G:\\`，不传 Drive
+- **草稿目录**：`/workspace/.abroll-cloud/59/`
+- **云端 only**：不写盘符，不传 Drive
+- **避开**：成片 00 深度工作；#60 番茄工作法；「把白天偷回来」海报片
 
-钩子：教务系统做完了，别再开一个教务。  
-诊断：卡的不是新语法，是焊在一起。  
-动作：先交三道短题；大案例先拆开。  
-收束：短题交完，再开新章。
+钩子：周末补觉，周一更困。  
+方法：不是没睡够，是节奏乱了；晚睡两小时补两小时抹不平。  
+收束：固定起床比补觉有用；今晚少刷一条，比周末睡到中午值。
 
 ## 口播
 
@@ -830,6 +797,13 @@ def patch_index(duration: float) -> None:
             + line + "\n",
             encoding="utf-8",
         )
+    cloud = Path("/workspace/.abroll-cloud/INDEX.chengpian.md")
+    if cloud.exists():
+        text = cloud.read_text(encoding="utf-8")
+        if STAGED_NAME not in text:
+            if not text.endswith("\n"):
+                text += "\n"
+            cloud.write_text(text + line + "\n", encoding="utf-8")
 
 
 def qa(staged: Path, data: dict) -> dict:
@@ -865,14 +839,15 @@ def qa(staged: Path, data: dict) -> dict:
     fps_num, fps_den = (v.get("r_frame_rate") or "24/1").split("/")
     fps = float(fps_num) / float(fps_den or 1)
     digest = hashlib.sha256(staged.read_bytes()).hexdigest()
+    vo = (ROOT / "script" / "voiceover.txt").read_text(encoding="utf-8")
+    banned = ["下一期", "mp4", "秒成片", "C:\\", "D:\\", "G:\\"]
     report = {
-        "project": "43_先交三道短题",
+        "project": "59_睡眠债补不回来",
         "strict": True,
         "cloud_only": True,
         "windows_paths": False,
         "drive_upload": False,
         "video_type": "普通短视频",
-        "topic": "topics-batch3.md #43",
         "final": str(staged),
         "project_final": str(ROOT / f"00_最终成片_{NAME}.mp4"),
         "sha256": digest,
@@ -899,6 +874,7 @@ def qa(staged: Path, data: dict) -> dict:
             "last_end_equals_audio": abs(shots[-1]["end"] - data["duration"]) < 0.05,
             "broll_lead_s": LEAD,
         },
+        "vo_banned_hit": [w for w in banned if w in vo],
         "decode_null": null.returncode == 0 and not (null.stderr or "").strip(),
         "ok": True,
     }
@@ -913,6 +889,7 @@ def qa(staged: Path, data: dict) -> dict:
         and not overlap
         and not gap
         and report["timeline"]["last_end_equals_audio"]
+        and not report["vo_banned_hit"]
     )
     (ROOT / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
@@ -928,18 +905,16 @@ def main() -> None:
     data = build_timeline(cues, duration)
     print("timeline shots", [(s["id"], s["start"], s["end"], s["kind"]) for s in data["shots"]])
 
-    b_weld = next(s for s in data["shots"] if s["id"] == "S02")
-    b_three = next(s for s in data["shots"] if s["id"] == "S04")
-    b_split = next(s for s in data["shots"] if s["id"] == "S06")
-    d1 = max(2.2, float(b_weld["end"]) - float(b_weld["start"]))
-    d2 = max(2.4, float(b_three["end"]) - float(b_three["start"]))
-    d3 = max(2.4, float(b_split["end"]) - float(b_split["start"]))
-    print("render B-焊在一起", d1)
-    frames_to_mp4(render_b_welded(d1 + 0.12), ROOT / "broll" / "B-焊在一起.mp4")
-    print("render B-三道短题", d2)
-    frames_to_mp4(render_b_three(d2 + 0.12), ROOT / "broll" / "B-三道短题.mp4")
-    print("render B-先拆再开章", d3)
-    frames_to_mp4(render_b_split(d3 + 0.12), ROOT / "broll" / "B-先拆再开章.mp4")
+    jobs = [
+        ("S02", render_b_rhythm, "B-节奏乱了.mp4"),
+        ("S03", render_b_debt, "B-还不清.mp4"),
+        ("S05", render_b_skip, "B-少刷一条.mp4"),
+    ]
+    for sid, fn, fname in jobs:
+        shot = next(s for s in data["shots"] if s["id"] == sid)
+        d = max(2.2, float(shot["end"]) - float(shot["start"]))
+        print("render", fname, d)
+        frames_to_mp4(fn(d + 0.12), ROOT / "broll" / fname)
 
     make_cover()
     staged = assemble(data)

@@ -1,0 +1,37 @@
+{
+  "project": "43_先交三道短题",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "topic": "topics-batch3.md #43",
+  "final": "/workspace/成片/43-先交三道短题.mp4",
+  "project_final": "/workspace/.abroll-cloud/43/00_最终成片_先交三道短题.mp4",
+  "sha256": "3bff3f0f73e7d33f63bec9eb20154b7a8c82a62f707ae149b83c811de7064462",
+  "bytes": 3857707,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 19.7
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.6,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 7,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true
+}
