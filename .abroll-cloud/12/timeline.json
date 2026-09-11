@@ -1,0 +1,199 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 16.392,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "灯亮了房间还是黑的",
+  "video_type": "普通短视频",
+  "bgm": "audio/bgm.wav",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/A-挥手.jpg",
+      "close": true,
+      "line": "大家好",
+      "phrases": [
+        "大家好"
+      ],
+      "start": 0.0,
+      "end": 1.34
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/A-摊手.jpg",
+      "close": false,
+      "line": "只改一条定律",
+      "phrases": [
+        "只改一条定律"
+      ],
+      "start": 1.34,
+      "end": 2.808
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "close": false,
+      "line": "光只能直走，不能反射",
+      "phrases": [
+        "光只能直走，不能反射"
+      ],
+      "start": 2.808,
+      "end": 5.716,
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-房间.mp4",
+      "close": false,
+      "line": "不发光的东西全是黑的",
+      "phrases": [
+        "不发光的东西全是黑的"
+      ],
+      "start": 5.716,
+      "end": 8.398,
+      "broll": "room"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-路灯.mp4",
+      "close": false,
+      "line": "只有盯着光源，才看得见",
+      "phrases": [
+        "只有盯着光源，才看得见"
+      ],
+      "start": 8.398,
+      "end": 11.133,
+      "broll": "street"
+    },
+    {
+      "id": "S06",
+      "kind": "A",
+      "src": "assets/A-指向.jpg",
+      "close": false,
+      "line": "影子这个词，直接消失",
+      "phrases": [
+        "影子这个词，直接消失"
+      ],
+      "start": 11.133,
+      "end": 13.511
+    },
+    {
+      "id": "S07",
+      "kind": "B",
+      "src": "broll/B-夜城.mp4",
+      "close": false,
+      "line": "夜里的城，只剩一串灯",
+      "phrases": [
+        "夜里的城，只剩一串灯"
+      ],
+      "start": 13.511,
+      "end": 16.392,
+      "broll": "city"
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 1.34,
+      "end": 2.808,
+      "lines": [
+        "只改一条定律"
+      ]
+    },
+    {
+      "start": 11.133,
+      "end": 13.511,
+      "lines": [
+        "影子这个词",
+        "直接消失"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 1.34,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 2.808,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 5.716,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 8.398,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 11.133,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 13.511,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 1.34,
+      "end": 2.808,
+      "text": "A-ROLL / 02"
+    },
+    {
+      "start": 11.133,
+      "end": 13.511,
+      "text": "A-ROLL / 06"
+    }
+  ],
+  "cover": {
+    "title": "灯亮了",
+    "sub": "房间还是黑的",
+    "line": "光只能直走 · 不能反射",
+    "src": "assets/t01b-city-lamps-only.png"
+  }
+}

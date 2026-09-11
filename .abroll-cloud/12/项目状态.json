@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "project_name": "12_灯亮了房间还是黑的",
+  "video_type": "普通短视频",
+  "topic_index": 1,
+  "topic_id": "010",
+  "title": "灯亮了，房间还是黑的",
+  "stage": "delivered",
+  "production_method": "白底小灯 A-roll Ken Burns + 黑底对照卡/无字静帧 B-roll + edge-tts Yunyang + FFmpeg",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 16.392,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "198bc900e5a3666a78a5eb9f790bfc6864a725ec016a9237c7e688853400d140"
+  },
+  "staged": "/workspace/成片/12-灯亮了房间还是黑的.mp4",
+  "project_final": "00_最终成片_灯亮了房间还是黑的.mp4",
+  "updated_at": "2026-09-11T11:30:00Z"
+}
