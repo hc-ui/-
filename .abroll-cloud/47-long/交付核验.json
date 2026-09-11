@@ -1,0 +1,38 @@
+{
+  "project": "47_研一别脱产离校实习_long",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "no_freeze_pad": true,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/47-研一别脱产离校实习.mp4",
+  "sha256": "eae8c539e145362250af2d5066a1d3cf4be6061a8b5fbaac90d8510e8c616ad4",
+  "bytes": 8680614,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 48.333333
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.4,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 12,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "in_hard_window": true,
+  "in_target_window": true,
+  "ok": true
+}

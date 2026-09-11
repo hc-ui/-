@@ -261,6 +261,19 @@ def make_voiceover(root: Path, rate: str = "-6%") -> tuple[float, list[tuple[flo
 
 def ensure_vo_window(root: Path) -> tuple[float, list[tuple[float, float, str]]]:
     """Synthesize VO; nudge rate so duration lands in 40–50s when possible."""
+    phrases = [ln.strip() for ln in (root / "script" / "phrases.txt").read_text(encoding="utf-8").splitlines() if ln.strip()]
+    wav = root / "audio" / "vo-full.wav"
+    align = root / "audio" / "vo-align.txt"
+    if wav.exists() and wav.stat().st_size > 800 and align.exists():
+        duration = probe_dur(wav)
+        parsed: list[tuple[float, float, str]] = []
+        for line in align.read_text(encoding="utf-8").splitlines():
+            parts = line.split("\t")
+            if len(parts) >= 3:
+                parsed.append((float(parts[0]), float(parts[1]), parts[2]))
+        if len(parsed) == len(phrases) and TARGET_MIN <= duration <= TARGET_MAX:
+            print(f"reuse VO in target window dur={duration:.3f}")
+            return duration, close_align(parsed, duration)
     duration, cues = make_voiceover(root, rate="-6%")
     print(f"VO attempt rate=-6% dur={duration:.3f}")
     if TARGET_MIN <= duration <= TARGET_MAX:
@@ -272,7 +285,7 @@ def ensure_vo_window(root: Path) -> tuple[float, list[tuple[float, float, str]]]
             if duration >= TARGET_MIN and duration <= HARD_MAX:
                 return duration, cues
     elif duration > TARGET_MAX:
-        for rate in ("-4%", "-2%", "+0%"):
+        for rate in ("-4%", "-2%", "+0%", "+4%", "+8%"):
             duration, cues = make_voiceover(root, rate=rate)
             print(f"VO attempt rate={rate} dur={duration:.3f}")
             if duration <= TARGET_MAX and duration >= HARD_MIN:

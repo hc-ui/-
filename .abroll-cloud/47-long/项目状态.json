@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "project_name": "47_研一别脱产离校实习_long",
+  "video_type": "普通短视频",
+  "episode": 47,
+  "title": "研一别脱产离校实习",
+  "cut": "long-40s",
+  "source_note": "topics-batch3.md #47 / 47-long 加长重切 / 备忘录第二节 3",
+  "unused_of": "16切片 / 28报销 / 37撞课 / 46六十分 / 48远程",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 48.333,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "no_freeze_pad": true,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "b9e733fbc7079f3a08186bf76768dff14a9a283d2f415e09d24cd77d0ec7a61f"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 48333
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/47-研一别脱产离校实习.mp4",
+    "project_final": "00_最终成片_研一别脱产离校实习.mp4",
+    "cover": "00_封面_研一别脱产离校实习.jpg"
+  },
+  "staged": "成片/47-研一别脱产离校实习.mp4",
+  "draft": "/workspace/.abroll-cloud/47-long",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-11T13:12:41Z"
+}
