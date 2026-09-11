@@ -1,0 +1,58 @@
+[
+  {
+    "id": "law",
+    "file": "broll/B-定律.mp4",
+    "tag": "改一条定律",
+    "title": "表面张力 ×100",
+    "cards": [
+      {"num": "错", "head": "水是软的", "body": "砸下去就会溅开", "color": "red"},
+      {"num": "对", "head": "水有一层皮", "body": "网球大的水球会弹", "color": "cyan"}
+    ],
+    "punch": "乘一百",
+    "phrases": ["水的表面张力乘一百"]
+  },
+  {
+    "id": "normal",
+    "file": "broll/B-正常.mp4",
+    "tag": "先正常",
+    "title": "雨砸伞",
+    "punch": "炸开",
+    "phrases": ["先看正常，雨砸伞就炸开"]
+  },
+  {
+    "id": "bounce",
+    "file": "broll/B-弹回.mp4",
+    "tag": "再反常",
+    "title": "压出坑",
+    "punch": "弹回来",
+    "still": "assets/t30a-umbrella-bounce.png",
+    "phrases": ["再看反常，砸下去压个坑再弹回来"]
+  },
+  {
+    "id": "gel",
+    "file": "broll/B-凝胶.mp4",
+    "tag": "后果 01",
+    "title": "落地不飞溅",
+    "punch": "像凝胶球",
+    "still": "assets/t30b-gel-asphalt.png",
+    "phrases": ["落地不飞溅，像凝胶球"]
+  },
+  {
+    "id": "leaf",
+    "file": "broll/B-落叶.mp4",
+    "tag": "后果 02",
+    "title": "落叶压出坑",
+    "punch": "浮着不沉",
+    "still": "assets/t30c-leaf-convex.png",
+    "phrases": ["落叶压出水洼一个坑，不沉"]
+  },
+  {
+    "id": "street",
+    "file": "broll/B-凸街.mp4",
+    "tag": "回报",
+    "title": "整条街水洼",
+    "punch": "全是凸的",
+    "still": "assets/t30d-convex-street.png",
+    "phrases": ["整条街的水洼，全是凸的"]
+  }
+]

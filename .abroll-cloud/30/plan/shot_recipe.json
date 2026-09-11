@@ -1,0 +1,72 @@
+{
+  "title": "雨滴弹回",
+  "cover_title": "雨滴砸伞",
+  "cover_sub": "不炸开，弹回来",
+  "cover_line": "表面张力 ×100",
+  "source": "选题库.md 第001号 · 水的表面张力 ×100",
+  "video_type": "普通短视频",
+  "note": "先正常后反常。不是剧情短剧，不走 drama-pipeline。",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["只改一条定律"]
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "phrases": ["水的表面张力乘一百"],
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-正常.mp4",
+      "phrases": ["先看正常，雨砸伞就炸开"],
+      "broll": "normal"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-弹回.mp4",
+      "phrases": ["再看反常，砸下去压个坑再弹回来"],
+      "broll": "bounce"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-凝胶.mp4",
+      "phrases": ["落地不飞溅，像凝胶球"],
+      "broll": "gel"
+    },
+    {
+      "id": "S07",
+      "kind": "B",
+      "src": "broll/B-落叶.mp4",
+      "phrases": ["落叶压出水洼一个坑，不沉"],
+      "broll": "leaf"
+    },
+    {
+      "id": "S08",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["水面整体往上鼓，高出边缘"]
+    },
+    {
+      "id": "S09",
+      "kind": "B",
+      "src": "broll/B-凸街.mp4",
+      "phrases": ["整条街的水洼，全是凸的"],
+      "broll": "street"
+    }
+  ]
+}
