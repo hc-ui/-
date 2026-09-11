@@ -1,0 +1,210 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 19.248,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "贴地冻雨",
+  "video_type": "普通短视频",
+  "topic_id": "012",
+  "bgm": "audio/bgm.wav",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "close": true,
+      "line": "大家好",
+      "phrases": [
+        "大家好"
+      ],
+      "start": 0.0,
+      "end": 1.34
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "close": false,
+      "line": "只改一条定律",
+      "phrases": [
+        "只改一条定律"
+      ],
+      "start": 1.34,
+      "end": 2.728
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "close": false,
+      "line": "低处的时间极慢",
+      "phrases": [
+        "低处的时间极慢"
+      ],
+      "start": 2.728,
+      "end": 4.87,
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-冻雨.mp4",
+      "close": false,
+      "line": "贴地的雨滴冻住了，上面还在下",
+      "phrases": [
+        "贴地的雨滴冻住了，上面还在下"
+      ],
+      "start": 4.87,
+      "end": 7.995,
+      "broll": "rain"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-灰尘.mp4",
+      "close": false,
+      "line": "地面灰尘，千年不动",
+      "phrases": [
+        "地面灰尘，千年不动"
+      ],
+      "start": 7.995,
+      "end": 10.456,
+      "broll": "dust"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-草木.mp4",
+      "close": false,
+      "line": "矮草几乎不长，高树疯长",
+      "phrases": [
+        "矮草几乎不长，高树疯长"
+      ],
+      "start": 10.456,
+      "end": 13.268,
+      "broll": "plants"
+    },
+    {
+      "id": "S07",
+      "kind": "B",
+      "src": "broll/B-钥匙.mp4",
+      "close": false,
+      "line": "掉在地上的东西，再也捡不起来",
+      "phrases": [
+        "掉在地上的东西，再也捡不起来"
+      ],
+      "start": 13.268,
+      "end": 16.276,
+      "broll": "key"
+    },
+    {
+      "id": "S08",
+      "kind": "B",
+      "src": "broll/B-琥珀城.mp4",
+      "close": false,
+      "line": "低处像琥珀，高处照常走",
+      "phrases": [
+        "低处像琥珀，高处照常走"
+      ],
+      "start": 16.276,
+      "end": 19.248,
+      "broll": "city"
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 1.34,
+      "end": 2.728,
+      "lines": [
+        "只改一条定律"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 1.34,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 2.728,
+      "color": [
+        120,
+        210,
+        232
+      ]
+    },
+    {
+      "start": 4.87,
+      "color": [
+        120,
+        210,
+        232
+      ]
+    },
+    {
+      "start": 7.995,
+      "color": [
+        120,
+        210,
+        232
+      ]
+    },
+    {
+      "start": 10.456,
+      "color": [
+        120,
+        210,
+        232
+      ]
+    },
+    {
+      "start": 13.268,
+      "color": [
+        120,
+        210,
+        232
+      ]
+    },
+    {
+      "start": 16.276,
+      "color": [
+        232,
+        176,
+        88
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 1.34,
+      "end": 2.728,
+      "text": "A-ROLL / 02"
+    }
+  ],
+  "cover": {
+    "title": "贴地冻雨",
+    "sub": "上面还在下",
+    "line": "低处时间极慢",
+    "src": "assets/t31a-two-layer-rain.png"
+  },
+  "b_lead_s": 0.28
+}
