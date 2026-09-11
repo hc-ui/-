@@ -1,0 +1,27 @@
+{
+  "title": "毕业底线三件套",
+  "cover_title": "毕业底线三件套",
+  "cover_sub": "开题 · 盲审 · 挂名",
+  "cover_line": "三件打满才放行",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch4.md #85 / 备忘录第一节 3 毕业硬性底线 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "85",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打毕业硬性底线三件。不拍成片14双线、15生态位、16切片、49精读、50绑定博士。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["毕业底线就三件套"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-不是顶刊.mp4", "broll": "not_top", "phrases": ["不是医学顶刊，也不是把湿实验扛完"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["第一件，按时开题"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-三张卡.mp4", "broll": "three_cards", "phrases": ["第二件，工程型学位论文过盲审", "第三件，挂上专利或论文"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["学院只认这三张卡"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-签字放行.mp4", "broll": "stamp_pass", "phrases": ["三件打满，导师按流程签字"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["别拿博士的顶刊当自己的线", "硕士过关，是最低标准打满"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-窗口堵死.mp4", "broll": "window_block", "phrases": ["开题拖过窗口，后面全堵死"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["论文要过盲审，不是写得漂亮就行"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-名字挂上.mp4", "broll": "name_on", "phrases": ["专利或论文，名字挂上去才算数", "缺一件，流程停在门口"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["先钉这三件，再谈别的", "底线打满，毕业才走得动"]}
+  ]
+}

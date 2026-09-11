@@ -1,0 +1,11 @@
+{
+  "style": "黑底对照卡",
+  "distinct_from_14": "不成片14的科研线/就业线分屏，不讲Python和技术栈自己建",
+  "cards": [
+    {"id": "not_top", "file": "B-不是顶刊.mp4", "point": "不是医学顶刊，也不是扛完湿实验"},
+    {"id": "three_cards", "file": "B-三张卡.mp4", "point": "盲审论文 / 挂名专利"},
+    {"id": "stamp_pass", "file": "B-签字放行.mp4", "point": "三件打满才签字放行"},
+    {"id": "window_block", "file": "B-窗口堵死.mp4", "point": "开题窗口一拖，后面全堵"},
+    {"id": "name_on", "file": "B-名字挂上.mp4", "point": "名字挂上才算；缺一件停门口"}
+  ]
+}
