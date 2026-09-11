@@ -7,7 +7,7 @@
   "source_note": "topics-batch3.md #58 / 工厂 18_笔记越记越乱 voiceover.txt",
   "slug": "笔记越记越乱",
   "voice": "zh-CN-YunyangNeural",
-  "duration": 17.958,
+  "duration": 47.7,
   "size": [
     1080,
     1920
@@ -16,10 +16,12 @@
   "stage": "delivered",
   "status": "已交付",
   "current_stage": "核验并交付",
-  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "production_method": "白底小灯 A-roll 往返循环 + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "cut": "long-40s",
   "script": {
     "path": "script/voiceover.txt",
-    "sha256": "a71003ebbde4754969d11f96f4c8b8af9f16c25037810c95f7743742b9ae78a2"
+    "sha256": "f33227eeaf338be7219ae6aaf87d9fb0e2e8c7345977d389c8a8bef875063616",
+    "phrases": 18
   },
   "audio": {
     "path": "audio/vo-full.wav",
@@ -27,7 +29,7 @@
     "voice_id": "zh-CN-YunyangNeural",
     "sample_rate": 44100,
     "channels": 1,
-    "duration_ms": 17958
+    "duration_ms": 47700
   },
   "deliverables": {
     "final_video": "/workspace/成片/58-笔记越记越乱.mp4",
@@ -39,5 +41,5 @@
   "windows_paths": false,
   "drive_upload": false,
   "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
-  "updated_at": "2026-09-11T12:33:52Z"
+  "updated_at": "2026-09-11T12:55:28Z"
 }
