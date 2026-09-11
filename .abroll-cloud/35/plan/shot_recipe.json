@@ -1,0 +1,46 @@
+{
+  "title": "口播别报文件名",
+  "cover_title": "口播别报文件名",
+  "cover_sub": "路径一念耳朵关",
+  "cover_line": "画面放路径嘴里说结论",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "note": "工厂 339 口播工艺。不是剧情连载，不走 drama-pipeline。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["口播里别报文件名"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-路径关掉.mp4",
+      "phrases": ["路径一念出来，听众耳朵已经关掉"],
+      "broll": "path_off",
+      "lead": 0.28
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["画面放路径，嘴里说结论"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-文件名删掉.mp4",
+      "phrases": ["写完口播，把文件名删掉"],
+      "broll": "cut_name",
+      "lead": 0.28
+    }
+  ]
+}

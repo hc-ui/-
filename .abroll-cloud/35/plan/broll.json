@@ -1,0 +1,26 @@
+[
+  {
+    "id": "path_off",
+    "file": "broll/B-路径关掉.mp4",
+    "tag": "错 念路径",
+    "title": "口播报文件名",
+    "cards": [
+      {"num": "念", "head": "作业/第三次测验/成绩表.xlsx", "body": "路径一念出来", "color": "yellow"},
+      {"num": "关", "head": "耳朵关掉", "body": "听众眨眼划走", "color": "red"}
+    ],
+    "punch": "别报文件名",
+    "phrases": ["路径一念出来，听众耳朵已经关掉"]
+  },
+  {
+    "id": "cut_name",
+    "file": "broll/B-文件名删掉.mp4",
+    "tag": "对 分工",
+    "title": "画面和嘴分开",
+    "cards": [
+      {"num": "画", "head": "放路径", "body": "成绩表.xlsx 只上屏", "color": "yellow"},
+      {"num": "嘴", "head": "说结论", "body": "只说：成绩存盘", "color": "mint"}
+    ],
+    "punch": "把文件名删掉",
+    "phrases": ["写完口播，把文件名删掉"]
+  }
+]
