@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "project_name": "19_十二节气先锁十二张首帧",
+  "video_type": "普通短视频",
+  "topic_index": 12,
+  "slug": "12_十二节气先锁十二张首帧",
+  "title": "十二节气先锁十二张首帧",
+  "production_method": "白底小灯 A-roll（06 已有动作）+ 黑底信息图 B-roll + 工厂口播 WAV + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "stage": "delivered",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 11.083333,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "b514afd24c3a684aaa05f3837b065f2f121deedc4246710ecdb950587eaa4704"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "source": "aroll/audio/12_十二节气先锁十二张首帧.wav",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 11083,
+    "note": "沿用工厂旁白，不重合成；句界来自 silencedetect"
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/19-十二节气先锁十二张首帧.mp4",
+    "project_final": "00_最终成片_十二节气先锁十二张首帧.mp4",
+    "cover": "00_封面_十二节气先锁十二张首帧.jpg"
+  },
+  "not": "神话剧情连载 / drama-pipeline / Envoys 正片",
+  "updated_at": "2026-09-11T11:26:35Z"
+}
