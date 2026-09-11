@@ -1,0 +1,51 @@
+{
+  "title": "忙完一天却没推进",
+  "cover_title": "忙完一天却没推进",
+  "cover_sub": "不是不够努力",
+  "cover_line": "只留一件能留下痕迹",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "source": "topics-batch3.md #44 / 工厂 44_忙完一天却没推进",
+  "note": "反应 vs 推进。不是剧情短剧，不走 drama-pipeline。避开成片00打断、成片26待办。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["忙完一天却没推进"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-整天反应.mp4",
+      "phrases": ["不是你不够努力，是整天都在反应"],
+      "broll": "react_not_advance"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-一件痕迹.mp4",
+      "phrases": ["今天只留一件能留下痕迹的动作"],
+      "broll": "one_trace"
+    },
+    {
+      "id": "S04",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["临时插入先问明天"]
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["动了，今天才算过"]
+    }
+  ]
+}
