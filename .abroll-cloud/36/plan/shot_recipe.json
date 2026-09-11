@@ -1,0 +1,45 @@
+{
+  "title": "口播里别说下一期",
+  "cover_title": "别说下一期",
+  "cover_sub": "人已经在等下一期",
+  "cover_line": "收束落在这期动作",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch2.md #36 · 工厂 329_口播里别说下一期",
+  "video_type": "普通短视频",
+  "note": "口播工艺。不是剧情连载，不走 drama-pipeline。云端无 V-正对讲，S01b 用摊手。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["口播里别说下一期"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-等下一期.mp4",
+      "phrases": ["这期还没听完，人已经在等下一期"],
+      "broll": "wait_next"
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["收束落在这期动作"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-预告删掉.mp4",
+      "phrases": ["写完结尾，把预告删掉"],
+      "broll": "cut_teaser"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "wait_next",
+    "file": "broll/B-等下一期.mp4",
+    "tag": "错 · 预告",
+    "title": "下期更精彩",
+    "cards": [
+      {"num": "冲", "head": "下期更精彩", "body": "完播条被冲掉", "color": "red"},
+      {"num": "走", "head": "这期没听完", "body": "人已走神", "color": "yellow"}
+    ],
+    "punch": "完播被冲掉",
+    "phrases": ["这期还没听完，人已经在等下一期"]
+  },
+  {
+    "id": "cut_teaser",
+    "file": "broll/B-预告删掉.mp4",
+    "tag": "对 · 这期",
+    "title": "收束落在这期",
+    "cards": [
+      {"num": "留", "head": "这期动作", "body": "结尾只留可做的一步", "color": "mint"},
+      {"num": "撕", "head": "预告整段删", "body": "下期见撕掉", "color": "yellow"}
+    ],
+    "punch": "把预告删掉",
+    "phrases": ["写完结尾，把预告删掉"]
+  }
+]
