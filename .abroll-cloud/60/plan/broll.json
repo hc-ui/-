@@ -4,24 +4,31 @@
     "file": "broll/B-二十五分钟.mp4",
     "tag": "对 · 二十五分钟",
     "title": "一次只做二十五分钟",
-    "cards": [
-      {"num": "25", "head": "倒计时", "body": "不是让你更忙", "color": "tomato"},
-      {"num": "1", "head": "只盯一件", "body": "先选定再按下", "color": "yellow"}
-    ],
     "punch": "每次只盯一件",
     "phrases": ["不是让你更忙，是每次只盯一件"]
   },
   {
-    "id": "iron_rule",
-    "file": "broll/B-铁律.mp4",
+    "id": "wrong",
+    "file": "broll/B-错法空转.mp4",
+    "tag": "错 · 空转",
+    "title": "计时器开着也空",
+    "punch": "微信一亮就空了",
+    "phrases": ["微信亮一下，手一伸，番茄就空了"]
+  },
+  {
+    "id": "focus",
+    "file": "broll/B-执行.mp4",
     "tag": "做 · 这一件",
     "title": "这二十五分钟里",
-    "cards": [
-      {"num": "1", "head": "选定一件事", "body": "先写清再开始", "color": "yellow"},
-      {"num": "2", "head": "按下倒计时", "body": "二十五分钟走针", "color": "mint"},
-      {"num": "3", "head": "手机扣过去", "body": "屏幕朝下", "color": "tomato"}
-    ],
-    "punch": "只盯这一件",
-    "phrases": ["选定一件事，按下倒计时，手机扣过去"]
+    "punch": "手机扣过去",
+    "phrases": ["这二十五分钟里，手机扣过去，屏幕朝下"]
+  },
+  {
+    "id": "rhythm",
+    "file": "broll/B-节奏.mp4",
+    "tag": "律 · 作废",
+    "title": "铃响才准歇",
+    "punch": "打断就作废重来",
+    "phrases": ["四个番茄之后，再休一次长的", "中途被打断，这个番茄作废，重来，不要假装还能续上"]
   }
 ]

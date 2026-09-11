@@ -1,0 +1,38 @@
+[
+  {
+    "id": "hook_miss",
+    "file": "broll/B-钩子没咬住.mp4",
+    "tag": "错 · 立刻答",
+    "title": "问完立刻自答",
+    "cards": [
+      {"num": "叉", "head": "问完立刻答", "body": "波形不断，问号后没空格", "color": "red"},
+      {"num": "滑", "head": "钩子没咬住", "body": "人已经滑走", "color": "yellow"}
+    ],
+    "punch": "钩子没咬住",
+    "phrases": ["问完立刻自答，钩子还没咬住"]
+  },
+  {
+    "id": "slide_away",
+    "file": "broll/B-人滑走.mp4",
+    "tag": "例 · 连着答",
+    "title": "问号后面连着自己答",
+    "cards": [
+      {"num": "粘", "head": "为什么因为", "body": "问号和答案粘在一行", "color": "red"},
+      {"num": "滑", "head": "手指滑走", "body": "人还没点头", "color": "yellow"}
+    ],
+    "punch": "钩子等于没抛",
+    "phrases": ["人还没把问号接住，答案已经砸下来", "他来不及点头，手指已经滑走"]
+  },
+  {
+    "id": "leave_beat",
+    "file": "broll/B-问号留空.mp4",
+    "tag": "对 · 留半拍",
+    "title": "问句落地再给答案",
+    "cards": [
+      {"num": "空", "head": "先换行空半拍", "body": "为什么单独成行", "color": "yellow"},
+      {"num": "勾", "head": "口播字幕都停", "body": "再写因为", "color": "mint"}
+    ],
+    "punch": "问号后面留空",
+    "phrases": ["正确写法是为什么，先换行，空半拍，再写因为", "口播在问号后面停，字幕也跟着停"]
+  }
+]

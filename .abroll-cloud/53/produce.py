@@ -1,17 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Topic 60：番茄工作法一次只做二十五分钟。云端 A-roll + B-roll。
-
-普通短视频 / 知识口播。草稿只写 .abroll-cloud/60/，成品中转 成片/60-番茄工作法一次只做二十五分钟.mp4。
-禁止 C:\\ D:\\ G:\\，禁止 Drive 上传，不走 drama-pipeline。
-只讲计时器规矩，不重复成片 00「深度工作总被打断」。
-加长：十一句 / 十镜，目标约四十秒。
-"""
+"""成片 53：提问后面留半拍。工厂 340 口播工艺。云端 A-roll + B-roll，不是短剧。"""
 from __future__ import annotations
 
 import asyncio
 import hashlib
 import json
+import math
 import re
 import shutil
 import subprocess
@@ -22,10 +17,11 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parent
 W, H, FPS = 1080, 1920, 24
-NAME = "番茄工作法一次只做二十五分钟"
-STAGED_NAME = "60-番茄工作法一次只做二十五分钟.mp4"
+NAME = "提问后面留半拍"
+STAGED_NAME = "53-提问后面留半拍.mp4"
 VOICE = "zh-CN-YunyangNeural"
 ASSET_SRC = Path("/workspace/.abroll-cloud/06/assets")
+TALK_SRC = Path("/workspace/.abroll-cloud/25/assets")
 FONT_BD = "/tmp/NotoSansSC-Bold.otf"
 FONT_REG = "/tmp/NotoSansSC-Regular.otf"
 FONT_FALLBACK = "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc"
@@ -38,8 +34,6 @@ WHITE = (245, 247, 250)
 MUTED = (154, 162, 176)
 CREAM = (245, 247, 250)
 RED = (255, 118, 118)
-TOMATO = (232, 92, 84)
-LEAF = (86, 168, 112)
 INK = (22, 24, 28)
 LEAD = 0.28
 
@@ -99,7 +93,7 @@ def new_bg() -> Image.Image:
     overlay = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(overlay)
     d.ellipse((-220, -280, 720, 560), fill=(16, 42, 38))
-    d.ellipse((420, 1120, 1380, 2080), fill=(56, 22, 20))
+    d.ellipse((480, 1180, 1400, 2100), fill=(42, 32, 16))
     overlay = overlay.filter(ImageFilter.GaussianBlur(110))
     return Image.blend(img, overlay, 0.58)
 
@@ -144,179 +138,180 @@ def dur_zh(seconds: float) -> str:
     return f"{seconds:.1f}秒"
 
 
-def draw_tomato(draw: ImageDraw.ImageDraw, cx: int, cy: int, r: int, a: float) -> None:
+def strike_line(draw: ImageDraw.ImageDraw, box, progress: float, color) -> None:
+    x0, y0, x1, y1 = box
+    if progress <= 0.04:
+        return
+    mid = (y0 + y1) / 2
+    x_end = lerp(x0 + 24, x1 - 24, min(1.0, progress))
+    draw.line([(x0 + 24, mid), (x_end, mid)], fill=color, width=10)
+
+
+def check_badge(draw: ImageDraw.ImageDraw, cx: int, cy: int, a: float) -> None:
     if a <= 0.04:
         return
-    body = mix(CARD, TOMATO, a)
-    draw.ellipse((cx - r, cy - r + 8, cx + r, cy + r + 8), fill=body)
-    leaf = mix(CARD, LEAF, a)
-    draw.ellipse((cx - 18, cy - r - 8, cx + 4, cy - r + 22), fill=leaf)
-    draw.ellipse((cx - 4, cy - r - 4, cx + 22, cy - r + 20), fill=leaf)
-    draw.line([(cx, cy - r + 10), (cx, cy - r + 36)], fill=mix(LEAF, INK, a), width=6)
+    r = 36
+    draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=mix(CARD, (18, 56, 46), a))
+    col = mix(CARD, MINT, a)
+    draw.line([(cx - 16, cy + 2), (cx - 4, cy + 16), (cx + 20, cy - 14)], fill=col, width=8)
 
 
-def draw_phone_down(draw: ImageDraw.ImageDraw, cx: int, cy: int, a: float) -> None:
+def cross_badge(draw: ImageDraw.ImageDraw, cx: int, cy: int, a: float) -> None:
     if a <= 0.04:
         return
-    pw, ph = 168, 92
-    x0, y0 = cx - pw // 2, cy - ph // 2
-    rounded(draw, (x0, y0, x0 + pw, y0 + ph), 22, mix(CARD, (36, 40, 48), a))
-    rounded(draw, (x0 + 14, y0 + 16, x0 + pw - 14, y0 + ph - 16), 12, mix(CARD, (18, 20, 24), a))
-    draw.ellipse((cx - 10, cy - 10, cx + 10, cy + 10), fill=mix(CARD, MUTED, a))
+    r = 36
+    draw.ellipse((cx - r, cy - r, cx + r, cy + r), fill=mix(CARD, (56, 22, 22), a))
+    col = mix(CARD, RED, a)
+    draw.line([(cx - 14, cy - 14), (cx + 14, cy + 14)], fill=col, width=8)
+    draw.line([(cx + 14, cy - 14), (cx - 14, cy + 14)], fill=col, width=8)
 
 
-def draw_ring(draw: ImageDraw.ImageDraw, cx: int, cy: int, r: int, progress: float, a: float) -> None:
-    if a <= 0.04:
-        return
-    bbox = (cx - r, cy - r, cx + r, cy + r)
-    draw.ellipse(bbox, outline=mix(CARD, (48, 52, 62), a), width=14)
-    if progress <= 0.01:
-        return
-    span = 360 * max(0.0, min(1.0, progress))
-    draw.arc(bbox, start=-90, end=-90 + span, fill=mix(CARD, YELLOW, a), width=14)
+def wave_bar(x: float, t: float, gap_at: float | None, gap_w: float) -> float:
+    """Return 0–1 bar height. gap_at is the ? marker in 0–1 along the strip."""
+    if gap_at is not None and abs(x - gap_at) < gap_w:
+        return 0.06
+    env = 0.35 + 0.65 * abs(math.sin(x * 18.0 + t * 7.4))
+    if x < 0.18:
+        env *= x / 0.18
+    return env
 
 
-def render_b_twentyfive(duration: float):
+def draw_waveform(draw: ImageDraw.ImageDraw, box, t: float, a: float, gap_at: float | None) -> None:
+    x0, y0, x1, y1 = box
+    mid = (y0 + y1) / 2
+    n = 36
+    gap_w = 0.055
+    for i in range(n):
+        x = (i + 0.5) / n
+        h = wave_bar(x, t, gap_at, gap_w)
+        bh = int((y1 - y0) * 0.42 * h)
+        cx = int(lerp(x0 + 16, x1 - 16, x))
+        col = mix(CARD, MINT if gap_at is None or abs(x - gap_at) > gap_w else YELLOW, a)
+        draw.rectangle((cx - 6, mid - bh, cx + 6, mid + bh), fill=col)
+    if gap_at is not None:
+        qx = int(lerp(x0 + 16, x1 - 16, gap_at))
+        draw.text((qx, y0 + 8), "?", font=font(28), fill=mix(CARD, YELLOW, a), anchor="mt")
+
+
+def render_b_hook(duration: float) -> list[Image.Image]:
+    """错：问完立刻自答，波形不断，钩子滑走。"""
     n = max(1, round(duration * FPS))
+    out = []
     for i in range(n):
         t = i / FPS
         img = new_bg()
         d = ImageDraw.Draw(img)
-        tag(d, t, "对 · 二十五分钟")
+        tag(d, t, "错 · 立刻答")
         a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "一次只做二十五分钟", font=font(52), fill=mix(BG, WHITE, a0), anchor="mm")
-        a1 = appear(t, 0.16)
-        if a1 > 0.04:
-            y = 330 + int(lerp(22, 0, a1))
-            rounded(d, (90, y, 990, y + 620), 36, mix(BG, CARD, a1))
-            remain = max(0.0, 25.0 - t * 0.35)
-            mins = int(remain)
-            secs = int((remain - mins) * 60)
-            clock = f"{mins:02d}:{secs:02d}"
-            draw_tomato(d, W // 2, y + 210, 118, a1)
-            d.text((W // 2, y + 218), "25", font=font(92), fill=mix(TOMATO, WHITE, a1), anchor="mm")
-            progress = min(1.0, t / max(0.8, duration - 0.2))
-            draw_ring(d, W // 2, y + 218, 168, progress, a1)
-            d.text((W // 2, y + 430), clock, font=font(64), fill=mix(CARD, YELLOW, a1), anchor="mm")
-            d.text((W // 2, y + 530), "不是让你更忙", font=font(36), fill=mix(CARD, MUTED, a1), anchor="mm")
-        punch = appear(t, 1.10, 0.24)
-        if punch > 0.04:
-            y = 1020 + int(lerp(22, 0, punch))
-            rounded(d, (140, y, 940, y + 190), 28, mix(BG, (42, 24, 22), punch))
-            d.text((W // 2, y + 95), "每次只盯一件", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
-        yield img
+        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "问完立刻自答", font=font(56), fill=mix(BG, WHITE, a0), anchor="mm")
 
-
-def render_b_wrong(duration: float):
-    n = max(1, round(duration * FPS))
-    wins = (("文档", YELLOW), ("微信", RED), ("网页", MINT))
-    for i in range(n):
-        t = i / FPS
-        img = new_bg()
-        d = ImageDraw.Draw(img)
-        tag(d, t, "错 · 空转")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "计时器开着也空", font=font(52), fill=mix(BG, WHITE, a0), anchor="mm")
         a1 = appear(t, 0.14)
         if a1 > 0.04:
-            y = 320 + int(lerp(18, 0, a1))
-            for idx, (name, color) in enumerate(wins):
-                x0 = 90 + idx * 300
-                bounce = int(8 * abs((t * 3.2 + idx) % 2 - 1))
-                rounded(d, (x0, y + bounce, x0 + 280, y + 220 + bounce), 24, mix(BG, CARD, a1))
-                badge = appear(t, 0.55 + idx * 0.08, 0.16) if idx == 1 else 0.0
-                d.text((x0 + 140, y + 70 + bounce), name, font=font(40), fill=mix(CARD, color, a1), anchor="mm")
-                if badge > 0.04:
-                    d.ellipse((x0 + 200, y + 36 + bounce, x0 + 236, y + 72 + bounce), fill=mix(CARD, RED, badge))
-                    d.text((x0 + 218, y + 54 + bounce), "1", font=font(22), fill=mix(RED, WHITE, badge), anchor="mm")
-                d.text((x0 + 140, y + 150 + bounce), "跳一下", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
-        a2 = appear(t, 0.42)
+            y = 320 + int(lerp(22, 0, a1))
+            rounded(d, (80, y, 1000, y + 300), 32, mix(BG, CARD, a1))
+            draw_waveform(d, (120, y + 36, 960, y + 168), t, a1, gap_at=None)
+            d.text((W // 2, y + 230), "问号后没空格", font=font(36), fill=mix(CARD, MUTED, a1), anchor="mm")
+            cross_badge(d, 930, y + 54, appear(t, 0.42, 0.22))
+
+        a2 = appear(t, 0.36)
         if a2 > 0.04:
-            y = 600 + int(lerp(16, 0, a2))
-            rounded(d, (90, y, 990, y + 220), 28, mix(BG, CARD, a2))
-            draw_tomato(d, 220, y + 100, 46, a2)
-            d.line([(160, y + 100), (280, y + 100)], fill=mix(CARD, RED, a2), width=8)
-            d.text((560, y + 110), "番茄空了", font=font(48), fill=mix(CARD, RED, a2), anchor="mm")
-        punch = appear(t, 0.90, 0.22)
+            y = 670 + int(lerp(20, 0, a2))
+            slide = int(lerp(0, 48, appear(t, 1.05, 0.40)))
+            rounded(d, (80 + slide, y, 1000 + slide, y + 280), 32, mix(BG, CARD, a2))
+            d.text((W // 2 + slide, y + 80), "钩子没咬住", font=font(48), fill=mix(CARD, YELLOW, a2), anchor="mm")
+            d.text((W // 2 + slide, y + 180), "人已经滑走", font=font(40), fill=mix(CARD, RED, a2), anchor="mm")
+            strike_line(d, (180 + slide, y + 40, 900 + slide, y + 120), appear(t, 1.10, 0.28), mix(CARD, RED, a2))
+
+        punch = appear(t, 1.42, 0.24)
         if punch > 0.04:
-            y = 900 + int(lerp(16, 0, punch))
-            rounded(d, (140, y, 940, y + 180), 28, mix(BG, (42, 24, 22), punch))
-            d.text((W // 2, y + 90), "微信一亮就空了", font=font(48), fill=mix(BG, YELLOW, punch), anchor="mm")
-        yield img
+            y = 1010 + int(lerp(22, 0, punch))
+            rounded(d, (120, y, 960, y + 200), 28, mix(BG, (42, 24, 22), punch))
+            d.text((W // 2, y + 100), "钩子没咬住", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
+        out.append(img)
+    return out
 
 
-def render_b_focus(duration: float):
+def render_b_wait(duration: float) -> list[Image.Image]:
+    """对：问号后空半格，停半拍再给答案。"""
     n = max(1, round(duration * FPS))
-    rows = [
-        (0.06, "1", "选定一件事", "先写清再开始", YELLOW),
-        (0.22, "2", "按下倒计时", "二十五分钟走针", MINT),
-        (0.38, "3", "手机扣过去", "屏幕朝下", TOMATO),
-    ]
+    out = []
     for i in range(n):
         t = i / FPS
         img = new_bg()
         d = ImageDraw.Draw(img)
-        tag(d, t, "做 · 这一件")
+        tag(d, t, "对 · 留半拍")
         a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "这二十五分钟里", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
-        for idx, (ts, num, head, body, color) in enumerate(rows):
-            a = appear(t, ts, 0.22)
-            if a < 0.04:
-                continue
-            y = 320 + idx * 168 + int(lerp(18, 0, a))
-            rounded(d, (90, y, 990, y + 150), 26, mix(BG, CARD, a))
-            d.ellipse((128, y + 36, 220, y + 128), fill=mix(CARD, color, a))
-            d.text((174, y + 82), num, font=font(36), fill=mix(color, INK, a), anchor="mm")
-            d.text((248, y + 52), head, font=font(42), fill=mix(CARD, color, a), anchor="lm")
-            d.text((248, y + 112), body, font=font(28), fill=mix(CARD, WHITE, a), anchor="lm")
-            if idx == 2:
-                draw_phone_down(d, 860, y + 75, appear(t, 0.55, 0.18))
-        punch = appear(t, 1.00, 0.20)
-        if punch > 0.04:
-            y = 880 + int(lerp(16, 0, punch))
-            rounded(d, (160, y, 920, y + 150), 26, mix(BG, (22, 40, 36), punch))
-            d.text((W // 2, y + 75), "手机扣过去", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
-        yield img
+        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "问句落地再给答案", font=font(50), fill=mix(BG, WHITE, a0), anchor="mm")
 
-
-def render_b_rhythm(duration: float):
-    n = max(1, round(duration * FPS))
-    for i in range(n):
-        t = i / FPS
-        img = new_bg()
-        d = ImageDraw.Draw(img)
-        tag(d, t, "律 · 作废")
-        a0 = appear(t, 0.02)
-        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "铃响才准歇", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
         a1 = appear(t, 0.14)
         if a1 > 0.04:
-            y = 320 + int(lerp(16, 0, a1))
-            rounded(d, (90, y, 990, y + 180), 26, mix(BG, CARD, a1))
-            d.text((W // 2, y + 70), "休息 5 分钟", font=font(48), fill=mix(CARD, YELLOW, a1), anchor="mm")
-            d.text((W // 2, y + 130), "一个番茄之后", font=font(28), fill=mix(CARD, MUTED, a1), anchor="mm")
+            y = 320 + int(lerp(20, 0, a1))
+            rounded(d, (80, y, 1000, y + 300), 32, mix(BG, CARD, a1))
+            draw_waveform(d, (120, y + 36, 960, y + 168), t, a1, gap_at=0.46)
+            d.text((W // 2, y + 230), "波形停半拍", font=font(36), fill=mix(CARD, YELLOW, a1), anchor="mm")
+
         a2 = appear(t, 0.32)
         if a2 > 0.04:
-            y = 540 + int(lerp(16, 0, a2))
-            rounded(d, (90, y, 990, y + 220), 26, mix(BG, CARD, a2))
-            d.text((W // 2, y + 60), "四个之后再休一次长的", font=font(36), fill=mix(CARD, WHITE, a2), anchor="mm")
-            for k, x in enumerate((270, 430, 590, 750)):
-                draw_tomato(d, x, y + 150, 32, appear(t, 0.40 + k * 0.06, 0.14))
-        a3 = appear(t, 0.70)
-        if a3 > 0.04:
-            y = 800 + int(lerp(16, 0, a3))
-            rounded(d, (90, y, 990, y + 200), 26, mix(BG, CARD, a3))
-            strike = appear(t, 0.92, 0.22)
-            d.text((W // 2, y + 70), "中途被打断", font=font(44), fill=mix(CARD, RED, a3), anchor="mm")
-            if strike > 0.04:
-                x1 = int(lerp(220, 860, strike))
-                d.line([(220, y + 70), (x1, y + 70)], fill=mix(CARD, RED, strike), width=8)
-            d.text((W // 2, y + 140), "这个番茄作废，重来", font=font(30), fill=mix(CARD, MUTED, a3), anchor="mm")
-        punch = appear(t, 1.20, 0.20)
+            y = 670 + int(lerp(20, 0, a2))
+            rounded(d, (80, y, 500, y + 300), 32, mix(BG, (22, 40, 36), a2))
+            d.text((290, y + 70), "字幕", font=font(28), fill=mix(CARD, MUTED, a2), anchor="mm")
+            d.text((290, y + 150), "为什么？", font=font(44), fill=mix(CARD, WHITE, a2), anchor="mm")
+            ans = appear(t, 1.05, 0.28)
+            if ans > 0.08:
+                d.text((290, y + 230), "再给答案", font=font(36), fill=mix(CARD, MINT, ans), anchor="mm")
+            else:
+                d.text((290, y + 230), "· · ·", font=font(36), fill=mix(CARD, MUTED, a2), anchor="mm")
+
+            rounded(d, (580, y, 1000, y + 300), 32, mix(BG, CARD, a2))
+            d.text((790, y + 70), "口播", font=font(28), fill=mix(CARD, MUTED, a2), anchor="mm")
+            d.text((790, y + 150), "停半拍", font=font(44), fill=mix(CARD, MINT, a2), anchor="mm")
+            d.text((790, y + 230), "再答", font=font(36), fill=mix(CARD, WHITE, a2), anchor="mm")
+            check_badge(d, 930, y + 64, appear(t, 0.88, 0.22))
+
+        punch = appear(t, 1.42, 0.24)
         if punch > 0.04:
-            y = 1060 + int(lerp(16, 0, punch))
-            rounded(d, (140, y, 940, y + 170), 26, mix(BG, (42, 28, 18), punch))
-            d.text((W // 2, y + 85), "打断就作废重来", font=font(48), fill=mix(BG, YELLOW, punch), anchor="mm")
-        yield img
+            y = 1030 + int(lerp(20, 0, punch))
+            rounded(d, (120, y, 960, y + 200), 28, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y + 100), "问号后面留空", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_slide(duration: float) -> list[Image.Image]:
+    """例一：为什么因为粘一行，答案砸下来，手指滑走。"""
+    n = max(1, round(duration * FPS))
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "例 · 连着答")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "问号后面连着自己答", font=font(48), fill=mix(BG, WHITE, a0), anchor="mm")
+
+        a1 = appear(t, 0.14)
+        if a1 > 0.04:
+            y = 320 + int(lerp(20, 0, a1))
+            rounded(d, (80, y, 1000, y + 280), 32, mix(BG, CARD, a1))
+            d.text((W // 2, y + 80), "为什么因为", font=font(56), fill=mix(CARD, YELLOW, a1), anchor="mm")
+            d.text((W // 2, y + 180), "问号和答案粘在一行", font=font(36), fill=mix(CARD, MUTED, a1), anchor="mm")
+            strike_line(d, (180, y + 40, 900, y + 120), appear(t, 0.95, 0.28), mix(CARD, RED, a1))
+
+        a2 = appear(t, 0.40)
+        if a2 > 0.04:
+            y = 640 + int(lerp(20, 0, a2))
+            slide = int(lerp(0, 120, appear(t, 1.10, 0.45)))
+            rounded(d, (80 + slide, y, 1000 + slide, y + 260), 32, mix(BG, CARD, a2))
+            d.text((W // 2 + slide, y + 80), "答案已经砸下来", font=font(46), fill=mix(CARD, RED, a2), anchor="mm")
+            d.text((W // 2 + slide, y + 170), "人还没点头", font=font(40), fill=mix(CARD, YELLOW, a2), anchor="mm")
+
+        punch = appear(t, 1.55, 0.24)
+        if punch > 0.04:
+            y = 960 + int(lerp(20, 0, punch))
+            rounded(d, (120, y, 960, y + 200), 28, mix(BG, (42, 24, 22), punch))
+            d.text((W // 2, y + 100), "钩子等于没抛", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
+        out.append(img)
+    return out
 
 
 def ticks_to_sec(v: float) -> float:
@@ -333,7 +328,7 @@ def close_align(aligned: list[tuple[float, float, str]], duration: float) -> lis
 
 
 def weight_align(phrases: list[str], duration: float) -> list[tuple[float, float, str]]:
-    weights = [max(1, len(p.replace("，", "").replace("。", "").replace("；", ""))) for p in phrases]
+    weights = [max(1, len(p.replace("，", "").replace("。", ""))) for p in phrases]
     total = sum(weights)
     t = 0.0
     aligned = []
@@ -441,10 +436,6 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
         "".join(f"{s:.3f}\t{e:.3f}\t{p}\n" for s, e, p in aligned),
         encoding="utf-8",
     )
-    (audio_dir / "cues.json").write_text(
-        json.dumps([{"start": s, "end": e, "text": p} for s, e, p in aligned], ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
     vtt = ["WEBVTT", ""]
     for i, (s, e, p) in enumerate(aligned, 1):
         def ts(x: float) -> str:
@@ -453,15 +444,15 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
 
         vtt += [str(i), f"{ts(s)} --> {ts(e)}", p, ""]
     (audio_dir / "vo.vtt").write_text("\n".join(vtt), encoding="utf-8")
+    (audio_dir / "cues.json").write_text(
+        json.dumps([{"start": s, "end": e, "text": p} for s, e, p in aligned], ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
     return duration, aligned
 
 
 def split_caption(line: str) -> list[str]:
     line = line.strip("。．. ")
-    if "；" in line:
-        parts = [p for p in line.split("；") if p]
-        if 1 < len(parts) <= 2:
-            return parts
     if "，" in line and len(line) > 10:
         parts = [p for p in line.split("，") if p]
         if 1 < len(parts) <= 2:
@@ -471,24 +462,23 @@ def split_caption(line: str) -> list[str]:
 
 def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
     recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    if len(cues) != 11:
-        raise SystemExit(f"need 11 cues, got {len(cues)}: {cues}")
+    if len(cues) != 12:
+        raise SystemExit(f"need 12 cues, got {len(cues)}: {cues}")
     p = cues
-    b2 = max(p[1][1], p[2][0] - LEAD)
-    b4 = max(p[3][1], p[4][0] - LEAD)
-    b6 = max(p[5][1], p[6][0] - LEAD)
-    b8 = max(p[7][1], p[8][0] - LEAD)
+    b_hook = max(p[1][1], p[2][0] - LEAD)
+    b_slide = max(p[3][1], p[4][0] - LEAD)
+    b_wait = max(p[6][1], p[7][0] - LEAD)
+    a_close = p[9][1]
     shots = [
         {"id": "S01a", "kind": "A", "start": 0.0, "end": p[0][1], "src": "assets/V-挥手.mp4", "line": p[0][2], "close": True},
-        {"id": "S01b", "kind": "A", "start": p[0][1], "end": b2, "src": "assets/V-摊手.mp4", "line": p[1][2]},
-        {"id": "S02", "kind": "B", "start": b2, "end": p[2][1], "src": "broll/B-二十五分钟.mp4", "line": p[2][2], "broll": "twenty_five"},
-        {"id": "S03", "kind": "A", "start": p[2][1], "end": b4, "src": "assets/V-指向.mp4", "line": p[3][2]},
-        {"id": "S04", "kind": "B", "start": b4, "end": p[4][1], "src": "broll/B-错法空转.mp4", "line": p[4][2], "broll": "wrong"},
-        {"id": "S05", "kind": "A", "start": p[4][1], "end": b6, "src": "assets/V-摊手.mp4", "line": p[5][2]},
-        {"id": "S06", "kind": "B", "start": b6, "end": p[6][1], "src": "broll/B-执行.mp4", "line": p[6][2], "broll": "focus"},
-        {"id": "S07", "kind": "A", "start": p[6][1], "end": b8, "src": "assets/V-指向.mp4", "line": p[7][2]},
-        {"id": "S08", "kind": "B", "start": b8, "end": p[9][1], "src": "broll/B-节奏.mp4", "line": p[8][2] + p[9][2], "broll": "rhythm"},
-        {"id": "S09", "kind": "A", "start": p[9][1], "end": duration, "src": "assets/V-点赞.mp4", "line": p[10][2]},
+        {"id": "S01b", "kind": "A", "start": p[0][1], "end": b_hook, "src": "assets/V-正对讲.mp4", "line": p[1][2]},
+        {"id": "S02", "kind": "B", "start": b_hook, "end": p[2][1], "src": "broll/B-钩子没咬住.mp4", "line": p[2][2], "broll": "hook_miss"},
+        {"id": "S03", "kind": "A", "start": p[2][1], "end": b_slide, "src": "assets/V-指向.mp4", "line": p[3][2]},
+        {"id": "S04", "kind": "B", "start": b_slide, "end": p[5][1], "src": "broll/B-人滑走.mp4", "line": p[4][2] + p[5][2], "broll": "slide_away"},
+        {"id": "S05", "kind": "A", "start": p[5][1], "end": b_wait, "src": "assets/V-指向.mp4", "line": p[6][2]},
+        {"id": "S06", "kind": "B", "start": b_wait, "end": p[8][1], "src": "broll/B-问号留空.mp4", "line": p[7][2] + p[8][2], "broll": "leave_beat"},
+        {"id": "S07", "kind": "A", "start": p[8][1], "end": a_close, "src": "assets/V-摊手.mp4", "line": p[9][2]},
+        {"id": "S08", "kind": "A", "start": a_close, "end": duration, "src": "assets/V-点赞.mp4", "line": p[10][2] + p[11][2]},
     ]
     for i, shot in enumerate(shots):
         shot["start"] = round(float(shot["start"]), 3)
@@ -509,30 +499,29 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "shots": shots,
         "a_caps": [
             {"start": 0.0, "end": round(p[0][1], 3), "lines": ["大家好"]},
-            {"start": round(p[1][0], 3), "end": round(b2, 3), "lines": ["番茄工作法", "一次只做二十五分钟"]},
-            {"start": round(p[3][0], 3), "end": round(b4, 3), "lines": split_caption(p[3][2])},
-            {"start": round(p[5][0], 3), "end": round(b6, 3), "lines": ["对的做法", "先选定一件事"]},
-            {"start": round(p[7][0], 3), "end": round(b8, 3), "lines": ["铃响了", "才准休息五分钟"]},
-            {"start": round(p[10][0], 3), "end": round(duration, 3), "lines": ["别把休息也排满任务", "歇里再塞杂活等于没歇"]},
+            {"start": round(p[1][0], 3), "end": round(b_hook, 3), "lines": ["提问后面留半拍"]},
+            {"start": round(p[3][0], 3), "end": round(b_slide, 3), "lines": split_caption(p[3][2])},
+            {"start": round(p[6][0], 3), "end": round(b_wait, 3), "lines": ["问句落地", "停半拍再给答案"]},
+            {"start": round(p[9][0], 3), "end": round(a_close, 3), "lines": ["写完口播", "在问号后面留空"]},
+            {"start": round(p[10][0], 3), "end": round(duration, 3), "lines": ["半拍不是冷场", "问完先停再答"]},
         ],
         "shutters": [
             {"start": round(p[0][1], 3), "color": list(CREAM)},
-            {"start": round(b2, 3), "color": list(MINT)},
+            {"start": round(b_hook, 3), "color": list(MINT)},
             {"start": round(p[2][1], 3), "color": list(CREAM)},
-            {"start": round(b4, 3), "color": list(YELLOW)},
-            {"start": round(p[4][1], 3), "color": list(CREAM)},
-            {"start": round(b6, 3), "color": list(MINT)},
-            {"start": round(p[6][1], 3), "color": list(CREAM)},
-            {"start": round(b8, 3), "color": list(TOMATO)},
-            {"start": round(p[9][1], 3), "color": list(YELLOW)},
+            {"start": round(b_slide, 3), "color": list(YELLOW)},
+            {"start": round(p[5][1], 3), "color": list(CREAM)},
+            {"start": round(b_wait, 3), "color": list(MINT)},
+            {"start": round(p[8][1], 3), "color": list(CREAM)},
+            {"start": round(a_close, 3), "color": list(YELLOW)},
         ],
         "eyebrows": [
             {"start": 0.0, "end": round(p[0][1], 3), "text": "A-ROLL / 1a"},
-            {"start": round(p[0][1], 3), "end": round(b2, 3), "text": "A-ROLL / 1b"},
-            {"start": round(p[2][1], 3), "end": round(b4, 3), "text": "A-ROLL / 03"},
-            {"start": round(p[4][1], 3), "end": round(b6, 3), "text": "A-ROLL / 05"},
-            {"start": round(p[6][1], 3), "end": round(b8, 3), "text": "A-ROLL / 07"},
-            {"start": round(p[9][1], 3), "end": round(duration, 3), "text": "A-ROLL / 09"},
+            {"start": round(p[0][1], 3), "end": round(b_hook, 3), "text": "A-ROLL / 1b"},
+            {"start": round(p[2][1], 3), "end": round(b_slide, 3), "text": "A-ROLL / 03"},
+            {"start": round(p[5][1], 3), "end": round(b_wait, 3), "text": "A-ROLL / 05"},
+            {"start": round(p[8][1], 3), "end": round(a_close, 3), "text": "A-ROLL / 07"},
+            {"start": round(a_close, 3), "end": round(duration, 3), "text": "A-ROLL / 08"},
         ],
         "cover": {
             "title": recipe["cover_title"],
@@ -543,8 +532,8 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "cue_map": {phrase: [round(s, 3), round(e, 3)] for s, e, phrase in cues},
         "b_lead_s": LEAD,
         "video_type": "普通短视频",
-        "source_note": "topics-batch3.md #60 / 工厂 27_番茄工作法",
-        "length_rule": "30-60秒，目标40-50秒",
+        "source_note": "topics-batch3.md #53 / 工厂 340_提问后面留半拍",
+        "length_rule": "30-60秒，目标约40秒",
     }
     (ROOT / "timeline.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return data
@@ -774,9 +763,9 @@ def make_cover() -> Path:
     canvas = Image.alpha_composite(canvas.convert("RGBA"), overlay).convert("RGB")
     d = ImageDraw.Draw(canvas)
     d.rounded_rectangle((70, 80, 1010, 470), radius=36, fill=(22, 24, 28))
-    d.text((W // 2, 160), cover["sub"], font=font(40), fill=MINT, anchor="mm")
-    d.text((W // 2, 250), "一次只做", font=font(48), fill=WHITE, anchor="mm")
-    d.text((W // 2, 340), "二十五分钟", font=font(64), fill=YELLOW, anchor="mm")
+    d.text((W // 2, 160), "提问后面", font=font(48), fill=WHITE, anchor="mm")
+    d.text((W // 2, 250), "留半拍", font=font(64), fill=YELLOW, anchor="mm")
+    d.text((W // 2, 340), cover["sub"], font=font(36), fill=MINT, anchor="mm")
     d.text((W // 2, 410), cover["line"], font=font(30), fill=MUTED, anchor="mm")
     dest = ROOT / f"00_封面_{NAME}.jpg"
     canvas.save(dest, quality=92)
@@ -793,6 +782,7 @@ def copy_assets() -> None:
         "V-指向.mp4": ASSET_SRC / "V-指向.mp4",
         "V-摊手.mp4": ASSET_SRC / "V-摊手.mp4",
         "V-点赞.mp4": ASSET_SRC / "V-点赞.mp4",
+        "V-正对讲.mp4": TALK_SRC / "V-正对讲.mp4",
         "A-角色-小灯-摊手.jpg": ASSET_SRC / "A-角色-小灯-摊手.jpg",
     }
     for name, src in mapping.items():
@@ -809,12 +799,12 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     status = {
         "schema_version": 1,
-        "project_name": "60_番茄工作法一次只做二十五分钟",
+        "project_name": "53_提问后面留半拍",
         "video_type": "普通短视频",
-        "episode": 60,
+        "episode": 53,
         "title": NAME,
-        "source_note": "topics-batch3.md #60 · 工厂 27_番茄工作法",
-        "slug": "27_番茄工作法",
+        "source_note": "topics-batch3.md #53 · 工厂 340_提问后面留半拍",
+        "slug": "340_提问后面留半拍",
         "voice": VOICE,
         "duration": round(duration, 3),
         "size": [W, H],
@@ -822,7 +812,7 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
         "stage": "delivered",
         "status": "已交付",
         "current_stage": "核验并交付",
-        "production_method": "白底小灯 A-roll + B-roll + edge-tts Yunyang + FFmpeg",
+        "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
         "script": {"path": "script/voiceover.txt", "sha256": sha},
         "audio": {
             "path": "audio/vo-full.wav",
@@ -846,19 +836,19 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
     }
     (ROOT / "项目状态.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    note = f"""# 60 · 番茄工作法一次只做二十五分钟
+    note = f"""# 53 · 提问后面留半拍
 
-普通短视频 / 知识口播。不是剧情短剧，不走 drama-pipeline。
+普通短视频 / 口播工艺。不是剧情短剧，不走 drama-pipeline。
 
-- **选题**：`topics-batch3.md` 第 60 条；工厂 `27_番茄工作法`
+- **选题**：`topics-batch3.md` #53；工厂 `340_提问后面留半拍`
 - **成片中转**：`成片/{STAGED_NAME}`
-- **草稿根**：`/workspace/.abroll-cloud/60/`
+- **本集工程成片**：`00_最终成片_{NAME}.mp4`
+- **草稿目录**：`/workspace/.abroll-cloud/53/`
 - **云端 only**：不写 `C:\\` / `D:\\` / `G:\\`，不传 Drive
-- **避开**：成片 00 深度工作总被打断；成片 26 待办划不掉；成片 16 工位切片
 
-钩子：番茄工作法，一次只做二十五分钟。
-方法：不是更忙，是每次只盯一件；错法是窗口空转，正法是选定、倒计时、手机扣过去。
-收束：铃响才准歇；打断作废重来；别把歇排满任务。
+钩子：提问后面留半拍。
+后果：问完立刻自答，钩子还没咬住。
+收束：写完口播，在问号后面留空。问句落地，停半拍再给答案。
 
 ## 口播
 
@@ -866,7 +856,7 @@ def write_docs(duration: float, staged: Path, data: dict) -> None:
 
 ## 规格
 
-1080×1920，24 fps，H.264 + AAC 44100 stereo，约 {duration:.2f} 秒（加长，目标四十到五十秒）。镜头 {len(data["shots"])} 条，时间轴闭合。
+1080×1920，24 fps，H.264 + AAC 44100 stereo，约 {duration:.2f} 秒（重做，目标约四十秒）。镜头 {len(data["shots"])} 条，时间轴闭合。
 """
     (ROOT / "项目说明.md").write_text(note, encoding="utf-8")
 
@@ -878,7 +868,7 @@ def patch_index(duration: float) -> None:
             continue
         text = idx.read_text(encoding="utf-8")
         if STAGED_NAME in text:
-            text = re.sub(rf"\| `{re.escape(STAGED_NAME)}` \| [0-9.]+(?:s|秒)(?:（[^|]*）)? \|", line, text)
+            text = re.sub(rf"\| `{re.escape(STAGED_NAME)}` \| [0-9.]+(?:s|秒) \|", line, text)
             idx.write_text(text, encoding="utf-8")
             continue
         if not text.endswith("\n"):
@@ -921,7 +911,7 @@ def qa(staged: Path, data: dict) -> dict:
     fps = float(fps_num) / float(fps_den or 1)
     digest = hashlib.sha256(staged.read_bytes()).hexdigest()
     report = {
-        "project": "60_番茄工作法一次只做二十五分钟",
+        "project": "53_提问后面留半拍",
         "strict": True,
         "cloud_only": True,
         "windows_paths": False,
@@ -986,8 +976,6 @@ def main() -> None:
     print("VO", duration, dur_zh(duration))
     if not (30.0 <= duration <= 60.0):
         raise SystemExit(f"口播时长必须 30–60 秒，现在 {dur_zh(duration)}")
-    if len(cues) != 11:
-        raise SystemExit(f"need 11 cues, got {len(cues)}")
     for row in cues:
         print(f"  {row[0]:6.3f}-{row[1]:6.3f}  {row[2]}")
     make_bgm(duration)
@@ -995,14 +983,17 @@ def main() -> None:
     print("timeline shots", [(s["id"], s["start"], s["end"], s["kind"]) for s in data["shots"]])
 
     jobs = [
-        ("S02", render_b_twentyfive, "B-二十五分钟.mp4"),
-        ("S04", render_b_wrong, "B-错法空转.mp4"),
-        ("S06", render_b_focus, "B-执行.mp4"),
-        ("S08", render_b_rhythm, "B-节奏.mp4"),
+        ("S02", render_b_hook, "B-钩子没咬住.mp4"),
+        ("S04", render_b_slide, "B-人滑走.mp4"),
+        ("S06", render_b_wait, "B-问号留空.mp4"),
     ]
+    by_file: dict[str, tuple] = {}
     for sid, fn, fname in jobs:
         shot = next(s for s in data["shots"] if s["id"] == sid)
         d = max(2.2, float(shot["end"]) - float(shot["start"]))
+        prev = by_file.get(fname)
+        by_file[fname] = (fn, d if prev is None else max(prev[1], d))
+    for fname, (fn, d) in by_file.items():
         print("render", fname, d)
         frames_to_mp4(fn(d + 0.12), ROOT / "broll" / fname)
 

@@ -7,7 +7,8 @@
   "video_type": "普通短视频",
   "topic_id": "60",
   "source": "topics-batch3.md #60 / 项目索引 27_番茄工作法",
-  "note": "知识口播。不是剧情短剧，不走 drama-pipeline。只讲计时器规矩，不重复成片 00。",
+  "note": "知识口播加长到约四十秒。不是剧情短剧。只讲计时器规矩。两个例子拍：窗口空转 / 作废重来。",
+  "target_duration_s": [40, 50],
   "shots": [
     {
       "id": "S01a",
@@ -31,16 +32,48 @@
     },
     {
       "id": "S03",
-      "kind": "B",
-      "src": "broll/B-铁律.mp4",
-      "phrases": ["选定一件事，按下倒计时，手机扣过去"],
-      "broll": "iron_rule"
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["错法是计时器开着，三个窗口一起跳，看起来忙，格子是空的"]
     },
     {
       "id": "S04",
+      "kind": "B",
+      "src": "broll/B-错法空转.mp4",
+      "phrases": ["微信亮一下，手一伸，番茄就空了"],
+      "broll": "wrong"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["对的做法，先选定一件事，写下再按下倒计时"]
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-执行.mp4",
+      "phrases": ["这二十五分钟里，手机扣过去，屏幕朝下"],
+      "broll": "focus"
+    },
+    {
+      "id": "S07",
       "kind": "A",
       "src": "assets/V-指向.mp4",
-      "phrases": ["铃响才准休息；打断就作废重来"]
+      "phrases": ["铃响了，才准休息五分钟，空白才算歇"]
+    },
+    {
+      "id": "S08",
+      "kind": "B",
+      "src": "broll/B-节奏.mp4",
+      "phrases": ["四个番茄之后，再休一次长的", "中途被打断，这个番茄作废，重来，不要假装还能续上"],
+      "broll": "rhythm"
+    },
+    {
+      "id": "S09",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["别把休息也排满任务，歇里再塞杂活等于没歇"]
     }
   ]
 }

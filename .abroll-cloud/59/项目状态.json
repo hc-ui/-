@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "59_睡眠债补不回来",
+  "video_type": "普通短视频",
+  "episode": 59,
+  "title": "睡眠债补不回来",
+  "source_note": "topics-batch3.md #59 / 工厂 28_睡眠债补不回来 voiceover.txt",
+  "unused_of": "把白天偷回来海报片 / 成片00深度工作 / #60番茄工作法",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 43.292,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "bc194cbb6c63f773c7cedb45b42d6ca169d906da82d563c7b36717ee7cdc3d91"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 43291
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/59-睡眠债补不回来.mp4",
+    "project_final": "00_最终成片_睡眠债补不回来.mp4",
+    "cover": "00_封面_睡眠债补不回来.jpg"
+  },
+  "staged": "成片/59-睡眠债补不回来.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / 海报把白天偷回来",
+  "updated_at": "2026-09-11T12:54:15Z"
+}

@@ -1,0 +1,39 @@
+{
+  "project": "59_睡眠债补不回来",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/59-睡眠债补不回来.mp4",
+  "project_final": "/workspace/.abroll-cloud/59/00_最终成片_睡眠债补不回来.mp4",
+  "sha256": "031eb809987528ee95f8e966ac9d4db099b8cfe13b3f06c363b2f7d5f7787fc2",
+  "bytes": 7369365,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 43.291667
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -30.5,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 9,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "vo_banned_hit": [],
+  "decode_null": true,
+  "duration_zh": "43.3秒",
+  "length_ok": true,
+  "ok": true
+}
