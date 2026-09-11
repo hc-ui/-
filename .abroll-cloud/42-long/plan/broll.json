@@ -1,0 +1,41 @@
+[
+  {
+    "id": "append",
+    "file": "broll/B-追加.mp4",
+    "tag": "对 · 追加",
+    "title": "往末尾加一张",
+    "cards": [
+      {"num": "88", "head": "还在", "body": "原列第一张", "color": "mint"},
+      {"num": "91", "head": "还在", "body": "原列第二张", "color": "mint"},
+      {"num": "85", "head": "还在", "body": "原列第三张", "color": "mint"},
+      {"num": "92", "head": "新贴", "body": "append 到末尾", "color": "yellow"}
+    ],
+    "punch": "列表还在，只是更长",
+    "phrases": ["先看对的写法", "scores后面写append，括号里放九十二", "原来的八十八、九十一、八十五还在", "末尾多贴一张，列表只是更长"]
+  },
+  {
+    "id": "assign",
+    "file": "broll/B-等号盖掉.mp4",
+    "tag": "错 · 等号",
+    "title": "等号盖掉整列",
+    "cards": [
+      {"num": "88", "head": "被盖", "body": "整列消失", "color": "red"},
+      {"num": "91", "head": "被盖", "body": "整列消失", "color": "red"},
+      {"num": "85", "head": "被盖", "body": "整列消失", "color": "red"}
+    ],
+    "punch": "光秃秃的九十二",
+    "phrases": ["写成scores等于九十二", "等号不是往里加，是整列换掉", "一列分数被盖成光秃秃的九十二"]
+  },
+  {
+    "id": "stack",
+    "file": "broll/B-整叠换掉.mp4",
+    "tag": "对照 · 贴与换",
+    "title": "一张张贴，别整叠换",
+    "cards": [
+      {"num": "贴", "head": "append", "body": "成绩条一张张贴", "color": "mint"},
+      {"num": "换", "head": "等号", "body": "下一张纸换掉整叠", "color": "red"}
+    ],
+    "punch": "赋值会抹掉前面",
+    "phrases": ["下一张纸把整叠换掉，就全没了", "加分用append，赋值会抹掉前面"]
+  }
+]

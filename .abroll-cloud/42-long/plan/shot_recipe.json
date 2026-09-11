@@ -1,0 +1,25 @@
+{
+  "title": "列表用append别用等号",
+  "cover_title": "列表用 append",
+  "cover_sub": "别用等号盖掉",
+  "cover_line": "lst = 分数 会把整列换成一个数",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "42",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #42 / 学习与职业规划基线.md 不足第4条 / 42-long 加长重切",
+  "note": "Python 知识口播。只打赋值事故，不讲嵌套字典，不讲从值找键。加长口播与 A/B 镜，覆盖短切。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["列表用append，别用等号盖掉"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["该往里加分数，就往末尾贴一张", "别把整张名单换成一个数字"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-追加.mp4", "phrases": ["先看对的写法", "scores后面写append，括号里放九十二", "原来的八十八、九十一、八十五还在", "末尾多贴一张，列表只是更长"], "broll": "append"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["再看错的写法"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-等号盖掉.mp4", "phrases": ["写成scores等于九十二", "等号不是往里加，是整列换掉", "一列分数被盖成光秃秃的九十二"], "broll": "assign"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["成绩条一张张贴上去才对"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-整叠换掉.mp4", "phrases": ["下一张纸把整叠换掉，就全没了", "加分用append，赋值会抹掉前面"], "broll": "stack"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["只打这一个赋值事故", "该加就append", "别用等号换掉整列"]}
+  ]
+}
