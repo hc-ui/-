@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "project_name": "70_例子先于概念",
+  "video_type": "普通短视频",
+  "episode": 70,
+  "title": "例子先于概念",
+  "source_note": "工厂 70_例子先于概念 / 云端 NEW",
+  "slug": "70_例子先于概念",
+  "duration_zh": "43.9秒",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 43.875,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "e2e1a1654edbdcf0a1fc11adcb43c709bc823ac0bf36402838e8ab6761ad24e3"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 43875
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/70-例子先于概念.mp4",
+    "project_final": "00_最终成片_例子先于概念.mp4",
+    "cover": "00_封面_例子先于概念.jpg"
+  },
+  "staged": "成片/70-例子先于概念.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T14:03:37Z"
+}
