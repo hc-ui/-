@@ -1,0 +1,219 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 18.24,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "钟指十二东西往上落",
+  "video_type": "普通短视频",
+  "bgm": "audio/bgm.wav",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/A-挥手.jpg",
+      "close": true,
+      "line": "大家好",
+      "phrases": [
+        "大家好"
+      ],
+      "start": 0.0,
+      "end": 1.34
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/A-摊手.jpg",
+      "close": false,
+      "line": "只改一条定律",
+      "phrases": [
+        "只改一条定律"
+      ],
+      "start": 1.34,
+      "end": 2.808
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "close": false,
+      "line": "重力每十二小时翻一次",
+      "phrases": [
+        "重力每十二小时翻一次"
+      ],
+      "start": 2.808,
+      "end": 5.443,
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-上落.mp4",
+      "close": false,
+      "line": "钟指到十二，东西往上落",
+      "phrases": [
+        "钟指到十二，东西往上落"
+      ],
+      "start": 5.443,
+      "end": 8.177,
+      "broll": "fall"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-双地面.mp4",
+      "close": false,
+      "line": "天花板也是能走的地面",
+      "phrases": [
+        "天花板也是能走的地面"
+      ],
+      "start": 8.177,
+      "end": 10.69,
+      "broll": "ceiling"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-家具.mp4",
+      "close": false,
+      "line": "家具上下各钉一份",
+      "phrases": [
+        "家具上下各钉一份"
+      ],
+      "start": 10.69,
+      "end": 12.904,
+      "broll": "furniture"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/A-指向.jpg",
+      "close": false,
+      "line": "水池必须带盖",
+      "phrases": [
+        "水池必须带盖"
+      ],
+      "start": 12.904,
+      "end": 14.618
+    },
+    {
+      "id": "S08",
+      "kind": "B",
+      "src": "broll/B-双城.mp4",
+      "close": false,
+      "line": "窗外整座城，楼上楼下都有门",
+      "phrases": [
+        "窗外整座城，楼上楼下都有门"
+      ],
+      "start": 14.618,
+      "end": 18.24,
+      "broll": "city"
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 1.34,
+      "end": 2.808,
+      "lines": [
+        "只改一条定律"
+      ]
+    },
+    {
+      "start": 12.904,
+      "end": 14.618,
+      "lines": [
+        "水池必须带盖"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 1.34,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 2.808,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 5.443,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 8.177,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 10.69,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 12.904,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 14.618,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 1.34,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 1.34,
+      "end": 2.808,
+      "text": "A-ROLL / 02"
+    },
+    {
+      "start": 12.904,
+      "end": 14.618,
+      "text": "A-ROLL / 07"
+    }
+  ],
+  "cover": {
+    "title": "钟指到十二",
+    "sub": "东西往上落",
+    "line": "重力每十二小时翻一次",
+    "src": "assets/t21a-clock-fall-up.png"
+  }
+}

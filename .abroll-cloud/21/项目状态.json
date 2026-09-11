@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "project_name": "21_钟指十二东西往上落",
+  "video_type": "普通短视频",
+  "topic_index": 21,
+  "topic_id": "003",
+  "title": "钟指到十二，东西往上落",
+  "stage": "delivered",
+  "production_method": "白底小灯 A-roll Ken Burns + 黑底对照卡/无字静帧 B-roll + edge-tts Yunyang + FFmpeg",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 18.24,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "0961c141bb66f541b22e3a996b38115688bda40dd558b76489d3004dc0628090"
+  },
+  "staged": "/workspace/成片/21-钟指十二东西往上落.mp4",
+  "project_final": "00_最终成片_钟指十二东西往上落.mp4",
+  "updated_at": "2026-09-11T11:50:00Z"
+}

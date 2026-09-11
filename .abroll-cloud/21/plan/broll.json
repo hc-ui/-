@@ -1,0 +1,50 @@
+[
+  {
+    "id": "law",
+    "file": "broll/B-定律.mp4",
+    "tag": "改一条定律",
+    "title": "重力翻一次",
+    "cards": [
+      {"num": "错", "head": "永远往下掉", "body": "天花板只是顶", "color": "red"},
+      {"num": "对", "head": "每到十二翻向", "body": "上和下对调", "color": "mint"}
+    ],
+    "punch": "十二小时一翻",
+    "phrases": ["重力每十二小时翻一次"]
+  },
+  {
+    "id": "fall",
+    "file": "broll/B-上落.mp4",
+    "tag": "钩子",
+    "title": "钟指到十二",
+    "still": "assets/t21a-clock-fall-up.png",
+    "punch": "东西往上落",
+    "phrases": ["钟指到十二，东西往上落"]
+  },
+  {
+    "id": "ceiling",
+    "file": "broll/B-双地面.mp4",
+    "tag": "后果 01",
+    "title": "天花板",
+    "still": "assets/t21b-ceiling-floor.png",
+    "punch": "也是地面",
+    "phrases": ["天花板也是能走的地面"]
+  },
+  {
+    "id": "furniture",
+    "file": "broll/B-家具.mp4",
+    "tag": "后果 02",
+    "title": "家具成对",
+    "still": "assets/t21c-paired-furniture.png",
+    "punch": "上下各钉一份",
+    "phrases": ["家具上下各钉一份"]
+  },
+  {
+    "id": "city",
+    "file": "broll/B-双城.mp4",
+    "tag": "回报",
+    "title": "窗外整座城",
+    "still": "assets/t21d-dual-city.png",
+    "punch": "楼上楼下都有门",
+    "phrases": ["窗外整座城，楼上楼下都有门"]
+  }
+]

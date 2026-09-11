@@ -1,0 +1,63 @@
+{
+  "title": "钟指十二东西往上落",
+  "cover_title": "钟指到十二",
+  "cover_sub": "东西往上落",
+  "cover_line": "重力每十二小时翻一次",
+  "cover_src": "assets/t21a-clock-fall-up.png",
+  "shots": [
+    {
+      "id": "S01",
+      "kind": "A",
+      "src": "assets/A-挥手.jpg",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S02",
+      "kind": "A",
+      "src": "assets/A-摊手.jpg",
+      "phrases": ["只改一条定律"]
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-定律.mp4",
+      "phrases": ["重力每十二小时翻一次"],
+      "broll": "law"
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-上落.mp4",
+      "phrases": ["钟指到十二，东西往上落"],
+      "broll": "fall"
+    },
+    {
+      "id": "S05",
+      "kind": "B",
+      "src": "broll/B-双地面.mp4",
+      "phrases": ["天花板也是能走的地面"],
+      "broll": "ceiling"
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-家具.mp4",
+      "phrases": ["家具上下各钉一份"],
+      "broll": "furniture"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/A-指向.jpg",
+      "phrases": ["水池必须带盖"]
+    },
+    {
+      "id": "S08",
+      "kind": "B",
+      "src": "broll/B-双城.mp4",
+      "phrases": ["窗外整座城，楼上楼下都有门"],
+      "broll": "city"
+    }
+  ]
+}

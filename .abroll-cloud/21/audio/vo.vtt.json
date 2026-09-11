@@ -1,0 +1,50 @@
+[
+  {
+    "type": "SentenceBoundary",
+    "offset": 1000000,
+    "duration": 12651041,
+    "text": "大家好。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 13151041,
+    "duration": 16927083,
+    "text": "只改一条定律。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 30078125,
+    "duration": 24348958,
+    "text": "重力每十二小时翻一次。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 54427084,
+    "duration": 27343750,
+    "text": "钟指到十二，东西往上落。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 81770835,
+    "duration": 25130208,
+    "text": "天花板也是能走的地面。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 106901044,
+    "duration": 22135417,
+    "text": "家具上下各钉一份。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 129036461,
+    "duration": 19140625,
+    "text": "水池必须带盖。"
+  },
+  {
+    "type": "SentenceBoundary",
+    "offset": 148177086,
+    "duration": 33588542,
+    "text": "窗外整座城，楼上楼下都有门。"
+  }
+]
