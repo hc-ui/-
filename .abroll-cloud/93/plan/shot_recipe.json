@@ -1,0 +1,27 @@
+{
+  "title": "研一结束前用项目判断方向",
+  "cover_title": "研一结束前用项目判断方向",
+  "cover_sub": "别靠空想拍板",
+  "cover_line": "项目是秤，不是海报",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch4.md #93 / 学习基线 2026-08-24 研一结束前用项目判断方向 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "93",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打研一结束前用项目判断方向。不拍成片14双线，不拍成片15生态位，不拍成片51第二技能树，不拍成片90可迁移。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["方向别靠空想拍板"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-三条候选.mp4", "broll": "three_lanes", "phrases": ["研一结束前，用项目判断往哪边走", "三条候选摆在桌上：机器人算法、具身智能、智能体工程"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["看再多介绍，也只是想象里的顺"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-看完还空.mp4", "broll": "imagine_empty", "phrases": ["课听完、视频刷完，方向还是空的", "真正能判的，是你亲手做完的那一块"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["先交一个能跑的智能体小件"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-两个小件.mp4", "broll": "two_projects", "phrases": ["再交一个能动的机器人小件", "两条都试过，取舍才有依据"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["做完才知道，手更熟哪条"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-还想再做.mp4", "broll": "want_again", "phrases": ["哪条做完还想再做，哪条才算方向"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["别等研二才开始试"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-项目是秤.mp4", "broll": "scale", "phrases": ["窗口就在研一结束前", "项目是秤，不是海报"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["秤过了，方向才立得住"]}
+  ]
+}
