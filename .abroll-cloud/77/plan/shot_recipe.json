@@ -1,0 +1,25 @@
+{
+  "title": "零知识秒懂排前面",
+  "cover_title": "零知识秒懂的",
+  "cover_sub": "门槛低的先上，不是好不好画",
+  "cover_line": "两根轴别叠成一根",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "77",
+  "cut": "new-40s",
+  "source": "topics-batch4.md #77 / 选题库.md 上线顺序 / 云端 NEW",
+  "note": "知识口播。只打理解门槛排序。不是剧情短剧。不定格、不慢放注水。不重讲定律 001–012。不重拍成片 40。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["零知识秒懂的，排前面"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["上线顺序的第一原则，不是好不好画", "是荒谬感的理解门槛"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-两列表.mp4", "phrases": ["零知识也能秒懂的，先上", "先得关心某个物理量，才能感到反常的，往后放"], "broll": "two_lists"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["第二原则，才是生成难度"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-两根轴.mp4", "phrases": ["难度低，不等于门槛低", "门槛低的，不用预习就能感到不对", "门槛高的，得先关心那个量才看得出反常", "两根轴别叠成一根"], "broll": "two_axes"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["先按门槛排，再按好不好画排"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-门槛阶梯.mp4", "phrases": ["秒懂的进前排", "先得关心物理量的往后站", "开局先立完播，硬核等可信度立住"], "broll": "stairs"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["排序先问门槛，再问好不好画", "零知识秒懂的排前面", "别让门槛高的抢开局"]}
+  ]
+}
