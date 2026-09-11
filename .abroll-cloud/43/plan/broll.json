@@ -1,0 +1,41 @@
+[
+  {
+    "id": "welded",
+    "file": "broll/B-焊在一起.mp4",
+    "tag": "错 · 焊在一起",
+    "title": "卡的不是新语法",
+    "cards": [
+      {"num": "过", "head": "语法见过", "body": "if / for / 字典", "color": "mint"},
+      {"num": "崩", "head": "焊在一起", "body": "一开菜单就炸", "color": "red"}
+    ],
+    "punch": "是拼装，不是新词",
+    "phrases": ["卡的不是新语法，是焊在一起"]
+  },
+  {
+    "id": "three_drills",
+    "file": "broll/B-三道短题.mp4",
+    "tag": "对 · 先交短题",
+    "title": "先交这三道",
+    "cards": [
+      {"num": "1", "head": "通讯录", "body": "短题", "color": "mint"},
+      {"num": "2", "head": "库存", "body": "短题", "color": "mint"},
+      {"num": "3", "head": "从值找键", "body": "短题", "color": "mint"},
+      {"num": "叉", "head": "再做一个教务", "body": "先别开", "color": "red"}
+    ],
+    "punch": "别再开教务菜单",
+    "phrases": ["通讯录、库存、从值找键"]
+  },
+  {
+    "id": "split_then_next",
+    "file": "broll/B-先拆再开章.mp4",
+    "tag": "对 · 先拆",
+    "title": "大案例先拆开",
+    "cards": [
+      {"num": "1", "head": "菜单能退出", "body": "先活下来", "color": "mint"},
+      {"num": "2", "head": "再增和列出", "body": "第二刀", "color": "yellow"},
+      {"num": "3", "head": "最后才统计", "body": "别一上来就算", "color": "mint"}
+    ],
+    "punch": "短题交完，再开新章",
+    "phrases": ["菜单能退出，再增和列出", "短题交完，再开新章"]
+  }
+]
