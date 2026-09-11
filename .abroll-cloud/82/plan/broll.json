@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explode",
+    "file": "broll/B-空了硬算.mp4",
+    "tag": "错 · 空了硬算",
+    "title": "空班级求最高分",
+    "punch": "max 和除以零都会崩"
+  },
+  {
+    "id": "gate",
+    "file": "broll/B-先问空不空.mp4",
+    "tag": "对 · if not",
+    "title": "先问是不是空的",
+    "punch": "空了就停"
+  },
+  {
+    "id": "then_stat",
+    "file": "broll/B-拦过再算.mp4",
+    "tag": "对 · 有人再算",
+    "title": "拦住再统计",
+    "punch": "没拦请当成会炸"
+  }
+]

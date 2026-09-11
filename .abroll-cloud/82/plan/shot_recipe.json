@@ -1,0 +1,25 @@
+{
+  "title": "if-not",
+  "cover_title": "if not",
+  "cover_sub": "空了先拦住",
+  "cover_line": "有人再统计",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "82",
+  "cut": "new-40s",
+  "source": "topics-batch4.md #82 / 学习基线 2026-09-09 不足第6条 / 云端 NEW",
+  "note": "知识口播。只打空容器先用 if not 拦住。不是剧情短剧。不定格、不慢放注水。不重复成片 64 空字典出生地。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["空容器别直接算，先用 if not 拦住"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["空班级一上来就求最高分，程序当场炸掉", "空列表喂给最大值，或者拿人数去除总分，都会崩"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-空了硬算.mp4", "phrases": ["不是字典写错地方，是空了还硬算", "现在你只会写长度等于零"], "broll": "explode"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["if not 这一句，还没当成正式语法", "空字典、空列表、空字符串，碰到 not 都算空"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-先问空不空.mp4", "phrases": ["先问是不是空的，空了就停，别往下算", "有人了，再求最高分、最低分、平均分"], "broll": "gate"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["对照只打这一道闸", "空了先拦住，有人再统计"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-拦过再算.mp4", "phrases": ["写统计之前，先问班级空不空", "一算就炸，是因为没拦"], "broll": "then_stat"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["拦过再算，成绩才站得住", "没拦住的空容器，请当成会炸"]}
+  ]
+}
