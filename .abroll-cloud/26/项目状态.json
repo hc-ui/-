@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "project_name": "26_待办为什么划不掉",
+  "video_type": "普通短视频",
+  "title": "待办为什么划不掉",
+  "production_method": "白底小灯 A-roll + 黑底信息图 B-roll + edge-tts Yunyang + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "stage": "delivered",
+  "voice": "zh-CN-YunyangNeural",
+  "locked_copy": {
+    "drive_folder": "26_待办为什么划不掉",
+    "drive_id": "1Awrnp5QC7dVWHNAfk-45pb-SXrjJ6MSS",
+    "voiceover_sha256_drive": "B1DFB9B71068E3E5D4C45E9ED7D2AAD7FBA350BDA30711FEF05DB6EB7B1F30CA",
+    "note": "跟锁定口播与七镜分组；云端重配音，不写 C/D/G，不上传 Drive"
+  },
+  "duration": 22.44,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "175d23b8168f4c80e0bd2a5806726996425e13d7ee7fb808b17f9fd6e3c58f3e"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 22440
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/26-待办为什么划不掉.mp4",
+    "project_video": "00_最终成片_待办为什么划不掉.mp4",
+    "cover": "00_封面_待办为什么划不掉.jpg"
+  },
+  "staged": "成片/26-待办为什么划不掉.mp4",
+  "updated_at": "2026-09-11T11:51:14Z"
+}

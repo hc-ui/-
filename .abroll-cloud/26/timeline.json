@@ -1,0 +1,188 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 22.44,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "待办为什么划不掉",
+  "bgm": "audio/bgm.wav",
+  "locked_copy": "Drive 26_待办为什么划不掉",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "start": 0.0,
+      "end": 0.852,
+      "src": "assets/V-挥手.mp4",
+      "line": "大家好",
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "start": 0.852,
+      "end": 4.265,
+      "src": "assets/V-摊手.mp4",
+      "line": "待办写了三十条，一条都没划掉"
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "start": 4.265,
+      "end": 7.105,
+      "src": "broll/B-清单骗人.mp4",
+      "line": "不是你懒，是清单在骗你",
+      "broll": "lie"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "start": 7.105,
+      "end": 13.634,
+      "src": "broll/B-同一页.mp4",
+      "line": "它把愿望和任务写在同一页，愿望很大，下一步是空的",
+      "broll": "same_page"
+    },
+    {
+      "id": "S04a",
+      "kind": "A",
+      "start": 13.634,
+      "end": 15.059,
+      "src": "assets/V-指向.mp4",
+      "line": "今天只留一件"
+    },
+    {
+      "id": "S04b",
+      "kind": "B",
+      "start": 15.059,
+      "end": 19.884,
+      "src": "broll/B-一件事.mp4",
+      "line": "能当场做完的事，写得越小，越容易开始",
+      "broll": "one"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "start": 19.884,
+      "end": 22.44,
+      "src": "assets/V-点赞.mp4",
+      "line": "开始了，今天才算过了"
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 0.852,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 0.852,
+      "end": 2.841,
+      "lines": [
+        "待办写了三十条"
+      ]
+    },
+    {
+      "start": 2.841,
+      "end": 4.265,
+      "lines": [
+        "一条都没划掉"
+      ]
+    },
+    {
+      "start": 13.634,
+      "end": 15.059,
+      "lines": [
+        "今天只留一件"
+      ]
+    },
+    {
+      "start": 19.884,
+      "end": 20.736,
+      "lines": [
+        "开始了"
+      ]
+    },
+    {
+      "start": 20.736,
+      "end": 22.44,
+      "lines": [
+        "今天才算过了"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 4.265,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 7.105,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    },
+    {
+      "start": 13.634,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    },
+    {
+      "start": 15.059,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 19.884,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 0.852,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 0.852,
+      "end": 4.265,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 13.634,
+      "end": 15.059,
+      "text": "A-ROLL / 02"
+    },
+    {
+      "start": 19.884,
+      "end": 22.44,
+      "text": "A-ROLL / 03"
+    }
+  ],
+  "cover": {
+    "title": "待办为什么划不掉",
+    "sub": "不是你懒，是清单在骗你",
+    "line": "今天只留一件能做完的事",
+    "src": "assets/A-角色-小灯-摊手.jpg"
+  }
+}
