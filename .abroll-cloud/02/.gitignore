@@ -1,0 +1,6 @@
+fonts/
+shots/
+audio/p*.wav
+audio/*.mp3
+final/qc/
+__pycache__/

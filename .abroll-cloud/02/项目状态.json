@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "project_name": "02_树叶掉了二十秒还没落地",
+  "video_type": "普通短视频",
+  "topic_index": 2,
+  "topic_source": "/workspace/.abroll-cloud/topics.md",
+  "production_method": "白底小灯 A-roll + 黑底信息图 B-roll + edge-tts Yunyang + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "script": {
+    "path": "script/voiceover.txt",
+    "locked_from": "aroll/scripts/02_树叶掉了二十秒还没落地.voiceover.txt"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 15432,
+    "note": "edge-tts zh-CN-YunyangNeural，44100 Hz 单声道"
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/02-树叶掉了二十秒还没落地.mp4",
+    "project_final": "00_最终成片_树叶掉了二十秒还没落地.mp4",
+    "cover": "00_封面_树叶掉了二十秒还没落地.jpg"
+  },
+  "updated_at": "2026-09-11T11:02:00Z"
+}

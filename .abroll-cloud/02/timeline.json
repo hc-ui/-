@@ -1,0 +1,132 @@
+{
+  "audio": "audio/vo-full.wav",
+  "duration": 15.43201814058957,
+  "fps": 24,
+  "size": [
+    1080,
+    1920
+  ],
+  "title": "树叶掉了二十秒还没落地",
+  "bgm": "audio/bgm.wav",
+  "bgm_credit": "synthesized pad in-repo",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "start": 0.0,
+      "end": 1.11,
+      "src": "assets/V-挥手.mp4",
+      "line": "大家好",
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "start": 1.11,
+      "end": 3.32,
+      "src": "assets/V-摊手.mp4",
+      "line": "空气黏度乘上一万"
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "start": 3.32,
+      "end": 7.825,
+      "src": "broll/B-叶子还没落地.mp4",
+      "line": "叶子掉了二十秒，还没落地 灰尘永不落",
+      "broll": "leaf"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "start": 7.825,
+      "end": 11.96,
+      "src": "broll/B-旗子慢慢弯.mp4",
+      "line": "旗子不飘，只慢慢弯 声音变闷",
+      "broll": "syrup"
+    },
+    {
+      "id": "S04",
+      "kind": "A",
+      "start": 11.96,
+      "end": 15.43201814058957,
+      "src": "assets/V-点赞.mp4",
+      "line": "整条街的雨和鸟，都悬着慢移"
+    }
+  ],
+  "a_caps": [
+    {
+      "start": 0.0,
+      "end": 1.11,
+      "lines": [
+        "大家好"
+      ]
+    },
+    {
+      "start": 1.11,
+      "end": 3.32,
+      "lines": [
+        "空气黏度",
+        "乘上一万"
+      ]
+    },
+    {
+      "start": 11.96,
+      "end": 13.696000000000002,
+      "lines": [
+        "整条街的雨和鸟"
+      ]
+    },
+    {
+      "start": 13.696000000000002,
+      "end": 15.43201814058957,
+      "lines": [
+        "都悬着慢移"
+      ]
+    }
+  ],
+  "shutters": [
+    {
+      "start": 3.32,
+      "color": [
+        126,
+        224,
+        197
+      ]
+    },
+    {
+      "start": 7.825,
+      "color": [
+        245,
+        193,
+        92
+      ]
+    },
+    {
+      "start": 11.96,
+      "color": [
+        245,
+        247,
+        250
+      ]
+    }
+  ],
+  "eyebrows": [
+    {
+      "start": 0.0,
+      "end": 3.32,
+      "text": "A-ROLL / 01"
+    },
+    {
+      "start": 11.96,
+      "end": 15.43201814058957,
+      "text": "A-ROLL / 04"
+    }
+  ],
+  "cover": {
+    "title": "树叶掉了二十秒还没落地",
+    "sub": "空气黏度乘上一万",
+    "line": "雨和鸟都悬着慢移",
+    "src": "assets/A-角色-小灯-摊手.jpg"
+  }
+}
