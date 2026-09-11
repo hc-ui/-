@@ -1,0 +1,45 @@
+{
+  "title": "研一别脱产离校实习",
+  "cover_title": "研一别脱产离校实习",
+  "cover_sub": "人先留在工位",
+  "cover_line": "查岗对上空座位",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "source": "topics-batch3.md #47 / 备忘录第二节 3 脱产全职离校实习",
+  "note": "专硕实习红线。不是剧情短剧，不走 drama-pipeline。不讲远程怎么做。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["研一别脱产离校实习"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-空工位.mp4",
+      "phrases": ["导师随时可能叫你开会、派跑腿"],
+      "broll": "empty_desk"
+    },
+    {
+      "id": "S03",
+      "kind": "B",
+      "src": "broll/B-查岗.mp4",
+      "phrases": ["私自离开合肥，查岗对上空座位"],
+      "broll": "checkpoint"
+    },
+    {
+      "id": "S04",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["人先留在工位"]
+    }
+  ]
+}
