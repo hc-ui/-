@@ -1,0 +1,25 @@
+{
+  "title": "大案例先拆到能退出",
+  "cover_title": "先拆到退出",
+  "cover_sub": "退门通了再往里装",
+  "cover_line": "统计放第三步",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "87",
+  "cut": "new-40s",
+  "source": "topics-batch4.md #87 / 学习基线 2026-09-09 不足第8条 / 云端 NEW",
+  "note": "知识口播。只打大案例先拆到能退出。不是剧情短剧。不定格、不慢放注水。不重复成片 43 短题、成片 74 函数。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "phrases": ["大家好"], "close": true},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["大案例先拆到能退出"]},
+    {"id": "S01c", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是缺语法，是增列统计焊死了退门", "一上来四件事一起上，菜单卡死出不去"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-退门焊死.mp4", "phrases": ["退门焊死，程序就停不住", "先让退出通，别急着加功能"], "broll": "locked"},
+    {"id": "S03", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["退出通了，才算有门"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-先让退出通.mp4", "phrases": ["门没开，增和列都进不去", "再做增加和列出，成绩才能进出", "最后才做统计，最高最低平均往后排"], "broll": "steps"},
+    {"id": "S05", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["先活下来，再往里装东西", "对照只打这一点"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-拆到能停.mp4", "phrases": ["先拆到能退出，再增和列出", "统计是第三步，不是开工第一枪", "整坨焊死，一改就炸"], "broll": "contrast"},
+    {"id": "S07", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["拆到能退出，才能停得住", "大案例先拆开，先让退出通", "退出通了，这盘才算站住"]}
+  ]
+}

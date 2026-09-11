@@ -1,0 +1,23 @@
+[
+  {
+    "id": "locked",
+    "file": "broll/B-退门焊死.mp4",
+    "tag": "错 · 退门焊死",
+    "title": "四件事焊住退门",
+    "punch": "菜单卡死出不去"
+  },
+  {
+    "id": "steps",
+    "file": "broll/B-先让退出通.mp4",
+    "tag": "对 · 先让退出通",
+    "title": "先有门再往里装",
+    "punch": "统计放最后"
+  },
+  {
+    "id": "contrast",
+    "file": "broll/B-拆到能停.mp4",
+    "tag": "对照 · 焊死 / 先退",
+    "title": "拆到能退出才能停",
+    "punch": "这盘才算站住"
+  }
+]
