@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "48_远程实习人在工位活在线上",
+  "video_type": "普通短视频",
+  "episode": 48,
+  "title": "远程实习人在工位活在线上",
+  "source_note": "topics-batch3.md #48 · 备忘录第二节 3 远程日常实习",
+  "unused_of": "研一别脱产离校（#47）/ 工位时间切片（成片16）/ 杂务报销（成片28）/ 杂务六十分（#46）",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 51.167,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "a98378392ea6299963cda1a57e16d82d967e66b0da08c86c17ebae539e83f9f9"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 51166
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/48-远程实习人在工位活在线上.mp4",
+    "project_final": "00_最终成片_远程实习人在工位活在线上.mp4",
+    "cover": "00_封面_远程实习人在工位活在线上.jpg"
+  },
+  "staged": "成片/48-远程实习人在工位活在线上.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / #47 脱产离校 / C:D:G: / Drive 上传",
+  "updated_at": "2026-09-11T12:52:28Z"
+}

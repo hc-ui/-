@@ -257,6 +257,81 @@ def render_b_dual(duration: float) -> list[Image.Image]:
     return out
 
 
+
+def render_b_leave(duration: float) -> list[Image.Image]:
+    n = max(1, round(duration * FPS))
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "诊断")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "人留下，活上线", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
+        a1 = appear(t, 0.14)
+        y = 340 + int(lerp(20, 0, a1))
+        rounded(d, (70, y, 520, y + 460), 28, mix(BG, CARD, a1))
+        d.text((295, y + 80), "搬", font=font(30), fill=mix(CARD, MUTED, a1), anchor="mm")
+        d.text((295, y + 190), "人搬走", font=font(48), fill=mix(CARD, YELLOW, a1), anchor="mm")
+        d.text((295, y + 280), "工位空了", font=font(32), fill=mix(CARD, MUTED, a1), anchor="mm")
+        xm = appear(t, 0.70, 0.22)
+        if xm > 0.04:
+            col = mix(CARD, RED, xm)
+            d.line([(210, y + 340), (380, y + 420)], fill=col, width=10)
+            d.line([(380, y + 340), (210, y + 420)], fill=col, width=10)
+        a2 = appear(t, 0.26)
+        rounded(d, (560, y, 1010, y + 460), 28, mix(BG, (22, 40, 36), a2))
+        d.text((785, y + 80), "留", font=font(30), fill=mix(CARD, MUTED, a2), anchor="mm")
+        d.text((785, y + 190), "人留下", font=font(48), fill=mix(CARD, MINT, a2), anchor="mm")
+        d.text((785, y + 280), "活接到线上", font=font(32), fill=mix(CARD, WHITE, a2), anchor="mm")
+        check_badge(d, 785, y + 380, appear(t, 0.86, 0.20))
+        punch = appear(t, 1.18, 0.22)
+        if punch > 0.04:
+            y2 = 860 + int(lerp(16, 0, punch))
+            rounded(d, (140, y2, 940, y2 + 160), 28, mix(BG, (42, 28, 18), punch))
+            d.text((W // 2, y2 + 80), "不是把人搬走", font=font(52), fill=mix(BG, YELLOW, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
+def render_b_later(duration: float) -> list[Image.Image]:
+    n = max(1, round(duration * FPS))
+    rows = [
+        (0.20, "研一", "远程", "人在工位", MINT, False),
+        (0.48, "研二", "锁稿", "专利论文初稿", YELLOW, False),
+        (0.76, "研三", "本地", "现在先灰掉", MUTED, True),
+    ]
+    out = []
+    for i in range(n):
+        t = i / FPS
+        img = new_bg()
+        d = ImageDraw.Draw(img)
+        tag(d, t, "再一例")
+        a0 = appear(t, 0.02)
+        d.text((W // 2, 236 + int(lerp(16, 0, a0))), "研三再谈本地", font=font(54), fill=mix(BG, WHITE, a0), anchor="mm")
+        for idx, (ts, num, head, body, color, grey) in enumerate(rows):
+            a = appear(t, ts, 0.22)
+            if a < 0.04:
+                continue
+            y = 340 + idx * 200 + int(lerp(18, 0, a))
+            rounded(d, (90, y, 990, y + 176), 26, mix(BG, CARD if not grey else (28, 28, 32), a))
+            d.rounded_rectangle((120, y + 40, 240, y + 136), 16, fill=mix(CARD, color, a))
+            d.text((180, y + 88), num, font=font(32), fill=mix(color, INK, a), anchor="mm")
+            d.text((270, y + 56), head, font=font(42), fill=mix(CARD, color, a), anchor="lm")
+            d.text((270, y + 118), body, font=font(28), fill=mix(CARD, WHITE if not grey else MUTED, a), anchor="lm")
+            if grey:
+                strike = appear(t, ts + 0.28, 0.24)
+                if strike > 0.04:
+                    d.line([(260, y + 88), (int(lerp(260, 940, strike)), y + 88)], fill=mix(CARD, MUTED, a), width=8)
+        punch = appear(t, 1.36, 0.22)
+        if punch > 0.04:
+            y2 = 980 + int(lerp(16, 0, punch))
+            rounded(d, (140, y2, 940, y2 + 160), 28, mix(BG, (18, 42, 36), punch))
+            d.text((W // 2, y2 + 80), "现在只走远程", font=font(52), fill=mix(BG, MINT, punch), anchor="mm")
+        out.append(img)
+    return out
+
+
 def ticks_to_sec(v: float) -> float:
     return float(v) / 10_000_000.0
 
@@ -321,7 +396,7 @@ def detect_sentence_cues(wav: Path, phrases: list[str], duration: float) -> list
 async def synthesize_voice(text: str, mp3: Path) -> list[dict]:
     import edge_tts
 
-    comm = edge_tts.Communicate(text, VOICE, rate="-4%")
+    comm = edge_tts.Communicate(text, VOICE, rate="-8%")
     bounds: list[dict] = []
     with mp3.open("wb") as f:
         async for chunk in comm.stream():
@@ -340,7 +415,16 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
     mp3 = audio_dir / "vo-full.mp3"
     wav = audio_dir / "vo-full.wav"
     aligned: list[tuple[float, float, str]] | None = None
-    if wav.exists() and wav.stat().st_size > 800 and (audio_dir / "vo-align.txt").exists():
+    phrases_sha = hashlib.sha256("\n".join(phrases).encode("utf-8")).hexdigest()
+    sha_file = audio_dir / "phrases.sha"
+    reuse_ok = (
+        wav.exists()
+        and wav.stat().st_size > 800
+        and (audio_dir / "vo-align.txt").exists()
+        and sha_file.exists()
+        and sha_file.read_text(encoding="utf-8").strip() == phrases_sha
+    )
+    if reuse_ok:
         duration = probe_dur(wav)
         parsed: list[tuple[float, float, str]] = []
         for line in (audio_dir / "vo-align.txt").read_text(encoding="utf-8").splitlines():
@@ -391,22 +475,35 @@ def make_voiceover() -> tuple[float, list[tuple[float, float, str]]]:
 
         vtt += [str(i), f"{ts(s)} --> {ts(e)}", p, ""]
     (audio_dir / "vo.vtt").write_text("\n".join(vtt), encoding="utf-8")
+    (audio_dir / "phrases.sha").write_text(phrases_sha + "\n", encoding="utf-8")
     return duration, aligned
 
 
 def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dict:
     recipe = json.loads((ROOT / "plan" / "shot_recipe.json").read_text(encoding="utf-8"))
-    p0, p1, p2, p3, p4 = cues
-    b1 = max(p1[0] + 0.70, p2[0] - LEAD)
-    b2 = max(b1 + 1.20, p3[0] - LEAD)
-    if b2 <= b1 + 1.10:
-        b2 = min(p3[1] - 0.20, b1 + 2.20)
+    if len(cues) != 12:
+        raise SystemExit(f"need 12 phrases, got {len(cues)}")
+    cuts = [
+        max(cues[1][1], cues[2][0] - LEAD),
+        max(cues[2][1], cues[3][0] - LEAD),
+        max(cues[3][1], cues[4][0] - LEAD),
+        max(cues[4][1], cues[5][0] - LEAD),
+        max(cues[5][1], cues[6][0] - LEAD),
+        max(cues[6][1], cues[7][0] - LEAD),
+        max(cues[7][1], cues[8][0] - LEAD),
+        max(cues[8][1], cues[9][0] - LEAD),
+    ]
     shots = [
-        {"id": "S01a", "kind": "A", "start": 0.0, "end": p0[1], "src": "assets/V-挥手.mp4", "line": p0[2], "close": True},
-        {"id": "S01b", "kind": "A", "start": p0[1], "end": b1, "src": "assets/V-摊手.mp4", "line": p1[2]},
-        {"id": "S02", "kind": "B", "start": b1, "end": b2, "src": "broll/B-人在工位.mp4", "line": p2[2], "broll": "desk_stay"},
-        {"id": "S03", "kind": "B", "start": b2, "end": p3[1], "src": "broll/B-双屏线上.mp4", "line": p3[2], "broll": "dual_screen"},
-        {"id": "S04", "kind": "A", "start": p3[1], "end": duration, "src": "assets/V-指向.mp4", "line": p4[2]},
+        {"id": "S01a", "kind": "A", "start": 0.0, "end": cues[0][1], "src": "assets/V-挥手.mp4", "line": cues[0][2], "close": True},
+        {"id": "S01b", "kind": "A", "start": cues[0][1], "end": cuts[0], "src": "assets/V-摊手.mp4", "line": cues[1][2]},
+        {"id": "S02", "kind": "B", "start": cuts[0], "end": cuts[1], "src": "broll/B-留下不上线.mp4", "line": cues[2][2], "broll": "stay_not_leave"},
+        {"id": "S03", "kind": "A", "start": cuts[1], "end": cuts[2], "src": "assets/V-指向.mp4", "line": cues[3][2]},
+        {"id": "S04", "kind": "B", "start": cuts[2], "end": cuts[3], "src": "broll/B-人在工位.mp4", "line": cues[4][2], "broll": "desk_stay"},
+        {"id": "S05", "kind": "A", "start": cuts[3], "end": cuts[4], "src": "assets/V-摊手.mp4", "line": cues[5][2]},
+        {"id": "S06", "kind": "B", "start": cuts[4], "end": cuts[5], "src": "broll/B-双屏线上.mp4", "line": cues[6][2], "broll": "dual_screen"},
+        {"id": "S07", "kind": "A", "start": cuts[5], "end": cuts[6], "src": "assets/V-指向.mp4", "line": cues[7][2]},
+        {"id": "S08", "kind": "B", "start": cuts[6], "end": cuts[7], "src": "broll/B-研三再谈.mp4", "line": cues[8][2], "broll": "later_local"},
+        {"id": "S09", "kind": "A", "start": cuts[7], "end": duration, "src": "assets/V-点赞.mp4", "line": " / ".join(c[2] for c in cues[9:])},
     ]
     for i, shot in enumerate(shots):
         shot["start"] = round(float(shot["start"]), 3)
@@ -426,20 +523,20 @@ def build_timeline(cues: list[tuple[float, float, str]], duration: float) -> dic
         "bgm": "audio/bgm.wav",
         "shots": shots,
         "a_caps": [
-            {"start": 0.0, "end": round(p0[1], 3), "lines": ["大家好"]},
-            {"start": round(p1[0], 3), "end": round(b1, 3), "lines": ["远程实习人在工位", "活在线上"]},
-            {"start": round(p4[0], 3), "end": round(duration, 3), "lines": ["考勤和履历一起拿"]},
+            {"start": 0.0, "end": round(cues[0][1], 3), "lines": ["大家好"]},
+            {"start": round(cues[1][0], 3), "end": round(shots[1]["end"], 3), "lines": ["远程实习", "人在工位，活在线上"]},
+            {"start": round(shots[3]["start"], 3), "end": round(shots[3]["end"], 3), "lines": ["工位一空", "对不上查岗"]},
+            {"start": round(shots[5]["start"], 3), "end": round(shots[5]["end"], 3), "lines": ["左屏仿真", "右屏接项目"]},
+            {"start": round(shots[7]["start"], 3), "end": round(shots[7]["end"], 3), "lines": ["考勤和履历", "同一张工位"]},
+            {"start": round(shots[9]["start"], 3), "end": round(duration, 3), "lines": ["人在工位", "活在线上"]},
         ],
         "shutters": [
-            {"start": round(p0[1], 3), "color": list(CREAM)},
-            {"start": round(b1, 3), "color": list(MINT)},
-            {"start": round(b2, 3), "color": list(YELLOW)},
-            {"start": round(p3[1], 3), "color": list(CREAM)},
+            {"start": round(shots[i]["start"], 3), "color": list((CREAM, MINT, YELLOW)[i % 3])}
+            for i in range(1, len(shots))
         ],
         "eyebrows": [
-            {"start": 0.0, "end": round(p0[1], 3), "text": "A-ROLL / 1a"},
-            {"start": round(p0[1], 3), "end": round(b1, 3), "text": "A-ROLL / 1b"},
-            {"start": round(p4[0], 3), "end": round(duration, 3), "text": "A-ROLL / 04"},
+            {"start": round(s["start"], 3), "end": round(s["end"], 3), "text": f"A-ROLL / {s['id'][1:]}"}
+            for s in shots if s["kind"] == "A"
         ],
         "cover": {
             "title": recipe["cover_title"],
@@ -583,12 +680,14 @@ def cut_shot(src: Path, dur: float, dest: Path, kind: str, close: bool = False) 
         vf = f"scale=1188:2112,crop={W}:{H}:54:105,fps={FPS},setsar=1,format=yuv420p"
     else:
         vf = f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,fps={FPS},setsar=1,format=yuv420p"
-    if kind == "A" and dur > src_dur + 0.05:
-        vf = f"setpts=PTS*{dur / src_dur:.6f},{vf}"
+    extra = []
+    if dur > src_dur + 0.30 and kind == "A":
+        extra = ["-stream_loop", "-1"]
     elif dur > src_dur + 0.02:
-        vf = f"{vf},tpad=stop_mode=clone:stop_duration={dur - src_dur:.3f}"
+        pad = min(0.28, dur - src_dur)
+        vf = f"{vf},tpad=stop_mode=clone:stop_duration={pad:.3f}"
     run([
-        "ffmpeg", "-y", "-i", str(src), "-t", f"{dur:.3f}",
+        "ffmpeg", "-y", *extra, "-i", str(src), "-t", f"{dur:.3f}",
         "-vf", vf, "-an", "-c:v", "libx264", "-preset", "fast", "-crf", "18", str(dest),
     ])
 
@@ -694,7 +793,7 @@ def make_cover() -> Path:
 def copy_assets() -> None:
     dest = ROOT / "assets"
     dest.mkdir(exist_ok=True)
-    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "A-角色-小灯-摊手.jpg"):
+    for name in ("V-挥手.mp4", "V-摊手.mp4", "V-指向.mp4", "V-点赞.mp4", "A-角色-小灯-摊手.jpg"):
         src = ASSET_SRC / name
         if not src.exists():
             raise FileNotFoundError(src)
@@ -899,6 +998,8 @@ def qa(staged: Path, data: dict) -> dict:
         and not overlap
         and not gap
         and report["timeline"]["last_end_equals_audio"]
+        and 30.0 <= report["video"]["duration_s"] <= 60.0
+        and len(shots) >= 7
     )
     (ROOT / "交付核验.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return report
@@ -914,14 +1015,17 @@ def main() -> None:
     data = build_timeline(cues, duration)
     print("timeline shots", [(s["id"], s["start"], s["end"], s["kind"]) for s in data["shots"]])
 
-    b1 = next(s for s in data["shots"] if s["id"] == "S02")
-    b2 = next(s for s in data["shots"] if s["id"] == "S03")
-    d1 = max(2.2, float(b1["end"]) - float(b1["start"]))
-    d2 = max(2.2, float(b2["end"]) - float(b2["start"]))
-    print("render B-人在工位", d1)
-    frames_to_mp4(render_b_desk(d1 + 0.12), ROOT / "broll" / "B-人在工位.mp4")
-    print("render B-双屏线上", d2)
-    frames_to_mp4(render_b_dual(d2 + 0.12), ROOT / "broll" / "B-双屏线上.mp4")
+    renders = {
+        "S02": ("B-留下不上线", render_b_leave),
+        "S04": ("B-人在工位", render_b_desk),
+        "S06": ("B-双屏线上", render_b_dual),
+        "S08": ("B-研三再谈", render_b_later),
+    }
+    for sid, (name, fn) in renders.items():
+        shot = next(s for s in data["shots"] if s["id"] == sid)
+        d = max(2.4, float(shot["end"]) - float(shot["start"]))
+        print("render", name, d)
+        frames_to_mp4(fn(d + 0.12), ROOT / "broll" / f"{name}.mp4")
 
     make_cover()
     staged = assemble(data)

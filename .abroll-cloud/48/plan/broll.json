@@ -1,28 +1,54 @@
 [
   {
+    "id": "stay_not_leave",
+    "file": "broll/B-留下不上线.mp4",
+    "tag": "诊断",
+    "title": "人留下，活上线",
+    "visual": "搬走打叉，留下打勾",
+    "cards": [
+      {"num": "搬", "head": "人搬走", "body": "工位空了", "color": "red"},
+      {"num": "留", "head": "人留下", "body": "活接到线上", "color": "mint"}
+    ],
+    "punch": "不是把人搬走",
+    "phrases": ["可行的不是把人搬走，是人留下、把活接到线上"]
+  },
+  {
     "id": "desk_stay",
     "file": "broll/B-人在工位.mp4",
-    "tag": "人在工位",
+    "tag": "例子一",
     "title": "人坐着就行",
-    "visual": "工位有人、杂活按时勾上，对照空工位打叉",
+    "visual": "工位有人、杂活按时勾上",
     "cards": [
       {"num": "人", "head": "人坐着", "body": "工位有人在场", "color": "mint"},
-      {"num": "活", "head": "杂活应按", "body": "来了就应，做完即止", "color": "yellow"}
+      {"num": "活", "head": "杂活应按", "body": "来了就应", "color": "yellow"}
     ],
-    "punch": "人不用搬走",
-    "phrases": ["杂活按时应，人坐着就行"]
+    "punch": "不用把座位腾空",
+    "phrases": ["杂活来了按时应，人坐着就行，不用把座位腾空"]
   },
   {
     "id": "dual_screen",
     "file": "broll/B-双屏线上.mp4",
-    "tag": "活在线上",
+    "tag": "例子二",
     "title": "双屏一起跑",
-    "visual": "左屏实验仿真曲线，右屏线上项目清单",
+    "visual": "左仿真曲线，右线上项目，耳机站会",
     "cards": [
       {"num": "左", "head": "实验仿真", "body": "工位这边还在跑", "color": "yellow"},
       {"num": "右", "head": "线上项目", "body": "软件算法接着做", "color": "mint"}
     ],
-    "punch": "一边工位一边履历",
-    "phrases": ["双屏一边仿真，一边接线上项目"]
+    "punch": "座位上还是你",
+    "phrases": ["耳机里是线上站会，抬头一看，座位上还是你"]
+  },
+  {
+    "id": "later_local",
+    "file": "broll/B-研三再谈.mp4",
+    "tag": "再一例",
+    "title": "研三再谈本地",
+    "visual": "时间轴灰掉本地实习",
+    "cards": [
+      {"num": "今", "head": "现在远程", "body": "人在工位", "color": "mint"},
+      {"num": "后", "head": "研三本地", "body": "稿子锁定再谈", "color": "muted"}
+    ],
+    "punch": "现在只走远程",
+    "phrases": ["合肥本地实习先灰掉，等研三稿子锁定再谈"]
   }
 ]
