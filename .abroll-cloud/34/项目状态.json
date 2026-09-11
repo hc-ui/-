@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "project_name": "34_口播结尾别报时长",
+  "video_type": "普通短视频",
+  "episode": 34,
+  "title": "口播结尾别报时长",
+  "slug": "350_口播结尾别报时长",
+  "source_note": "topics-batch2.md #34 / 工厂 350_口播结尾别报时长 voiceover.txt",
+  "unused_of": "口播别念链接 / 列表项先给结果 / 值班手机没有备机号",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 12.5,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "a698eabd0fe17dfb153f64a95afd1709eebdefd364c763608f815ba70a69a53b"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 12500
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/34-口播别报时长.mp4",
+    "project_final": "00_最终成片_口播结尾别报时长.mp4",
+    "cover": "00_封面_口播结尾别报时长.jpg"
+  },
+  "staged": "成片/34-口播别报时长.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / 别念链接 / 值班备机",
+  "updated_at": "2026-09-11T11:54:34Z"
+}

@@ -1,0 +1,36 @@
+{
+  "project": "34_口播结尾别报时长",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/34-口播别报时长.mp4",
+  "project_final": "/workspace/.abroll-cloud/34/00_最终成片_口播结尾别报时长.mp4",
+  "sha256": "21eb66394183d3017e8135856a77d50fd12c716ee89fa6875d849464dd5c3ec8",
+  "bytes": 2624697,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 12.5
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -30.9,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 5,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true
+}
