@@ -1,0 +1,38 @@
+[
+  {
+    "id": "law",
+    "file": "broll/B-定律.mp4",
+    "tag": "改一条定律",
+    "title": "声音可以被看见",
+    "cards": [
+      {"num": "错", "head": "声音只进耳朵", "body": "空气里什么都没有", "color": "red"},
+      {"num": "对", "head": "声纹写在空气里", "body": "涟漪、冲击、静纹", "color": "cyan"}
+    ],
+    "punch": "看得见",
+    "phrases": ["声音可以被看见"]
+  },
+  {
+    "id": "ripples",
+    "file": "broll/B-涟漪.mp4",
+    "tag": "后果 01",
+    "title": "说话时",
+    "punch": "嘴前有涟漪",
+    "phrases": ["说话时，嘴前有涟漪"]
+  },
+  {
+    "id": "shock",
+    "file": "broll/B-冲击波.mp4",
+    "tag": "后果 02",
+    "title": "杯子还没碎",
+    "punch": "冲击波已经到了",
+    "phrases": ["杯子还没碎，冲击波已经到了"]
+  },
+  {
+    "id": "city",
+    "file": "broll/B-空屋.mp4",
+    "tag": "回报",
+    "title": "天空铺满声纹",
+    "punch": "最安静的是空屋",
+    "phrases": ["整座城的天空，铺满交错声纹", "最安静的一块，是一间空屋"]
+  }
+]
