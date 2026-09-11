@@ -1,0 +1,26 @@
+[
+  {
+    "id": "crash",
+    "file": "broll/B-耳眼撞车.mp4",
+    "tag": "错 · 念屏",
+    "title": "耳眼撞车",
+    "cards": [
+      {"num": "眼", "head": "屏幕：去改结尾", "body": "字已经上屏", "color": "yellow"},
+      {"num": "耳", "head": "嘴里也念这句", "body": "同一句叠在一起", "color": "red"}
+    ],
+    "punch": "两头都听不清",
+    "phrases": ["耳朵和眼睛撞车，两头都听不清"]
+  },
+  {
+    "id": "cut",
+    "file": "broll/B-念屏删掉.mp4",
+    "tag": "改法 · 删念屏",
+    "title": "画面放词",
+    "cards": [
+      {"num": "留", "head": "屏幕放大词", "body": "嘴里说另一句", "color": "mint"},
+      {"num": "删", "head": "念屏：去改结尾", "body": "脚本里念屏那行划掉", "color": "red"}
+    ],
+    "punch": "把念屏那句删掉",
+    "phrases": ["写完对照，把念屏那句删掉"]
+  }
+]

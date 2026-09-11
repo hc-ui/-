@@ -1,0 +1,45 @@
+{
+  "title": "口播别念屏幕上的字",
+  "cover_title": "口播别念屏幕上的字",
+  "cover_sub": "耳眼撞车听不清",
+  "cover_line": "画面放词嘴里说话",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "source": "工厂 311_口播别念屏幕上的字 / topics-batch2.md #24",
+  "note": "口播工艺。禁的是念出已经上屏的字，不是念 URL。不走 drama-pipeline。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["口播别念屏幕上的字"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-耳眼撞车.mp4",
+      "phrases": ["耳朵和眼睛撞车，两头都听不清"],
+      "broll": "crash"
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["画面放词，嘴里说话"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-念屏删掉.mp4",
+      "phrases": ["写完对照，把念屏那句删掉"],
+      "broll": "cut"
+    }
+  ]
+}
