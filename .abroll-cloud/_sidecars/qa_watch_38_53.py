@@ -266,9 +266,18 @@ def claim_source(num: str) -> str | None:
         text = claim.read_text(encoding="utf-8")
         src = ""
         for line in text.splitlines():
-            if "来源" in line or "选题" in line:
+            if line.lstrip().startswith("#"):
+                continue
+            if "来源" in line and "：" in line:
                 src = line.split("：", 1)[-1].strip(" -*")
                 if src:
+                    break
+        if not src:
+            for line in text.splitlines():
+                if line.lstrip().startswith("#"):
+                    continue
+                if "成片名" in line and "：" in line:
+                    src = line.split("：", 1)[-1].strip(" -*`")
                     break
         return f"topic {num} {src}".strip() if src else f"topic {num}"
     return None
