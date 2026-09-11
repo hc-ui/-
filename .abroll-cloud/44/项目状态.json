@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "project_name": "44_忙完一天却没推进",
+  "video_type": "普通短视频",
+  "episode": 44,
+  "title": "忙完一天却没推进",
+  "source_note": "topics-batch3.md #44 / 工厂 44_忙完一天却没推进",
+  "unused_of": "深度工作总被打断（成片00）/ 待办为什么划不掉（成片26）/ 周会诉苦会",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 14.458,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "d9030ca202aa145cb1161a2cfab1a88d62dba694e062e4175a3351e7e24337a1"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 14458
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/44-忙完一天却没推进.mp4",
+    "project_final": "00_最终成片_忙完一天却没推进.mp4",
+    "cover": "00_封面_忙完一天却没推进.jpg"
+  },
+  "staged": "成片/44-忙完一天却没推进.mp4",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / 成片00打断 / 成片26待办",
+  "updated_at": "2026-09-11T12:26:33Z"
+}
