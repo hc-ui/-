@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "project_name": "35_口播别报文件名",
+  "video_type": "普通短视频",
+  "episode": 35,
+  "factory": "339_口播里别报文件名",
+  "topic_source": "topics-batch2.md #35",
+  "slug": "35_口播别报文件名",
+  "title": "口播别报文件名",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "stage": "delivered",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 12.5,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "cloud_only": true,
+  "no_windows_paths": true,
+  "no_drive_upload": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / 口播别念链接 / 列表项先给结果",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "5dce02dc4330a18734ebbd766b5e0c12e98407707cf36fa3a97feb2060d40d10"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 12500
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/35-口播别报文件名.mp4",
+    "project_video": "00_最终成片_口播别报文件名.mp4",
+    "cover": "00_封面_口播别报文件名.jpg"
+  },
+  "staged": "成片/35-口播别报文件名.mp4",
+  "updated_at": "2026-09-11T11:53:56Z"
+}
