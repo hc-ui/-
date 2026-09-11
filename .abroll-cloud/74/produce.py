@@ -266,11 +266,27 @@ def render_b_motto(duration: float):
         C.tag(d, t, "对照 · 焊死 / 起名")
         if t < third:
             a = C.appear(t, 0.02)
-            d.text((C.W // 2, 240 + int(C.lerp(16, 0, a))), "焊死一整段", font=C.font(52), fill=C.mix(C.BG, C.WHITE, a), anchor="mm")
-            C.rounded(d, (120, 360, 960, 980), 36, C.mix(C.BG, C.CARD, a))
-            d.text((C.W // 2, 560), "选项挤在一块", font=C.font(44), fill=C.mix(C.CARD, C.MUTED, a), anchor="mm")
-            d.text((C.W // 2, 680), "没有名字", font=C.font(56), fill=C.mix(C.CARD, C.RED, a), anchor="mm")
-            C.draw_x(d, C.W // 2, 820, C.appear(t, 0.70, 0.22), 40)
+            d.text((C.W // 2, 230 + int(C.lerp(16, 0, a))), "现在只拆这一层", font=C.font(48), fill=C.mix(C.BG, C.WHITE, a), anchor="mm")
+            steps = [("函数", True), ("文件", False), ("异常", False)]
+            for idx, (label, live) in enumerate(steps):
+                x = 90 + idx * 310
+                y = 360
+                fill = (18, 42, 36) if live else (28, 30, 36)
+                ink = C.MINT if live else C.MUTED
+                C.rounded(d, (x, y, x + 280, y + 360), 26, C.mix(C.BG, fill, a))
+                d.text((x + 140, y + 130), label, font=C.font(52), fill=C.mix(C.CARD, ink, a), anchor="mm")
+                d.text(
+                    (x + 140, y + 230),
+                    "先做" if live else "往后排",
+                    font=C.font(30),
+                    fill=C.mix(C.CARD, C.YELLOW if live else C.MUTED, a),
+                    anchor="mm",
+                )
+                if live:
+                    C.check_badge(d, x + 140, y + 300, C.appear(t, 0.55, 0.18))
+                else:
+                    C.draw_x(d, x + 140, y + 300, C.appear(t, 0.70, 0.18), 22)
+            d.text((C.W // 2, 820), "文件和异常先灰掉", font=C.font(36), fill=C.mix(C.BG, C.MUTED, a), anchor="mm")
         elif t < third * 2:
             a = C.appear(t, third, 0.22)
             d.text((C.W // 2, 230), "一张对照", font=C.font(40), fill=C.mix(C.BG, C.MUTED, a), anchor="mm")
@@ -322,7 +338,7 @@ def build_timeline(cues, duration: float) -> dict:
         {"id": "S03", "kind": "A", "start": a3, "end": b2, "src": "assets/V-指向.mp4", "line": p[5][2]},
         {"id": "S04", "kind": "B", "start": b2, "end": b2e, "src": "broll/B-剪成方块.mp4", "line": p[6][2], "broll": "cut"},
         {"id": "S05", "kind": "B", "start": b3, "end": b3e, "src": "broll/B-起名字.mp4", "line": p[7][2], "broll": "name"},
-        {"id": "S06", "kind": "B", "start": b4, "end": b4e, "src": "broll/B-路线条.mp4", "line": p[8][2], "broll": "road"},
+        {"id": "S06", "kind": "B", "start": b4, "end": b4e, "src": "broll/B-起名字.mp4", "line": p[8][2], "broll": "name"},
         {"id": "S07", "kind": "A", "start": a7, "end": b8, "src": "assets/V-摊手.mp4", "line": p[10][2]},
         {"id": "S08", "kind": "B", "start": b8, "end": b8e, "src": "broll/B-对照.mp4", "line": p[12][2], "broll": "motto"},
         {"id": "S09", "kind": "A", "start": b8e, "end": duration, "src": "assets/V-点赞.mp4", "line": p[14][2]},
@@ -508,8 +524,12 @@ def main() -> None:
     bmap = {s["id"]: s for s in data["shots"]}
     C.frames_to_mp4(render_b_weld(max(2.6, bmap["S02"]["end"] - bmap["S02"]["start"]) + 0.16), ROOT / "broll" / "B-焊成一坨.mp4")
     C.frames_to_mp4(render_b_cut(max(2.4, bmap["S04"]["end"] - bmap["S04"]["start"]) + 0.16), ROOT / "broll" / "B-剪成方块.mp4")
-    C.frames_to_mp4(render_b_name(max(2.4, bmap["S05"]["end"] - bmap["S05"]["start"]) + 0.16), ROOT / "broll" / "B-起名字.mp4")
-    C.frames_to_mp4(render_b_road(max(2.8, bmap["S06"]["end"] - bmap["S06"]["start"]) + 0.16), ROOT / "broll" / "B-路线条.mp4")
+    name_dur = max(
+        bmap["S05"]["end"] - bmap["S05"]["start"],
+        bmap["S06"]["end"] - bmap["S06"]["start"],
+    )
+    C.frames_to_mp4(render_b_name(max(2.8, name_dur) + 0.16), ROOT / "broll" / "B-起名字.mp4")
+    C.frames_to_mp4(render_b_road(max(2.8, bmap["S08"]["end"] - bmap["S08"]["start"]) + 0.16), ROOT / "broll" / "B-路线条.mp4")
     C.frames_to_mp4(render_b_motto(max(2.6, bmap["S08"]["end"] - bmap["S08"]["start"]) + 0.16), ROOT / "broll" / "B-对照.mp4")
     make_cover()
     staged = C.assemble(ROOT, data, NAME, STAGED_NAME)
