@@ -1,0 +1,79 @@
+{
+  "project": "93_研一结束前用项目判断方向",
+  "duration_zh": "47.1秒",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/93-研一结束前用项目判断方向.mp4",
+  "project_final": "/workspace/.abroll-cloud/93/00_最终成片_研一结束前用项目判断方向.mp4",
+  "sha256": "b8fe4e611a2195ce53a18563e8d6a7301fdfaa71ebce8ac4907997184d1bee28",
+  "bytes": 9085619,
+  "distinct_from_14_15_51_90": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 47.125
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -31.7,
+    "max_volume_db": -10.1
+  },
+  "timeline": {
+    "segments": 12,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": true,
+  "ok": true,
+  "duration_window": {
+    "min": 30.0,
+    "max": 60.0,
+    "target": [
+      40.0,
+      50.0
+    ],
+    "hit": true,
+    "duration_zh": "47.1秒"
+  },
+  "script_guard": {
+    "两条线": true,
+    "就业技术栈": true,
+    "Python 学扎实": true,
+    "五条路": true,
+    "抢生态位": true,
+    "测控底层": true,
+    "包装成": true,
+    "下一期": true,
+    "赵老师": true,
+    "第二技能树": true,
+    "可迁移": true
+  },
+  "keep_neighbors": {
+    "14": {
+      "exists": true,
+      "bytes": 4142079
+    },
+    "15": {
+      "exists": true,
+      "bytes": 6142753
+    },
+    "51": {
+      "exists": true,
+      "bytes": 12518290
+    },
+    "90": {
+      "exists": true,
+      "bytes": 12223505
+    }
+  }
+}
