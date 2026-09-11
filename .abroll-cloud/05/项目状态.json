@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "project_name": "05_先给选项再要决定",
+  "video_type": "普通短视频",
+  "production_method": "白底小灯 A-roll 静帧Ken Burns + 黑底信息图 B-roll + edge-tts Yunyang + FFmpeg",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "ba50a34a829e0bf48511282d4adf75dc477e5013f80aa55ee1b2446c2bdb0c9d"
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 10152,
+    "note": "云端替代豆包 TTS：edge-tts zh-CN-YunyangNeural"
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/05-先给选项再要决定.mp4",
+    "cover": "00_封面_先给选项再要决定.jpg"
+  },
+  "updated_at": "2026-09-11T10:55:00Z"
+}

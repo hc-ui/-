@@ -1,0 +1,5 @@
+file '/workspace/.abroll-cloud/05/shots/S01a.mp4'
+file '/workspace/.abroll-cloud/05/shots/S01b.mp4'
+file '/workspace/.abroll-cloud/05/shots/S02.mp4'
+file '/workspace/.abroll-cloud/05/shots/S03.mp4'
+file '/workspace/.abroll-cloud/05/shots/S04.mp4'

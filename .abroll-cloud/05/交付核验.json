@@ -1,0 +1,30 @@
+{
+  "project": "05_先给选项再要决定",
+  "strict": true,
+  "cloud_substitute": "检查AI项目.ps1 unavailable; ffprobe + volumedetect + phrase timeline used",
+  "final": "/workspace/成片/05-先给选项再要决定.mp4",
+  "sha256": "6e1598794bd6c251daa02f492f810d81741bdfd7142e4fe2cf464b2f49f0122c",
+  "bytes": 3180751,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "pix_fmt": "yuv420p",
+    "duration_s": 10.167
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -32.3,
+    "max_volume_db": -13.6
+  },
+  "timeline": {
+    "segments": 4,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true
+  },
+  "ok": true
+}
