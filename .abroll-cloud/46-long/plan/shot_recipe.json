@@ -1,0 +1,74 @@
+{
+  "title": "杂务按六十分及格交付",
+  "cover_title": "杂务按六十分及格",
+  "cover_sub": "当成换工位的租金",
+  "cover_line": "做完即止，别评优",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "video_type": "普通短视频",
+  "topic_id": "46",
+  "cut": "long-40s",
+  "source": "topics-batch3.md #46 / 备忘录第二节 2 钝感策略 / 46-long 加长重切",
+  "note": "知识口播。不是剧情短剧，不走 drama-pipeline。加长口播与 A/B 镜，覆盖 10.5s 短切。不重复 28 报销、16 秒回。",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["杂务按六十分及格交付"]
+    },
+    {
+      "id": "S01c",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["不是偷懒", "是把力气留给正事"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-租金不是主业.mp4",
+      "phrases": ["行政杂务，当成换工位的租金", "租金交完就行", "别交成主业"],
+      "broll": "rent"
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["工位卫生，收发快递，盖章跑腿", "这些都按六十分做"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-六十分就过.mp4",
+      "phrases": ["标准只有一条，不出差错", "六十分就过，别追求九十分", "多一分，就少一分给课题", "做完即止，清单勾上就停"],
+      "broll": "sixty"
+    },
+    {
+      "id": "S05",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["别把卫生做成作品集"]
+    },
+    {
+      "id": "S06",
+      "kind": "B",
+      "src": "broll/B-别评优.mp4",
+      "phrases": ["别在杂务上评优", "评优那分别投，情绪也别跟进去", "这不是你的战场"],
+      "broll": "no_honor"
+    },
+    {
+      "id": "S07",
+      "kind": "A",
+      "src": "assets/V-点赞.mp4",
+      "phrases": ["过了就走，把满分留给该满分的事"]
+    }
+  ]
+}
