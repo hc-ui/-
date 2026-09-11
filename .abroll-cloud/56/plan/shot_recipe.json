@@ -1,0 +1,45 @@
+{
+  "title": "别在字幕里加注释",
+  "cover_title": "别在字幕里加注释",
+  "cover_sub": "括号里的字会被跳过",
+  "cover_line": "字幕只跟口播",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "topics-batch3.md #56 / 工厂 349_别在字幕里加注释",
+  "video_type": "普通短视频",
+  "note": "口播工艺。不是剧情连载，不走 drama-pipeline。云端无 V-正对讲，S01b 用摊手；S03 用指向。",
+  "shots": [
+    {
+      "id": "S01a",
+      "kind": "A",
+      "src": "assets/V-挥手.mp4",
+      "phrases": ["大家好"],
+      "close": true
+    },
+    {
+      "id": "S01b",
+      "kind": "A",
+      "src": "assets/V-摊手.mp4",
+      "phrases": ["别在字幕里加注释"]
+    },
+    {
+      "id": "S02",
+      "kind": "B",
+      "src": "broll/B-括号跳过.mp4",
+      "phrases": ["括号一出来，听众当补充，直接跳过"],
+      "broll": "paren_skip"
+    },
+    {
+      "id": "S03",
+      "kind": "A",
+      "src": "assets/V-指向.mp4",
+      "phrases": ["字幕只跟口播，注释放到图上"]
+    },
+    {
+      "id": "S04",
+      "kind": "B",
+      "src": "broll/B-括号删掉.mp4",
+      "phrases": ["写完字幕，把括号删掉"],
+      "broll": "paren_cut"
+    }
+  ]
+}
