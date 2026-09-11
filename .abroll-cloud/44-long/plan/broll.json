@@ -1,0 +1,41 @@
+[
+  {
+    "id": "react_not_advance",
+    "file": "broll/B-整天反应.mp4",
+    "tag": "错 · 反应",
+    "title": "整天都在反应",
+    "cards": [
+      {"num": "回", "head": "回消息", "body": "已读很快", "color": "yellow"},
+      {"num": "救", "head": "救火", "body": "插进来的都急", "color": "red"},
+      {"num": "插", "head": "插队", "body": "正事被挤走", "color": "muted"}
+    ],
+    "empty": "推进栏 · 空的",
+    "punch": "没有一件推进",
+    "phrases": ["回消息、救火、插队，正事被挤走", "忙的是别人的紧急", "不是自己能留下的痕迹"]
+  },
+  {
+    "id": "one_trace",
+    "file": "broll/B-一件痕迹.mp4",
+    "tag": "对 · 一件",
+    "title": "只留一件",
+    "cards": [
+      {"num": "1", "head": "写下这一件", "body": "必须推进，不是回复", "color": "yellow"},
+      {"num": "2", "head": "能留下痕迹", "body": "文档 / 代码 / 决定", "color": "mint"},
+      {"num": "3", "head": "一件动了", "body": "比十件反应值钱", "color": "cream"}
+    ],
+    "punch": "一件动了才算",
+    "phrases": ["文档、代码、决定，才算痕迹", "一件动了，比十件反应值钱"]
+  },
+  {
+    "id": "ask_tomorrow",
+    "file": "broll/B-先问明天.mp4",
+    "tag": "先问明天",
+    "title": "临时插入先问明天",
+    "cards": [
+      {"num": "今", "head": "今天这一件", "body": "先保，不让路", "color": "mint"},
+      {"num": "插", "head": "插进来的", "body": "先问能不能明天", "color": "yellow"}
+    ],
+    "punch": "今天只保这一件",
+    "phrases": ["插进来的先问，能不能放到明天", "今天只保这一件，别的先让路", "先问明天，再决定让不让路"]
+  }
+]
