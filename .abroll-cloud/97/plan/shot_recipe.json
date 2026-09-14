@@ -1,0 +1,28 @@
+{
+  "title": "环境变量写在聊天里",
+  "cover_title": "环境变量写在聊天里",
+  "cover_sub": "上线靠翻记录",
+  "cover_line": "聊天不是配置源",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "Drive 工厂 97_环境变量写在聊天里 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "97",
+  "cut": "new-40s",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打环境变量写在聊天里。不拍 96 密钥轮转，不拍 84 接口口头变更，不拷工厂短切。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["环境变量写在聊天里"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-翻记录对不上.mp4", "broll": "chat_mess", "phrases": ["上线那天，靠翻聊天记录", "谁改过、哪套环境、现在以谁为准，全对不上"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是没配过，是配置只活在对话里"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-连错库旧值.mp4", "broll": "wrong_env", "phrases": ["预发连了生产的库，还以为自己没动", "新人按上周那条消息配，配出来是旧值"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["群里搜同一个键，三条记录三个数"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-三处入库.mp4", "broll": "three_places", "phrases": ["配置要进仓库，进清单，进发布步骤", "改一条，就写清环境、键名、跟谁对齐"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["聊天记录不是配置源", "翻得到消息，对不上现场"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-仓库对群消息.mp4", "broll": "repo_vs_chat", "phrases": ["上线以仓库为准，不以群消息为准", "找不到清单，这次环境算没配完"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["找得到、对得上，才叫环境"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-才叫环境.mp4", "broll": "stamp", "phrases": ["写进仓库，才算改过配置", "别把环境变量，只留在聊天里"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["聊天里的环境，请当成没配"]}
+  ]
+}
