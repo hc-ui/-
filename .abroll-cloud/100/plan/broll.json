@@ -1,0 +1,11 @@
+{
+  "style": "黑底对照卡",
+  "distinct_from_96_99": "不画密钥过期、环境变量进聊天、发布说明流水账、回退副本。只画临时方案住进主干、必须写搬家日。",
+  "cards": [
+    {"id": "detour_stays", "file": "B-绕路还在主干.mp4", "point": "一周过了，绕路还在主干上"},
+    {"id": "default_path", "file": "B-临时成默认.mp4", "point": "临时补丁，成了默认路径"},
+    {"id": "move_date", "file": "B-必须写搬家日.mp4", "point": "临时必须写搬家日"},
+    {"id": "compare", "file": "B-绕路不是唯一.mp4", "point": "没搬家日对有搬家日"},
+    {"id": "stamp", "file": "B-到点就搬.mp4", "point": "到点就搬，别再拖"}
+  ]
+}

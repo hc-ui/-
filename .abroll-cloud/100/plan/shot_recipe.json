@@ -1,0 +1,28 @@
+{
+  "title": "临时方案住进主干",
+  "cover_title": "临时方案住进主干",
+  "cover_sub": "能跑就不想动",
+  "cover_line": "当天写下 · 搬家日",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "工厂 100_临时方案住进主干 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "100",
+  "cut": "new-40s",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打临时方案住进主干。不拍 96 密钥、97 环境变量、98 发布说明、99 回退。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["临时方案，住进了主干"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-绕路还在主干.mp4", "broll": "detour_stays", "phrases": ["上线那天先绕过去，说好下周再改", "一周过了，绕路还在主干上"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是没人记得，是能跑就不想动"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-临时成默认.mp4", "broll": "default_path", "phrases": ["临时补丁，成了默认路径", "新同学进来，只看见这条绕路"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["正式方案，一直停在草稿里"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-必须写搬家日.mp4", "broll": "move_date", "phrases": ["对照只打这一点，临时必须写搬家日", "当天就记下，谁负责、哪天拆"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["到了那天，要么拆掉，要么升格", "没搬家日的临时，就是永久"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-绕路不是唯一.mp4", "broll": "compare", "phrases": ["别让绕路，变成唯一的路", "主干上只留能解释的路径"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["临时住进主干，当天开一张搬家票"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-到点就搬.mp4", "broll": "stamp", "phrases": ["到点就搬，别再拖", "绕路可以过今晚，不能过冬天"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["没截止日期的，请当成已经住下来了"]}
+  ]
+}
