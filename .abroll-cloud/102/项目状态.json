@@ -1,10 +1,51 @@
 {
-  "project": "102_评审只看格式",
+  "schema_version": 1,
+  "project_name": "102_评审只看格式",
   "video_type": "普通短视频",
-  "status": "drafting",
+  "episode": 102,
+  "cut": "new-40s",
+  "title": "评审只看格式",
+  "full_title": "评审只看格式",
+  "source_note": "工厂 102_评审只看格式 · 云端 NEW",
+  "slug": "评审只看格式",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 41.625,
+  "duration_zh": "41.6秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "3e63ac5a6b4e7d962019da1ae96b890eac6d32204b42a932d4d61e500484a538",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 41625
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/102-评审只看格式.mp4",
+    "project_final": "00_最终成片_评审只看格式.mp4",
+    "cover": "00_封面_评审只看格式.jpg"
+  },
+  "staged": "成片/102-评审只看格式.mp4",
+  "draft": ".abroll-cloud/102",
+  "qa_video": "/workspace/成片/102-评审只看格式.mp4",
+  "replaced_short_cut_s": 0.0,
   "cloud_only": true,
-  "remake_00_99": false,
-  "distinct_from_68": "评审变成找茬会",
-  "distinct_from_100": "临时方案住进主干",
-  "source": "工厂 102_评审只看格式"
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-14T07:29:26Z"
 }
