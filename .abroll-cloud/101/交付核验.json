@@ -1,0 +1,51 @@
+{
+  "project": "101_加机器当优化_long",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "video_type": "普通短视频",
+  "cut": "long-40s",
+  "final": "/workspace/成片/101-加机器当优化.mp4",
+  "project_final": "/workspace/.abroll-cloud/101/00_最终成片_加机器当优化.mp4",
+  "sha256": "c163544b9ba7e97be7c1b4f627adb8615cfb19642c5c2cde175798ee58cf88d3",
+  "bytes": 9467365,
+  "replaced_short_cut_s": 16.875,
+  "freeze_pad": false,
+  "no_tpad_clone_in_kit": true,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 47.6,
+    "duration_zh": "47.6秒"
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "mean_volume_db": -32.2,
+    "max_volume_db": -10.5
+  },
+  "timeline": {
+    "segments": 12,
+    "a_shots": 7,
+    "b_shots": 5,
+    "phrases": 18,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28,
+    "in_hard_window": true,
+    "in_target_window": true
+  },
+  "decode_null": true,
+  "ok": true,
+  "chengpian": "/workspace/成片/101-加机器当优化.mp4",
+  "chengpian_duration_s": 47.6,
+  "chengpian_duration_zh": "47.6秒",
+  "draft_duration_s": 47.6,
+  "draft_duration_zh": "47.6秒"
+}
