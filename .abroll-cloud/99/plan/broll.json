@@ -1,0 +1,10 @@
+{
+  "style": "黑底对照卡",
+  "cards": [
+    {"id": "name_wall", "file": "B-名字圈完.mp4", "point": "名字圈出来，像事情已经结束了"},
+    {"id": "system_allows", "file": "B-系统允许点错.mp4", "point": "系统允许点错，却没有人去改门"},
+    {"id": "three_gates", "file": "B-先问机制.mp4", "point": "门 / 信息 / 捷径"},
+    {"id": "compare", "file": "B-改机制不是改面子.mp4", "point": "对人负责，其实是改机制"},
+    {"id": "stamp", "file": "B-坑还在没复完.mp4", "point": "坑还在原处，请当成还没复完"}
+  ]
+}

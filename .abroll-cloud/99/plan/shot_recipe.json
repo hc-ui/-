@@ -1,0 +1,27 @@
+{
+  "title": "事故复盘只写人锅",
+  "cover_title": "事故复盘只写人锅",
+  "cover_sub": "点名听着负责",
+  "cover_line": "坑还在 · 请当成没复完",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "工厂 95_事故复盘只写人锅 / 云端 NEW / 改认 99",
+  "video_type": "普通短视频",
+  "topic_id": "99",
+  "cut": "new-40s",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["事故复盘只写人锅"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-名字圈完.mp4", "broll": "name_wall", "phrases": ["会开完了，锅也分完了，人就散了", "名字圈出来，像事情已经结束了"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["点名听着负责，坑还留在原处"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-系统允许点错.mp4", "broll": "system_allows", "phrases": ["不是没人负责，是责任只写到人", "系统允许点错，却没有人去改门"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["告警当时看不见，下次照样看不见"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-先问机制.mp4", "broll": "three_gates", "phrases": ["复盘要先问机制，再去问名字", "哪道门当时没有拦住", "哪条信息当时根本看不见", "哪条规则还在诱人去走捷径"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["门补上，信息补上，捷径先拆掉"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-改机制不是改面子.mp4", "broll": "compare", "phrases": ["对人负责，其实是改机制", "不是改一圈面子了事"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["对照只打这一点"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-坑还在没复完.mp4", "broll": "stamp", "phrases": ["写下名字，不等于这一次复盘结束"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["坑还在原处，请当成还没复完"]}
+  ]
+}

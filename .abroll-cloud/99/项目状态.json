@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "project_name": "99_事故复盘只写人锅",
+  "video_type": "普通短视频",
+  "episode": 99,
+  "cut": "new-40s",
+  "draft": ".abroll-cloud/99",
+  "cloud_only": true,
+  "freeze_pad": false
+}
