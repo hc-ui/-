@@ -1,0 +1,16 @@
+{
+  "title": "发布说明写成流水账",
+  "video_type": "普通短视频",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["发布说明写成流水账"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-票号墙.mp4", "phrases": ["用户翻完一页，还不知道改了啥", "不是字少，是只记了发生过什么", "内部票号堆成墙，影响和动作都被淹没"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["先把流水账划掉"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-对照卡.mp4", "phrases": ["开头只写读者要采取的动作", "对照一下：左边流水账，右边动作句", "流水账像日记，动作句像指令"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["接着写清谁会中招"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-影响回退.mp4", "phrases": ["影响面写在同一行", "最后写坏了怎么退", "没有回退步骤，说明就还没写完"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["日期可以留，但不能当正文"]},
+    {"id": "S08", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["发布说明不是备忘录"]},
+    {"id": "S09", "kind": "B", "src": "broll/B-能下手.mp4", "phrases": ["写成让人能下手的动作句"]}
+  ]
+}

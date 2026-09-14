@@ -1,0 +1,54 @@
+{
+  "project": "98_发布说明写成流水账",
+  "duration_zh": "48.1秒",
+  "duration_zh_round": "48.1秒",
+  "strict": true,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "remake_00_95": false,
+  "video_type": "普通短视频",
+  "final": "/workspace/成片/98-发布说明写成流水账.mp4",
+  "chengpian": "/workspace/成片/98-发布说明写成流水账.mp4",
+  "distinct_from_96": "目录名不是项目说明",
+  "distinct_from_97": "环境变量写在聊天里",
+  "distinct_from_99": "预发过了生产仍炸",
+  "distinct_from_100": "临时方案住进主干",
+  "factory_short_not_copied": true,
+  "tpad_clone": false,
+  "sha256": "8be008ff75ef129903b491f677bec8dbc335c43df3af225efa2be607d33ed3cb",
+  "bytes": 7062097,
+  "video": {
+    "codec": "h264",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24.0,
+    "pix_fmt": "yuv420p",
+    "duration_s": 48.083333
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2
+  },
+  "timeline": {
+    "segments": 10,
+    "overlap": false,
+    "gap": false,
+    "last_end_equals_audio": true,
+    "broll_lead_s": 0.28
+  },
+  "decode_null": false,
+  "duration_window": {
+    "min": 30.0,
+    "max": 60.0,
+    "target": [
+      40.0,
+      50.0
+    ],
+    "hit": true,
+    "hard": true,
+    "duration_zh": "48.1秒"
+  },
+  "ok": true
+}
