@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "project_name": "105_对比比罗列狠",
+  "video_type": "普通短视频",
+  "episode": 105,
+  "cut": "new-40s",
+  "title": "对比比罗列狠",
+  "full_title": "对比比罗列狠",
+  "source_note": "Drive 工厂 105_对比比罗列狠 / 云端 NEW",
+  "slug": "对比比罗列狠",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 42.542,
+  "duration_zh": "42.5秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "d314f103fd10b2571841f0f6bfeada7351a9f9016478c8a6bfe6f19bbfeaf8e2",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 42541
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/105-对比比罗列狠.mp4",
+    "project_final": "00_最终成片_对比比罗列狠.mp4",
+    "cover": "00_封面_对比比罗列狠.jpg"
+  },
+  "staged": "成片/105-对比比罗列狠.mp4",
+  "draft": ".abroll-cloud/105",
+  "qa_video": "/workspace/成片/105-对比比罗列狠.mp4",
+  "replaced_short_cut_s": 0,
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-14T07:33:49Z",
+  "memory_dir": "AI视频项目/105_对比比罗列狠",
+  "distinct_from": [
+    "13-对照卡",
+    "35-数字比形容词狠",
+    "70-例子先于概念",
+    "102-评审只看格式"
+  ]
+}
