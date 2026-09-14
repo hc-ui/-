@@ -1,0 +1,10 @@
+{
+  "style": "黑底对照卡",
+  "cards": [
+    {"id": "format_skin", "file": "B-只改空格命名.mp4", "point": "空格和命名都改了，像过了"},
+    {"id": "tool_vs_prod", "file": "B-工具过生产不过.mp4", "point": "格式能过工具，逻辑过不了生产"},
+    {"id": "three_q", "file": "B-先问三件事.mp4", "point": "边界 / 失败 / 回退"},
+    {"id": "bot_vs_human", "file": "B-人只审会炸.mp4", "point": "格式交给机器人"},
+    {"id": "not_done", "file": "B-皮过了还没过.mp4", "point": "逻辑没审，请当成还没过"}
+  ]
+}

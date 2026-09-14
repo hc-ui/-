@@ -1,0 +1,27 @@
+{
+  "title": "评审只看格式",
+  "cover_title": "评审只看格式",
+  "cover_sub": "格式听着认真",
+  "cover_line": "逻辑没审 · 请当成还没过",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "工厂 102_评审只看格式 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "102",
+  "cut": "new-40s",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["评审只看格式"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-只改空格命名.mp4", "broll": "format_skin", "phrases": ["空格和命名都改了，像过了", "格式听着认真，逻辑没人碰"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是没评审，是只审了皮"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-工具过生产不过.mp4", "broll": "tool_vs_prod", "phrases": ["工具过了，人再过一遍等于没过", "风险还在逻辑里睡觉"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["格式能过工具，逻辑过不了生产"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-先问三件事.mp4", "broll": "three_q", "phrases": ["评审先问三件事", "边界有没有人走到", "失败会不会把整条链拖垮", "回退当时能不能立刻停"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["格式交给机器人"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-人只审会炸.mp4", "broll": "bot_vs_human", "phrases": ["人只审会炸的地方"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["对照只打这一点"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-皮过了还没过.mp4", "broll": "not_done", "phrases": ["改完空格，不等于这一次评审结束", "皮过了，不等于能上线"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["逻辑没审，请当成还没过"]}
+  ]
+}
