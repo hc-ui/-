@@ -261,7 +261,7 @@ def rewrite_docs(duration: float) -> None:
 - **路径依据**：`.abroll-cloud/G-DRIVE-LAYOUT.md`；记忆库项目根 `我的云端硬盘/AI视频项目/104_金句要能截图/`
 - **成片中转**：`成片/{STAGED_NAME}`
 - **本集工程成片**：`00_最终成片_{NAME}.mp4`
-- **草稿根**：`/workspace/.abroll-cloud/104/`
+- **草稿根**：`.abroll-cloud/104/`
 - **云端 only**：不写 C/D，不覆盖工厂十六秒短切
 - **避开**：#103 一句只讲一件事；工厂 85 问句比陈述狠；工厂 86 收束要落回钩子；工厂 87 重复不是啰嗦；成片 12 三秒留人；成片 25 行动指令
 
@@ -415,6 +415,25 @@ def main() -> None:
     if len(phrases) != 18:
         raise SystemExit(f"need 18 phrases, got {len(phrases)}")
     ep = episode()
+    wav = ROOT / "audio" / "vo-full.wav"
+    align = ROOT / "audio" / "vo-align.txt"
+    if wav.exists() and align.exists():
+        cached = kit.probe_dur(wav)
+        if kit.TARGET_LO <= cached <= kit.TARGET_HI:
+            phrases = [ln.strip() for ln in (ROOT / "script" / "phrases.txt").read_text(encoding="utf-8").splitlines() if ln.strip()]
+            rows = []
+            for line in align.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
+                    continue
+                start_s, end_s, text = line.split("\t", 2)
+                rows.append((float(start_s), float(end_s), text))
+            if len(rows) == len(phrases) and abs(rows[-1][1] - cached) < 0.05:
+                def reuse_voiceover(_self=ep, _dur=cached, _rows=rows):
+                    print("reuse cached VO", kit.zh_sec(_dur))
+                    _self.write_align_files(_rows, _dur)
+                    return _dur, _rows
+
+                ep.make_voiceover = reuse_voiceover.__get__(ep, kit.Episode)
     report = ep.produce()
     staged = Path("/workspace/成片") / STAGED_NAME
     dur = kit.probe_dur(staged) if staged.exists() else float(report.get("chengpian_duration_s") or report["video"]["duration_s"])
