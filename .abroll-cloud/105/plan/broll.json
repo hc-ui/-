@@ -1,0 +1,10 @@
+{
+  "style": "黑底对照卡",
+  "cards": [
+    {"id": "list_skip", "file": "B-一条都没进.mp4", "point": "列三条优点，听众一条都没进"},
+    {"id": "before_after", "file": "B-以前现在.mp4", "point": "以前这样，现在那样"},
+    {"id": "contrast_speaks", "file": "B-对比自己说话.mp4", "point": "对比让差别自己说话"},
+    {"id": "two_columns", "file": "B-左右两栏.mp4", "point": "先画左右两栏，再决定删哪边"},
+    {"id": "stamp", "file": "B-清单还没讲完.mp4", "point": "清单请当成还没讲完"}
+  ]
+}

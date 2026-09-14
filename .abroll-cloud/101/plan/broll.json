@@ -1,0 +1,10 @@
+{
+  "style": "黑底对照卡",
+  "cards": [
+    {"id": "painkiller", "file": "B-账单止痛药.mp4", "point": "那不叫优化，叫把账单当止痛药"},
+    {"id": "bill_boom", "file": "B-流量账单先炸.mp4", "point": "流量一来，账单先炸"},
+    {"id": "measure", "file": "B-先量瓶颈.mp4", "point": "先量再决定加机器还是改代码"},
+    {"id": "compare", "file": "B-对照买时间.mp4", "point": "加机器是买时间，不是买完结"},
+    {"id": "stamp", "file": "B-还没优化.mp4", "point": "没量过瓶颈，请当成还没优化"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "style": "黑底对照卡",
+  "cards": [
+    {"id": "three_seconds", "file": "B-截不清只待三秒.mp4", "point": "截图看不清，只在耳朵里待三秒"},
+    {"id": "three_rules", "file": "B-字少对比强站得住.mp4", "point": "字少 / 对比强 / 一句站得住"},
+    {"id": "blur_vs_clear", "file": "B-糊底对深底.mp4", "point": "浅底糊 / 深底清"},
+    {"id": "moments", "file": "B-朋友圈看得懂吗.mp4", "point": "这一帧发朋友圈，他看得懂吗"},
+    {"id": "stamp", "file": "B-截得清才留得住.mp4", "point": "截得清，才留得住"}
+  ]
+}

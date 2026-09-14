@@ -1,0 +1,27 @@
+{
+  "title": "金句要能截图",
+  "cover_title": "金句要能截图",
+  "cover_sub": "字少、对比强、站得住",
+  "cover_line": "截得清才留得住",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "工厂 104_金句要能截图 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "104",
+  "cut": "new-40s",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["金句要能截图"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-截不清只待三秒.mp4", "broll": "three_seconds", "phrases": ["截图看不清，它就只在耳朵里待三秒", "字挤成一团，滑过去了，谁也停不住", "满屏都是字，金句就被埋掉了"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是金句不够狠，是这一帧站不住"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-字少对比强站得住.mp4", "broll": "three_rules", "phrases": ["字少、对比强、一句站得住", "讲解可以长，金句必须短"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["一屏只留一句，别把解释也糊上去"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-糊底对深底.mp4", "broll": "blur_vs_clear", "phrases": ["白字压浅底，远了就糊成一片", "深底大字，才截得清", "留下能截的那一句"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["下次出片"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-朋友圈看得懂吗.mp4", "broll": "moments", "phrases": ["先问自己：这一帧发朋友圈，他看得懂吗", "看不懂，就不算金句"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["对照只打这一点"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-截得清才留得住.mp4", "broll": "stamp", "phrases": ["截得清，才留得住"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["截不清，请当成没写过"]}
+  ]
+}

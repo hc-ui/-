@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "project_name": "105_对比比罗列狠",
+  "video_type": "普通短视频",
+  "status": "进行中",
+  "current_stage": "目标与文案",
+  "cut": "new-40s",
+  "draft": ".abroll-cloud/105",
+  "memory_dir": "AI视频项目/105_对比比罗列狠",
+  "script": {"path": "script/voiceover.txt", "sha256": null},
+  "audio": {"path": "audio/vo-full.wav", "alignment_path": "audio/vo-align.txt", "voice_id": null, "speed": 1.0, "alignment_model": "small", "language": "zh"},
+  "deliverables": {"final_video": null, "cover": null},
+  "recommended_entry": "项目说明.md",
+  "next_step": "配音对齐",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false
+}

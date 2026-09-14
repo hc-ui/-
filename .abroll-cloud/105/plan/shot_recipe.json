@@ -1,0 +1,27 @@
+{
+  "title": "对比比罗列狠",
+  "cover_title": "对比比罗列狠",
+  "cover_sub": "对照比清单更狠",
+  "cover_line": "以前 · 现在",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "工厂 105_对比比罗列狠 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "105",
+  "cut": "new-40s",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["对比比罗列狠"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-一条都没进.mp4", "broll": "list_skip", "phrases": ["列三条优点，听众一条都没进", "不是写得不够多，是一条一条往下堆", "眼睛扫过第三行，第一行已经散了"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["丢一个对照"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-以前现在.mp4", "broll": "before_after", "phrases": ["以前这样，现在那样", "差别自己站出来，不用再解释一遍"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["罗列让人跳过"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-对比自己说话.mp4", "broll": "contrast_speaks", "phrases": ["对比让差别自己说话", "清单越长，越像没重点", "两栏一对，哪边该删立刻看见"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["下次做信息图，先画左右两栏"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-左右两栏.mp4", "broll": "two_columns", "phrases": ["左边写旧做法，右边写新结果", "再决定删哪边"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["删不掉的那一栏，才是该讲的"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-清单还没讲完.mp4", "broll": "stamp", "phrases": ["别再开一张优点清单"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["清单请当成还没讲完"]}
+  ]
+}
