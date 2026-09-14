@@ -1,0 +1,10 @@
+{
+  "style": "黑底对照卡",
+  "cards": [
+    {"id": "two_stuffed", "file": "B-塞两件只记后一件.mp4", "point": "听众只会记住后一件，前一件当没说"},
+    {"id": "comma_hide", "file": "B-逗号藏第二点.mp4", "point": "逗号后面还藏着第二点"},
+    {"id": "one_cut", "file": "B-一个意思先切一刀.mp4", "point": "一个意思，一个动作；先切一刀"},
+    {"id": "count_points", "file": "B-写稿先数点.mp4", "point": "写稿先数点，一句一个动作"},
+    {"id": "stamp", "file": "B-拆开才算讲过.mp4", "point": "拆开才算讲过"}
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "title": "一句只讲一件事",
+  "cover_title": "一句只讲一件事",
+  "cover_sub": "一句一个意思",
+  "cover_line": "两件事 → 拆开",
+  "cover_src": "assets/A-角色-小灯-摊手.jpg",
+  "source": "Drive 工厂 103_一句只讲一件事 / 云端 NEW",
+  "video_type": "普通短视频",
+  "topic_id": "103",
+  "cut": "new-40s",
+  "target_duration_s": [40, 50],
+  "hard_duration_s": [30, 60],
+  "note": "知识口播。只打一句只讲一件事。不拷工厂十六秒短切。不定格、不慢放注水。时长用中文秒。",
+  "shots": [
+    {"id": "S01a", "kind": "A", "src": "assets/V-挥手.mp4", "close": true, "phrases": ["大家好"]},
+    {"id": "S01b", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["一句只讲一件事"]},
+    {"id": "S02", "kind": "B", "src": "broll/B-塞两件只记后一件.mp4", "broll": "two_stuffed", "phrases": ["一句口播里硬塞两件事", "听众往往只会记住后一件", "前一件常常当没说"]},
+    {"id": "S03", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["不是听的人记性差，是你把两个意思挤进同一句"]},
+    {"id": "S04", "kind": "B", "src": "broll/B-逗号藏第二点.mp4", "broll": "comma_hide", "phrases": ["逗号后面还藏着第二点", "听的人只能抓住后半刀"]},
+    {"id": "S05", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["一句只办一件事"]},
+    {"id": "S06", "kind": "B", "src": "broll/B-一个意思先切一刀.mp4", "broll": "one_cut", "phrases": ["一个意思，一个动作", "要讲下一件，必须先切一刀"]},
+    {"id": "S07", "kind": "A", "src": "assets/V-指向.mp4", "phrases": ["先把这一句说完，再另开下一句"]},
+    {"id": "S08", "kind": "B", "src": "broll/B-写稿先数点.mp4", "broll": "count_points", "phrases": ["下次写稿先把点数清", "一句里只留一个动作"]},
+    {"id": "S09", "kind": "A", "src": "assets/V-摊手.mp4", "phrases": ["看见一句里还藏着第二点，当场就拆开"]},
+    {"id": "S10", "kind": "B", "src": "broll/B-拆开才算讲过.mp4", "broll": "stamp", "phrases": ["拆开才算讲过", "对照只打这一点"]},
+    {"id": "S11", "kind": "A", "src": "assets/V-点赞.mp4", "phrases": ["塞在同一句里的前一件，请直接当成没说"]}
+  ]
+}

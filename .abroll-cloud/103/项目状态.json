@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "project_name": "103_一句只讲一件事",
+  "video_type": "普通短视频",
+  "episode": 103,
+  "cut": "new-40s",
+  "status": "进行中",
+  "current_stage": "目标与文案",
+  "cloud_only": true,
+  "windows_paths": false,
+  "drive_upload": false,
+  "recommended_entry": "项目说明.md",
+  "next_step": "配音对齐"
+}
