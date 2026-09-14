@@ -1,0 +1,13 @@
+{
+  "style": "黑底对照卡",
+  "source": "项目索引.md",
+  "distinct_from_factory_96": "不画密钥轮转。只画目录名会骗人，先看项目说明和推荐成品。",
+  "cards": [
+    {"id": "same_number", "file": "B-同号不是一条.mp4", "point": "十二号有三秒留人，也有郑人买履"},
+    {"id": "pending", "file": "B-待补不是交付.mp4", "point": "阶段写待补说明，就别当已经交了"},
+    {"id": "craft", "file": "B-制作方式那一列.mp4", "point": "白底小灯是口播，黑底对照卡是画面"},
+    {"id": "recommend", "file": "B-推荐成品.mp4", "point": "真正要找成片，去看推荐成品"},
+    {"id": "drawer", "file": "B-抽屉标签.mp4", "point": "目录名只是抽屉标签"},
+    {"id": "stamp", "file": "B-先翻说明.mp4", "point": "下次先翻项目说明，再开口叫完成"}
+  ]
+}
