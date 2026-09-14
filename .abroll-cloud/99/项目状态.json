@@ -4,7 +4,48 @@
   "video_type": "普通短视频",
   "episode": 99,
   "cut": "new-40s",
+  "title": "事故复盘只写人锅",
+  "full_title": "事故复盘只写人锅",
+  "source_note": "工厂 95_事故复盘只写人锅 · 云端 NEW · 改认 99",
+  "slug": "事故复盘只写人锅",
+  "voice": "zh-CN-YunyangNeural",
+  "duration": 47.583,
+  "duration_zh": "47.6秒",
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "stage": "delivered",
+  "status": "已交付",
+  "current_stage": "核验并交付",
+  "production_method": "白底小灯 A-roll + 黑底对照卡 B-roll + edge-tts Yunyang + FFmpeg",
+  "freeze_pad": false,
+  "script": {
+    "path": "script/voiceover.txt",
+    "sha256": "8899fb9ac60373cd46d0400559d270802679360f10c2c7d3b3b81f06e5acea95",
+    "phrases": 18
+  },
+  "audio": {
+    "path": "audio/vo-full.wav",
+    "alignment_path": "audio/vo-align.txt",
+    "voice_id": "zh-CN-YunyangNeural",
+    "sample_rate": 44100,
+    "channels": 1,
+    "duration_ms": 47583
+  },
+  "deliverables": {
+    "final_video": "/workspace/成片/99-事故复盘只写人锅.mp4",
+    "project_final": "00_最终成片_事故复盘只写人锅.mp4",
+    "cover": "00_封面_事故复盘只写人锅.jpg"
+  },
+  "staged": "成片/99-事故复盘只写人锅.mp4",
   "draft": ".abroll-cloud/99",
+  "qa_video": "/workspace/成片/99-事故复盘只写人锅.mp4",
+  "replaced_short_cut_s": 0.0,
   "cloud_only": true,
-  "freeze_pad": false
+  "windows_paths": false,
+  "drive_upload": false,
+  "not": "drama-pipeline / 仙侠连载 / C:D:G: / Drive 上传 / freeze-pad",
+  "updated_at": "2026-09-14T01:36:33Z"
 }
