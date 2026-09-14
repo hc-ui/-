@@ -259,7 +259,7 @@ def rewrite_docs(duration: float) -> None:
 普通短视频 / 知识口播。不是剧情短剧，不走 drama-pipeline。NEW，不是重做。本轮最后号，不开 106。
 
 - **选题**：Drive 只读工厂 `105_对比比罗列狠`
-- **路径依据**：记忆库「本机公共路径与强制约束」——新视频进 `AI视频项目/105_对比比罗列狠/`，成品名 `00_最终成片_*`。云端不可写本机网盘挂载，不写 C/D，不自创父目录；中转用已有 `成片/`。
+- **路径依据**：先读 `.abroll-cloud/G-DRIVE-LAYOUT.md`。记忆库新视频进 `AI视频项目/105_对比比罗列狠/`，成品名 `00_最终成片_*`。云端草稿 `.abroll-cloud/105/`，可看中转 `成片/{STAGED_NAME}`。不写盘符，不写 C/D。
 - **成片中转**：`成片/{STAGED_NAME}`
 - **本集工程成片**：`00_最终成片_{NAME}.mp4`
 - **草稿根**：`/workspace/.abroll-cloud/105/`
@@ -292,7 +292,7 @@ def rewrite_docs(duration: float) -> None:
 | 105 | `{STAGED_NAME}` | 工厂 105 号短切约十五秒（未进成片） | {kit.zh_sec(duration)} | `.abroll-cloud/105/` |
 
 规格：1080×1920，24 fps，H.264 + AAC 44100 stereo。十二镜 / 十八句。禁止冻帧垫时长。
-路径依据：记忆库新视频进 `AI视频项目/105_对比比罗列狠/`；本轮中转 `成片/{STAGED_NAME}`。不写 C/D。
+路径依据：`.abroll-cloud/G-DRIVE-LAYOUT.md` → `AI视频项目/105_对比比罗列狠/`；本轮中转 `成片/{STAGED_NAME}`。不写 C/D。
 不重做 00–104，不拷工厂成片，不开 106。
 """,
         encoding="utf-8",
